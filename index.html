@@ -3,11 +3,69 @@ layout: default
 ---
 
 <div class="home">
+  Welcome to the ActivityWatch website,
+  here we aim to provide information and documentation about the following projects:
 
-  <h1 class="page-heading">Log your digital life, securely.</h1>
+  <ul>
+    <li><a href="#activitywatch">ActivityWatch</a></li>
+    <li><a href="#thankful">Thankful</a></li>
+  </ul>
+
+  <h1 class="page-heading" id="activitywatch">ActivityWatch</h1>
+
+  ActivityWatch is about recording what you do, so you can become aware of what you do, and choose to do better.
+
+  By running ActivityWatch on your devices you can collect data about what you do which you can use for a variety of use cases:
+
+  <ul>
+    <li>
+      Learn about what you do.
+    </li>
+    <li>
+      Estimate productivity.
+    </li>
+    <li>
+      See which programs you use, websites you visit and games you play the most.
+    </li>
+    <li>
+      Figure out who actually creates the content you absorb and the software you use, so you can reward them. With [*Thankful*](#thankful).
+    </li>
+  </ul>
 
   <p>
-    Nothing to see here, yet.
+    ActivityWatch is a collection of programs meant to work together and can be run as a single application.
+    The project is divided into parts:
+    <ul>
+      <li>aw-server, which provides storage and retreival of data.</li>
+      <li>watchers, clients to the server which collect and send data to the server.
+        <br>A few examples include:
+        <ul>
+          <li><a href="https://github.com/ActivityWatch/aw-watcher-afk">aw-watcher-afk</a></li>
+          <li><a href="https://github.com/ActivityWatch/aw-watcher-chrome">aw-watcher-chrome</a></li>
+          <li><a href="https://github.com/ActivityWatch/aw-watcher-firefox">aw-watcher-firefox</a>
+        </ul>
+      </li>
+      <li>importers, used to fetch data from external sources, transform it to the activitywatch dataformat and send it off to the server.</li>
+    </ul>
+    These parts together form a cohesive system which protects the integrity of the data and provides confidentiality. <b>You can be in full control of your data of you choose to.</b>
+  </p>
+
+  <p>
+    The easiest way to get started using ActivityWatch is to use the <a href="https://github.com/ActivityWatch/aw-bundle">aw-bundle</a> project which provides the standard set of components with full compatibility.
+  </p>
+
+  <h1 class="page-heading" id="thankful">Thankful</h1>
+
+  <i>Reward the creators of content and software according to your preferences. Be thankful.</i>
+
+  <p>
+    Thankful is a program that takes data about which websites you visit, which music you listen to, which videos you watch,
+    which applications you use (such as Thankful itself), and then presents it to you and allows you to distribute a charitable
+    sum of your choice to those creators you think are deserving.
+  </p>
+
+  <p>
+    For more, check out <a href="https://github.com/ActivityWatch/thankful">Thankful on GitHub</a>.
   </p>
 
   <!--ul class="post-list">
