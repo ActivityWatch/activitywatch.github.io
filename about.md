@@ -27,7 +27,7 @@ ActivityWatch is a collection of programs meant to work together on the same mac
 
 The project is divided into parts:
 
- - **aw-server**: provides storage and retrieval of data using a REST API with a variety of storage methods, nimble enough to run locally.</li>
+ - **aw-server**: provides storage and retrieval of data using a REST API with a variety of storage methods, nimble enough to run locally.
  - **watchers**: clients to the server which collect and send data to the server.
    A few examples include:
    - [aw-watcher-window](https://github.com/ActivityWatch/aw-watcher-window): Logs active window under macOS and Linux (X11), support for Windows planned. 
