@@ -1,0 +1,65 @@
+---
+layout: page
+title: Module Status
+permalink: /dev/overview/
+---
+
+
+{% assign modules = "activitywatch,aw-server,aw-core,aw-client,aw-watcher-afk,aw-watcher-window,aw-watcher-web" | split: ',' %}
+
+<style>
+table {
+  border: 1px solid gray;
+  border-collapse: collapse;
+}
+
+td {
+  border: 1px solid gray;
+  padding: 0.25em;
+}
+</style>
+
+<table>
+  <tr>
+    <th>Module</th>
+    <th>Travis</th>
+    <!--th>AppVeyor</th-->
+    <th>Issues</th>
+    <th>PRs</th>
+    <th>Codecov</th>
+  </tr>
+{% for module in modules %}
+  <tr>
+    <td>
+      {{ module }}
+    </td>
+    <td>
+      <a href="https://travis-ci.org/ActivityWatch/activitywatch">
+        <img src="https://travis-ci.org/ActivityWatch/activitywatch.svg?branch=master">
+      </a>
+    </td>
+    <!--
+    <td>
+      <a href="https://ci.appveyor.com/project/ErikBjare/aw-core/branch/master">
+        <img src="https://ci.appveyor.com/api/projects/status/h5cvxoghh1wr4ycr/branch/master?svg=true">
+      </a>
+    </td>
+    -->
+    <td>
+      <a href="https://github.com/ActivityWatch/{{module}}/issues">
+        <img alt="Open issues" src="https://img.shields.io/github/issues/activitywatch/{{module}}.svg?style=flat-square">
+      </a>
+    </td>
+    <td>
+      <a href="https://github.com/ActivityWatch/{{module}}/pulls">
+        <img alt="Open pull requests" src="https://img.shields.io/github/issues-pr/activitywatch/{{module}}.svg?style=flat-square">
+      </a>
+    </td>
+    <td>
+      <a href="https://codecov.io/gh/ActivityWatch/{{module}}">
+        <img src="https://codecov.io/gh/ActivityWatch/{{module}}/branch/master/graph/badge.svg">
+      </a>
+    </td>
+  <tr>
+{% endfor %}
+</table>
