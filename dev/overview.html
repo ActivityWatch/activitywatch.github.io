@@ -27,6 +27,7 @@ td {
     <th>Issues</th>
     <th>PRs</th>
     <th>Codecov</th>
+    <th>Codeclimate</th>
   </tr>
 {% for module in modules %}
   <tr>
@@ -58,6 +59,11 @@ td {
     <td>
       <a href="https://codecov.io/gh/ActivityWatch/{{module}}">
         <img src="https://codecov.io/gh/ActivityWatch/{{module}}/branch/master/graph/badge.svg">
+      </a>
+    </td>
+    <td>
+      <a href="https://codeclimate.com/github/ActivityWatch/{{module}}">
+        <img src="https://codeclimate.com/github/ActivityWatch/{{module}}/badges/gpa.svg">
       </a>
     </td>
   <tr>
