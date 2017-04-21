@@ -9,7 +9,7 @@
 title: ActivityWatch
 email: erik@bjareho.lt
 description: > # this means to ignore newlines until "baseurl:"
-  Log your digital life, securely.
+  Log what you do on your computer. Simple yet powerful, extensible, no third parties.
 baseurl: "" # the subpath of your site, e.g. /blog
 url: "http://activitywatch.github.io" # the base hostname & protocol for your site
 #twitter_username: jekyllrb
