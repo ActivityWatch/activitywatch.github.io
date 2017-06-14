@@ -1,0 +1,14 @@
+language: ruby
+rvm:
+ - '2.2'
+
+script:
+    make build
+
+deploy:
+    make push-github
+
+env:
+  global:
+    # Contains GH_TOKEN that's used in `make push-github`
+    secure: Rrkmohavd2vrMkeb8gqx5XXrzmORQphR8pH/RRZOSRisV72r+qOcQ3U2GGK502nO3p1Xzu+Vgu3PgGJ2RQI7THFCDsKolWyZ4DW49WaAeluAcORA27GxdZstd0N6zRVslYMcW7a5FFG1/qWt0Z3gD3N9yhOJYUntGMuUHbSR7o+Ynvt1t7hkEiUBJZLQOUSFGTRPnfTuD/ED6RG+4jK++v0GKL01OiZA1lOuLIYAgwGyZ4upOtQlYTIWkNwHejRGUuGRw8RBzexJBl+YlWvERLkkjW18/1Q2PfZlYCmcsL7MAvXtH+83RQJB3kXkv9f42S9G2Hl6FpTcdRHU4ccOY13wJsfkcg8QnfoiJ6YNbyX1KNJ7zo+106pMN92U+JAYeAzJ+99YI1SttfTfZ0FbAfKilnyh2Y2OYIWh8YaOmRj/c7TWd6aPCWFrMgUtysdzFXwtKol6h5eQRlkR9iJQE1P0wXUPmoGb+dpHhiEWGHu3xW1XhFvx1tTbDJi14ynZ+ZkB9gZTEwYod//OltnLyMTiW9tZT3ZQIkORqmS44W9dZ7RuY/P6qXosGdB4kmLSZf9IztRXRUrVfLlh9QoAherxBFCApgKfI7AB+j77z+Mwg6Fq8sTShPKY8KqHwh43gOSa3e24h1kbarxnV4u+KUQYCos1eXCfkZr+yBb7SOM=

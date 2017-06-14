@@ -7,6 +7,9 @@ build: _includes/tables
 dev: _includes/tables
 	jekyll serve --watch --drafts
 
+push-github:
+	./scripts/push-build.sh
+
 install-deps:
 	gem install jekyll jekyll-compass compass jekyll-last-modified-at
 
