@@ -8,16 +8,20 @@ branches:
   except:
    - master
 
-#language: ruby
-#rvm:
-# - '2.2'
-
 install:
  - make install-deps
 
 script:
  - make build
- - make push-github
+
+deploy:
+  provider: pages
+  skip_cleanup: true
+  github_token: $GH_TOKEN
+  target_branch: master
+  local_dir: _site
+  on:
+    branch: develop
 
 env:
   global:
