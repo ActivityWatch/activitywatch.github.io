@@ -13,10 +13,18 @@ permalink: /contributors/
 </p>
 
 
-{% assign modules = "total,activitywatch,aw-server,aw-core,aw-client,aw-qt,aw-webui,aw-watcher-afk,aw-watcher-window,aw-watcher-web" | split: ',' %}
 
-{% for module in modules %}
-  <h2>{{ module }}</h2>
-  {% assign table_filename = "tables/" | append: module | append: ".html" %}
-  {% include {{ table_filename }} %}
-{% endfor %}
+<div class="contributor-stats">
+  {% assign modules = "total,aw-core,aw-server,aw-client,aw-webui,aw-qt,aw-watcher-window,aw-watcher-afk,aw-watcher-web,activitywatch" | split: ',' %}
+
+  {% for module in modules %}
+    {% if module == "activitywatch" %}
+      <h3>{{ module }} (the bundle + docs)</h3>
+    {% else %}
+      <h3>{{ module }}</h3>
+    {% endif %}
+
+    {% assign table_filename = "tables/" | append: module | append: ".html" %}
+    {% include {{ table_filename }} %}
+  {% endfor %}
+</div>

@@ -15,6 +15,21 @@ dl, dd, ol, ul, figure {
     padding: 0;
 }
 
+.table.dense {
+  width: auto !important;
+
+  >tbody>tr>td {
+    padding: 4px !important;
+  }
+}
+
+.contributor-stats {
+  .table {
+    >tbody>tr>td {
+      padding: 6px !important;
+    }
+  }
+}
 
 
 /**
