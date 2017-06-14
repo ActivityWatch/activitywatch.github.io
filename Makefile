@@ -27,7 +27,7 @@ contributor-stats:
 	git clone --recurse-submodules https://github.com/ActivityWatch/contributor-stats.git
 
 _includes/tables: contributor-stats/tables
-	cp -r ../contributor-stats/tables _includes/
+	cp -r contributor-stats/tables _includes/
 
 contributor-stats/tables: contributor-stats
 	make --directory=contributor-stats build
