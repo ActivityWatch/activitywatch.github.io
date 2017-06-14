@@ -2,10 +2,11 @@ language: ruby
 rvm:
  - '2.2'
 
+install:
+    make install-deps
+
 script:
     make build
-
-deploy:
     make push-github
 
 env:
