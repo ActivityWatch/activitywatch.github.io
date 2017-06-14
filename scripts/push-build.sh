@@ -28,7 +28,7 @@ reset_env() {
   git config user.name $NAME
 }
 
-if [ -z ${TRAVIS+""} ]; then
+if [ -z "$TRAVIS" ]; then
     echo "WARNING: Not running under Travis, exiting."
     exit 1;
 fi
