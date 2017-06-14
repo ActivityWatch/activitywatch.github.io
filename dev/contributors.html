@@ -1,0 +1,22 @@
+---
+layout: page
+title: Contributors
+permalink: /contributors/
+---
+
+<p>
+  Here you can see some statistics of all out hard working contributors. The list will be updated every 24 hours.
+</p>
+
+<p>
+  Contribute yourself to make it onto these lists!
+</p>
+
+
+{% assign modules = "activitywatch,aw-server,aw-core,aw-client,aw-qt,aw-webui,aw-watcher-afk,aw-watcher-window,aw-watcher-web" | split: ',' %}
+
+{% for module in modules %}
+  <h2>{{ module }}</h2>
+  {% assign table_filename = "tables/" | append: module | append: ".html" %}
+  {% include {{ table_filename }} %}
+{% endfor %}

@@ -8,26 +8,24 @@ permalink: /dev/overview/
 {% assign modules = "activitywatch,aw-server,aw-core,aw-client,aw-qt,aw-webui,aw-watcher-afk,aw-watcher-window,aw-watcher-web" | split: ',' %}
 
 <style>
-table {
-  border: 1px solid gray;
-  border-collapse: collapse;
+.table-dense {
+  width: auto;
 }
 
-td {
-  border: 1px solid gray;
-  padding: 0.25em;
+.table-dense>tbody>tr>td {
+  padding: 4px;
 }
 </style>
 
-<table>
+<h2>Continuous Integration</h2>
+
+<table class="table table-dense">
   <tr>
     <th>Module</th>
     <th>Travis</th>
     <!--th>AppVeyor</th-->
-    <th>Issues</th>
-    <th>PRs</th>
+    <th>Code Climate</th>
     <th>Codecov</th>
-    <th>Codeclimate</th>
   </tr>
 {% for module in modules %}
   <tr>
@@ -47,13 +45,8 @@ td {
     </td>
     -->
     <td>
-      <a href="https://github.com/ActivityWatch/{{module}}/issues">
-        <img alt="Open issues" src="https://img.shields.io/github/issues/activitywatch/{{module}}.svg?style=flat-square">
-      </a>
-    </td>
-    <td>
-      <a href="https://github.com/ActivityWatch/{{module}}/pulls">
-        <img alt="Open pull requests" src="https://img.shields.io/github/issues-pr/activitywatch/{{module}}.svg?style=flat-square">
+      <a href="https://codeclimate.com/github/ActivityWatch/{{module}}">
+        <img src="https://codeclimate.com/github/ActivityWatch/{{module}}/badges/gpa.svg">
       </a>
     </td>
     <td>
@@ -61,9 +54,31 @@ td {
         <img src="https://codecov.io/gh/ActivityWatch/{{module}}/branch/master/graph/badge.svg">
       </a>
     </td>
+  <tr>
+{% endfor %}
+</table>
+
+<h2>Issues and PRs</h2>
+
+<table class="table table-dense">
+  <tr>
+    <th>Module</th>
+    <th>Issues</th>
+    <th>PRs</th>
+  </tr>
+{% for module in modules %}
+  <tr>
     <td>
-      <a href="https://codeclimate.com/github/ActivityWatch/{{module}}">
-        <img src="https://codeclimate.com/github/ActivityWatch/{{module}}/badges/gpa.svg">
+      {{ module }}
+    </td>
+    <td>
+      <a href="https://github.com/ActivityWatch/{{module}}/issues">
+        <img alt="Open issues" src="https://img.shields.io/github/issues/activitywatch/{{module}}.svg?style=flat-square">
+      </a>
+    </td>
+    <td>
+      <a href="https://github.com/ActivityWatch/{{module}}/pulls">
+        <img alt="Open pull requests" src="https://img.shields.io/github/issues-pr/activitywatch/{{module}}.svg?style=flat-square">
       </a>
     </td>
   <tr>

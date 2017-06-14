@@ -4,17 +4,13 @@ title: About
 permalink: /about/
 ---
 
-ActivityWatch is about recording what you do, so you can become aware of what you do, and choose to do better.
-The ActivityWatch team currently works on two related projects:
-
- - [ActivityWatch](#activitywatch)
- - [Thankful](#thankful)
+ActivityWatch is about recording our digital lives, an evergrowing part of out lives in general, and the new opportunities enabled by such a record.
 
 You can find the source code for all ActivityWatch projects at
 {% include icon-github.html username="activitywatch" %}
 
 
-# ActivityWatch
+## ActivityWatch
 
 By running ActivityWatch on your devices you can collect data about what you do which you can use for a variety of use cases:
 
@@ -42,7 +38,7 @@ These parts used together form a cohesive system which protects the integrity of
 The easiest way to get started using ActivityWatch is to use the [aw-bundle](https://github.com/ActivityWatch/aw-bundle) project which provides the standard set of components at versions which are compatible.
 
 
-# Thankful
+## Thankful
 
 *Reward the creators of content and software according to your preferences. Be thankful.*
 

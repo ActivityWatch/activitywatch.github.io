@@ -1,3 +1,10 @@
+// Import font for h1, h2, ...
+@import url('https://fonts.googleapis.com/css?family=Varela+Round');
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Varela Round', sans-serif !important;
+}
+
 /**
  * Reset some basic elements
  */
