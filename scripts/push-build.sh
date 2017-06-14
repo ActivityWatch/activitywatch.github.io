@@ -1,9 +1,12 @@
-#!/bin/sh
+#!/bin/bash
 # Based on: https://gist.github.com/willprice/e07efd73fb7f13f917ea
 
+EMAIL="$(git config user.email)"
+NAME="$(git config user.name)"
+
 setup_git() {
-  git config --global user.email "travis@travis-ci.org"
-  git config --global user.name "Travis CI"
+  git config user.email "travis@travis-ci.org"
+  git config user.name "Travis CI"
 }
 
 # Site must be pushed to master, GitHub's rules
@@ -21,7 +24,14 @@ upload_files() {
 
 reset_env() {
   git checkout develop
+  git config user.email $EMAIL
+  git config user.name $NAME
 }
+
+if [ -z ${TRAVIS+""} ]; then
+    echo "WARNING: Not running under Travis, exiting."
+    exit 1;
+fi
 
 setup_git
 commit_website_files
