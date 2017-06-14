@@ -13,11 +13,11 @@ branches:
 # - '2.2'
 
 install:
-    make install-deps
+ - make install-deps
 
 script:
-    make build
-    make push-github
+ - make build
+ - make push-github
 
 env:
   global:
