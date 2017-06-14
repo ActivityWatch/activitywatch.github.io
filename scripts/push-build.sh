@@ -8,7 +8,7 @@ setup_git() {
 
 # Site must be pushed to master, GitHub's rules
 commit_website_files() {
-  git checkout -b master
+  git checkout -b gh-pages
   cp -r _site/* .
   git add -f .
   git commit --message "Travis build: $TRAVIS_BUILD_NUMBER"
