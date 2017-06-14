@@ -1,6 +1,12 @@
-language: ruby
-rvm:
- - '2.2'
+dist: trusty
+
+language: python
+python:
+ - '3.5'
+
+#language: ruby
+#rvm:
+# - '2.2'
 
 install:
     make install-deps
