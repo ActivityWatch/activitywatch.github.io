@@ -8,6 +8,7 @@ permalink: /dev/overview/
 {% assign modules = "activitywatch,aw-core,aw-server,aw-client,aw-qt,aw-webui,aw-watcher-afk,aw-watcher-window,aw-watcher-web" | split: ',' %}
 
 {% assign appveyor_modules = "activitywatch,aw-core" | split: ',' %}
+{% assign landscape_modules = "aw-core,aw-server,aw-client,aw-qt,aw-watcher-afk,aw-watcher-window" | split: ',' %}
 {% assign codecov_modules = "aw-core" | split: ',' %}
 
 <h2>Continuous Integration</h2>
@@ -16,8 +17,9 @@ permalink: /dev/overview/
   <tr>
     <th>Module</th>
     <th>Travis</th>
-    <th>Code Climate</th>
     <th>Appveyor</th>
+    <th>Code Climate</th>
+    <th>Landscape</th>
     <th>Codecov</th>
   </tr>
 {% for module in modules %}
@@ -31,11 +33,6 @@ permalink: /dev/overview/
       </a>
     </td>
     <td>
-      <a href="https://codeclimate.com/github/ActivityWatch/{{module}}">
-        <img src="https://codeclimate.com/github/ActivityWatch/{{module}}/badges/gpa.svg">
-      </a>
-    </td>
-    <td>
       {% if appveyor_modules contains module %}
         {% if module == "aw-core" %}
           {% assign appveyor_id = "h5cvxoghh1wr4ycr" %}
@@ -44,6 +41,18 @@ permalink: /dev/overview/
         {% endif %}
         <a href="https://ci.appveyor.com/project/ErikBjare/{{module}}/branch/master">
           <img src="https://ci.appveyor.com/api/projects/status/{{appveyor_id}}/branch/master?svg=true">
+        </a>
+      {% endif %}
+    </td>
+    <td>
+        <a href="https://codeclimate.com/github/ActivityWatch/{{module}}">
+          <img src="https://codeclimate.com/github/ActivityWatch/{{module}}/badges/gpa.svg">
+        </a>
+    </td>
+    <td>
+      {% if landscape_modules contains module %}
+        <a href="https://landscape.io/github/ActivityWatch/{{module}}/master">
+          <img src="https://landscape.io/github/ActivityWatch/{{module}}/master/landscape.svg?style=flat" />
         </a>
       {% endif %}
     </td>
