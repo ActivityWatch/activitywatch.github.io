@@ -30,4 +30,5 @@ _includes/tables: contributor-stats/tables
 	cp -r contributor-stats/tables _includes/
 
 contributor-stats/tables: contributor-stats
+	make --directory=contributor-stats clone
 	make --directory=contributor-stats build
