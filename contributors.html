@@ -13,10 +13,12 @@ permalink: /contributors/
 </p>
 
 <p>
-  <b>Note:</b>
-  <i>
-    Numbers on maintainers have a tendency to be inflated due some tasks requiring frequent or large changesets (examples: merging PRs, updating dependency locks)
-  </i>
+  <small>
+    <b>Note:</b>
+    <i>
+      Numbers on maintainers have a tendency to be inflated due some tasks requiring frequent or large changesets (examples: merging PRs, updating dependency locks)
+    </i>
+  </small>
 </p>
 
 <div class="contributor-stats">
@@ -33,3 +35,9 @@ permalink: /contributors/
     {% include {{ table_filename }} %}
   {% endfor %}
 </div>
+
+<p>
+  <small>
+    <i>Last updated: {{ site.time }}</i>
+  </small>
+</p>
