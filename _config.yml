@@ -10,6 +10,8 @@ github_username:  ActivityWatch
 # Build settings
 markdown: kramdown
 
+sass:
+    sass_dir: _sass
+
 plugins:
- - jekyll-compass
  - jekyll-last-modified-at
