@@ -4,6 +4,9 @@ title: About
 permalink: /about/
 ---
 
+
+**NOTE:** This page is horribly outdated, please refer to the [README](https://github.com/ActivityWatch/activitywatch/blob/master/README.md) for a better overview of the project.
+
 ActivityWatch is about recording our digital lives, an evergrowing part of out lives in general, and the new opportunities enabled by such a record.
 
 You can find the source code for all ActivityWatch projects at

@@ -1,28 +1,50 @@
-<header class="site-header">
-  <div class="wrapper">
-    <a class="site-title" href="{{ site.baseurl }}/">
-      <h2 style="margin: 0.4em 0 0.4em 0">{{ site.title }}</h3>
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <div class="container" style="//max-width: 800px">
+    <a class="navbar-brand" href="{{ site.baseurl }}/">
+      <img style="width: 100%; max-width: 16em" src="/img/banner.png">
     </a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
 
-    <nav class="site-nav">
-      <a href="#" class="menu-icon">
-        <svg viewBox="0 0 18 15">
-          <path fill="#424242" d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.031C17.335,0,18,0.665,18,1.484L18,1.484z"/>
-          <path fill="#424242" d="M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0c0-0.82,0.665-1.484,1.484-1.484 h15.031C17.335,6.031,18,6.696,18,7.516L18,7.516z"/>
-          <path fill="#424242" d="M18,13.516C18,14.335,17.335,15,16.516,15H1.484C0.665,15,0,14.335,0,13.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.031C17.335,12.031,18,12.696,18,13.516L18,13.516z"/>
-        </svg>
-      </a>
-
-      <div class="trigger">
-        {% for my_page in site.pages %}
-          {% if my_page.title %}
-          <a class="page-link" href="{{ my_page.url | prepend: site.baseurl }}">{{ my_page.title }}</a>
-          {% endif %}
-        {% endfor %}
-        <a class="page-link" href="https://forum.activitywatch.net/">Forum</a>
+    <div class="collapse navbar-collapse" style="font-size: 1.2em" id="navbarSupportedContent">
+      <ul class="navbar-nav mr-0" style="margin-left: auto;">
+        <li class="nav-item">
+          <a class="nav-link text-success font-weight-bold" href="/about/">
+            <i class="fa fa-info-circle"></i>
+            About
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link text-info font-weight-bold" href="https://forum.activitywatch.net/">
+            <i class="fa fa-comments"></i>
+            Forum
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link text-warning font-weight-bold" href="/donate/">
+            <i class="fa fa-handshake-o"></i>
+            Donate
+          </a>
+        </li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle font-weight-bold" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <i class="fa fa-bolt"></i>
+            Development
+          </a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <a class="dropdown-item text-secondary font-weight-bold" href="/contributors/">
+              <i class="fa fa-users"></i>
+              Contributors
+            </a>
+            <a class="dropdown-item text-secondary font-weight-bold" href="/ci/">
+              <i class="fa fa-cogs"></i>
+              Continuous Integration
+            </a>
+            <!--div class="dropdown-divider"></div-->
+          </div>
+        </li>
       </div>
-    </nav>
-
+    </div>
   </div>
-
-</header>
+</nav>
