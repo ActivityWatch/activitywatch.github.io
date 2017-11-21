@@ -1,22 +1,12 @@
 <footer class="site-footer">
-
   <div class="wrapper">
 
     <h4 class="footer-heading" style="margin-bottom: 0.2em">{{ site.title }}</h4>
     <p><i>{{ site.description }}</i></p>
 
     <div class="footer-col-wrapper">
-      <div class="footer-col footer-col-1">
-        <ul class="contact-list">
-          <li>Erik Bjäreholt</li>
-          <li><small>Founder, maintainer</small></li>
-          <li><small>{% include icon-github.html username="ErikBjare" %}</small>
-          <li><small>{% include icon-twitter.html username="ErikBjare" %}</small>
-          <li><small><a href="mailto:{{ site.email }}">{{ site.email }}</a></small></li>
-        </ul>
-      </div>
 
-      <div class="footer-col footer-col-1">
+      <div class="footer-col footer-col-3">
         <ul class="social-media-list">
           {% if site.github_username %}
           <li>
@@ -32,10 +22,27 @@
         </ul>
       </div>
 
-      <div class="footer-col footer-col-4">
+      <div class="footer-col footer-col-2">
+      </div>
+
+      <div class="footer-col footer-col-2">
+        <ul class="contact-list">
+          <li>Erik Bjäreholt</li>
+          <li><small>Founder, maintainer</small></li>
+          <li><small>{% include icon-github.html username="ErikBjare" %}</small>
+          <!--li><small>{% include icon-twitter.html username="ErikBjare" %}</small-->
+          <!--li><small><a href="mailto:{{ site.email }}">{{ site.email }}</a></small></li-->
+        </ul>
+      </div>
+
+      <div class="footer-col footer-col-2">
+        <ul class="contact-list">
+          <li>Johan Bjäreholt</li>
+          <li><small>Maintainer</small></li>
+          <li><small>{% include icon-github.html username="johan-bjareholt" %}</small>
+        </ul>
       </div>
     </div>
 
   </div>
-
 </footer>
