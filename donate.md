@@ -22,12 +22,14 @@ We currently support the following donation methods:
 
  - [Patreon][patreon] (5% fee + VAT)
  - [Bountysource Salt][bountysource] (10% fee on withdrawals)
+ - [Open Collective][open-collective] (10% fee + payment processing fees)
  - Cryptocurrency
    - **Note:** Please send us an email with the transaction ID so we can attribute the donation to you!
    - Bitcoin: [1NSxJs1wYUrRv53ZVH2DX9fquXdSPAdyYh](bitcoin:1NSxJs1wYUrRv53ZVH2DX9fquXdSPAdyYh)  <!-- Kept by Erik Bjäreholt on Coinbase -->
    - Ether: [0x8A8D0B2BeDa2E29A859cB95d6541Ef19608b234A](ethereum:0x8A8D0B2BeDa2E29A859cB95d6541Ef19608b234A)   <!-- Kept by Erik Bjäreholt in a file used with MyEtherWallet -->
  
 [bountysource]: https://salt.bountysource.com/teams/activitywatch
+[open-collective]: https://opencollective.com/activitywatch
 [patreon]: https://www.patreon.com/erikbjare
 
 
