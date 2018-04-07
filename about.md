@@ -5,7 +5,7 @@ permalink: /about/
 ---
 
 
-**NOTE:** This page is horribly outdated, please refer to the [README](https://github.com/ActivityWatch/activitywatch/blob/master/README.md) for a better overview of the project.
+**NOTE:** This page is outdated, please refer to the [README](https://github.com/ActivityWatch/activitywatch/blob/master/README.md) for a better overview of the project.
 
 ActivityWatch is about recording our digital lives, an evergrowing part of out lives in general, and the new opportunities enabled by such a record.
 
@@ -18,7 +18,7 @@ You can find the source code for all ActivityWatch projects at
 By running ActivityWatch on your devices you can collect data about what you do which you can use for a variety of use cases:
 
  - Record what you do in life.
- - Learn about what you do, and how much you do it. Such as seeing which applications you use, websites you visit, videos you watch, music you listen to and games you play.
+ - Learn about what you do and how much you do it. Such as seeing which applications you use, websites you visit, videos you watch, music you listen to and games you play.
  - Estimate productivity by measuring how much time you spend actually getting stuff done.
  - Figure out who actually creates the content you consume and the software you use, so you can reward them accordingly so they are incentivized to continue. (The mission of the [*Thankful*](#thankful) project)
 
@@ -29,10 +29,11 @@ The project is divided into parts:
  - **aw-server**: provides storage and retrieval of data using a REST API with a variety of storage methods, nimble enough to run locally.
  - **watchers**: clients to the server which collect and send data to the server.
    A few examples include:
-   - [aw-watcher-window](https://github.com/ActivityWatch/aw-watcher-window): Logs active window under macOS and Linux (X11), support for Windows planned. 
+   - [aw-watcher-window](https://github.com/ActivityWatch/aw-watcher-window): Logs active window under macOS and Linux (X11), support for Windows planned.
    - [aw-watcher-afk](https://github.com/ActivityWatch/aw-watcher-afk): Detects user activity using mouse and keyboard, creates AFK events if AFK and non-AFK events if not.
-   - (Planned) [aw-watcher-chrome](https://github.com/ActivityWatch/aw-watcher-chrome), logs active tab(s) in Chrome/Chromium.
-   - (Planned) [aw-watcher-firefox](https://github.com/ActivityWatch/aw-watcher-firefox): logs active tab(s) in Firefox.
+   - [aw-watcher-web](https://github.com/ActivityWatch/aw-watcher-web), logs active tab(s) in Chrome or Firefox.
+   - [aw-watcher-spotify](https://github.com/ActivityWatch/aw-watcher-spotify) (WIP) Tracks how long you listen to specific tracks and artists.
+   - [aw-watcher-chromecast](https://github.com/ActivityWatch/aw-watcher-chromecast) (WIP) Tracks the videos you cast to your chromecast.
  - importers, used to fetch data from external sources, transform it to the activitywatch dataformat and send it off to the server.
 
 These parts used together form a cohesive system which protects the integrity of the data and provides confidentiality.
