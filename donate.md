@@ -1,12 +1,10 @@
 ---
-layout: default
+layout: page
 title: Donate
 permalink: /donate/
 ---
 
-# Donate
-
-Thanks for considering a donation! 
+Thanks for considering a donation!
 
 We hope you decide it's worth spending a couple dollars (or more) each month for such an awesome piece of software as ActivityWatch.
 
@@ -27,7 +25,7 @@ We currently support the following donation methods:
    - **Note:** Please send us an email with the transaction ID so we can attribute the donation to you!
    - Bitcoin: [1NSxJs1wYUrRv53ZVH2DX9fquXdSPAdyYh](bitcoin:1NSxJs1wYUrRv53ZVH2DX9fquXdSPAdyYh)  <!-- Kept by Erik Bjäreholt on Coinbase -->
    - Ether: [0x8A8D0B2BeDa2E29A859cB95d6541Ef19608b234A](ethereum:0x8A8D0B2BeDa2E29A859cB95d6541Ef19608b234A)   <!-- Kept by Erik Bjäreholt in a file used with MyEtherWallet -->
- 
+
 [bountysource]: https://salt.bountysource.com/teams/activitywatch
 [open-collective]: https://opencollective.com/activitywatch
 [patreon]: https://www.patreon.com/erikbjare
@@ -42,7 +40,7 @@ We currently support the following donation methods:
 
 ## What is the money used for?
 
- - All expenses will be entirely transparent for community review. 
+ - All expenses will be entirely transparent for community review.
  - They will not pay for the work of the current lead developer Erik.
  - Server costs of the forum and other infrastructure.
  - Bounties on issues.
