@@ -1,8 +1,8 @@
 ---
-layout: page
+layout: blank
 ---
 
-<div class="wrapper" style="margin-top: 1em;"></div>
+<article class="post wrapper" style="margin-top: 1em;">
 
 <img class="d-block mx-auto" style="max-width: 100%" src="/img/banner.png"/>
 
@@ -16,6 +16,26 @@ layout: page
   It's an attempt to replace and improve existing services like RescueTime, ManicTime, WakaTime and others. It is different in that it's completely open source, extendable, and you as a user have full and exclusive control of your data.
 </p>
 
+<div class="row" style="margin-top: 1em; margin-bottom: 1em">
+  <div style="display: inline">
+    <a class="btn btn-success" href="https://github.com/ActivityWatch/activitywatch/releases">
+      <i class="fa fa-download"></i>
+      Download
+    </a>
+    <a class="btn btn-primary" href="https://github.com/ActivityWatch/activitywatch/releases">
+      <i class="fa fa-question-circle"></i>
+      Getting started guide
+    </a>
+    <a class="btn btn-outline-secondary" href="https://github.com/ActivityWatch/activitywatch">
+      <i class="fa fa-github"></i>
+      Contribute on GitHub
+    </a>
+  </div>
+
+  <div class="col-md-6">
+
+  </div>
+</div>
 <p>
   <!-- Badges and stuff -->
   <a href="https://github.com/ActivityWatch/activitywatch">
@@ -26,83 +46,63 @@ layout: page
   </a>
 </p>
 
-<hr>
+</article>
 
-<h3>Downloads</h3>
+<div class="flexrow" style="display: flex; flex-wrap: wrap; padding: 2em;">
+
+<div style="flex: 50%; padding: 1em;">
+
+<h1>About</h1>
 
 <p>
-  The latest ActivityWatch releases are available on GitHub. You'll find the <a href="https://activitywatch.readthedocs.io/en/latest/getting-started.html">installation guide in the documentation</a>.
+ActivityWatch is about recording our digital lives, an evergrowing part of out lives in general, and the new opportunities enabled by such a record.
 </p>
 
-<div class="row" style="margin-top: 1em; margin-bottom: 1em">
-  <div class="col-md-6">
-    <a class="btn btn-success" href="https://github.com/ActivityWatch/activitywatch/releases">
-      <i class="fa fa-download"></i>
-      Download
-    </a>
-    <div class="btn-group">
-      <a class="btn btn-outline-secondary" href="https://github.com/ActivityWatch/activitywatch">
-        <i class="fa fa-github"></i>
-        Contribute on GitHub
-      </a>
-    </div>
-  </div>
+<p>
+By running ActivityWatch on your devices you can collect data about what you do which you can use for a variety of use cases:
+</p>
 
-  <div class="col-md-6">
+<ul>
+  <li> Record what you do in life. </li>
+  <li>
+    Learn about what you do and how much you do it.
+    See which applications you use, websites you visit, videos you watch, music you listen to and games you play.
+  </li>
+  <li> Estimate productivity by measuring how much time you spend actually getting stuff done. </li>
+  <li>
+    Figure out who actually creates the content you consume and the software you use, so you can reward them accordingly so they are incentivized to continue.
+    (The mission of the <a href="#thankful">Thankful</a> project) </li>
+</ul>
 
-  </div>
+<p>
+ActivityWatch is a collection of programs meant to work together on the same machine (and in the future across machines).
+</p>
+
+<p>
+**You can be in full control of your data if you want to without losing features**, there is no requirement that a third party will store your data.
+</p>
+
+<br>
+<br>
+
+<h2 id="thankful">Thankful</h2>
+
+<i>Reward the creators of content and software according to your preferences. Be thankful.</i>
+<br>
+<b>Note:</b> This is at present no more than a dream, we make no guarrantees that it'll ever get built.
+
+<p>
+Thankful is a program that takes data about which websites you visit, which music you listen to, which videos you watch,
+which applications you use (such as Thankful itself), and then presents it to you and allows you to distribute a charitable
+sum of your choice to those creators you think are deserving.
+</p>
+
+For more, check out <a href="https://github.com/ActivityWatch/thankful">Thankful on GitHub</a>.
+
 </div>
 
-<hr>
-
-<h3>Links</h3>
-<p>
-  <ul>
-    <li><a href="https://github.com/ActivityWatch/activitywatch">GitHub</a> <i>(check out the README)</i>
-    <li><a href="https://activitywatch.readthedocs.io/en/latest/getting-started.html">Getting started guide</a>
-    <li><a href="https://forum.activitywatch.net/">Forum</a>
-    <li><a href="https://github.com/ActivityWatch/activitywatch/releases">Releases</a>
-    <li><a href="https://activitywatch.readthedocs.io/en/latest/index.html">Documentation</a>
-  </ul>
-
-  For more information about the projects, visit <a href="https://github.com/ActivityWatch/activitywatch">ActivityWatch on GitHub</a> or the <a href="/about/">about page</a>!
-<p>
-
-<hr>
-
-<h3>Check out our side projects!</h3>
-
-
-
-<h4>Thankful</h4>
-<p>
-  Thankful helps you allocate donations to the creators (of video, writing, music, software) that you appreciate.
-  <i>No middle men</i> and <i>no privacy issues</i>. A <i>user-controlled</i> alternative to services such as Patreon and Flattr.
-</p>
-
-<p>
-  This will be done by analysing your ActivityWatch data and creating a list of all the creators whos fruits of labor that you have enjoyed.
-  Thankful then helps you get an overview of the time spent on each creators content, assisting you in your decision of who's the most deserving.
-</p>
-
-<p>
-  Thankful does not handle your money, instead it gathers information about creators available payment methods such as Patreon and Bitcoin. We are confident that the 10% cut taken by services like Patreon will one day be replaced by cryptocurrencies that have very low transaction fees.
-</p>
-<p>
-  <a src="https://github.com/ActivityWatch/thankful">Read more about it on GitHub</a>
-</p>
-
-<!--ul class="post-list">
-  {% for post in site.posts %}
-    <li>
-      <span class="post-meta">{{ post.date | date: "%b %-d, %Y" }}</span>
-
-      <h2>
-        <a class="post-link" href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a>
-      </h2>
-    </li>
-  {% endfor %}
-</ul-->
-
-<!--p class="rss-subscribe">subscribe <a href="{{ "/feed.xml" | prepend: site.baseurl }}">via RSS</a></p-->
-
+<div style="flex: 50%">
+<figure style="width: 100%;">
+<img style="width: 100%" src="/screenshot.png">
+</figure>
+</div>
