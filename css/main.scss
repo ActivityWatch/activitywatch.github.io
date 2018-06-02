@@ -43,7 +43,11 @@ $on-laptop:        800px;
     }
 }
 
-
+@media screen and (max-width: 70em) {
+    .flexrow {
+        flex-direction: column;
+    }
+}
 
 // Import partials from `sass_dir` (defaults to `_sass`)
 @import
