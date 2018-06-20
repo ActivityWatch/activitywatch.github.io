@@ -21,15 +21,20 @@ permalink: /contributors/
   </small>
 </p>
 
-<div class="contributor-stats">
-  {% assign modules = "total,aw-core,aw-server,aw-client,aw-webui,aw-qt,aw-watcher-window,aw-watcher-afk,aw-watcher-web,docs,activitywatch" | split: ',' %}
+{% assign modules = "total,aw-core,aw-server,aw-webui,aw-qt,aw-client,aw-client-js,aw-client-rust,aw-watcher-window,aw-watcher-afk,aw-watcher-web,aw-watcher-vim,aw-watcher-vscode,docs,activitywatch" | split: ',' %}
 
+<b>Table of contents</b>
+<ul>
   {% for module in modules %}
-    {% if module == "activitywatch" %}
-      <h3>{{ module }} (the bundle + docs)</h3>
-    {% else %}
-      <h3>{{ module }}</h3>
-    {% endif %}
+    <li><a href="#{{ module }}">{{ module }}</a>
+  {% endfor %}
+</ul>
+
+<div class="contributor-stats">
+  {% for module in modules %}
+    <a href="https://github.com/activitywatch/{{ module }}">
+      <h3 id={{ module }}>{{ module }}</h3>
+    </a>
 
     {% assign table_filename = "tables/" | append: module | append: ".html" %}
     {% include {{ table_filename }} %}
