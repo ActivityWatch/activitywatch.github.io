@@ -10,8 +10,12 @@ github_username:  ActivityWatch
 # Build settings
 markdown: kramdown
 
+exclude:
+ - contributor-stats/
+
 sass:
     sass_dir: _sass
 
 plugins:
  - jekyll-last-modified-at
+ - jekyll-pug

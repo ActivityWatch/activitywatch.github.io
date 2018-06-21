@@ -11,7 +11,7 @@ push-github:
 	./scripts/push-build.sh
 
 install-deps:
-	gem install jekyll jekyll-last-modified-at
+	gem install jekyll jekyll-last-modified-at jekyll-pug
 
 clean:
 	rm -r _site

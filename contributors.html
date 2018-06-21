@@ -36,8 +36,8 @@ permalink: /contributors/
       <h3 id={{ module }}>{{ module }}</h3>
     </a>
 
-    {% assign table_filename = "tables/" | append: module | append: ".html" %}
-    {% include {{ table_filename }} %}
+    {% assign table_filename = "tables/" | append: module %}
+    {% include {{ table_filename }}.html %}
   {% endfor %}
 </div>
 
