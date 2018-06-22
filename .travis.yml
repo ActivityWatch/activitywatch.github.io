@@ -9,6 +9,7 @@ branches:
    - master
 
 install:
+ - npm install --global pug pug-cli
  - make install-deps
 
 script:
