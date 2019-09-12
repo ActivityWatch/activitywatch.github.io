@@ -8,8 +8,12 @@ branches:
   except:
    - master
 
-install:
+before_install:
+ - gem update --system
  - make install-deps
+
+install:
+ - true
 
 script:
  - make build
