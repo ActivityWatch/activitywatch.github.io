@@ -1,0 +1,47 @@
+|<!-- Global site tag (gtag.js) - Google Analytics -->
+|<script async src="https://www.googletagmanager.com/gtag/js?id=UA-121109725-1"></script>
+|<script>
+| window.dataLayer = window.dataLayer || [];
+| function gtag(){dataLayer.push(arguments);}
+| gtag('js', new Date());
+|
+| gtag('config', 'UA-91551508-1');
+|</script>
+|
+|<script>
+|// From: https://support.google.com/analytics/answer/7478520?hl=en
+|/**
+|* Function that registers a click on an outbound link in Analytics.
+|* This function takes a valid URL string as an argument, and uses that URL string
+|* as the event label. Setting the transport method to 'beacon' lets the hit be sent
+|* using 'navigator.sendBeacon' in browser that support it.
+|*/
+|var getOutboundLink = function(urlOrEvent) {
+|  let url;
+|  let target;
+|  if(typeof urlOrEvent === 'string') {
+|    url = urlOrEvent;
+|  } else {
+|    let event = urlOrEvent || window.event;
+|    let el = event.target || event.srcElement;
+|    if(!el.href) el = el.parentNode;
+|    url = el.href;
+|    target = el.target;
+|  }
+|  //console.log(url);
+|  //console.log(target);
+|  if(window.google_tag_manager) {
+|    gtag('event', 'click', {
+|         'event_category': 'outbound',
+|         'event_label': url,
+|         'transport_type': 'beacon',
+|         'event_callback': function() {
+|           window.open(url, target);
+|           //document.location = url;
+|         }
+|    });
+|  } else {
+|    window.open(url, target);
+|  }
+|}
+|</script>

@@ -1,0 +1,34 @@
+html
+  head
+  body
+    footer.site-footer
+      .wrapper
+        h4.footer-heading(style='margin-bottom: 0.2em') {{ site.title }}
+        p
+          i {{ site.description }}
+        .footer-col-wrapper
+          .footer-col.footer-col-3
+            ul.social-media-list
+              | {% if site.github_username %}
+              li {% include icon-github.html username=site.github_username %}
+              | {% endif %} {% if site.twitter_username %}
+              li {% include icon-twitter.html username=site.twitter_username %}
+              | {% endif %}
+          .footer-col.footer-col-2
+          .footer-col.footer-col-2
+            ul.contact-list
+              li Erik Bjäreholt
+              li
+                small Founder, maintainer
+              li
+                small {% include icon-github.html username="ErikBjare" %}
+              li
+                small {% include icon-twitter.html username="ErikBjare" %}
+                //li><small><a href="mailto:{{ site.email }}">{{ site.email }}</a></small></li
+          .footer-col.footer-col-2
+            ul.contact-list
+              li Johan Bjäreholt
+              li
+                small Maintainer
+              li
+                small {% include icon-github.html username="johan-bjareholt" %}

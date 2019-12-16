@@ -2,21 +2,23 @@
 
 build: _includes/tables
 	# compass compile
-	jekyll build
+	bundle exec bliss build
 
 dev: _includes/tables
-	jekyll serve --watch --drafts
+	bundle exec bliss serve --watch --drafts --trace --port 8888
 
 push-github:
 	./scripts/push-build.sh
 
 install-deps:
-	gem install jekyll jekyll-last-modified-at
+	-sudo npm install -g jekyll-bliss
+	bundle config set path 'vendor/bundle'
+	bundle install
 
 clean:
-	rm -r _site
-	rm -r _includes/tables
-	make --directory=contributor-stats clean
+	-rm -r _site
+	-rm -r _includes/tables
+	-make --directory=contributor-stats clean
 
 
 #
@@ -24,7 +26,7 @@ clean:
 #
 
 contributor-stats:
-	git clone --recurse-submodules https://github.com/ActivityWatch/contributor-stats.git
+	git clone --recurse-submodules https://github.com/ActivityWatch/contributor-stats.git || true
 
 _includes/tables: contributor-stats/tables
 	cp -r contributor-stats/tables _includes/

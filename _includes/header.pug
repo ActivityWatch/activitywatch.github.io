@@ -1,0 +1,35 @@
+html
+  head
+  body
+    nav.navbar.navbar-expand-lg.navbar-light.bg-light
+      .container(style='//max-width: 800px')
+        a.navbar-brand(href='{{ site.baseurl }}/')
+          img(style='width: 100%; max-height: 2em', src='/img/banner.png')
+        button.navbar-toggler(type='button', data-toggle='collapse', data-target='#navbarSupportedContent', aria-controls='navbarSupportedContent', aria-expanded='false', aria-label='Toggle navigation')
+          span.navbar-toggler-icon
+        .collapse.navbar-collapse#navbarSupportedContent(style='font-size: 1.2em')
+          ul.navbar-nav.mr-0(style='margin-left: auto;')
+            li.nav-item
+              a.nav-link.mr-1.font-weight-bold(style='color: green;', href='https://activitywatch.readthedocs.io/en/latest/')
+                i.fa.fa-book.mr-2
+                | Docs
+            li.nav-item
+              a.nav-link.mr-1.font-weight-bold(style='color: teal;', href='https://forum.activitywatch.net/')
+                i.fa.fa-comments.mr-2
+                | Forum
+            li.nav-item
+              a.nav-link.font-weight-bold(style='color: #EE9900;', href='/donate/')
+                i.fa.fa-handshake-o.mr-2
+                | Donate
+            li.nav-item.dropdown
+              a.nav-link.dropdown-toggle.font-weight-bold#navbarDropdown(href='#', role='button', data-toggle='dropdown', aria-haspopup='true', aria-expanded='false')
+                i.fa.fa-bolt.mr-2
+                | Development
+              .dropdown-menu(aria-labelledby='navbarDropdown')
+                a.dropdown-item.text-secondary.font-weight-bold(href='/contributors/')
+                  i.fa.fa-users.mr-2
+                  | Contributors
+                a.dropdown-item.text-secondary.font-weight-bold(href='/ci/')
+                  i.fa.fa-cogs.mr-2
+                  | Continuous Integration
+                //div class="dropdown-divider"></div

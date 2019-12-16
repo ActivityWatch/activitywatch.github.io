@@ -10,8 +10,19 @@ github_username:  ActivityWatch
 # Build settings
 markdown: kramdown
 
+exclude:
+ - contributor-stats/
+ - vendor
+
 sass:
     sass_dir: _sass
 
 plugins:
  - jekyll-last-modified-at
+
+jekyll-bliss:
+  build-folder: _build
+  debug: false
+  quiet: false
+  delete-build-folder: false
+  livereload: true
