@@ -2,10 +2,10 @@
 
 build: _includes/tables
 	# compass compile
-	jekyll build
+	bundle exec jekyll build
 
 dev: _includes/tables
-	jekyll serve --watch --drafts
+	bundle exec jekyll serve --watch --drafts
 
 push-github:
 	./scripts/push-build.sh

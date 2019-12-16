@@ -10,7 +10,13 @@ branches:
 
 install:
  - npm install --global pug pug-cli
+
+before_install:
+ - gem update --system
  - make install-deps
+
+install:
+ - true
 
 script:
  - make build

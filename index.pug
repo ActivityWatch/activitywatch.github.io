@@ -3,60 +3,72 @@ layout: default
 ---
 
 article.wrapper.mt-4
-  img.d-block.mx-auto.mb-4(style='max-width: 100%', src='/img/banner.png')
+  img.d-block.mx-auto.mb-4(style='max-width: 100%' src='/img/banner.png')
   p
     b ActivityWatch
-    | is an automatic time-tracking software which helps you keep track of what you do.
+    |  is an automatic time-tracking software which helps you keep track of what you do.
   p It's an attempt to replace and improve existing services like RescueTime, ManicTime, WakaTime and others. It is different in that it's completely open source, extendable, and you as a user have full and exclusive control of your data.
+
   .mb-5.mt-2
     .mb-2
       a.btn.btn-success(href='https://github.com/ActivityWatch/activitywatch/releases')
         i.fa.fa-download
         | Download
-      a.btn.btn-primary(href='https://github.com/ActivityWatch/activitywatch/releases')
+      a.btn.btn-primary(href='https://activitywatch.readthedocs.io/en/latest/getting-started.html')
         i.fa.fa-question-circle
         | Getting started guide
       a.btn.btn-outline-secondary(href='https://github.com/ActivityWatch/activitywatch')
         i.fa.fa-github
         | Contribute on GitHub
+
     div
-      // Badges and stuff
+      //  Badges and stuff
       a(href='https://github.com/ActivityWatch/activitywatch')
-        img(title='GitHub stars', src='https://img.shields.io/github/stars/ActivityWatch/activitywatch.svg?style=social&label=Star')
+        img(title='GitHub stars' src='https://img.shields.io/github/stars/ActivityWatch/activitywatch.svg?style=social&label=Star')
       a(href='https://twitter.com/ActivityWatchIt')
-        img(title='Twitter followers', src='https://img.shields.io/twitter/follow/ActivityWatchIt.svg?style=social&label=Follow')
+        img(title='Twitter followers' src='https://img.shields.io/twitter/follow/ActivityWatchIt.svg?style=social&label=Follow')
 .container
   .flexrow(style='display: flex; flex-wrap: wrap;')
     div(style='flex: 75%')
       h1 About
-      p ActivityWatch is about recording our digital lives, an evergrowing part of out lives in general, and the new opportunities enabled by such a record.
+      p ActivityWatch is about recording our digital lives, an evergrowing part of our lives in general, and the new opportunities enabled by such a record.
       p By running ActivityWatch on your devices you can collect data about what you do which you can use for a variety of use cases:
+
       ul
         li Record what you do in life.
-        li Learn about what you do and how much you do it. See which applications you use, websites you visit, videos you watch, music you listen to and games you play.
+        li.
+
+          Learn about what you do and how much you do it. See which applications you use, websites you visit, videos you watch, music you listen to and games you play.
+
         li Estimate productivity by measuring how much time you spend actually getting stuff done.
         li
           | Figure out who actually creates the content you consume and the software you use, so you can reward them accordingly so they are incentivized to continue. (The mission of the
           a(href='#thankful') Thankful
-          | project)
+          |  project)
       p ActivityWatch is a collection of programs meant to work together on the same machine (and in the future across machines).
+
       p
         i You can be in full control of your data if you want to without losing features
         | , there is no requirement that a third party will store your data.
+
     .pl-4(style='flex: 25%')
-      a(href='/screenshot.png')
+      a(href='/screenshot-v0.8.0b9-today.png')
         figure(style='width: 100%; border: 1px #999 solid; border-radius: 2px')
-          img(style='width: 100%', src='/screenshot.png')
+          img(style='width: 100%' src='/screenshot-v0.8.0b9-today.png')
+      a(href='/screenshot-v0.8.0b9-timeline.png')
+        figure(style='width: 100%; border: 1px #999 solid; border-radius: 2px')
+          img(style='width: 100%' src='/screenshot-v0.8.0b9-timeline.png')
   br
   br
   .row
     .col
+
+      h1 Our other projects
+      p
+        | ActivityWatch is primarily developed by brothers Erik and Johan Bjäreholt with the help of the community (check out the #[a(href='https://activitywatch.net/contributors/') contributor statistics]). But it's not all we're building, so check out some of our other projects!
       h2#thankful Thankful
-      i Reward the creators of content and software according to your preferences. Be thankful.
+      b Support creators of free culture according to your preferences. Be thankful.
       br
-      b Note:
-      | This is at present no more than a dream, we make no guarrantees that it'll ever get built.
-      p Thankful is a program that takes data about which websites you visit, which music you listen to, which videos you watch, which applications you use (such as Thankful itself), and then presents it to you and allows you to distribute a charitable sum of your choice to those creators you think are deserving.
+      p Thankful is an app that takes data about the websites you visit, music you listen to, videos you watch, applications you use (such as Thankful itself), and figures out who created it. It then presents the creators you've enjoyed the most and lets you support them financially by sending cryptocurrency directly to them.
       | For more, check out
-      a(href='https://github.com/ActivityWatch/thankful') Thankful on GitHub
-      | .
+      a(href='https://github.com/SuperuserLabs/thankful') Thankful on GitHub
