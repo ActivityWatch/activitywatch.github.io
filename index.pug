@@ -11,14 +11,15 @@ article.wrapper.mt-4
 
   .mb-5.mt-2
     .mb-2
-      a.mr-2.btn.btn-success(href='https://github.com/ActivityWatch/activitywatch/releases', target="_blank", onclick="getOutboundLink(event); return false;")
-        i.fa.fa-download
+      a.mr-2.btn.btn-success(href='https://github.com/ActivityWatch/activitywatch/releases', target="_blank")
+        i.fa.fa-download.mr-2
         | Download
-      a.mr-2.btn.btn-primary(href='https://activitywatch.readthedocs.io/en/latest/getting-started.html', target="_blank", onclick="getOutboundLink(event); return false;")
-        i.fa.fa-question-circle
+      // {-% include download-button.html %}
+      a.mr-2.btn.btn-primary(href='https://activitywatch.readthedocs.io/en/latest/getting-started.html', target="_blank")
+        i.fa.fa-question-circle.mr-2
         | Getting started guide
-      a.mr-2.btn.btn-outline-secondary(href='https://github.com/ActivityWatch/activitywatch', target="_blank", onclick="getOutboundLink(event); return false;")
-        i.fa.fa-github
+      a.mr-2.btn.btn-outline-secondary(href='https://github.com/ActivityWatch/activitywatch', target="_blank")
+        i.fa.fa-github.mr-2
         | Contribute on GitHub
 
     div
