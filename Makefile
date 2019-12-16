@@ -2,16 +2,18 @@
 
 build: _includes/tables
 	# compass compile
-	jekyll build
+	bundle exec jekyll build
 
 dev: _includes/tables
-	jekyll serve --watch --drafts
+	bundle exec jekyll serve --watch --drafts --trace --port 8888
 
 push-github:
 	./scripts/push-build.sh
 
 install-deps:
-	gem install jekyll jekyll-last-modified-at
+	npm install -g pug
+	bundle config set path 'vendor/bundle'
+	bundle install
 
 clean:
 	rm -r _site

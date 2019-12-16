@@ -1,6 +1,8 @@
 _site
 .*cache
 .jekyll-metadata
+.bundle
+vendor
 
 contributor-stats
 _includes/tables
