@@ -9,7 +9,7 @@ branches:
    - master
 
 install:
- - npm install --global pug pug-cli
+ - npm install --global pug pug-cli jekyll-bliss
 
 before_install:
  - gem update --system

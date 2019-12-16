@@ -2,15 +2,16 @@
 
 build: _includes/tables
 	# compass compile
-	bundle exec jekyll build
+	bundle exec bliss build
 
 dev: _includes/tables
-	bundle exec jekyll serve --watch --drafts --trace --port 8888
+	bundle exec bliss serve --watch --drafts --trace --port 8888
 
 push-github:
 	./scripts/push-build.sh
 
 install-deps:
+	-sudo npm install -g jekyll-bliss
 	bundle config set path 'vendor/bundle'
 	bundle install
 
