@@ -1,9 +1,9 @@
 doctype html
 html
-  | {% include head %}
+  | {% include head.html %}
   body
-    | {% include header %}
+    | {% include header.html %}
     div.page-content
       div
         | {{ content }}
-    | {% include footer %}
+    | {% include footer.html %}
