@@ -8,10 +8,8 @@ branches:
   except:
    - master
 
-install:
- - npm install --global pug pug-cli jekyll-bliss
-
 before_install:
+ - npm install --global pug pug-cli jekyll-bliss
  - gem update --system
  - make install-deps
 
