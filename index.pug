@@ -5,20 +5,22 @@ layout: default
 article.wrapper.mt-4
   img.d-block.mx-auto.mb-4(style='max-width: 100%' src='/img/banner.png')
   p
-    b ActivityWatch
-    |  is an automatic time-tracking software which helps you keep track of what you do.
-  p It's an attempt to replace and improve existing services like RescueTime, ManicTime, WakaTime and others. It is different in that it's completely open source, extendable, and you as a user have full and exclusive control of your data.
+    | #[b ActivityWatch] is an app that automatically tracks how you spend time on your devices.
+  p
+    | It is #[b open source], #[b privacy-first], #[b cross-platform], and a great alternative to services like RescueTime, ManicTime, and WakaTime.
+  p
+    | It can help you keep track of time spent on different projects, kick bad screen habits, or just understand how you spend your time.
 
   .mb-5.mt-2
     .mb-2
-      a.mr-2.btn.btn-success(href='https://github.com/ActivityWatch/activitywatch/releases', target="_blank")
+      a.mr-1.btn.btn-success(href='https://github.com/ActivityWatch/activitywatch/releases', target="_blank")
         i.fa.fa-download.mr-2
         | Download
       // {-% include download-button.html %}
-      a.mr-2.btn.btn-primary(href='https://activitywatch.readthedocs.io/en/latest/getting-started.html', target="_blank")
+      a.mr-1.btn.btn-primary(href='https://activitywatch.readthedocs.io/en/latest/getting-started.html', target="_blank")
         i.fa.fa-question-circle.mr-2
         | Getting started guide
-      a.mr-2.btn.btn-outline-secondary(href='https://github.com/ActivityWatch/activitywatch', target="_blank")
+      a.mr-1.btn.btn-outline-secondary(href='https://github.com/ActivityWatch/activitywatch', target="_blank")
         i.fa.fa-github.mr-2
         | Contribute on GitHub
 
@@ -29,12 +31,22 @@ article.wrapper.mt-4
       a(href='https://twitter.com/ActivityWatchIt')
         img(title='Twitter followers' src='https://img.shields.io/twitter/follow/ActivityWatchIt.svg?style=social&label=Follow')
 
-.container
-  .flexrow(style='display: flex; flex-wrap: wrap;')
-    div(style='flex: 75%')
-      h1 About
-      p ActivityWatch is about recording our digital lives, an evergrowing part of our lives in general, and the new opportunities enabled by such a record.
-      p By running ActivityWatch on your devices you can collect data about what you do which you can use for a variety of use cases:
+div.container
+  div.row
+    .col-md-9
+      h2 Features
+      ul
+        li #[b Tracking:] Tracks active application and window title by default, more with #[a(href="https://activitywatch.readthedocs.io/en/latest/watchers.html") watchers].
+        li #[b Categories:] Get a better overview of your usage by defining categories just how you want them.
+        li #[b Browser extensions:] Track the active tab using the extensions for #[a(href="https://chrome.google.com/webstore/detail/activitywatch-web-watcher/nglaklhklhcoonedhgnpgddginnjdadi?hl=en") Chrome] and #[a(href="https://addons.mozilla.org/en-US/firefox/addon/aw-watcher-web/") Firefox].
+        li #[b Editor plugins:] Track how you spend time writing code with #[a(href="https://activitywatch.readthedocs.io/en/latest/watchers.html#editor-watchers") editor watchers].
+        li #[b Privacy:] Data is stored locally and doesn't leave your device, we put #[a(href="https://www.inkandswitch.com/local-first.html") local and privacy first].
+        li #[b Cross-platform:] Runs on Windows, macOS, Linux, and #[a(href="https://play.google.com/store/apps/details?id=net.activitywatch.android&hl=en") Android].
+        li #[s #[b Synchronization:] Sync your activity between your devices.] (We're working on it)
+
+      h2 Why use it?
+      p ActivityWatch lets you record your digital life, and the new opportunities enabled by such a record.
+      p By using ActivityWatch you collect data about how you spend your time, which you can use to:
 
       ul
         li Record what you do in life.
@@ -46,23 +58,30 @@ article.wrapper.mt-4
       p
         i You can be in full control of your data if you want to without losing features, there is no requirement that a third party will store your data.
 
-    .pl-4(style='flex: 25%')
+    .col-md-3
+      h4 Screenshots
       a(href='/screenshot-v0.8.0b9-today.png')
         figure(style='width: 100%; border: 1px #999 solid; border-radius: 2px')
           img(style='width: 100%' src='/screenshot-v0.8.0b9-today.png')
       a(href='/screenshot-v0.8.0b9-timeline.png')
         figure(style='width: 100%; border: 1px #999 solid; border-radius: 2px')
           img(style='width: 100%' src='/screenshot-v0.8.0b9-timeline.png')
-  br
-  br
-  .row
-    .col
 
-      h1 Our other projects
+  div.row.mt-4
+    .col-md-6
+      h2 Support the project!
+      p
+        | ActivityWatch is built entirely by volunteers and relies on donations to keep development going. If it has helped you in any way, please #[a(href="/donate/") donating].
+
+
+    .col-md-6
+      h2 Our other projects
       p
         | ActivityWatch is primarily developed by brothers Erik and Johan Bjäreholt with the help of the community (check out the #[a(href='https://activitywatch.net/contributors/') contributor statistics]). But it's not all we're building, so check out some of our other projects!
-      h2#thankful Thankful
+
+      h4#thankful Thankful
       p
-        b Support creators of free culture according to your preferences. Be thankful.
-      p Thankful is an app that takes data about the websites you visit, music you listen to, videos you watch, applications you use (such as Thankful itself), and figures out who created it. It then presents the creators you've enjoyed the most and lets you support them financially by sending cryptocurrency directly to them.
-      | For more, check out #[a(href='https://github.com/SuperuserLabs/thankful') Thankful on GitHub]
+        b Support creators of free culture by directly sending them cryptocurrency.
+      p
+        | Thankful uses data about websites you visit, music you listen to, videos you watch, and applications you use, and lets you support the creators of it by directly sending them cryptocurrency.
+        | For more, check out #[a(href='https://github.com/SuperuserLabs/thankful') Thankful on GitHub].
