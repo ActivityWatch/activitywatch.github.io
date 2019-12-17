@@ -5,7 +5,7 @@ build: _includes/tables
 	bundle exec bliss build
 
 dev: _includes/tables
-	bundle exec bliss serve --watch --drafts --trace --port 8888
+	bundle exec bliss serve
 
 push-github:
 	./scripts/push-build.sh
