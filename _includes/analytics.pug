@@ -36,12 +36,11 @@ script
   |         'event_label': url,
   |         'transport_type': 'beacon',
   |         'event_callback': function() {
-  |           window.open(url, target);
-  |           //document.location = url;
+  |           document.location = url;
   |         }
   |    });
   |  } else {
-  |    window.open(url, target);
+  |    document.location = url;
   |  }
   |}
   |
