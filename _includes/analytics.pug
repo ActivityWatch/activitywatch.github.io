@@ -24,9 +24,14 @@ script
   |  } else {
   |    let event = urlOrEvent || window.event;
   |    let el = event.target || event.srcElement;
-  |    if(!el.href) el = el.parentNode;
-  |    url = el.href;
-  |    target = el.target;
+  |    while (url === undefined) {
+  |      if(!el.href) {
+  |        console.log(`href was undefined, checking parent`)
+  |        el = el.parentNode;
+  |      }
+  |      url = el.href;
+  |      target = el.target;
+  |    }
   |  }
   |  //console.log(url);
   |  //console.log(target);
