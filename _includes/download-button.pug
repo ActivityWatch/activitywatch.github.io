@@ -1,50 +1,18 @@
 span
   span(style="display: inline-block")
-    a#download.mr-2.btn.btn-success(href="https://github.com/ActivityWatch/activitywatch/releases", style="text-align: left")
-      i.fa.fa-download.mr-2
-      span(style="display: inline-block;")
-        span Download
-        br
-        span#download-info(style="font-size: 0.6em; color: #CCC; float: left; margin-top: -0.5em")
-    //br
-    //a(href="https://github.com/ActivityWatch/activitywatch/releases") All releases
+    div
+      a#download.mr-1.btn.btn-success(href="/downloads/", style="text-align: left")
+        i.fa.fa-download.mr-2
+        span(style="display: inline-block;")
+          span Download
+          br
+          span#download-info(style="font-size: 0.6em; color: #DDD; float: left; margin-top: -0.5em")
+            |
+    //div
+      | #[a(href="/downloads/" style="font-size: 0.8em; opacity: 0.8;") All downloads]
 
   script
-    |function getOS() {
-    |  var userAgent = window.navigator.userAgent,
-    |     platform = window.navigator.platform,
-    |     macosPlatforms = ['Macintosh', 'MacIntel', 'MacPPC', 'Mac68K'],
-    |     windowsPlatforms = ['Win32', 'Win64', 'Windows', 'WinCE'],
-    |     iosPlatforms = ['iPhone', 'iPad', 'iPod'],
-    |     os = null;
+    | {% include download-url.js %}
     |
-    |  if (macosPlatforms.indexOf(platform) !== -1) {
-    |    os = 'macOS';
-    |  } else if (iosPlatforms.indexOf(platform) !== -1) {
-    |    os = 'iOS';
-    |  } else if (windowsPlatforms.indexOf(platform) !== -1) {
-    |    os = 'Windows';
-    |  } else if (/Android/.test(userAgent)) {
-    |    os = 'Android';
-    |  } else if (!os && /Linux/.test(platform)) {
-    |   os = 'Linux';
-    |  }
-    |
-    |  return os;
-    |}
-    |
-    | let latest_version = "0.8.4";
-    | let OS = getOS();
-    | let os = OS.toLowerCase();
-    | let button = document.getElementById("download");
-    | let info = document.getElementById("download-info");
-    | if(os === "windows") {
-    |   button.href = "https://github.com/ActivityWatch/activitywatch/releases/download/v0.8.4/activitywatch-v0.8.4-" + os + "-x86_64-setup.exe";
-    | } else if(os === "ios") {
-    |   console.log("TODO")
-    | } else if(os === "android") {
-    |   console.log("TODO")
-    | } else {
-    |   button.href = "https://github.com/ActivityWatch/activitywatch/releases/download/v0.8.4/activitywatch-v0.8.4-" + os + "-x86_64.zip";
-    |   info.innerHTML = OS;
-    | }
+    | // Sets the download url and text
+    | adaptDownloadButton();
