@@ -13,14 +13,11 @@ article.wrapper.mt-4
 
   .mb-5.mt-2
     .mb-2
-      a.mr-1.btn.btn-success(href='https://github.com/ActivityWatch/activitywatch/releases', target="_blank")
-        i.fa.fa-download.mr-2
-        | Download
-      // {-% include download-button.html %-}
-      a.mr-1.btn.btn-primary(href='https://activitywatch.readthedocs.io/en/latest/getting-started.html', target="_blank")
+      | {% include download-button.html %}
+      a.mr-2.btn.btn-primary(href='https://activitywatch.readthedocs.io/en/latest/getting-started.html', target="_blank", style="vertical-align: top")
         i.fa.fa-question-circle.mr-2
         | Getting started guide
-      a.mr-1.btn.btn-outline-secondary(href='https://github.com/ActivityWatch/activitywatch', target="_blank")
+      a.mr-1.btn.btn-outline-secondary(href='https://github.com/ActivityWatch/activitywatch', target="_blank", style="vertical-align: top")
         i.fa.fa-github.mr-2
         | Contribute on GitHub
 
@@ -59,6 +56,7 @@ div.container
 
     .col-md-3
       h4 Screenshots
+      div.mb-2 #[b Note:] These screenshots are old and missing many new features, they will be updated soon.
       a(href='/screenshot-v0.8.0b9-today.png')
         figure(style='width: 100%; border: 1px #999 solid; border-radius: 2px')
           img(style='width: 100%' src='/screenshot-v0.8.0b9-today.png')

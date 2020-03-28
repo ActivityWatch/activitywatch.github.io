@@ -10,7 +10,11 @@ html
         .collapse.navbar-collapse#navbarSupportedContent(style='font-size: 1.2em')
           ul.navbar-nav.mr-0(style='margin-left: auto;')
             li.nav-item
-              a.nav-link.mr-1.font-weight-bold(style='color: green;', href='https://activitywatch.readthedocs.io/en/latest/')
+              a.nav-link.mr-1.font-weight-bold(style='color: green;', href='/downloads/')
+                i.fa.fa-download.mr-2
+                | Downloads
+            li.nav-item
+              a.nav-link.mr-1.font-weight-bold(style='color: #0AA;', href='https://activitywatch.readthedocs.io/en/latest/')
                 i.fa.fa-book.mr-2
                 | Docs
             li.nav-item
@@ -24,7 +28,7 @@ html
             li.nav-item.dropdown
               a.nav-link.dropdown-toggle.font-weight-bold#navbarDropdown(href='#', role='button', data-toggle='dropdown', aria-haspopup='true', aria-expanded='false')
                 i.fa.fa-bolt.mr-2
-                | Development
+                | Stats
               .dropdown-menu(aria-labelledby='navbarDropdown')
                 a.dropdown-item.text-secondary.font-weight-bold(href='/contributors/')
                   i.fa.fa-users.mr-2

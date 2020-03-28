@@ -17,6 +17,7 @@ install:
  - true
 
 script:
+ - make update-downloads
  - make build
 
 deploy:
