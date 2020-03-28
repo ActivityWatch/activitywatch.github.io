@@ -32,7 +32,7 @@ function getDownloadInfo() {
     if (p !== null) {
       return {
         title: `${p.name}, ${p.assets[0].title}, ${version}`,
-        url: `https://github.com/ActivityWatch/activitywatch/releases/download/${version}/activitywatch-${version}-${os}-x86_64-setup.exe`,
+        url: p.assets[0].url,
       };
     }
   }
