@@ -1,8 +1,8 @@
-dist: trusty
+dist: xenial
 
 language: python
 python:
- - '3.6'
+ - '3.7'
 
 branches:
   except:
@@ -17,6 +17,7 @@ install:
  - true
 
 script:
+ - pip install requests
  - make update-downloads
  - make build
 
