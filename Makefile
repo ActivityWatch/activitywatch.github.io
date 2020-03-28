@@ -10,6 +10,9 @@ dev: _includes/tables
 push-github:
 	./scripts/push-build.sh
 
+update-downloads:
+	python3 scripts/update-downloads.py
+
 install-deps:
 	-sudo npm install -g jekyll-bliss
 	bundle config set path 'vendor/bundle'
