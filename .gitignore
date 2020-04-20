@@ -5,5 +5,8 @@ _site
 vendor
 _build
 
+stats
+img/stats
+
 contributor-stats
 _includes/tables
