@@ -5,11 +5,11 @@ permalink: /ci/
 ---
 
 
-| {% assign modules = "activitywatch,aw-core,aw-server,aw-server-rust,aw-client,aw-qt,aw-webui,aw-watcher-afk,aw-watcher-window,aw-watcher-web,activitywatch.github.io" | split: ',' %}
+| {% assign modules = "activitywatch,aw-core,aw-server,aw-server-rust,aw-client,aw-client-js,aw-qt,aw-webui,aw-watcher-afk,aw-watcher-window,aw-watcher-web,activitywatch.github.io" | split: ',' %}
 | {% assign travis_modules = "activitywatch,aw-server,aw-client,aw-client-js,aw-qt,aw-watcher-afk,aw-watcher-web" | split: ',' %}
 | {% assign ghactions_modules = "activitywatch,aw-core,aw-server-rust,aw-watcher-window,aw-webui,activitywatch.github.io" | split: ',' %}
-| {% assign appveyor_modules = "activitywatch,aw-core" | split: ',' %}
-| {% assign codeclimate_modules = "aw-core,aw-server,aw-client,aw-client-js,aw-qt,aw-watcher-afk,aw-watcher-window" | split: ',' %}
+| {% assign appveyor_modules = "activitywatch" | split: ',' %}
+| {% assign codeclimate_modules = "aw-core,aw-server,aw-client,aw-client-js,aw-qt,aw-watcher-afk,aw-watcher-window,aw-webui,aw-watcher-web" | split: ',' %}
 | {% assign landscape_modules = "aw-core,aw-server,aw-client,aw-client-js,aw-qt,aw-watcher-afk,aw-watcher-window" | split: ',' %}
 | {% assign codecov_modules = "aw-core,aw-server-rust" | split: ',' %}
 
