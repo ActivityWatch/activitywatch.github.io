@@ -32,7 +32,7 @@ permalink: /contributors/
 
 <div class="contributor-stats">
   {% for module in modules %}
-    <a href="https://github.com/activitywatch/{{ module }}">
+    <a {% if module != "total" %} href="https://github.com/activitywatch/{{ module }}" {% endif %}>
       <h3 id={{ module }}>{{ module }}</h3>
     </a>
 
