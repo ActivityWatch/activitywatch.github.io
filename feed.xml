@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>ActivityWatch</title>
-    <description>Log what you do on your computer. Simple (yet powerful), extensible, no third parties.
+    <title>ActivityWatch - Open-source time tracker</title>
+    <description>The best free and open-source automated time tracker. Cross-platform, extensible, local/privacy-first.
 </description>
     <link>https://activitywatch.net/</link>
     <atom:link href="https://activitywatch.net/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Tue, 05 May 2020 13:26:31 +0000</pubDate>
-    <lastBuildDate>Tue, 05 May 2020 13:26:31 +0000</lastBuildDate>
+    <pubDate>Tue, 05 May 2020 14:16:05 +0000</pubDate>
+    <lastBuildDate>Tue, 05 May 2020 14:16:05 +0000</lastBuildDate>
     <generator>Jekyll v3.8.6</generator>
     
       <item>

@@ -4,13 +4,13 @@
   <meta charset="utf-8"/>
   <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
   <meta name="viewport" content="width=device-width,initial-scale=1"/>
-  <title>ActivityWatch</title>
-  <meta name="description" content="Log what you do on your computer. Simple (yet powerful), extensible, no third parties.
+  <title>ActivityWatch - Open-source time tracker</title>
+  <meta name="description" content="The best free and open-source automated time tracker. Cross-platform, extensible, local/privacy-first.
 "/>
   <link rel="icon" type="image/png" href="/img/logo.png"/>
   <link rel="stylesheet" href="/css/main.css"/>
   <link rel="canonical" href="https://activitywatch.net/"/>
-  <link rel="alternate" type="application/rss+xml" title="ActivityWatch" href="https://activitywatch.net"/>
+  <link rel="alternate" type="application/rss+xml" title="ActivityWatch - Open-source time tracker" href="https://activitywatch.net"/>
   <!-- Bootstrap CSS and JS-->
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous"/>
   <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
@@ -126,7 +126,7 @@
       <div><article class="wrapper mt-4"><img class="d-block mx-auto mb-4" style="max-width: 100%" src="/img/banner.png"/>
   <p><b>ActivityWatch</b> is an app that automatically tracks how you spend time on your devices.</p>
   <p>It is <b>open source</b>, <b>privacy-first</b>, <b>cross-platform</b>, and a great alternative to services like RescueTime, ManicTime, and WakaTime.</p>
-  <p>It can help you keep track of time spent on different projects, kick bad screen habits, or just understand how you spend your time.</p>
+  <p>It can be used to keep track of your productivity, time spent on different projects, bad screen habits, or just to understand how you spend your time.</p>
   <div class="mb-5 mt-2">
     <div class="mb-2"><span><span class="mb-2" style="display: inline-block">
     <div><a class="btn btn-success mr-1" id="download" href="/downloads/" style="text-align: left"><i class="fa fa-download mr-2"></i><span style="display: inline-block;"><span>Download</span><br/><span id="download-info" style="font-size: 0.6em; color: #DDD; float: left; margin-top: -0.5em"></span></span></a></div>
@@ -196,7 +196,7 @@ function adaptDownloadButton() {
     
     // Sets the download url and text
     adaptDownloadButton();
-  </script></span><a class="mr-2 mb-2 btn btn-primary" href="https://activitywatch.readthedocs.io/en/latest/getting-started.html" target="_blank" style="vertical-align: top"><i class="fa fa-question-circle mr-2"></i>Getting started guide</a><a class="mr-1 mb-2 btn btn-outline-secondary" href="https://github.com/ActivityWatch/activitywatch" target="_blank" style="vertical-align: top"><i class="fa fa-github mr-2"></i>Contribute on GitHub</a></div>
+  </script></span><a class="mr-2 mb-2 btn btn-primary" href="https://docs.activitywatch.net/en/latest/getting-started.html" target="_blank" style="vertical-align: top"><i class="fa fa-question-circle mr-2"></i>Getting started guide</a><a class="mr-1 mb-2 btn btn-outline-secondary" href="https://github.com/ActivityWatch/activitywatch" target="_blank" style="vertical-align: top"><i class="fa fa-github mr-2"></i>Contribute on GitHub</a></div>
     <div>
       <!-- Badges and stuff--><a class="mr-2" href="https://github.com/ActivityWatch/activitywatch"><img title="GitHub stars" src="https://img.shields.io/github/stars/ActivityWatch/activitywatch.svg?style=social&amp;label=Star"/></a><a href="https://twitter.com/ActivityWatchIt"><img title="Twitter followers" src="https://img.shields.io/twitter/follow/ActivityWatchIt.svg?style=social&amp;label=Follow"/></a>
     </div>
@@ -207,12 +207,12 @@ function adaptDownloadButton() {
     <div class="col-md-9">
       <h2>Features</h2>
       <ul>
-        <li><b>Tracking:</b> Tracks active application and window title by default, more with <a href="https://activitywatch.readthedocs.io/en/latest/watchers.html">watchers</a>.</li>
-        <li><b>Categories:</b> Get a better overview of your usage by defining categories just how you want them.</li>
+        <li><b>Tracking:</b> Tracks active application and window title out of the box, more with <a href="https://activitywatch.readthedocs.io/en/latest/watchers.html">watchers</a>.</li>
+        <li><b>Categories:</b> Get a better overview of your usage by breaking it down into categories.</li>
         <li><b>Browser extensions:</b> Track the active tab using the extensions for <a href="https://chrome.google.com/webstore/detail/activitywatch-web-watcher/nglaklhklhcoonedhgnpgddginnjdadi">Chrome</a> and <a href="https://addons.mozilla.org/en-US/firefox/addon/aw-watcher-web/">Firefox</a>.</li>
         <li><b>Editor plugins:</b> Track how you spend time writing code with <a href="https://activitywatch.readthedocs.io/en/latest/watchers.html#editor-watchers">editor watchers</a>.</li>
         <li><b>Privacy:</b> Data is stored locally and doesn't leave your device, we put <a href="https://www.inkandswitch.com/local-first.html">local and privacy first</a>.</li>
-        <li><b>Cross-platform:</b> Runs on Windows, macOS, Linux, and <a href="https://play.google.com/store/apps/details?id=net.activitywatch.android">Android</a>.</li>
+        <li><b>Cross-platform:</b> Runs on <a href="/downloads/#windows">Windows</a>, <a href="/downloads/#macos">macOS</a>, <a href="/downloads/#linux">Linux</a>, and <a href="https://play.google.com/store/apps/details?id=net.activitywatch.android">Android</a>.</li>
         <li>
           <s><b>Synchronization:</b> Sync your activity between your devices.</s> (We're working on it)
         </li>
@@ -220,19 +220,24 @@ function adaptDownloadButton() {
       <h2 class="mt-4">Why use it?</h2>
       <p>You can use ActivityWatch to:</p>
       <ul>
-        <li>Keep a record of what you've been doing in life.</li>
-        <li>Track how much time you've spent working on different projects.</li>
+        <li>Monitor your productivity.</li>
+        <li>Track how much time you spend on different projects.</li>
+        <li>Get an overview of time spent on apps, games, videos, and music.</li>
         <li>Manage your bad screen habits.</li>
-        <li>Keep track of your productivity by measuring how much time you spend getting stuff done.</li>
-        <li>Get an overview of which apps you use, videos you watch, music you listen to, and games you play.</li>
-        <li>Figure out who creates the things you like, letting you know who to reward so that you can ensure they are incentivized to continue. (The mission of the <a href="#thankful">Thankful</a> project)</li>
-        <li>Do cutting edge research on attention and productivity (if you're a researcher: contact us!)</li>
-        <li>And more... (we keep being surprised)</li>
+        <li>Measure your work-life balance.</li>
+        <li>Find behavioral trends in how you use your devices.</li>
+        <li>Keep a log of your digital life (<a href="https://en.wikipedia.org/wiki/Lifelog">lifelogging</a>).</li>
+        <li>Research attention, productivity, and behavior (researchers: contact us!)</li>
+        <li>Track who creates the things you use, so that you can give them incentive to continue (The mission of the <a href="#thankful">Thankful</a> project).</li>
       </ul>
+      <p>
+        Our users are diverse and we keep being surprised by what people use ActivityWatch for.
+        If you've built something cool that you've want to share with us, post about it on <a href="https://forum.activitywatch.net">the forum</a>!
+      </p>
     </div>
     <div class="col-md-3">
       <h4>Screenshots</h4>
-      <div class="mb-2"><b>Note:</b> These screenshots are old and missing many new features, they will be updated soon.</div><a href="/screenshot-v0.8.0b9-today.png">
+      <div class="mb-2"><b>Note:</b> These screenshots are old and missing many new features (like categorization), they will be updated soon.</div><a href="/screenshot-v0.8.0b9-today.png">
         <figure style="width: 100%; border: 1px #999 solid; border-radius: 2px"><img style="width: 100%" src="/screenshot-v0.8.0b9-today.png"/></figure></a><a href="/screenshot-v0.8.0b9-timeline.png">
         <figure style="width: 100%; border: 1px #999 solid; border-radius: 2px"><img style="width: 100%" src="/screenshot-v0.8.0b9-timeline.png"/></figure></a>
     </div>
@@ -273,7 +278,7 @@ function adaptDownloadButton() {
     <footer class="site-footer">
       <div class="wrapper">
         <h4 class="footer-heading" style="margin-bottom: 0.2em">ActivityWatch</h4>
-        <p><i>Log what you do on your computer. Simple (yet powerful), extensible, no third parties.
+        <p><i>The best free and open-source automated time tracker. Cross-platform, extensible, local/privacy-first.
 </i></p>
         <div class="footer-col-wrapper">
           <div class="footer-col footer-col-3">
