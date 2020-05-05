@@ -9,12 +9,12 @@ article.wrapper.mt-4
   p
     | It is #[b open source], #[b privacy-first], #[b cross-platform], and a great alternative to services like RescueTime, ManicTime, and WakaTime.
   p
-    | It can help you keep track of time spent on different projects, kick bad screen habits, or just understand how you spend your time.
+    | It can be used to keep track of your productivity, time spent on different projects, bad screen habits, or just to understand how you spend your time.
 
   .mb-5.mt-2
     .mb-2
       | {% include download-button.html %}
-      a.mr-2.mb-2.btn.btn-primary(href='https://activitywatch.readthedocs.io/en/latest/getting-started.html', target="_blank", style="vertical-align: top")
+      a.mr-2.mb-2.btn.btn-primary(href='https://docs.activitywatch.net/en/latest/getting-started.html', target="_blank", style="vertical-align: top")
         i.fa.fa-question-circle.mr-2
         | Getting started guide
       a.mr-1.mb-2.btn.btn-outline-secondary(href='https://github.com/ActivityWatch/activitywatch', target="_blank", style="vertical-align: top")
@@ -33,30 +33,35 @@ div.container
     .col-md-9
       h2 Features
       ul
-        li #[b Tracking:] Tracks active application and window title by default, more with #[a(href="https://activitywatch.readthedocs.io/en/latest/watchers.html") watchers].
-        li #[b Categories:] Get a better overview of your usage by defining categories just how you want them.
+        li #[b Tracking:] Tracks active application and window title out of the box, more with #[a(href="https://activitywatch.readthedocs.io/en/latest/watchers.html") watchers].
+        li #[b Categories:] Get a better overview of your usage by breaking it down into categories.
         li #[b Browser extensions:] Track the active tab using the extensions for #[a(href="https://chrome.google.com/webstore/detail/activitywatch-web-watcher/nglaklhklhcoonedhgnpgddginnjdadi") Chrome] and #[a(href="https://addons.mozilla.org/en-US/firefox/addon/aw-watcher-web/") Firefox].
         li #[b Editor plugins:] Track how you spend time writing code with #[a(href="https://activitywatch.readthedocs.io/en/latest/watchers.html#editor-watchers") editor watchers].
         li #[b Privacy:] Data is stored locally and doesn't leave your device, we put #[a(href="https://www.inkandswitch.com/local-first.html") local and privacy first].
-        li #[b Cross-platform:] Runs on Windows, macOS, Linux, and #[a(href="https://play.google.com/store/apps/details?id=net.activitywatch.android") Android].
+        li #[b Cross-platform:] Runs on #[a(href="/downloads/#windows") Windows], #[a(href="/downloads/#macos") macOS], #[a(href="/downloads/#linux") Linux], and #[a(href="https://play.google.com/store/apps/details?id=net.activitywatch.android") Android].
         li #[s #[b Synchronization:] Sync your activity between your devices.] (We're working on it)
 
       h2.mt-4 Why use it?
       p You can use ActivityWatch to:
 
       ul
-        li Keep a record of what you've been doing in life.
-        li Track how much time you've spent working on different projects.
+        li Monitor your productivity.
+        li Track how much time you spend on different projects.
+        li Get an overview of time spent on apps, games, videos, and music.
         li Manage your bad screen habits.
-        li Keep track of your productivity by measuring how much time you spend getting stuff done.
-        li Get an overview of which apps you use, videos you watch, music you listen to, and games you play.
-        li Figure out who creates the things you like, letting you know who to reward so that you can ensure they are incentivized to continue. (The mission of the #[a(href='#thankful') Thankful] project)
-        li Do cutting edge research on attention and productivity (if you're a researcher: contact us!)
-        li And more... (we keep being surprised)
+        li Measure your work-life balance.
+        li Find behavioral trends in how you use your devices.
+        li Keep a log of your digital life (#[a(href="https://en.wikipedia.org/wiki/Lifelog") lifelogging]).
+        li Research attention, productivity, and behavior (researchers: contact us!)
+        li Track who creates the things you use, so that you can give them incentive to continue (The mission of the #[a(href='#thankful') Thankful] project).
+
+      p
+        | Our users are diverse and we keep being surprised by what people use ActivityWatch for.
+        | If you've built something cool that you've want to share with us, post about it on #[a(href="https://forum.activitywatch.net") the forum]!
 
     .col-md-3
       h4 Screenshots
-      div.mb-2 #[b Note:] These screenshots are old and missing many new features, they will be updated soon.
+      div.mb-2 #[b Note:] These screenshots are old and missing many new features (like categorization), they will be updated soon.
       a(href='/screenshot-v0.8.0b9-today.png')
         figure(style='width: 100%; border: 1px #999 solid; border-radius: 2px')
           img(style='width: 100%' src='/screenshot-v0.8.0b9-today.png')

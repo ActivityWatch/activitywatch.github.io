@@ -6,13 +6,14 @@ permalink: /downloads/
 // Inspired by: https://syncthing.net/downloads/
 
 article.container
-  h1 Downloads
+  header
+    h1 Downloads
 
   h3.mt-4.mb-2 ActivityWatch {{ site.data.downloads.version }}
 
   div.row.mt-4
     | {% for platform in site.data.downloads.platforms %}
-    div.col-md-6
+    div.col-md-6(id="{{ platform.name }}")
       b {{ platform.name }}
       ul
         | {% for asset in platform.assets %}
