@@ -1,7 +1,7 @@
 activitywatch.github.io
 =======================
 
-[![Build Status](https://travis-ci.org/ActivityWatch/activitywatch.github.io.svg?branch=develop)](https://travis-ci.org/ActivityWatch/activitywatch.github.io)
+[![Build Status](https://github.com/ActivityWatch/activitywatch.github.io/workflows/Build/badge.svg)](https://github.com/ActivityWatch/activitywatch.github.io/actions)
 
 Official ActivityWatch site
 
