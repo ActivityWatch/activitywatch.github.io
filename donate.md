@@ -19,6 +19,8 @@ Our eternal gratitude, better future versions of ActivityWatch, and the love of 
 We currently support the following donation methods (roughly in our order of preference):
 
  - [Liberapay][liberapay] (**0% fee** + payment processing fees)
+ - [GitHub Sponsors][gh-sponsors] (0% fee (sort of), GitHub covers payment processing costs)
+   - Backed by Open Collective, so their fees apply.
  - [Patreon][patreon] (5% service fee + VAT + payment processing fees)
  - [Open Collective][open-collective] (10% fee + payment processing fees)
  - Cryptocurrency
@@ -32,6 +34,7 @@ We currently support the following donation methods (roughly in our order of pre
 [patreon]: https://www.patreon.com/erikbjare
 [liberapay]: https://liberapay.com/ActivityWatch/
 [gitcoin]: https://gitcoin.co/grants/383/activitywatch
+[gh-sponsors]: https://github.com/sponsors/ActivityWatch
 
 
 ## Why do we need donations?
