@@ -25,14 +25,20 @@ article.container
 
   div Need an older version? You can find all past #[a(href="https://github.com/ActivityWatch/activitywatch/releases") releases on GitHub].
 
+  h3.mt-3 Nightly builds
+  p
+    | Unstable "nightly" builds are automated by our CI setup. These contain yet-unreleased features and bug fixes. See #[a(href="https://github.com/ActivityWatch/activitywatch/issues/507") issue #507] for where to get them.
+
   h3.mt-4 Watchers
 
-  p #[b What is a watcher?] A watcher is a program or plugin that collects data for ActivityWatch, you can use them to collect more data.
+  p #[b What is a watcher?] A watcher is a program or plugin that watches for activity of different kinds and reports it to ActivityWatch.
 
-  p ActivityWatch comes with two watchers preinstalled:
-  ul
-    li Window watcher: tracks the active application/window
-    li AFK watcher: tracks if you're using your mouse and keyboard to determine if you are AFK.
+  p
+    | ActivityWatch comes with two watchers preinstalled:
+    ul
+      li Window watcher: tracks the active application/window
+      li AFK watcher: tracks if you're using your mouse and keyboard to determine if you are AFK.
+    | #[a(href="https://docs.activitywatch.net/en/latest/watchers.html") The documentation] contains a list of all available watchers (editor plugins, for example).
 
   h5.mt-3 Web browser watchers
   p Use these web extensions to get more detailed tracking about the websites you visit (such as the URL, or if a tab is playing sound).
@@ -43,7 +49,3 @@ article.container
 
     a(href="https://chrome.google.com/webstore/detail/nglaklhklhcoonedhgnpgddginnjdadi/")
       img(src="https://developer.chrome.com/webstore/images/ChromeWebStore_BadgeWBorder_v2_340x96.png", height="58")
-
-  h5.mt-3 More watchers
-  div
-    | More community-built watchers (editor plugins, for example) can be found in #[a(href="https://activitywatch.readthedocs.io/en/latest/watchers.html") the documentation].
