@@ -51,7 +51,7 @@ _includes/tables: contributor-stats
 	cp -r contributor-stats/tables _includes/
 
 img/stats: stats
-	pip show poetry || pip install poetry
+	which poetry || pip install poetry
 	cd stats && poetry install
 	mkdir -p img/stats
 	cd stats && mkdir -p out && poetry run python analyze_stats.py --since 2017-07-01 --column downloads --save ../img/stats/downloads.png
