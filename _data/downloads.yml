@@ -1,20 +1,20 @@
-version: v0.9.2
+version: v0.10.0
 
 platforms:
   - name: Windows
     assets:
       - title: Installer
         description: " (recommended)"
-        url: https://github.com/ActivityWatch/activitywatch/releases/download/v0.9.2/activitywatch-v0.9.2-windows-x86_64-setup.exe
+        url: https://github.com/ActivityWatch/activitywatch/releases/download/v0.10.0/activitywatch-v0.10.0-windows-x86_64-setup.exe
       - title: .zip
-        url: https://github.com/ActivityWatch/activitywatch/releases/download/v0.9.2/activitywatch-v0.9.2-windows-x86_64.zip
+        url: https://github.com/ActivityWatch/activitywatch/releases/download/v0.10.0/activitywatch-v0.10.0-windows-x86_64.zip
       - title: Chocolatey
         url: https://chocolatey.org/packages/activitywatch
 
   - name: Linux
     assets:
       - title: .zip
-        url: https://github.com/ActivityWatch/activitywatch/releases/download/v0.9.2/activitywatch-v0.9.2-linux-x86_64.zip
+        url: https://github.com/ActivityWatch/activitywatch/releases/download/v0.10.0/activitywatch-v0.10.0-linux-x86_64.zip
       - title: AUR
         description: ", for Arch Linux and Manjaro"
         url: https://aur.archlinux.org/packages/activitywatch-bin/
@@ -23,10 +23,10 @@ platforms:
     assets:
       - title: .dmg
         description: " (recommended)"
-        url: https://github.com/ActivityWatch/activitywatch/releases/download/v0.9.2/activitywatch-v0.9.2-macos-x86_64.dmg
+        url: https://github.com/ActivityWatch/activitywatch/releases/download/v0.10.0/activitywatch-v0.10.0-macos-x86_64.dmg
       - type: zip
         title: .zip
-        url: https://github.com/ActivityWatch/activitywatch/releases/download/v0.9.2/activitywatch-v0.9.2-macos-x86_64.zip
+        url: https://github.com/ActivityWatch/activitywatch/releases/download/v0.10.0/activitywatch-v0.10.0-macos-x86_64.zip
       - title: Homebrew
         url: https://formulae.brew.sh/cask/activitywatch
 
