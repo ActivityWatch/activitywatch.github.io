@@ -17,12 +17,12 @@ if __name__ == "__main__":
     data = r.json()
 
     # Filter away prereleases
-    data = filter(lambda r: r["prerelease"] == False, data)
+    data = filter(lambda r: not r["prerelease"] and not r["draft"], data)
 
     # Filter away very recent releases (<1h old)
     data = filter(lambda r: is_older(r["created_at"], timedelta(hours=1)), data)
 
-    data = sorted(data, key=lambda r: r["tag_name"])
+    data = sorted(data, key=lambda r: r["created_at"])
     latest_release = data[-1]["tag_name"]
     print(f"Latest release: {latest_release}")
 
