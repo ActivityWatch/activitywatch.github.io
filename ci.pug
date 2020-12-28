@@ -12,7 +12,6 @@ p
 | {% assign ghactions_modules = "activitywatch,aw-core,aw-server,aw-server-rust,aw-qt,aw-client,aw-client-js,aw-watcher-window,aw-watcher-afk,aw-watcher-web,aw-webui,activitywatch.github.io" | split: ',' %}
 | {% assign appveyor_modules = "activitywatch" | split: ',' %}
 | {% assign codeclimate_modules = "aw-core,aw-server,aw-client,aw-client-js,aw-qt,aw-watcher-afk,aw-watcher-window,aw-webui,aw-watcher-web" | split: ',' %}
-| {% assign landscape_modules = "aw-core,aw-server,aw-client,aw-client-js,aw-qt,aw-watcher-afk,aw-watcher-window" | split: ',' %}
 | {% assign codecov_modules = "aw-core,aw-server,aw-server-rust" | split: ',' %}
 
 h2 Pipelines
@@ -24,7 +23,6 @@ table(class="table dense")
     th Travis
     th Appveyor
     th Code Climate
-    th Landscape
     th Codecov
 
   | {% for module in modules %}
@@ -59,12 +57,6 @@ table(class="table dense")
       | {% if codeclimate_modules contains module %}
       a(href="https://codeclimate.com/github/ActivityWatch/{{module}}")
         img(src="https://codeclimate.com/github/ActivityWatch/{{module}}/badges/gpa.svg")
-      | {% endif %}
-
-    td
-      | {% if landscape_modules contains module %}
-      a(href="https://landscape.io/github/ActivityWatch/{{module}}/master")
-        img(src="https://landscape.io/github/ActivityWatch/{{module}}/master/landscape.svg?style=flat")
       | {% endif %}
 
     td
