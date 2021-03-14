@@ -62,7 +62,8 @@ div.container
         | Our users are diverse and we keep being surprised by what people use ActivityWatch for.
         | If you've built something cool that you've want to share with us, post about it on #[a(href="https://forum.activitywatch.net") the forum]!
 
-    .col-md-4
+    // Move the column to be the first one on small screens
+    .col-md-4.order-first.order-md-last
       h4 Screenshots
       a(href='/img/screenshot-v0.9.3-activity.png')
         figure(style='width: 100%; border: 1px #999 solid; border-radius: 2px')
