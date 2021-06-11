@@ -32,14 +32,14 @@ table(class="table dense")
 
     td
       | {% if ghactions_modules contains module %}
-      a(href="https://github.com/ActivityWatch/{{ module }}/actions")
+      a(href="https://github.com/ActivityWatch/{{ module }}/actions" target="_blank")
         img(src="https://github.com/ActivityWatch/{{ module }}/workflows/Build/badge.svg")
       | {% endif %}
 
     td
       | {% if travis_modules contains module %}
-      a(href="https://travis-ci.org/ActivityWatch/{{ module }}")
-        img(src="https://travis-ci.org/ActivityWatch/{{ module }}.svg?branch=master")
+      a(href="https://travis-ci.com/ActivityWatch/{{ module }}" target="_blank")
+        img(src="https://travis-ci.com/ActivityWatch/{{ module }}.svg?branch=master")
       | {% endif %}
 
     td
@@ -49,19 +49,19 @@ table(class="table dense")
       |   {% else if module == "activitywatch" %}
       |     {% assign appveyor_id = "vm7g9sdfi2vgix6n" %}
       |   {% endif %}
-      a(href="https://ci.appveyor.com/project/ErikBjare/{{module}}/branch/master")
+      a(href="https://ci.appveyor.com/project/ErikBjare/{{module}}/branch/master" target="_blank")
         img(src="https://ci.appveyor.com/api/projects/status/{{appveyor_id}}/branch/master?svg=true")
       | {% endif %}
 
     td
       | {% if codeclimate_modules contains module %}
-      a(href="https://codeclimate.com/github/ActivityWatch/{{module}}")
+      a(href="https://codeclimate.com/github/ActivityWatch/{{module}}" target="_blank")
         img(src="https://codeclimate.com/github/ActivityWatch/{{module}}/badges/gpa.svg")
       | {% endif %}
 
     td
       | {% if codecov_modules contains module %}
-      a(href="https://codecov.io/gh/ActivityWatch/{{module}}")
+      a(href="https://codecov.io/gh/ActivityWatch/{{module}}" target="_blank")
         img(src="https://codecov.io/gh/ActivityWatch/{{module}}/branch/master/graph/badge.svg")
       | {% endif %}
 
