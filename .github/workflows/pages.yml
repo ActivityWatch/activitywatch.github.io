@@ -7,7 +7,7 @@ on:
   push:
     branches:
       - '**'       # matches all branches
-      - '!master'  # excludes master
+      - '!gh-pages'  # excludes master
 
 jobs:
   build-and-deploy:
@@ -51,9 +51,9 @@ jobs:
       # See this for more info: https://github.community/t5/GitHub-Actions/Github-action-not-triggering-gh-pages-upon-push/td-p/26869/highlight/true/page/3
       - name: Deploy 🚀
         uses: JamesIves/github-pages-deploy-action@releases/v3
-        if: github.ref == 'refs/heads/develop'
+        if: github.ref == 'refs/heads/master'
         with:
-          BRANCH: master # The branch the action should deploy to.
+          BRANCH: gh-pages # The branch the action should deploy to.
           FOLDER: _site # The folder the action should deploy.
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           # ACCESS_TOKEN: ${{ secrets.ACCESS_TOKEN }}   # not defined
