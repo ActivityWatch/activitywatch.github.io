@@ -50,13 +50,13 @@ jobs:
       # Might not work due to GitHub being weird about not triggering site rebuilds from workflows.
       # See this for more info: https://github.community/t5/GitHub-Actions/Github-action-not-triggering-gh-pages-upon-push/td-p/26869/highlight/true/page/3
       - name: Deploy 🚀
-        uses: JamesIves/github-pages-deploy-action@releases/v3
+        uses: JamesIves/github-pages-deploy-action@4.1.8
         if: github.ref == 'refs/heads/master'
         with:
-          BRANCH: gh-pages # The branch the action should deploy to.
-          FOLDER: _site # The folder the action should deploy.
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          # ACCESS_TOKEN: ${{ secrets.ACCESS_TOKEN }}   # not defined
+          branch: gh-pages # The branch the action should deploy to.
+          folder: _site # The folder the action should deploy.
+          git-config-name: GitHub Actions
+          git-config-email: noreply@github.com
           
       # Needed to prevent GitHub from disabling the cronjob after 60 days of repo inactivity
       # https://dev.to/gautamkrishnar/how-to-prevent-github-from-suspending-your-cronjob-based-triggers-knf
