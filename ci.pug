@@ -10,7 +10,6 @@ p
 | {% assign modules = "activitywatch,aw-core,aw-server,aw-server-rust,aw-client,aw-client-js,aw-qt,aw-webui,aw-watcher-afk,aw-watcher-window,aw-watcher-web,aw-watcher-input,aw-android,activitywatch.github.io,docs" | split: ',' %}
 | {% assign travis_modules = "activitywatch,aw-android" | split: ',' %}
 | {% assign ghactions_modules = "activitywatch,aw-core,aw-server,aw-server-rust,aw-qt,aw-client,aw-client-js,aw-watcher-window,aw-watcher-afk,aw-watcher-web,aw-watcher-input,aw-webui,activitywatch.github.io,docs" | split: ',' %}
-| {% assign appveyor_modules = "activitywatch" | split: ',' %}
 | {% assign codeclimate_modules = "aw-core,aw-server,aw-client,aw-client-js,aw-qt,aw-watcher-afk,aw-watcher-window,aw-webui,aw-watcher-web" | split: ',' %}
 | {% assign codecov_modules = "aw-core,aw-server,aw-server-rust,aw-webui" | split: ',' %}
 
@@ -21,7 +20,6 @@ table(class="table dense")
     th Module
     th GitHub Actions
     th Travis
-    th Appveyor
     th Code Climate
     th Codecov
 
@@ -40,17 +38,6 @@ table(class="table dense")
       | {% if travis_modules contains module %}
       a(href="https://travis-ci.com/ActivityWatch/{{ module }}" target="_blank")
         img(src="https://travis-ci.com/ActivityWatch/{{ module }}.svg?branch=master")
-      | {% endif %}
-
-    td
-      | {% if appveyor_modules contains module %}
-      |   {% if module == "aw-core" %}
-      |     {% assign appveyor_id = "h5cvxoghh1wr4ycr" %}
-      |   {% else if module == "activitywatch" %}
-      |     {% assign appveyor_id = "vm7g9sdfi2vgix6n" %}
-      |   {% endif %}
-      a(href="https://ci.appveyor.com/project/ErikBjare/{{module}}/branch/master" target="_blank")
-        img(src="https://ci.appveyor.com/api/projects/status/{{appveyor_id}}/branch/master?svg=true")
       | {% endif %}
 
     td
