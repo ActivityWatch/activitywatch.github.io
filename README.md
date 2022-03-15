@@ -27,3 +27,7 @@ dest           | source
 /stats/        | stats.pug
 /contributors/ | contributors.html
 ```
+
+## Generated stats
+
+Stats are generated for downloads (using https://github.com/ActivityWatch/stats/) and contributor statistics (using https://github.com/ActivityWatch/contributor-stats).
