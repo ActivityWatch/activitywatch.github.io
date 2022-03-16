@@ -23,20 +23,20 @@ jobs:
         with:
           persist-credentials: false
 
-      - name: Setup Ruby
-        uses: actions/setup-ruby@v1
-        with:
-          ruby-version: ${{ matrix.ruby_version }}
-
       - name: Setup Python
         uses: actions/setup-python@v1
         with:
           python-version: ${{ matrix.python_version }}
 
-      - name: Create virtualenv
+      - name: Setup Ruby
+        uses: actions/setup-ruby@v1
+        with:
+          ruby-version: ${{ matrix.ruby_version }}
+
+      - name: Install poetry & create virtualenv
         shell: bash
         run: |
-          pip install virtualenv
+          pip install virtualenv poetry
           python -m virtualenv venv
 
       - name: Install dependencies
