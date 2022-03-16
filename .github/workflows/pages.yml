@@ -33,6 +33,12 @@ jobs:
         with:
           python-version: ${{ matrix.python_version }}
 
+      - name: Create virtualenv
+        shell: bash
+        run: |
+          pip install virtualenv
+          python -m virtualenv venv
+
       - name: Install dependencies
         run: |
           sudo npm install --global pug pug-cli jekyll-bliss
@@ -41,11 +47,13 @@ jobs:
 
       - name: Get latest releases
         run: |
+          source venv/bin/activate || source venv/Scripts/activate
           pip install requests
           make update-downloads
 
       - name: Build 🔧 # This example project is built using npm and outputs the result to the 'build' folder. Replace with the commands required to build your project, or remove this step entirely if your site is pre-built.
         run: |
+          source venv/bin/activate || source venv/Scripts/activate
           make build
 
       # Might not work due to GitHub being weird about not triggering site rebuilds from workflows.
