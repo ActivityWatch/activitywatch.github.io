@@ -1,0 +1,12 @@
+[Unit]
+Description=ActivityWatch
+Documentation=
+After=mongodb.service
+
+[Service]
+Type=simple
+ExecStart=/usr/bin/env aw-server
+Restart=always
+
+[Install]
+WantedBy=default.target

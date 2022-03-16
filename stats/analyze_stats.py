@@ -49,6 +49,10 @@ def main(column: str = None, save: str = None, since: datetime = None):
     df = df.interpolate(method="time")  # interpolate missing dates
 
     if column:
+        if column not in df:
+            raise Exception(
+                f"No such column '{column}', try one of: {list(df.columns)}"
+            )
         df = df[column]
 
     if since:

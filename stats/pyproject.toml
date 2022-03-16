@@ -5,11 +5,11 @@ description = ""
 authors = ["Erik Bjäreholt <erik@bjareho.lt>"]
 
 [tool.poetry.dependencies]
-python = "^3.7"
-requests = "^2.23.0"
-pandas = "^1.0.3"
-matplotlib = "^3.2.1"
-click = "^7.1.1"
+python = "^3.10"
+requests = "*"
+pandas = "*"
+matplotlib = "*"
+click = "*"
 
 [tool.poetry.dev-dependencies]
 
