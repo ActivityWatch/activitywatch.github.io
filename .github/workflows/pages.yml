@@ -29,9 +29,10 @@ jobs:
           python-version: ${{ matrix.python_version }}
 
       - name: Setup Ruby
-        uses: actions/setup-ruby@v1
+        uses: ruby/setup-ruby@v1
         with:
           ruby-version: ${{ matrix.ruby_version }}
+          bundler-cache: true
 
       - name: Install poetry & create virtualenv
         shell: bash
@@ -41,8 +42,7 @@ jobs:
 
       - name: Install dependencies
         run: |
-          sudo npm install --global pug pug-cli jekyll-bliss
-          gem update --system
+          sudo npm install --global pug pug-cli
           make install-deps
 
       - name: Get latest releases

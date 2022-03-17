@@ -2,10 +2,10 @@
 
 build: assets
 	# compass compile
-	bundle exec bliss build
+	bundle exec jekyll build
 
 dev: assets
-	bundle exec bliss serve
+	bundle exec jekyll serve
 
 assets: _includes/tables img/stats img/*.png
 
@@ -13,8 +13,8 @@ update-downloads:
 	python3 scripts/update-downloads.py
 
 install-deps:
-	-sudo npm install -g jekyll-bliss
-	bundle config set path 'vendor/bundle'
+	# This shouldn't be set in CI, but it's maybe (?) useful for local development
+	#bundle config set path 'vendor/bundle'
 	bundle install
 
 precommit:

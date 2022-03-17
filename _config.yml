@@ -20,6 +20,9 @@ sass:
 
 plugins:
  - jekyll-last-modified-at
+ - jekyll-redirect-from
+ - jekyll-pug
+ - jekyll-feed
 
 jekyll-bliss:
   build-folder: _build
