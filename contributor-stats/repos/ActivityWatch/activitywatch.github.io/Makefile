@@ -3,6 +3,7 @@
 build: assets
 	# compass compile
 	bundle exec bliss build
+	touch .nojekyll
 
 dev: assets
 	bundle exec bliss serve
