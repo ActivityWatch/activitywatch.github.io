@@ -4,6 +4,7 @@ _site
 .bundle
 vendor
 _build
+venv
 
 stats
 img/stats
