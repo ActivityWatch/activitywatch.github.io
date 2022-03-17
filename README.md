@@ -7,15 +7,15 @@ Official ActivityWatch site
 
 ## Building
 
-Run `make install-deps` to install dependencies (like jekyll-bliss and jekyll).
+Run `make install-deps` to install dependencies (like jekyll).
 
 Run `make dev` to build assets and start development server.
 
 ## Editing
 
-We use [jekyll-bliss](https://jekyll-pug.dougie.io/) to build the site. It uses Jekyll under the hood.
+We use [jekyll](https://jekyllrb.com/) to build the site.
 
-Pages are written either as `.html` or `.pug` files.
+Pages are written either as `.html` or `.pug` files (using `jekyll-pug`).
 
 For example:
 
