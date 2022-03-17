@@ -9,9 +9,6 @@ dev: assets
 
 assets: _includes/tables img/stats img/*.png
 
-push-github:
-	./scripts/push-build.sh
-
 update-downloads:
 	python3 scripts/update-downloads.py
 

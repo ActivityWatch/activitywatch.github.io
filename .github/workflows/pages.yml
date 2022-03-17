@@ -55,6 +55,7 @@ jobs:
         run: |
           source venv/bin/activate || source venv/Scripts/activate
           make build
+          touch _site/.nojekyll
 
       # Might not work due to GitHub being weird about not triggering site rebuilds from workflows.
       # See this for more info: https://github.community/t5/GitHub-Actions/Github-action-not-triggering-gh-pages-upon-push/td-p/26869/highlight/true/page/3
