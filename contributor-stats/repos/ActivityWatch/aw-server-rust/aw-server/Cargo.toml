@@ -1,0 +1,45 @@
+[package]
+name = "aw-server"
+version = "0.12.0"
+authors = ["Johan Bjäreholt <johan@bjareho.lt>", "Erik Bjäreholt <erik@bjareho.lt>"]
+edition = "2021"
+
+[lib]
+name = "aw_server"
+crate-type = ["lib", "cdylib"]
+path = "src/lib.rs"
+
+[[bin]]
+name = "aw-server"
+path = "src/main.rs"
+
+[dependencies]
+rocket = { version = "0.5.0-rc.1", features = ["json"] }
+# TODO: Once rocket_cors has a version for rocket 0.5, use that instead
+rocket_cors = { git = "https://github.com/lawliet89/rocket_cors", rev = "a062933" }
+multipart = { version = "0.18", default-features = false, features = ["server"] }
+serde = { version = "1.0", features = ["derive"] }
+serde_json = "1.0"
+chrono = { version = "0.4", features = ["serde"] }
+appdirs = "0.2.0"
+lazy_static = "1.2"
+log = "0.4"
+fern = { version = "0.6", features = ["colored"] }
+toml = "0.5"
+gethostname = "0.2"
+uuid = { version = "0.8", features = ["serde", "v4"] }
+clap = { version = "3.1", features = ["derive"] }
+
+aw-datastore = { path = "../aw-datastore" }
+aw-models = { path = "../aw-models" }
+aw-transform = { path = "../aw-transform" }
+aw-query = { path = "../aw-query" }
+
+[target.'cfg(all(target_os="linux", target_arch="x86"))'.dependencies]
+jemallocator = "0.3.2"
+
+[target.'cfg(target_os="android")'.dependencies]
+jni = { version = "0.19", default-features = false }
+libc = "0.2"
+android_logger = "0.10"
+openssl-sys = { version = "0.9.58", features = ["vendored"]}

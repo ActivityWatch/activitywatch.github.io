@@ -1,0 +1,10 @@
+[workspace]
+members = [
+    "aw-client-rust",
+    "aw-datastore",
+    "aw-models",
+    "aw-transform",
+    "aw-server",
+    "aw-sync",
+    "aw-query",
+]

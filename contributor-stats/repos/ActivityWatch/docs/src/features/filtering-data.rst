@@ -1,0 +1,21 @@
+Filtering data
+==============
+
+.. note::
+    This is a planned feature.
+
+ActivityWatch was born out of a frustration with the privacy issues of existing life logging solutions.
+We feel that it's important that some things that are exceptionally sensitive shouldn't be logged at all.
+This way the cost of data breach is bounded, and the barrier to sharing your own data will hopefully become smaller.
+
+This is expected to be almost impossible to perfect since what someone considers exceptionally sensitive might
+not be for someone else (due to e.g. culture and law). But the basics are easy to get right (such as not logging
+private browser tabs).
+
+For the ones who believe they can adequately protect their data, they should be offered the option to disable the filter.
+
+While we figure out how to best implement this feature, here are some options:
+
+- Manually `pausing logging <./pausing-logging.html>`_.
+- Redacting sensitive events from the database using the ``redact_sensitive.py`` example in :gh-aw:`aw-client` (https://github.com/ActivityWatch/aw-client/tree/master/examples).
+- Open the sqlite database, search and delete the events manually.
