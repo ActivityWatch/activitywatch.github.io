@@ -14,6 +14,7 @@ markdown: kramdown
 exclude:
  - contributor-stats/
  - vendor
+ - venv
 
 sass:
     sass_dir: _sass
