@@ -12,6 +12,7 @@ github_username:  ActivityWatch
 markdown: kramdown
 
 exclude:
+ - stats/
  - contributor-stats/
  - vendor
  - venv
