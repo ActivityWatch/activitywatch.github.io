@@ -4,7 +4,7 @@ build: assets
 	# compass compile
 	bundle exec jekyll build
 
-dev: assets
+dev:
 	bundle exec jekyll serve
 
 assets: _includes/tables img/stats img/*.png

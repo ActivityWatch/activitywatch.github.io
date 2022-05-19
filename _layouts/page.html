@@ -8,9 +8,22 @@ layout: default
       <h1 class="post-title">{{ page.title }}</h1>
     </header>
 
-    <div class="post-content">
-      {{ content }}
-    </div>
+    {% capture processed_content %}
+      {% include anchor_headings.html html=content generateId=true %}
+    {% endcapture %}
 
+    <div class="post-content">
+      <p>
+        {{ page.excerpt }}
+      </p>
+
+      {% if page.toc %}
+      <div style="font-size: 0.8em; background-color: #f9faff; padding: 0.5em; display: table; border: 1px solid #d7dfe3;">
+        <b style="display: inline-block; margin-bottom: 0.5em">Contents</b>
+        {% include toc.html html=processed_content %}
+      </div>
+      {% endif %}
+      {{ processed_content | remove_first:page.excerpt }}
+    </div>
   </article>
 </div>

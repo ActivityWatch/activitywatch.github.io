@@ -1,23 +1,19 @@
 ---
-layout: default
+layout: page
 title: Statistics
 permalink: /stats/
 ---
 
-article.container
-  header
-    h1 Statistics
+// Bullshit to get the page to render: https://github.com/DougBeney/jekyll-pug/issues/19#issuecomment-1131441149
+| {% if 1 %}{% endif %}
 
+h2 Downloads
+p
+  | Here you can see some download statistics, updated every 24h.
+img(src="/img/stats/downloads.png" width="100%")
 
-  h2 Downloads
+hr
 
-  p
-    | Here you can see some download statistics, updated every 24h.
-
-  img(src="/img/stats/downloads.png")
-
-
-  h2 Stargazers over time
-
-  a(href="https://starchart.cc/ActivityWatch/activitywatch")
-    img(title="Stargazers over time" src="https://starchart.cc/ActivityWatch/activitywatch.svg")
+h2 Stargazers over time
+a(href="https://starchart.cc/ActivityWatch/activitywatch")
+  img(title="Stargazers over time" src="https://starchart.cc/ActivityWatch/activitywatch.svg" width="100%")
