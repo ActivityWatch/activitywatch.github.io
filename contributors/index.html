@@ -109,7 +109,7 @@
             <li class="nav-item"><a class="nav-link mr-1 font-weight-bold" style="color: teal;" href="https://forum.activitywatch.net/"><i class="fa fa-comments mr-2"></i>Forum</a></li>
             <li class="nav-item"><a class="nav-link font-weight-bold" style="color: #EE9900;" href="/donate/"><i class="fa fa-handshake-o mr-2"></i>Donate</a></li>
             <li class="nav-item dropdown"><a class="nav-link dropdown-toggle font-weight-bold" id="navbarDropdown" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fa fa-bolt mr-2"></i>Stats</a>
-              <div class="dropdown-menu" aria-labelledby="navbarDropdown"><a class="dropdown-item text-secondary font-weight-bold" href="/stats/"><i class="fa fa-download mr-2"></i>Downloads</a><a class="dropdown-item text-secondary font-weight-bold" href="/contributors/"><i class="fa fa-users mr-2"></i>Contributors</a><a class="dropdown-item text-secondary font-weight-bold" href="/ci/"><i class="fa fa-cogs mr-2"></i>Continuous Integration</a>
+              <div class="dropdown-menu" aria-labelledby="navbarDropdown"><a class="dropdown-item text-secondary font-weight-bold" href="/stats/"><i class="fa fa-download mr-2"></i>Downloads & Users</a><a class="dropdown-item text-secondary font-weight-bold" href="/contributors/"><i class="fa fa-users mr-2"></i>Contributors</a><a class="dropdown-item text-secondary font-weight-bold" href="/ci/"><i class="fa fa-cogs mr-2"></i>Continuous Integration</a>
                 <!--div class="dropdown-divider"></div-->
               </div>
             </li>
@@ -137,12 +137,18 @@
       
       
       <p>
-  Here you can see some statistics of all our hard working contributors. The list is updated every 24 hours.
+  Here you can see some statistics of all our hard working contributors.
 </p>
 
 <p>
   <a href="https://github.com/ActivityWatch/activitywatch/blob/master/CONTRIBUTING.md">Contribute yourself</a> to get your name on this page!
 </p>
+
+<p>
+  The list is updated every 24 hours.
+</p>
+
+<br>
       <h3  id="visualization">
         
         
@@ -155,6 +161,12 @@
     Here we have a have a visualization of development history:
 </p>
 <iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/zjIn43lZq3U" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+<p>
+  The script used to generate the video can be found <a href="https://github.com/ActivityWatch/contributor-stats/tree/master/video">here</a>.
+</p>
+
+<br>
       <h3  id="tables" id="tables">
         
         
@@ -164,6 +176,15 @@
       </h3>
     
 <p>
+  Here we have tables of contribution statistics, both for across all repos and for each individual repo.
+  The statistics are generated using the <a href="https://github.com/ActivityWatch/contributor-stats">contributor-stats</a> repository.
+</p>
+
+<p>
+  GitGitLog also provides a view of the stats <a href="https://gitgitlog.com/ActivityWatch">here</a>.
+</p>
+
+<p>
   <small>
     <b>Note:</b>
     <i>
@@ -172,65 +193,59 @@
   </small>
 </p>
 
-<p>
-  GitGitLog also provides a view of the stats <a href="https://gitgitlog.com/ActivityWatch">here</a>.
-</p>
-
 
 
 <b>Table of contents</b>
 <ul>
   
-    <li><a href="#total">total</a>
+  <li><a href="#total">total</a></li>
   
-    <li><a href="#aw-core">aw-core</a>
+  <li><a href="#aw-core">aw-core</a></li>
   
-    <li><a href="#aw-server">aw-server</a>
+  <li><a href="#aw-server">aw-server</a></li>
   
-    <li><a href="#aw-server-rust">aw-server-rust</a>
+  <li><a href="#aw-server-rust">aw-server-rust</a></li>
   
-    <li><a href="#aw-webui">aw-webui</a>
+  <li><a href="#aw-webui">aw-webui</a></li>
   
-    <li><a href="#aw-qt">aw-qt</a>
+  <li><a href="#aw-qt">aw-qt</a></li>
   
-    <li><a href="#aw-android">aw-android</a>
+  <li><a href="#aw-android">aw-android</a></li>
   
-    <li><a href="#aw-client">aw-client</a>
+  <li><a href="#aw-client">aw-client</a></li>
   
-    <li><a href="#aw-client-js">aw-client-js</a>
+  <li><a href="#aw-client-js">aw-client-js</a></li>
   
-    <li><a href="#aw-client-rust">aw-client-rust</a>
+  <li><a href="#aw-client-rust">aw-client-rust</a></li>
   
-    <li><a href="#aw-watcher-window">aw-watcher-window</a>
+  <li><a href="#aw-watcher-window">aw-watcher-window</a></li>
   
-    <li><a href="#aw-watcher-afk">aw-watcher-afk</a>
+  <li><a href="#aw-watcher-afk">aw-watcher-afk</a></li>
   
-    <li><a href="#aw-watcher-web">aw-watcher-web</a>
+  <li><a href="#aw-watcher-web">aw-watcher-web</a></li>
   
-    <li><a href="#aw-watcher-vim">aw-watcher-vim</a>
+  <li><a href="#aw-watcher-vim">aw-watcher-vim</a></li>
   
-    <li><a href="#aw-watcher-vscode">aw-watcher-vscode</a>
+  <li><a href="#aw-watcher-vscode">aw-watcher-vscode</a></li>
   
-    <li><a href="#docs">docs</a>
+  <li><a href="#docs">docs</a></li>
   
-    <li><a href="#activitywatch.github.io">activitywatch.github.io</a>
+  <li><a href="#activitywatch.github.io">activitywatch.github.io</a></li>
   
-    <li><a href="#activitywatch">activitywatch</a>
+  <li><a href="#activitywatch">activitywatch</a></li>
   
 </ul>
 
 <div class="contributor-stats">
-  
-    <a >
-      <h3 id=total  id="total" id="total" id="total">
+      <h4 id=total  id="total" id="total" id="total">
         
         
           total <a href="#total"></a>
         
         
-      </h3>
+      </h4>
     
-    </a>
+    
 
     
     <table class="table table-sm">
@@ -243,10 +258,10 @@
     </tr>
     <tr>
         <td>Erik Bjäreholt</td>
-        <td>609</td>
-        <td>3756</td>
-        <td>283137</td>
-        <td>193611</td>
+        <td>610</td>
+        <td>3757</td>
+        <td>283207</td>
+        <td>193624</td>
     </tr>
     <tr>
         <td>Johan Bjäreholt</td>
@@ -1111,17 +1126,23 @@
     </tr>
 </table>
 
+
+    
   
-    <a  href="https://github.com/activitywatch/aw-core" >
-      <h3 id=aw-core  id="aw-core" id="aw-core" id="aw-core" id="aw-core">
+    
+    <details>
+      <summary>
+      <h4 id=aw-core  id="aw-core" id="aw-core" id="aw-core" id="aw-core">
         
         
           aw-core <a href="#aw-core"></a>
         
         
-      </h3>
+      </h4>
     
-    </a>
+    
+      </summary>
+    
 
     
     <table class="table table-sm">
@@ -1190,17 +1211,28 @@
     </tr>
 </table>
 
+
+    
+      <div class="small px-2 pb-2" >
+        You can also see these stats <a href="https://github.com/activitywatch/aw-core/graphs/contributors">on GitHub</a>.
+      </div>
+    </details>
+    
   
-    <a  href="https://github.com/activitywatch/aw-server" >
-      <h3 id=aw-server  id="aw-server" id="aw-server" id="aw-server" id="aw-server" id="aw-server">
+    
+    <details>
+      <summary>
+      <h4 id=aw-server  id="aw-server" id="aw-server" id="aw-server" id="aw-server" id="aw-server">
         
         
           aw-server <a href="#aw-server"></a>
         
         
-      </h3>
+      </h4>
     
-    </a>
+    
+      </summary>
+    
 
     
     <table class="table table-sm">
@@ -1297,17 +1329,28 @@
     </tr>
 </table>
 
+
+    
+      <div class="small px-2 pb-2" >
+        You can also see these stats <a href="https://github.com/activitywatch/aw-server/graphs/contributors">on GitHub</a>.
+      </div>
+    </details>
+    
   
-    <a  href="https://github.com/activitywatch/aw-server-rust" >
-      <h3 id=aw-server-rust  id="aw-server-rust" id="aw-server-rust" id="aw-server-rust" id="aw-server-rust" id="aw-server-rust" id="aw-server-rust">
+    
+    <details>
+      <summary>
+      <h4 id=aw-server-rust  id="aw-server-rust" id="aw-server-rust" id="aw-server-rust" id="aw-server-rust" id="aw-server-rust" id="aw-server-rust">
         
         
           aw-server-rust <a href="#aw-server-rust"></a>
         
         
-      </h3>
+      </h4>
     
-    </a>
+    
+      </summary>
+    
 
     
     <table class="table table-sm">
@@ -1383,17 +1426,28 @@
     </tr>
 </table>
 
+
+    
+      <div class="small px-2 pb-2" >
+        You can also see these stats <a href="https://github.com/activitywatch/aw-server-rust/graphs/contributors">on GitHub</a>.
+      </div>
+    </details>
+    
   
-    <a  href="https://github.com/activitywatch/aw-webui" >
-      <h3 id=aw-webui  id="aw-webui" id="aw-webui" id="aw-webui" id="aw-webui" id="aw-webui" id="aw-webui" id="aw-webui">
+    
+    <details>
+      <summary>
+      <h4 id=aw-webui  id="aw-webui" id="aw-webui" id="aw-webui" id="aw-webui" id="aw-webui" id="aw-webui" id="aw-webui">
         
         
           aw-webui <a href="#aw-webui"></a>
         
         
-      </h3>
+      </h4>
     
-    </a>
+    
+      </summary>
+    
 
     
     <table class="table table-sm">
@@ -1679,17 +1733,28 @@
     </tr>
 </table>
 
+
+    
+      <div class="small px-2 pb-2" >
+        You can also see these stats <a href="https://github.com/activitywatch/aw-webui/graphs/contributors">on GitHub</a>.
+      </div>
+    </details>
+    
   
-    <a  href="https://github.com/activitywatch/aw-qt" >
-      <h3 id=aw-qt  id="aw-qt" id="aw-qt" id="aw-qt" id="aw-qt" id="aw-qt" id="aw-qt" id="aw-qt" id="aw-qt">
+    
+    <details>
+      <summary>
+      <h4 id=aw-qt  id="aw-qt" id="aw-qt" id="aw-qt" id="aw-qt" id="aw-qt" id="aw-qt" id="aw-qt" id="aw-qt">
         
         
           aw-qt <a href="#aw-qt"></a>
         
         
-      </h3>
+      </h4>
     
-    </a>
+    
+      </summary>
+    
 
     
     <table class="table table-sm">
@@ -1758,17 +1823,28 @@
     </tr>
 </table>
 
+
+    
+      <div class="small px-2 pb-2" >
+        You can also see these stats <a href="https://github.com/activitywatch/aw-qt/graphs/contributors">on GitHub</a>.
+      </div>
+    </details>
+    
   
-    <a  href="https://github.com/activitywatch/aw-android" >
-      <h3 id=aw-android  id="aw-android" id="aw-android" id="aw-android" id="aw-android" id="aw-android" id="aw-android" id="aw-android" id="aw-android" id="aw-android">
+    
+    <details>
+      <summary>
+      <h4 id=aw-android  id="aw-android" id="aw-android" id="aw-android" id="aw-android" id="aw-android" id="aw-android" id="aw-android" id="aw-android" id="aw-android">
         
         
           aw-android <a href="#aw-android"></a>
         
         
-      </h3>
+      </h4>
     
-    </a>
+    
+      </summary>
+    
 
     
     <table class="table table-sm">
@@ -1809,17 +1885,28 @@
     </tr>
 </table>
 
+
+    
+      <div class="small px-2 pb-2" >
+        You can also see these stats <a href="https://github.com/activitywatch/aw-android/graphs/contributors">on GitHub</a>.
+      </div>
+    </details>
+    
   
-    <a  href="https://github.com/activitywatch/aw-client" >
-      <h3 id=aw-client  id="aw-client" id="aw-client" id="aw-client" id="aw-client" id="aw-client" id="aw-client" id="aw-client" id="aw-client" id="aw-client" id="aw-client">
+    
+    <details>
+      <summary>
+      <h4 id=aw-client  id="aw-client" id="aw-client" id="aw-client" id="aw-client" id="aw-client" id="aw-client" id="aw-client" id="aw-client" id="aw-client" id="aw-client">
         
         
           aw-client <a href="#aw-client"></a>
         
         
-      </h3>
+      </h4>
     
-    </a>
+    
+      </summary>
+    
 
     
     <table class="table table-sm">
@@ -1895,17 +1982,28 @@
     </tr>
 </table>
 
+
+    
+      <div class="small px-2 pb-2" >
+        You can also see these stats <a href="https://github.com/activitywatch/aw-client/graphs/contributors">on GitHub</a>.
+      </div>
+    </details>
+    
   
-    <a  href="https://github.com/activitywatch/aw-client-js" >
-      <h3 id=aw-client-js  id="aw-client-js" id="aw-client-js" id="aw-client-js" id="aw-client-js" id="aw-client-js" id="aw-client-js" id="aw-client-js" id="aw-client-js" id="aw-client-js" id="aw-client-js" id="aw-client-js">
+    
+    <details>
+      <summary>
+      <h4 id=aw-client-js  id="aw-client-js" id="aw-client-js" id="aw-client-js" id="aw-client-js" id="aw-client-js" id="aw-client-js" id="aw-client-js" id="aw-client-js" id="aw-client-js" id="aw-client-js" id="aw-client-js">
         
         
           aw-client-js <a href="#aw-client-js"></a>
         
         
-      </h3>
+      </h4>
     
-    </a>
+    
+      </summary>
+    
 
     
     <table class="table table-sm">
@@ -1960,17 +2058,28 @@
     </tr>
 </table>
 
+
+    
+      <div class="small px-2 pb-2" >
+        You can also see these stats <a href="https://github.com/activitywatch/aw-client-js/graphs/contributors">on GitHub</a>.
+      </div>
+    </details>
+    
   
-    <a  href="https://github.com/activitywatch/aw-client-rust" >
-      <h3 id=aw-client-rust  id="aw-client-rust" id="aw-client-rust" id="aw-client-rust" id="aw-client-rust" id="aw-client-rust" id="aw-client-rust" id="aw-client-rust" id="aw-client-rust" id="aw-client-rust" id="aw-client-rust" id="aw-client-rust" id="aw-client-rust">
+    
+    <details>
+      <summary>
+      <h4 id=aw-client-rust  id="aw-client-rust" id="aw-client-rust" id="aw-client-rust" id="aw-client-rust" id="aw-client-rust" id="aw-client-rust" id="aw-client-rust" id="aw-client-rust" id="aw-client-rust" id="aw-client-rust" id="aw-client-rust" id="aw-client-rust">
         
         
           aw-client-rust <a href="#aw-client-rust"></a>
         
         
-      </h3>
+      </h4>
     
-    </a>
+    
+      </summary>
+    
 
     
     <table class="table table-sm">
@@ -1997,17 +2106,28 @@
     </tr>
 </table>
 
+
+    
+      <div class="small px-2 pb-2" >
+        You can also see these stats <a href="https://github.com/activitywatch/aw-client-rust/graphs/contributors">on GitHub</a>.
+      </div>
+    </details>
+    
   
-    <a  href="https://github.com/activitywatch/aw-watcher-window" >
-      <h3 id=aw-watcher-window  id="aw-watcher-window" id="aw-watcher-window" id="aw-watcher-window" id="aw-watcher-window" id="aw-watcher-window" id="aw-watcher-window" id="aw-watcher-window" id="aw-watcher-window" id="aw-watcher-window" id="aw-watcher-window" id="aw-watcher-window" id="aw-watcher-window" id="aw-watcher-window">
+    
+    <details>
+      <summary>
+      <h4 id=aw-watcher-window  id="aw-watcher-window" id="aw-watcher-window" id="aw-watcher-window" id="aw-watcher-window" id="aw-watcher-window" id="aw-watcher-window" id="aw-watcher-window" id="aw-watcher-window" id="aw-watcher-window" id="aw-watcher-window" id="aw-watcher-window" id="aw-watcher-window" id="aw-watcher-window">
         
         
           aw-watcher-window <a href="#aw-watcher-window"></a>
         
         
-      </h3>
+      </h4>
     
-    </a>
+    
+      </summary>
+    
 
     
     <table class="table table-sm">
@@ -2076,17 +2196,28 @@
     </tr>
 </table>
 
+
+    
+      <div class="small px-2 pb-2" >
+        You can also see these stats <a href="https://github.com/activitywatch/aw-watcher-window/graphs/contributors">on GitHub</a>.
+      </div>
+    </details>
+    
   
-    <a  href="https://github.com/activitywatch/aw-watcher-afk" >
-      <h3 id=aw-watcher-afk  id="aw-watcher-afk" id="aw-watcher-afk" id="aw-watcher-afk" id="aw-watcher-afk" id="aw-watcher-afk" id="aw-watcher-afk" id="aw-watcher-afk" id="aw-watcher-afk" id="aw-watcher-afk" id="aw-watcher-afk" id="aw-watcher-afk" id="aw-watcher-afk" id="aw-watcher-afk" id="aw-watcher-afk">
+    
+    <details>
+      <summary>
+      <h4 id=aw-watcher-afk  id="aw-watcher-afk" id="aw-watcher-afk" id="aw-watcher-afk" id="aw-watcher-afk" id="aw-watcher-afk" id="aw-watcher-afk" id="aw-watcher-afk" id="aw-watcher-afk" id="aw-watcher-afk" id="aw-watcher-afk" id="aw-watcher-afk" id="aw-watcher-afk" id="aw-watcher-afk" id="aw-watcher-afk">
         
         
           aw-watcher-afk <a href="#aw-watcher-afk"></a>
         
         
-      </h3>
+      </h4>
     
-    </a>
+    
+      </summary>
+    
 
     
     <table class="table table-sm">
@@ -2148,17 +2279,28 @@
     </tr>
 </table>
 
+
+    
+      <div class="small px-2 pb-2" >
+        You can also see these stats <a href="https://github.com/activitywatch/aw-watcher-afk/graphs/contributors">on GitHub</a>.
+      </div>
+    </details>
+    
   
-    <a  href="https://github.com/activitywatch/aw-watcher-web" >
-      <h3 id=aw-watcher-web  id="aw-watcher-web" id="aw-watcher-web" id="aw-watcher-web" id="aw-watcher-web" id="aw-watcher-web" id="aw-watcher-web" id="aw-watcher-web" id="aw-watcher-web" id="aw-watcher-web" id="aw-watcher-web" id="aw-watcher-web" id="aw-watcher-web" id="aw-watcher-web" id="aw-watcher-web" id="aw-watcher-web">
+    
+    <details>
+      <summary>
+      <h4 id=aw-watcher-web  id="aw-watcher-web" id="aw-watcher-web" id="aw-watcher-web" id="aw-watcher-web" id="aw-watcher-web" id="aw-watcher-web" id="aw-watcher-web" id="aw-watcher-web" id="aw-watcher-web" id="aw-watcher-web" id="aw-watcher-web" id="aw-watcher-web" id="aw-watcher-web" id="aw-watcher-web" id="aw-watcher-web">
         
         
           aw-watcher-web <a href="#aw-watcher-web"></a>
         
         
-      </h3>
+      </h4>
     
-    </a>
+    
+      </summary>
+    
 
     
     <table class="table table-sm">
@@ -2227,17 +2369,28 @@
     </tr>
 </table>
 
+
+    
+      <div class="small px-2 pb-2" >
+        You can also see these stats <a href="https://github.com/activitywatch/aw-watcher-web/graphs/contributors">on GitHub</a>.
+      </div>
+    </details>
+    
   
-    <a  href="https://github.com/activitywatch/aw-watcher-vim" >
-      <h3 id=aw-watcher-vim  id="aw-watcher-vim" id="aw-watcher-vim" id="aw-watcher-vim" id="aw-watcher-vim" id="aw-watcher-vim" id="aw-watcher-vim" id="aw-watcher-vim" id="aw-watcher-vim" id="aw-watcher-vim" id="aw-watcher-vim" id="aw-watcher-vim" id="aw-watcher-vim" id="aw-watcher-vim" id="aw-watcher-vim" id="aw-watcher-vim" id="aw-watcher-vim">
+    
+    <details>
+      <summary>
+      <h4 id=aw-watcher-vim  id="aw-watcher-vim" id="aw-watcher-vim" id="aw-watcher-vim" id="aw-watcher-vim" id="aw-watcher-vim" id="aw-watcher-vim" id="aw-watcher-vim" id="aw-watcher-vim" id="aw-watcher-vim" id="aw-watcher-vim" id="aw-watcher-vim" id="aw-watcher-vim" id="aw-watcher-vim" id="aw-watcher-vim" id="aw-watcher-vim" id="aw-watcher-vim">
         
         
           aw-watcher-vim <a href="#aw-watcher-vim"></a>
         
         
-      </h3>
+      </h4>
     
-    </a>
+    
+      </summary>
+    
 
     
     <table class="table table-sm">
@@ -2306,17 +2459,28 @@
     </tr>
 </table>
 
+
+    
+      <div class="small px-2 pb-2" >
+        You can also see these stats <a href="https://github.com/activitywatch/aw-watcher-vim/graphs/contributors">on GitHub</a>.
+      </div>
+    </details>
+    
   
-    <a  href="https://github.com/activitywatch/aw-watcher-vscode" >
-      <h3 id=aw-watcher-vscode  id="aw-watcher-vscode" id="aw-watcher-vscode" id="aw-watcher-vscode" id="aw-watcher-vscode" id="aw-watcher-vscode" id="aw-watcher-vscode" id="aw-watcher-vscode" id="aw-watcher-vscode" id="aw-watcher-vscode" id="aw-watcher-vscode" id="aw-watcher-vscode" id="aw-watcher-vscode" id="aw-watcher-vscode" id="aw-watcher-vscode" id="aw-watcher-vscode" id="aw-watcher-vscode" id="aw-watcher-vscode">
+    
+    <details>
+      <summary>
+      <h4 id=aw-watcher-vscode  id="aw-watcher-vscode" id="aw-watcher-vscode" id="aw-watcher-vscode" id="aw-watcher-vscode" id="aw-watcher-vscode" id="aw-watcher-vscode" id="aw-watcher-vscode" id="aw-watcher-vscode" id="aw-watcher-vscode" id="aw-watcher-vscode" id="aw-watcher-vscode" id="aw-watcher-vscode" id="aw-watcher-vscode" id="aw-watcher-vscode" id="aw-watcher-vscode" id="aw-watcher-vscode" id="aw-watcher-vscode">
         
         
           aw-watcher-vscode <a href="#aw-watcher-vscode"></a>
         
         
-      </h3>
+      </h4>
     
-    </a>
+    
+      </summary>
+    
 
     
     <table class="table table-sm">
@@ -2378,17 +2542,28 @@
     </tr>
 </table>
 
+
+    
+      <div class="small px-2 pb-2" >
+        You can also see these stats <a href="https://github.com/activitywatch/aw-watcher-vscode/graphs/contributors">on GitHub</a>.
+      </div>
+    </details>
+    
   
-    <a  href="https://github.com/activitywatch/docs" >
-      <h3 id=docs  id="docs" id="docs" id="docs" id="docs" id="docs" id="docs" id="docs" id="docs" id="docs" id="docs" id="docs" id="docs" id="docs" id="docs" id="docs" id="docs" id="docs" id="docs">
+    
+    <details>
+      <summary>
+      <h4 id=docs  id="docs" id="docs" id="docs" id="docs" id="docs" id="docs" id="docs" id="docs" id="docs" id="docs" id="docs" id="docs" id="docs" id="docs" id="docs" id="docs" id="docs" id="docs">
         
         
           docs <a href="#docs"></a>
         
         
-      </h3>
+      </h4>
     
-    </a>
+    
+      </summary>
+    
 
     
     <table class="table table-sm">
@@ -2709,17 +2884,28 @@
     </tr>
 </table>
 
+
+    
+      <div class="small px-2 pb-2" >
+        You can also see these stats <a href="https://github.com/activitywatch/docs/graphs/contributors">on GitHub</a>.
+      </div>
+    </details>
+    
   
-    <a  href="https://github.com/activitywatch/activitywatch.github.io" >
-      <h3 id=activitywatch.github.io  id="activitywatch-github-io" id="activitywatch-github-io" id="activitywatch-github-io" id="activitywatch-github-io" id="activitywatch-github-io" id="activitywatch-github-io" id="activitywatch-github-io" id="activitywatch-github-io" id="activitywatch-github-io" id="activitywatch-github-io" id="activitywatch-github-io" id="activitywatch-github-io" id="activitywatch-github-io" id="activitywatch-github-io" id="activitywatch-github-io" id="activitywatch-github-io" id="activitywatch-github-io" id="activitywatch-github-io" id="activitywatch-github-io">
+    
+    <details>
+      <summary>
+      <h4 id=activitywatch.github.io  id="activitywatch-github-io" id="activitywatch-github-io" id="activitywatch-github-io" id="activitywatch-github-io" id="activitywatch-github-io" id="activitywatch-github-io" id="activitywatch-github-io" id="activitywatch-github-io" id="activitywatch-github-io" id="activitywatch-github-io" id="activitywatch-github-io" id="activitywatch-github-io" id="activitywatch-github-io" id="activitywatch-github-io" id="activitywatch-github-io" id="activitywatch-github-io" id="activitywatch-github-io" id="activitywatch-github-io" id="activitywatch-github-io">
         
         
           activitywatch.github.io <a href="#activitywatch-github-io"></a>
         
         
-      </h3>
+      </h4>
     
-    </a>
+    
+      </summary>
+    
 
     
     <table class="table table-sm">
@@ -2732,10 +2918,10 @@
     </tr>
     <tr>
         <td>Erik Bjäreholt</td>
-        <td>70</td>
-        <td>147</td>
-        <td>3836</td>
-        <td>1462</td>
+        <td>71</td>
+        <td>148</td>
+        <td>3906</td>
+        <td>1475</td>
     </tr>
     <tr>
         <td>Johan Bjäreholt</td>
@@ -2802,17 +2988,28 @@
     </tr>
 </table>
 
+
+    
+      <div class="small px-2 pb-2" >
+        You can also see these stats <a href="https://github.com/activitywatch/activitywatch.github.io/graphs/contributors">on GitHub</a>.
+      </div>
+    </details>
+    
   
-    <a  href="https://github.com/activitywatch/activitywatch" >
-      <h3 id=activitywatch  id="activitywatch" id="activitywatch" id="activitywatch" id="activitywatch" id="activitywatch" id="activitywatch" id="activitywatch" id="activitywatch" id="activitywatch" id="activitywatch" id="activitywatch" id="activitywatch" id="activitywatch" id="activitywatch" id="activitywatch" id="activitywatch" id="activitywatch" id="activitywatch" id="activitywatch" id="activitywatch">
+    
+    <details>
+      <summary>
+      <h4 id=activitywatch  id="activitywatch" id="activitywatch" id="activitywatch" id="activitywatch" id="activitywatch" id="activitywatch" id="activitywatch" id="activitywatch" id="activitywatch" id="activitywatch" id="activitywatch" id="activitywatch" id="activitywatch" id="activitywatch" id="activitywatch" id="activitywatch" id="activitywatch" id="activitywatch" id="activitywatch" id="activitywatch">
         
         
           activitywatch <a href="#activitywatch"></a>
         
         
-      </h3>
+      </h4>
     
-    </a>
+    
+      </summary>
+    
 
     
     <table class="table table-sm">
@@ -2993,12 +3190,19 @@
     </tr>
 </table>
 
+
+    
+      <div class="small px-2 pb-2" >
+        You can also see these stats <a href="https://github.com/activitywatch/activitywatch/graphs/contributors">on GitHub</a>.
+      </div>
+    </details>
+    
   
 </div>
 
 <p>
   <small>
-    <i>Last updated: 2022-07-05 02:54:25 +0000</i>
+    <i>Last updated: 2022-07-05 10:05:21 +0000</i>
   </small>
 </p>
 

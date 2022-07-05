@@ -50,4 +50,7 @@ _includes/tables: contributor-stats
 img/stats: stats
 	cd stats && poetry install
 	mkdir -p img/stats
-	cd stats && mkdir -p out && poetry run python analyze_stats.py --since 2017-07-01 --column downloads --save ../img/stats/downloads.png
+	mkdir -p stats/out
+	cd stats && poetry run python analyze_stats.py --since 2017-07-01 --column downloads --per-day --save ../img/stats/downloads.png
+	cd stats && poetry run python analyze_stats.py --since 2017-07-01 --column 'Chrome WAU' --title 'Chrome Weekly Active Users' --save ../img/stats/chrome-wau.png
+	cd stats && poetry run python analyze_stats.py --since 2017-07-01 --column 'Firefox DAU' --resample 7D --title 'Firefox Daily Active Users (7D mean)' --save ../img/stats/firefox-dau-7d.png

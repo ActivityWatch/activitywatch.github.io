@@ -66,6 +66,14 @@ pre > code { border: 0; padding-right: 0; padding-left: 0; }
 
 .icon > svg path { fill: #828282; }
 
+details { margin-bottom: 0.5em; }
+
+details > summary { background-color: #e8e8e8; cursor: pointer; padding: .25rem 1rem; }
+
+details > summary > * { display: inline-block; }
+
+details { border: 2px solid #e8e8e8; margin-top: 0; }
+
 /** Site header */
 .site-header { border-top: 5px solid #424242; border-bottom: 1px solid #e8e8e8; min-height: 56px; position: relative; }
 
