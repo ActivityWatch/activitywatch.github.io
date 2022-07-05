@@ -225,3 +225,22 @@ pre {
         }
     }
 }
+
+// Details & summary styling
+details {
+  margin-bottom: 0.5em;
+}
+details > summary {
+  background-color: $grey-color-light;
+  cursor: pointer;
+  padding: .25rem 1rem;
+}
+
+details > summary > * {
+  display: inline-block;
+}
+
+details {
+  border: 2px solid $grey-color-light;
+  margin-top: 0;
+}
