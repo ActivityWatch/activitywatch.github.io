@@ -11,8 +11,12 @@ html
             ul.social-media-list
               | {% if site.github_username %}
               li {% include icon-github.html username=site.github_username %}
-              | {% endif %} {% if site.twitter_username %}
+              | {% endif %}
+              | {% if site.twitter_username %}
               li {% include icon-twitter.html username=site.twitter_username %}
+              | {% endif %}
+              | {% if site.linkedin_company %}
+              li {% include icon-linkedin.html company=site.linkedin_company %}
               | {% endif %}
           .footer-col.footer-col-2
           .footer-col.footer-col-2
@@ -24,6 +28,8 @@ html
                 small {% include icon-github.html username="ErikBjare" %}
               li
                 small {% include icon-twitter.html username="ErikBjare" %}
+              li
+                small {% include icon-linkedin.html username="erikbjareholt" %}
                 //li><small><a href="mailto:{{ site.email }}">{{ site.email }}</a></small></li
           .footer-col.footer-col-2
             ul.contact-list
@@ -32,3 +38,7 @@ html
                 small Maintainer
               li
                 small {% include icon-github.html username="johan-bjareholt" %}
+              li
+                small {% include icon-twitter.html username="johan_bjareholt" %}
+              li
+                small {% include icon-linkedin.html username="johanbjareholt" %}

@@ -1,0 +1,5 @@
+{% if include.username %}
+  <a target=_blank href="https://www.linkedin.com/in/{{ include.username }}/"><span class="icon icon--linkedin">{% include icon-linkedin.svg %}</span><span class="username"> {{ include.username }}</span></a>
+{% elsif include.company %}
+  <a target=_blank href="https://www.linkedin.com/company/{{ include.company }}/"><span class="icon icon--linkedin">{% include icon-linkedin.svg %}</span><span class="username"> {{ include.company }}</span></a>
+{% endif %}

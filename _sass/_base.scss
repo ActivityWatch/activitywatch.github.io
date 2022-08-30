@@ -219,10 +219,12 @@ pre {
         width: 16px;
         height: 16px;
         vertical-align: middle;
+    }
+}
 
-        path {
-            fill: $grey-color;
-        }
+.icon--linkedin {
+    > svg > g > path:first-child {
+        fill: $grey-color;
     }
 }
 
