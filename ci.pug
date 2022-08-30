@@ -55,6 +55,7 @@ table(class="table dense")
     th Module
     th Issues
     th PRs
+    th LoC
 
   | {% for module in modules %}
   tr
@@ -69,6 +70,10 @@ table(class="table dense")
     td
       a(href="https://github.com/ActivityWatch/{{module}}/pulls")
         img(alt="Open pull requests" src="https://img.shields.io/github/issues-pr/activitywatch/{{module}}.svg?style=flat-square")
+
+    td
+      a(href="#")
+        img(alt="Lines of code" src="https://img.shields.io/tokei/lines/github/activitywatch/{{module}}.svg") 
 
 
   tr
