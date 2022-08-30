@@ -64,7 +64,7 @@ pre > code { border: 0; padding-right: 0; padding-left: 0; }
 /** Icons */
 .icon > svg { display: inline-block; width: 16px; height: 16px; vertical-align: middle; }
 
-.icon > svg path { fill: #828282; }
+.icon--linkedin > svg > g > path:first-child { fill: #828282; }
 
 details { margin-bottom: 0.5em; }
 
