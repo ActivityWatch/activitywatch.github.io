@@ -39,7 +39,7 @@ div.container
         li #[b Editor plugins:] Track how you spend time writing code with #[a(href="https://docs.activitywatch.net/en/latest/watchers.html#editor-watchers") editor watchers].
         li #[b Privacy:] Data is stored locally and doesn't leave your device, we put #[a(href="https://www.inkandswitch.com/local-first.html") local and privacy first].
         li #[b Cross-platform:] Runs on #[a(href="/downloads/#windows") Windows], #[a(href="/downloads/#macos") macOS], #[a(href="/downloads/#linux") Linux], and #[a(href="https://play.google.com/store/apps/details?id=net.activitywatch.android") Android].
-        li #[s #[b Synchronization:] Sync your activity between your devices.] (We're working on it)
+        li #[s #[b Synchronization:] Sync your activity between your devices.] (We're #[a(href="https://github.com/ActivityWatch/aw-server-rust/tree/master/aw-sync") working on it])
 
       h2.mt-4 Why use it?
       p You can use ActivityWatch to:
@@ -76,34 +76,60 @@ div.container
 
   div.row.mt-4
     .col-md-6
-      h2 Support the project!
+      h2.mt-4 How to use it
       p
-        | ActivityWatch is built entirely by volunteers and relies on donations to keep development going. If it has helped you in any way, please consider #[a(href="/donate/") donating].
+        | To get started with ActivityWatch, you need to #[a(href="/downloads/") download] and #[a(href="https://docs.activitywatch.net/en/latest/getting-started.html") install] the application on your computer. 
+      p
+        | After you've installed it and it's running (see your system tray), you can visit #[a(href="http://localhost:5600") localhost:5600] in your browser to open the UI.
+      p
+        | For more detail, see the #[a(href="https://docs.activitywatch.net/en/latest/getting-started.html") getting started guide].
 
-      h2.mt-4 About the maintainers
-      p
-        | ActivityWatch is primarily being developed by Erik Bjäreholt and Johan Bjäreholt, with help from the community. We're two brothers who, among other things, like free and open-source software.
-        | We started building ActivityWatch because we thought something like it should exist (it didn't), so we built it ourselves.
-      p
-        | We make practically no money from our work on ActivityWatch and have other things going on, like work and studies, that may cause development to slow at times. But with that in mind we think this is important software (if you agree, donate!) so we're building for the long term. Our goal is simply to build an as useful tool as possible for as many people as possible.
-      p
-        | Many significant contributions have come from the community and we hope to see them increase over time.
-        | For details on who has contributed what and how much to ActivityWatch check out the #[a(href='https://activitywatch.net/contributors/') contributor statistics].
 
-      h2.mt-4 Our other projects
+      h4.mt-4 Learn more
       p
-        | Here's a spot for us to show off our other projects!
+        | For more about ActivityWatch see the #[a(href="https://docs.activitywatch.net/en/latest/") documentation], with has helpful pages like #[a(href="https://docs.activitywatch.net/en/latest/faq.html") Frequently asked questions (FAQ)].
 
-      div.my-3
-
-      h4#thankful Thankful
-      p
-        b Support creators of free culture by directly sending them cryptocurrency.
-      p
-        | Thankful uses data about websites you visit, music you listen to, videos you watch, and applications you use, and lets you support the creators of it by directly sending them cryptocurrency.
-        | For more, check out #[a(href='https://github.com/SuperuserLabs/thankful') Thankful on GitHub].
+      p 
+        | For a feature comparison with other similar software, see the #[a(href="https://github.com/ActivityWatch/activitywatch/blob/master/README.md#feature-comparison") comparison section in the README].
 
 
     .col-md-6
-      div(style="border: 1px solid #CCC; border-radius: 5px")
-        | <a class="twitter-timeline" data-height="700" data-theme="light" href="https://twitter.com/ActivityWatchIt?ref_src=twsrc%5Etfw">Tweets by ActivityWatchIt</a> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+      h2.mt-4 How to contribute
+      p
+        | ActivityWatch is built entirely by volunteers and we need help from people (like you!) to keep the project going.
+        | If you're interested in contributing, check out the #[a(href="https://github.com/ActivityWatch/activitywatch/blob/master/CONTRIBUTING.md") contributing guide].
+      
+      h4 Donate
+      p
+        | If ActivityWatch has helped you in any way, and you don't have the means or time to contribute, please consider #[a(href="/donate/") donating].
+
+      h4 Spread the word
+      p
+        | If you like ActivityWatch, please consider spreading the word by sharing it on social media, writing a blog post, or recommending it to a friend.
+
+  hr
+
+  div.row.mt-4
+    .col-md-6
+      h2.mt-4 Where to follow the project
+      p
+        | You can follow the project on social media, like #[a(href="https://twitter.com/ActivityWatchIt") Twitter], #[a(href="https://www.linkedin.com/company/activitywatch") LinkedIn], #[a(href="https://www.reddit.com/r/activitywatch") Reddit], and #[a(href="https://www.facebook.com/ActivityWatch") Facebook].
+      p
+        | You can chat with us in our #[a(href="https://discord.gg/vDskV9q") Discord server], or discuss with us on the #[a(href="https://forum.activitywatch.net") forum].
+      p
+        | You can also #[a(href="http://eepurl.com/cTU6QX") subscribe to our very low-traffic newsletter] to get very rare updates about the project.
+
+      h2.mt-4 About the maintainers
+      p
+        | ActivityWatch was founded by brothers and current maintainers Erik Bjäreholt and Johan Bjäreholt.
+        | We started building ActivityWatch because we thought something like it should exist (it didn't), so we decided to build it ourselves. You can read the #[a(href="https://docs.activitywatch.net/en/latest/history.html") History] page in the docs for more about the project's origins.
+      p
+        | We don't work on ActivityWatch full-time, so development may slow at times. But we think that ActivityWatch is important software (if you agree, #[a(href="/donate/") donate]!), and we're building for the long term. 
+        | We want to build an as useful tool as possible for as many people as possible.
+      p
+        | Over the years, many significant contributions have come from the community, and we hope to see them increase over time.
+        | For details on who has contributed what and how much to ActivityWatch, check out the #[a(href='https://activitywatch.net/contributors/') contributor statistics].
+
+    .col-md-6
+      div.mt-4(style="border: 1px solid #CCC; border-radius: 15px; height: 500px")
+        | <a class="twitter-timeline" data-height="500" data-theme="light" href="https://twitter.com/ActivityWatchIt?ref_src=twsrc%5Etfw">Tweets by ActivityWatchIt</a> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
