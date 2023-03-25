@@ -1,8 +1,9 @@
 #!/usr/bin/env python3
 
-from datetime import datetime, timezone, timedelta
-from pathlib import Path
 import re
+from datetime import datetime, timedelta, timezone
+from pathlib import Path
+
 import requests
 
 
@@ -32,7 +33,7 @@ if __name__ == "__main__":
 
     with open(p, "r") as f:
         orig = f.read()
-        new = re.sub(r"v[0-9.]+", latest_release, orig)
+        new = re.sub(r"v[0-9.]+[abrc]*[0-9]*", latest_release, orig)
 
     if new == orig:
         print("No change")
