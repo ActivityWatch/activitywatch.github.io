@@ -7,8 +7,8 @@ permalink: /ci/
 p
   | Here we try to list all our continuous integration pipelines along with some useful stats to get an overview of the subprojects.
 
-| {% assign modules = "activitywatch,aw-core,aw-server,aw-server-rust,aw-client,aw-client-js,aw-qt,aw-webui,aw-watcher-afk,aw-watcher-window,aw-watcher-web,aw-watcher-input,aw-android,activitywatch.github.io,docs" | split: ',' %}
-| {% assign ghactions_modules = "activitywatch,aw-core,aw-server,aw-server-rust,aw-qt,aw-android,aw-client,aw-client-js,aw-watcher-window,aw-watcher-afk,aw-watcher-web,aw-watcher-input,aw-webui,activitywatch.github.io,docs" | split: ',' %}
+| {% assign modules =             "activitywatch,aw-core,aw-server,aw-server-rust,aw-qt,aw-android,aw-client,aw-client-js,aw-webui,aw-watcher-afk,aw-watcher-window,aw-watcher-window-wayland,aw-watcher-web,aw-watcher-input,activitywatch.github.io,docs" | split: ',' %}
+| {% assign ghactions_modules =   "activitywatch,aw-core,aw-server,aw-server-rust,aw-qt,aw-android,aw-client,aw-client-js,aw-webui,aw-watcher-afk,aw-watcher-window,aw-watcher-window-wayland,aw-watcher-web,aw-watcher-input,activitywatch.github.io,docs" | split: ',' %}
 | {% assign codeclimate_modules = "aw-core,aw-server,aw-client,aw-client-js,aw-qt,aw-watcher-afk,aw-watcher-window,aw-webui,aw-watcher-web" | split: ',' %}
 | {% assign codecov_modules = "aw-core,aw-server,aw-server-rust,aw-webui" | split: ',' %}
 
