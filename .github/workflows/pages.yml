@@ -37,8 +37,8 @@ jobs:
       - name: Install poetry & create virtualenv
         shell: bash
         run: |
-          pip install virtualenv poetry
-          python -m virtualenv venv
+          pip install poetry 'urllib3<2'
+          python -m venv venv
 
       - name: Install dependencies
         run: |
