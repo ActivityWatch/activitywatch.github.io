@@ -1,0 +1,49 @@
+---
+layout: page
+title: Sponsors
+permalink: /sponsors/
+---
+
+// Bullshit to get the page to render: https://github.com/DougBeney/jekyll-pug/issues/19#issuecomment-1131441149
+| {% if 1 %}{% endif %}
+
+p
+  | These kind people have #[a(href="/donate/") supported us financially] one way or another. Thank you!
+
+p
+  | NOTE: This page is updated manually on an irregular basis.
+
+p.small
+  | Is your name missing? Send us a message on Discord.
+
+hr
+
+//h2
+  | Platinum Sponsors
+
+//h2
+  | Gold Sponsors
+
+//h2
+  | Silver Sponsors
+
+//h2
+  | Bronze Sponsors
+
+// This list is built in the ActivityWatch/stats repo from:
+//  - GitHub Sponsors export
+//  - OpenCollective export
+//  - Patreon export
+style
+  | .sponsors > table { width: 100%; }
+
+.sponsors
+  include sponsors.html
+
+hr
+
+p
+  | This page is built from transactions to our OpenCollective, GitHub Sponsors, and Patreon accounts. If you want to be listed here, please consider #[a(href="https://activitywatch.net/donate/") supporting us] on one of those platforms.
+
+p.small
+  | Sponsors with less than $10 in total donations are not listed, but thank you anyway!

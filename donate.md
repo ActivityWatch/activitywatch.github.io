@@ -13,6 +13,8 @@ We hope you make the right call and decide to spend some money each month for su
 
 Our eternal gratitude, better future versions of ActivityWatch, and the love of the community. If you want something else, just ask!
 
+You will also get your name listed on the [sponsors page](/sponsors/).
+
 
 ## Methods
 

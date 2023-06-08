@@ -15,6 +15,7 @@ update-downloads:
 install-deps:
 	# This shouldn't be set in CI, but it's maybe (?) useful for local development
 	#bundle config set path 'vendor/bundle'
+	# we also need `pug`: npm install -g pug
 	bundle install
 
 precommit:
