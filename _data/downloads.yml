@@ -20,6 +20,9 @@ platforms:
       - title: AUR
         description: ", for Arch Linux and Manjaro"
         url: https://aur.archlinux.org/packages/activitywatch-bin/
+      - title: nixpkgs
+        description: ", for NixOS"
+        url: https://search.nixos.org/packages?query=activitywatch&show=activitywatch
 
   - name: macOS
     assets:
