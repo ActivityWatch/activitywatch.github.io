@@ -1,0 +1,25 @@
+.img-center {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.width-500 {
+  width: 100%;
+  max-width: 500px;
+}
+
+.width-700 {
+  width: 100%;
+  max-width: 700px;
+}
+
+/* in dark mode, apply inverted filter */
+/* commented out because we don't have dark mode yet
+@media (prefers-color-scheme: dark) {
+ .img-center img {
+   filter: invert(1) hue-rotate(180deg);
+  }
+}
+*/

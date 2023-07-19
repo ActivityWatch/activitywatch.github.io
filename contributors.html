@@ -21,7 +21,9 @@ permalink: /contributors/
 <p>
     Here we have a have a visualization of development history:
 </p>
-<iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/zjIn43lZq3U" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+<div class="img-center">
+  <iframe width="100%" height="400px" src="https://www.youtube-nocookie.com/embed/zjIn43lZq3U" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+</div>
 
 <p>
   The script used to generate the video can be found <a href="https://github.com/ActivityWatch/contributor-stats/tree/master/video">here</a>.
@@ -84,3 +86,20 @@ permalink: /contributors/
     <i>Last updated: {{ site.time }}</i>
   </small>
 </p>
+
+<hr>
+
+<details>
+  <summary>
+    <h3>GitHub Stats</h3>
+  </summary>
+  <p class="pt-2 px-2">
+    Below are some stats of contributor activity on GitHub. The table is manually updated every now and then.
+  </p>
+  <p class="px-2">
+    Bots and users with total less than 10 have been removed.
+  </p>
+  {% include tables/github-stats.html %}
+  <p class="px-2 small">
+    <i>Last updated: 2023-7-7</i>
+</details>
