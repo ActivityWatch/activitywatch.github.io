@@ -2,6 +2,7 @@
 layout: post
 title: Comparing ActivityWatch with RescueTime, ManicTime, and Apple ScreenTime
 date: 2023-08-30 11:24 +0200
+author: "Erik Bjäreholt"
 ---
 
 ## Introduction
@@ -28,14 +29,13 @@ Choosing a time-tracking software often depends on specific needs. The following
 |-----------------------------------|-----------------------------------------------|--------------------------------------------------------------------------------------------------|
 | **Highly Customizable Solution**  | ActivityWatch                                 | Open-source nature allows for extensive customization, from UI to tracking metrics.              |
 | **Privacy-Conscious Users**      | ActivityWatch                                 | Local data storage by default, with robust privacy controls.                                      |
-| **Multi-platform Support**       | ActivityWatch, ManicTime, RescueTime          | All three support multiple platforms (ActivityWatch and ManicTime support Linux too). Apple ScreenTime is limited to Apple devices. |
+| **Multi-platform Support**       | ActivityWatch,<br>ManicTime,<br>RescueTime          | All three support multiple platforms (ActivityWatch and ManicTime support Linux too). Apple ScreenTime is limited to Apple devices. |
 | **Enterprise Use**               | RescueTime                                   | Offers team features, data storage on cloud, and centralized reporting.                           |
-| **Blocking Distractions**        | RescueTime                                   | Provides distraction-blocking features in the premium version.                                    |
-| **In-depth Reporting**           | ActivityWatch, ManicTime, RescueTime          | All offer robust reporting capabilities, with ActivityWatch and ManicTime allowing for greater customization. |
+| **Blocking Distractions**        | RescueTime                                   | Provides distraction-blocking features in the premium version. Note that there are other free and open-source tools for blocking distractions, which is why ActivityWatch doesn't offer this feature.                                    |
+| **In-depth Reporting**           | ActivityWatch,<br>ManicTime,<br>RescueTime          | All offer robust reporting capabilities, with ActivityWatch and ManicTime allowing for greater customization. |
 | **Apple Ecosystem**              | Apple ScreenTime                              | Seamlessly integrates with Apple devices, from iPhones to Macs.                                   |
 | **Freelancers on Budget**        | ActivityWatch                                 | Free and open-source with an extensive set of features for individual tracking.                   |
-| **Basic Tracking Needs**         | Apple ScreenTime, RescueTime (Free version)   | Offer fundamental tracking features. RescueTime's free version works cross-platform, while ScreenTime is limited to Apple users.|
-| **Offline Activity Tracking**    | ManicTime, ActivityWatch                      | Both support offline activity tagging, making it suitable for tracking non-digital tasks.         |
+| **Offline Activity Tracking**    | ActivityWatch,<br>ManicTime                       | Both support offline activity tagging, making it suitable for tracking non-digital tasks.         |
 
 ## Conclusion
 
