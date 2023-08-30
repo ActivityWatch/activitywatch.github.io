@@ -31,6 +31,7 @@ clean:
 	-rm -r _site
 	-rm -r _build
 	-rm -r _includes/tables
+	-git restore _includes/tables/github-stats.html
 	-make --directory=contributor-stats clean
 
 
