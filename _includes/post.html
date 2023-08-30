@@ -17,8 +17,17 @@
         </div>
     </header>
 
+    {% if page.toc %}
+    <details class="toc small">
+        <summary class="py-2 font-weight-bold">Table of Contents</summary>
+        <div class="mt-2">
+            {{ include.content | toc_only }}
+        </div>
+    </details>
+    {% endif %}
+
     <div class="post-content" itemprop="articleBody">
-        {{ include.content }}
+        {{ include.content | inject_anchors }}
     </div>
 
     <div class="footer">

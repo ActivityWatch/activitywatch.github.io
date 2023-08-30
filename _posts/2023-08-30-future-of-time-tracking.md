@@ -4,6 +4,7 @@ title: "The Future of Time Tracking: AI, Privacy, and Personalization"
 date: 2023-08-30 15:57 +0200
 author: "Erik Bjäreholt"
 author_twitter: "ErikBjare"
+toc: true
 ---
 
 ## Introduction

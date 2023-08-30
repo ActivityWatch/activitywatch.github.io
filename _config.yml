@@ -40,3 +40,4 @@ plugins:
  - jekyll-pug
  - jekyll-feed
  - jekyll-sitemap
+ - jekyll-toc

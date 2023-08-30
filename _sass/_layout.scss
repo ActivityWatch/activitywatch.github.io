@@ -185,3 +185,10 @@
         }
     }
 }
+
+.toc {
+    border: 1px solid $grey-color-light;
+    border-collapse: collapse;
+    border-radius: 3px;
+    margin: $spacing-unit 0;
+}
