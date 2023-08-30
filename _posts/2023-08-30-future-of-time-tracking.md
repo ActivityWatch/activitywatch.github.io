@@ -15,17 +15,9 @@ In an increasingly digital world, time-tracking software like ActivityWatch play
 
 While ActivityWatch itself doesn't currently utilize AI, the data it collects serves as a fertile ground for AI-driven applications. The software logs a comprehensive array of your digital activities, from the websites you visit to the applications you use. This data can be transformed into actionable insights through machine learning algorithms. For example, natural language processing (NLP) could analyze your text-based activities to gauge your focus levels, while clustering algorithms could categorize your activities into productivity zones.
 
-**Potential Use-Cases:**
-- **Sentiment Analysis**: Understanding your emotional state based on your digital footprint.
-- **Anomaly Detection**: Identifying unusual patterns that could indicate distractions or inefficiencies.
-
 ### Long-Term Behavioral Trends
 
 AI's capability to sift through large datasets makes it invaluable for identifying long-term behavioral changes or trends. By applying time-series analysis on your ActivityWatch logs, you can gain insights into how your work habits, focus periods, and even leisure activities evolve over time. This can be particularly useful for self-improvement and for tailoring your work schedule to your natural rhythms.
-
-**Technical Insights:**
-- **Recurrent Neural Networks (RNNs)** could be used to model sequential data for more accurate trend predictions.
-- **Principal Component Analysis (PCA)** could distill your activity data into key features, making it easier to identify significant behavioral shifts.
 
 ### Day Summaries and Note-Taking
 
@@ -96,6 +88,8 @@ Full-context tracking is not just data-intensive but also resource-intensive:
 - **Storage**: The sheer volume of audio and screen data can quickly consume local storage, requiring efficient data compression algorithms.
 - **Processing Power**: Real-time analysis of such data can be CPU-intensive, potentially affecting system performance.
 
+Rewind.ai has addressed this by leveraging it's macOS-only nature to utilize Apple's CoreML framework for on-device AI processing, allowing efficient data compression and real-time analysis with relatively low impact on overall system performance.
+
 #### Balancing Act: AI, Privacy, and Resources
 
 The challenge lies in striking a balance between leveraging AI's capabilities and maintaining user privacy and system performance. One potential solution could be edge computing, where data is processed locally on the user's device, minimizing data transfer and storage while still enabling real-time AI analytics.
@@ -150,4 +144,6 @@ In a world where time is our most valuable resource, ActivityWatch offers a way 
 
 The future of time tracking is intricately tied to AI, privacy, and personalization. With its focus on these areas, ActivityWatch is well-positioned to lead the way. 
 
-If you aren't already, now is the perfect time to [start collecting your screentime data with ActivityWatch!](https://activitywatch.net/download/)
+If you are excited about this like we are, consider joining the [Discord server](https://discord.gg/vDskV9q). We're always looking for new contributors and ideas!
+
+And if you aren't using ActivityWatch already, now is the perfect time to [start collecting your screentime data!](https://activitywatch.net/download/)
