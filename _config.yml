@@ -8,6 +8,18 @@ url: "https://activitywatch.net" # the base hostname & protocol for your site
 twitter_username: ActivityWatchIt
 github_username:  ActivityWatch
 linkedin_company: activitywatch
+  
+collections:
+    posts:
+        output: true
+        permalink: /blog/:title/
+
+defaults:
+    - scope:
+        path: ""
+        type: "blog"
+      values:
+        layout: post
 
 # Build settings
 markdown: kramdown

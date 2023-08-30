@@ -131,5 +131,11 @@ div.container
         | For details on who has contributed what and how much to ActivityWatch, check out the #[a(href='https://activitywatch.net/contributors/') contributor statistics].
 
     .col-md-6
-      div.mt-4(style="border: 1px solid #CCC; border-radius: 15px; height: 500px")
+      // Latest blog posts
+      div.mt-4
+        h2 Latest blog posts
+        | {% include latest-posts.html %}
+      // Twitter feed
+      h2 Tweets
+      div(style="border: 1px solid #CCC; border-radius: 15px; height: 500px")
         | <a class="twitter-timeline" data-height="500" data-theme="light" href="https://twitter.com/ActivityWatchIt?ref_src=twsrc%5Etfw">Tweets by ActivityWatchIt</a> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>

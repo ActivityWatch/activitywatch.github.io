@@ -170,4 +170,18 @@
             font-size: 18px;
         }
     }
+
+    table {
+        border: 1px solid $grey-color-light;
+        border-collapse: collapse;
+        margin: $spacing-unit 0;
+        width: 100%;
+        font-size: $small-font-size;
+
+        th,
+        td {
+            border: 1px solid $grey-color-light;
+            padding: $spacing-unit / 4;
+        }
+    }
 }

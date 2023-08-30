@@ -1,0 +1,31 @@
+<article class="post card" itemscope itemtype="http://schema.org/BlogPosting">
+<div class="card-body">
+    <header>
+        <h1 class="card-title"><a href="{{ page.url }}">{{ page.title }}</a></h1>
+
+        <div class="post-meta">
+            <span class="meta-box">
+                <span class="fa fa-user meta-icon"></span>
+                {{ page.author }}
+            </span>
+            <span class="ml-2">
+                <span class="fa fa-calendar meta-icon"></span>
+                <time datetime="{{ page.date }}">
+                    {{ page.date | date: "%F %R %Z" }}
+                </time>
+            </span>
+        </div>
+    </header>
+
+    <div class="content py-3">
+        {{ include.content }}
+    </div>
+
+    <div class="footer">
+        <div {% if include.fullpage %}style="border: solid rgba(255,255,255,0.2); border-width: 0 0 1px 0; padding-bottom: 10px;"{% endif %}>
+            <span class="fa fa-link"></span>
+            <a href="{{ page.url }}">Permalink</a>
+        </div>
+    </div>
+</div>
+</article>
