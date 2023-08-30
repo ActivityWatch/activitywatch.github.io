@@ -26,3 +26,4 @@ plugins:
  - jekyll-redirect-from
  - jekyll-pug
  - jekyll-feed
+ - jekyll-sitemap
