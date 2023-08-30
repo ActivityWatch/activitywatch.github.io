@@ -1,0 +1,795 @@
+<!DOCTYPE html>
+<html><head>
+  <meta charset="utf-8"/>
+  <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1"/>
+  <title>Blog | ActivityWatch - Open-source time tracker</title>
+  <meta name="description" content="The best free and open-source automated time tracker. Cross-platform, extensible, local/privacy-first.
+"/>
+  <link rel="icon" type="image/png" href="/img/logo.png"/>
+  <link rel="stylesheet" href="/css/main.css"/>
+  <link rel="canonical" href="https://activitywatch.net/blog.html"/>
+  <link rel="alternate" type="application/rss+xml" title="ActivityWatch - Open-source time tracker" href="https://activitywatch.net"/>
+  <!-- Bootstrap CSS and JS-->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous"/>
+  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+  <!-- Font awesome-->
+  <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous"/>
+  <!-- Google Analytics--><!-- Global site tag (gtag.js) - Google Analytics-->
+<script async="async" src="https://www.googletagmanager.com/gtag/js?id=UA-121109725-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  
+  gtag('config', 'UA-91551508-1');
+  gtag('config', 'G-SNPLMVFB8V');
+</script>
+<script>
+  // From: https://support.google.com/analytics/answer/7478520?hl=en
+  /**
+  * Function that registers a click on an outbound link in Analytics.
+  * This function takes a valid URL string as an argument, and uses that URL string
+  * as the event label. Setting the transport method to 'beacon' lets the hit be sent
+  * using 'navigator.sendBeacon' in browser that support it.
+  */
+  var getOutboundLink = function(urlOrEvent) {
+   let url;
+   let target;
+   if(typeof urlOrEvent === 'string') {
+     url = urlOrEvent;
+   } else {
+     let event = urlOrEvent || window.event;
+     let el = event.target || event.srcElement;
+     while (url === undefined) {
+       if(!el.href) {
+         console.log(`href was undefined, checking parent`)
+         el = el.parentNode;
+       }
+       url = el.href;
+       target = el.target;
+     }
+   }
+   //console.log(url);
+   //console.log(target);
+   if(window.google_tag_manager) {
+     gtag('event', 'click', {
+          'event_category': 'outbound',
+          'event_label': url,
+          'transport_type': 'beacon',
+          'event_callback': function() {
+            document.location = url;
+          }
+     });
+   } else {
+     document.location = url;
+   }
+  }
+  
+  function registerOutbound() {
+   // Register onclick handlers to use getOutboundLink for all outbound links
+   Object.values(document.getElementsByTagName("a")).map(a => {
+     if(!a.href.startsWith(window.origin)) {
+       // For all external links
+       console.log("Registered getOutboundLink for", a);
+       a.setAttribute("onclick", "getOutboundLink(event); return false");
+       a.setAttribute("target", "_blank");
+     }
+   });
+  }
+  
+  document.addEventListener("DOMContentLoaded", function(event) {
+    registerOutbound()
+  });
+</script>
+  <!--script
+  |(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  |(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  |m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  |})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+  |
+  |ga('create', 'UA-91551508-1', 'auto');
+  |ga('send', 'pageview');
+  
+  -->
+  <!-- Mailchimp-->
+  <script id="mcjs">!function(c,h,i,m,p){m=c.createElement(h),p=c.getElementsByTagName(h)[0],m.async=1,m.src=i,p.parentNode.insertBefore(m,p)}(document,"script","https://chimpstatic.com/mcjs-connected/js/users/0c8e8132be874f0e23d3a9e74/8c84f7d9d83455b08e020d552.js");</script>
+</head>
+  <body><html>
+  <head></head>
+  <body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+      <div class="container" style="//max-width: 800px"><a class="navbar-brand" href="/"><img style="max-height: 2em" src="/img/banner.png"/></a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent" style="font-size: 1.2em">
+          <ul class="navbar-nav mr-0" style="margin-left: auto;">
+            <li class="nav-item"><a class="nav-link mr-1 font-weight-bold" style="color: green;" href="/downloads/"><i class="fa fa-download mr-2"></i>Downloads</a></li>
+            <li class="nav-item"><a class="nav-link mr-1 font-weight-bold" style="color: #0AA;" href="https://docs.activitywatch.net/en/latest/" target="_blank"><i class="fa fa-book mr-2"></i>Docs</a></li>
+            <li class="nav-item"><a class="nav-link mr-1 font-weight-bold" style="color: teal;" href="https://forum.activitywatch.net/" target="_blank"><i class="fa fa-comments mr-2"></i>Forum</a></li>
+            <li class="nav-item"><a class="nav-link mr-1 font-weight-bold" style="color: #06C;" href="/blog/"><i class="fa fa-pencil mr-2"></i>Blog</a></li>
+            <li class="nav-item"><a class="nav-link font-weight-bold" style="color: #EE9900;" href="/donate/"><i class="fa fa-handshake-o mr-2"></i>Donate</a></li>
+            <li class="nav-item dropdown"><a class="nav-link dropdown-toggle font-weight-bold" id="navbarDropdown" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fa fa-bolt mr-2"></i>Stats</a>
+              <div class="dropdown-menu" aria-labelledby="navbarDropdown"><a class="dropdown-item text-secondary font-weight-bold" href="/stats/"><i class="fa fa-download mr-2"></i>Downloads & Users</a><a class="dropdown-item text-secondary font-weight-bold" href="/contributors/"><i class="fa fa-users mr-2"></i>Contributors</a><a class="dropdown-item text-secondary font-weight-bold" href="/sponsors/"><i class="fa fa-money mr-2"></i>Sponsors</a><a class="dropdown-item text-secondary font-weight-bold" href="/ci/"><i class="fa fa-cogs mr-2"></i>Continuous Integration</a>
+                <!--div class="dropdown-divider"></div-->
+              </div>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+  </body>
+</html>
+    <div class="page-content">
+      <div><div class="wrapper">
+  <article class="post wrapper">
+
+    <header class="post-header">
+      <h1 class="post-title">Blog</h1>
+    </header>
+
+    
+
+    <div class="post-content">
+      <p>
+        
+      </p>
+
+      
+      
+      <article class="post card" itemscope itemtype="http://schema.org/BlogPosting">
+<div class="card-body"><header>
+      <h1 class="card-title"  id="the-future-of-time-tracking-ai-privacy-and-personalization">
+        
+        
+          <a href="/blog/future-of-time-tracking/">The Future of Time Tracking: AI, Privacy, and Personalization</a> <a href="#the-future-of-time-tracking-ai-privacy-and-personalization"></a>
+        
+        
+      </h1>
+    
+
+        <div class="post-meta">
+            <span class="meta-box">
+                <span class="fa fa-user meta-icon"></span>
+                Erik Bjäreholt
+            </span>
+            <span class="ml-2">
+                <span class="fa fa-calendar meta-icon"></span>
+                <time datetime="2023-08-30 09:52:00 +0000">
+                    2023-08-30 09:52 UTC
+                </time>
+            </span>
+        </div>
+    </header>
+
+    <div class="content py-3">
+      <h2 id="introduction"  id="introduction">
+        
+        
+          Introduction <a href="#introduction"></a>
+        
+        
+      </h2>
+    
+
+<p>In an increasingly digital world, time-tracking software like ActivityWatch plays a pivotal role in enhancing productivity and self-awareness. As we look to the future, three key elements stand out: Artificial Intelligence (AI), privacy, and personalization.</p>
+      <h2 id="the-role-of-ai-in-time-tracking"  id="the-role-of-ai-in-time-tracking">
+        
+        
+          The Role of AI in Time Tracking <a href="#the-role-of-ai-in-time-tracking"></a>
+        
+        
+      </h2>
+    
+      <h3 id="the-power-of-data"  id="the-power-of-data">
+        
+        
+          The Power of Data <a href="#the-power-of-data"></a>
+        
+        
+      </h3>
+    
+
+<p>While ActivityWatch itself doesn’t currently utilize AI, the data it collects serves as a fertile ground for AI-driven applications. The software logs a comprehensive array of your digital activities, from the websites you visit to the applications you use. This data can be transformed into actionable insights through machine learning algorithms. For example, natural language processing (NLP) could analyze your text-based activities to gauge your focus levels, while clustering algorithms could categorize your activities into productivity zones.</p>
+      <h3 id="long-term-behavioral-trends"  id="long-term-behavioral-trends">
+        
+        
+          Long-Term Behavioral Trends <a href="#long-term-behavioral-trends"></a>
+        
+        
+      </h3>
+    
+
+<p>AI’s capability to sift through large datasets makes it invaluable for identifying long-term behavioral changes or trends. By applying time-series analysis on your ActivityWatch logs, you can gain insights into how your work habits, focus periods, and even leisure activities evolve over time. This can be particularly useful for self-improvement and for tailoring your work schedule to your natural rhythms.</p>
+      <h3 id="day-summaries-and-note-taking"  id="day-summaries-and-note-taking">
+        
+        
+          Day Summaries and Note-Taking <a href="#day-summaries-and-note-taking"></a>
+        
+        
+      </h3>
+    
+
+<p>Imagine an AI assistant integrated into ActivityWatch that can not only summarize your day but also take context-aware notes for you. Utilizing speech-to-text algorithms during meetings, it could generate summaries and action items automatically. When you’re working on a project, it could log your key milestones based on your activity data, thereby creating a daily journal without any manual input.</p>
+
+<p><strong>How It Could Work:</strong></p>
+<ul>
+  <li><strong>Speech-to-Text</strong>: During meetings, the AI assistant could transcribe and summarize key points.</li>
+  <li><strong>Text Summarization Algorithms</strong>: At the end of the day, a summary of your activities could be generated, highlighting your most productive periods and areas for improvement.</li>
+</ul>
+      <h3 id="in-context-suggestions"  id="in-context-suggestions">
+        
+        
+          In-Context Suggestions <a href="#in-context-suggestions"></a>
+        
+        
+      </h3>
+    
+
+<p>Think of this feature as a modern, less intrusive version of Clippy. By leveraging real-time analytics and historical data, ActivityWatch could offer spontaneous, in-context suggestions. For instance, if the software detects that you’ve been working on a coding project for an extended period, it could suggest taking a break or even recommend a relevant Stack Overflow thread based on your recent queries.</p>
+
+<p><strong>Technical Details:</strong></p>
+<ul>
+  <li><strong>Contextual Bandit Algorithms</strong>: These could be used to offer suggestions that are most likely to be useful to you at any given moment.</li>
+  <li><strong>Collaborative Filtering</strong>: By analyzing data from multiple users, the system could offer suggestions that have been beneficial to people with similar work patterns.</li>
+</ul>
+      <h3 id="integrating-brain-computer-interfaces-with-screentime-data-the-next-frontier-in-time-tracking"  id="integrating-brain-computer-interfaces-with-screentime-data-the-next-frontier-in-time-tracking">
+        
+        
+          Integrating Brain-Computer Interfaces with Screentime Data: The Next Frontier in Time Tracking <a href="#integrating-brain-computer-interfaces-with-screentime-data-the-next-frontier-in-time-tracking"></a>
+        
+        
+      </h3>
+    
+
+<p>The future of time tracking isn’t just about what you’re doing on your computer; it’s about understanding the cognitive processes that accompany those activities. Building on the pioneering research in my <a href="https://github.com/ErikBjare/thesis">MSc thesis</a>, which explored the classification of brain activity using electroencephalography (EEG) and automated time tracking, we see a new frontier emerging.</p>
+      <h4 id="the-synergy-of-eeg-and-activitywatch"  id="the-synergy-of-eeg-and-activitywatch">
+        
+        
+          The Synergy of EEG and ActivityWatch <a href="#the-synergy-of-eeg-and-activitywatch"></a>
+        
+        
+      </h4>
+    
+
+<p>ActivityWatch provides a robust framework for tracking digital activities, while EEG devices offer a window into the cognitive state of the user. When combined, these two technologies can provide unprecedented insights into not just what you are doing, but how you are mentally engaging with those activities.</p>
+
+<p><strong>Technical Insights:</strong></p>
+<ul>
+  <li><strong>Data Fusion</strong>: By synchronizing EEG data with ActivityWatch logs, we can create a multi-modal dataset that captures both behavioral and cognitive aspects.</li>
+  <li><strong>Machine Learning</strong>: Advanced classifiers based on Riemannian geometry, as demonstrated in my MSc thesis, can be employed to analyze this rich dataset.</li>
+</ul>
+      <h4 id="real-world-applications"  id="real-world-applications">
+        
+        
+          Real-World Applications <a href="#real-world-applications"></a>
+        
+        
+      </h4>
+    
+
+<p>The practical implications of this integration are vast:</p>
+<ul>
+  <li><strong>Personalized Productivity</strong>: Imagine a system that knows when you’re most focused and automatically blocks distracting websites during those periods.</li>
+  <li><strong>Mental Health Monitoring</strong>: By tracking cognitive states alongside digital activities, we can identify stressors and recommend timely interventions.</li>
+  <li><strong>Enhanced Learning</strong>: For educational software, understanding the cognitive load during different tasks can help adapt the material in real-time to optimize learning.</li>
+</ul>
+      <h4 id="ethical-and-privacy-considerations"  id="ethical-and-privacy-considerations">
+        
+        
+          Ethical and Privacy Considerations <a href="#ethical-and-privacy-considerations"></a>
+        
+        
+      </h4>
+    
+
+<p>While the potential is exciting, ethical considerations, particularly around privacy and consent, are paramount. All EEG data would be encrypted and stored locally, in line with ActivityWatch’s privacy-first philosophy.</p>
+      <h4 id="future-research-and-development"  id="future-research-and-development">
+        
+        
+          Future Research and Development <a href="#future-research-and-development"></a>
+        
+        
+      </h4>
+    
+
+<p>As we look to the future, the integration of EEG devices and ActivityWatch opens up new avenues for research, particularly in the realms of cognitive science, human-computer interaction, and even preventive healthcare.</p>
+
+<p>By marrying the behavioral data from ActivityWatch with the cognitive insights from EEG, we’re not just tracking time; we’re understanding it on a whole new level.</p>
+      <h3 id="full-context-tracking-a-double-edged-sword"  id="full-context-tracking-a-double-edged-sword">
+        
+        
+          Full-Context Tracking: A Double-Edged Sword <a href="#full-context-tracking-a-double-edged-sword"></a>
+        
+        
+      </h3>
+    
+
+<p>Rewind.ai takes time tracking to the next level by offering full-context tracking, capturing not just screen data but also audio and microphone inputs. While this provides a rich dataset that can fuel advanced AI applications, it also introduces a set of challenges and ethical considerations. (Disclosure: I am an investor in Rewind.ai)</p>
+      <h4 id="opportunities-for-ai-applications"  id="opportunities-for-ai-applications">
+        
+        
+          Opportunities for AI Applications <a href="#opportunities-for-ai-applications"></a>
+        
+        
+      </h4>
+    
+
+<p>The depth of data collected by full-context tracking opens the door to a multitude of AI-driven applications:</p>
+<ul>
+  <li><strong>Voice Analytics</strong>: By analyzing audio data, AI can gauge the sentiment and tone of meetings, providing insights into team dynamics.</li>
+  <li><strong>Content Classification</strong>: Advanced machine learning models can automatically categorize screen content, offering a more nuanced understanding of user behavior.</li>
+  <li><strong>Real-Time Feedback</strong>: With access to both screen and audio data, AI can offer real-time suggestions or alerts, such as flagging potential security risks or recommending breaks based on detected stress levels.</li>
+</ul>
+      <h4 id="privacy-concerns"  id="privacy-concerns">
+        
+        
+          Privacy Concerns <a href="#privacy-concerns"></a>
+        
+        
+      </h4>
+    
+
+<p>While the wealth of data offers numerous possibilities, it also raises significant privacy concerns:</p>
+<ul>
+  <li><strong>Data Encryption</strong>: Storing audio and screen data necessitates robust encryption methods to prevent unauthorized access.</li>
+  <li><strong>User Consent</strong>: It’s crucial to obtain explicit user consent for capturing and analyzing such sensitive data.</li>
+  <li><strong>Data Minimization</strong>: The principle of collecting only the data that is strictly necessary should be adhered to, in line with GDPR and other privacy regulations.</li>
+</ul>
+      <h4 id="resource-consumption"  id="resource-consumption">
+        
+        
+          Resource Consumption <a href="#resource-consumption"></a>
+        
+        
+      </h4>
+    
+
+<p>Full-context tracking is not just data-intensive but also resource-intensive:</p>
+<ul>
+  <li><strong>Storage</strong>: The sheer volume of audio and screen data can quickly consume local storage, requiring efficient data compression algorithms.</li>
+  <li><strong>Processing Power</strong>: Real-time analysis of such data can be CPU-intensive, potentially affecting system performance.</li>
+</ul>
+
+<p>Rewind.ai has addressed this by leveraging it’s macOS-only nature to utilize Apple’s CoreML framework for on-device AI processing, allowing efficient data compression and real-time analysis with relatively low impact on overall system performance.</p>
+      <h4 id="balancing-act-ai-privacy-and-resources"  id="balancing-act-ai-privacy-and-resources">
+        
+        
+          Balancing Act: AI, Privacy, and Resources <a href="#balancing-act-ai-privacy-and-resources"></a>
+        
+        
+      </h4>
+    
+
+<p>The challenge lies in striking a balance between leveraging AI’s capabilities and maintaining user privacy and system performance. One potential solution could be edge computing, where data is processed locally on the user’s device, minimizing data transfer and storage while still enabling real-time AI analytics.</p>
+      <h2 id="the-importance-of-privacy"  id="the-importance-of-privacy">
+        
+        
+          The Importance of Privacy <a href="#the-importance-of-privacy"></a>
+        
+        
+      </h2>
+    
+      <h3 id="the-privacy-imperative"  id="the-privacy-imperative">
+        
+        
+          The Privacy Imperative <a href="#the-privacy-imperative"></a>
+        
+        
+      </h3>
+    
+
+<p>In a world where data breaches are increasingly common, privacy is paramount. ActivityWatch addresses this by storing all your data locally, ensuring that you have complete control over your information.</p>
+      <h3 id="the-resource-trade-off"  id="the-resource-trade-off">
+        
+        
+          The Resource Trade-Off <a href="#the-resource-trade-off"></a>
+        
+        
+      </h3>
+    
+
+<p>While full-context tracking offers richer data, it is much more resource-intensive and poses greater privacy risks compared to ActivityWatch’s local storage approach.</p>
+      <h2 id="the-need-for-personalization"  id="the-need-for-personalization">
+        
+        
+          The Need for Personalization <a href="#the-need-for-personalization"></a>
+        
+        
+      </h2>
+    
+      <h3 id="beyond-one-size-fits-all"  id="beyond-one-size-fits-all">
+        
+        
+          Beyond One-Size-Fits-All <a href="#beyond-one-size-fits-all"></a>
+        
+        
+      </h3>
+    
+
+<p>ActivityWatch allows for custom plugins and scripts, enabling you to tailor the software to your specific needs. This is crucial in a world where no two users are the same.</p>
+      <h2 id="the-need-for-researcher-tools"  id="the-need-for-researcher-tools">
+        
+        
+          The Need for Researcher Tools <a href="#the-need-for-researcher-tools"></a>
+        
+        
+      </h2>
+    
+      <h3 id="the-value-of-data-in-research"  id="the-value-of-data-in-research">
+        
+        
+          The Value of Data in Research <a href="#the-value-of-data-in-research"></a>
+        
+        
+      </h3>
+    
+
+<p>In the realm of behavioral and social sciences, the availability of accurate and comprehensive data is often the cornerstone of impactful research. Traditional methods of data collection, such as surveys and interviews, have their limitations in terms of scale and objectivity. This is where time-tracking tools like ActivityWatch can fill a significant gap.</p>
+      <h3 id="addressing-the-lack-of-data-collection-tooling"  id="addressing-the-lack-of-data-collection-tooling">
+        
+        
+          Addressing the Lack of Data Collection Tooling <a href="#addressing-the-lack-of-data-collection-tooling"></a>
+        
+        
+      </h3>
+    
+
+<p>One of the challenges researchers face is the lack of specialized tooling for data collection that is both ethical and efficient. ActivityWatch addresses this void by offering a platform that is not only privacy-centric but also highly customizable. Researchers can use custom plugins and scripts to tailor data collection to the specific needs of their study, thereby enhancing the quality and relevance of the data collected.</p>
+      <h3 id="erc-funded-project-a-case-study"  id="erc-funded-project-a-case-study">
+        
+        
+          ERC-Funded Project: A Case Study <a href="#erc-funded-project-a-case-study"></a>
+        
+        
+      </h3>
+    
+
+<p>ActivityWatch is currently being utilized in a 5-year project funded by the European Research Council. The project aims to delve into the intricacies of human behavior and time management. The use of ActivityWatch in such a high-profile research initiative underscores its value as a reliable tool for academic and scientific inquiry. <a href="https://cordis.europa.eu/project/id/950635">Learn more about the ERC-funded project here</a>.</p>
+      <h3 id="warn-d-research-project-the-broader-context"  id="warn-d-research-project-the-broader-context">
+        
+        
+          WARN-D Research Project: The Broader Context <a href="#warn-d-research-project-the-broader-context"></a>
+        
+        
+      </h3>
+    
+
+<p>While not directly using ActivityWatch, the WARN-D research project aims to build a personalized early warning system for mental health by tracking stressors among students. This project highlights the broader societal value of time-tracking data and sets a precedent for how ActivityWatch could be employed in similar research endeavors. <a href="https://warn-d.eiko-fried.com/">Learn more about the WARN-D project here</a>.</p>
+
+<p>By offering a robust, customizable, and privacy-focused platform, ActivityWatch is poised to become an invaluable asset in the toolkit of modern researchers.</p>
+      <h2 id="leading-the-charge-activitywatchs-role-in-shaping-the-future-of-time-tracking"  id="leading-the-charge-activitywatchs-role-in-shaping-the-future-of-time-tracking">
+        
+        
+          Leading the Charge: ActivityWatch’s Role in Shaping the Future of Time Tracking <a href="#leading-the-charge-activitywatchs-role-in-shaping-the-future-of-time-tracking"></a>
+        
+        
+      </h2>
+    
+
+<p>ActivityWatch is not just another time-tracking tool; it’s a platform that embodies the future of this technology. Situated at the crossroads of data-driven AI applications, stringent privacy measures, and extensive personalization capabilities, ActivityWatch is setting the standard for what time-tracking software can and should be.</p>
+
+<p>By offering a platform that is both customizable and privacy-centric, ActivityWatch provides a unique solution that caters to a diverse user base—from individuals seeking to improve their productivity to researchers aiming to collect valuable data for scientific inquiry.</p>
+
+<p>As we look to the future, ActivityWatch is committed to further enhancing its platform to meet the evolving needs of its users. Whether it’s integrating more advanced data analytics or expanding the range of custom plugins, the roadmap for ActivityWatch is geared towards innovation and user empowerment.</p>
+
+<p>In a world where time is our most valuable resource, ActivityWatch offers a way to make the most of it. By focusing on the key pillars of AI, privacy, and personalization, ActivityWatch is not just keeping pace with the future of time tracking—it’s leading the way.</p>
+      <h2 id="conclusion"  id="conclusion">
+        
+        
+          Conclusion <a href="#conclusion"></a>
+        
+        
+      </h2>
+    
+
+<p>The future of time tracking is intricately tied to AI, privacy, and personalization. With its focus on these areas, ActivityWatch is well-positioned to lead the way.</p>
+
+<p>If you are excited about this like we are, consider joining the <a href="https://discord.gg/vDskV9q">Discord server</a>. We’re always looking for new contributors and ideas!</p>
+
+<p>And if you aren’t using ActivityWatch already, now is the perfect time to <a href="https://activitywatch.net/download/">start collecting your screentime data!</a></p>
+
+    </div>
+
+    <div class="footer">
+        <div >
+            <span class="fa fa-link"></span>
+            <a href="/blog/future-of-time-tracking/">Permalink</a>
+        </div>
+    </div>
+</div>
+</article>
+
+    <div style="margin: 6em 0;">
+
+    <article class="post card" itemscope itemtype="http://schema.org/BlogPosting">
+<div class="card-body"><header>
+      <h1 class="card-title"  id="comparing-activitywatch-with-rescuetime-manictime-and-apple-screentime" id="comparing-activitywatch-with-rescuetime-manictime-and-apple-screentime">
+        
+        
+          <a href="/blog/comparing-time-trackers/">Comparing ActivityWatch with RescueTime, ManicTime, and Apple ScreenTime</a> <a href="#comparing-activitywatch-with-rescuetime-manictime-and-apple-screentime"></a>
+        
+        
+      </h1>
+    
+
+        <div class="post-meta">
+            <span class="meta-box">
+                <span class="fa fa-user meta-icon"></span>
+                Erik Bjäreholt
+            </span>
+            <span class="ml-2">
+                <span class="fa fa-calendar meta-icon"></span>
+                <time datetime="2023-08-30 09:24:00 +0000">
+                    2023-08-30 09:24 UTC
+                </time>
+            </span>
+        </div>
+    </header>
+
+    <div class="content py-3">
+      <h2 id="introduction"  id="introduction" id="introduction">
+        
+        
+          Introduction <a href="#introduction"></a>
+        
+        
+      </h2>
+    
+
+<p>In today’s digital landscape, effective time management is more critical than ever. While everyone has 24 hours in a day, how we utilize those hours significantly impacts our productivity and well-being. Time-tracking software has thus become a fundamental tool for individuals and organizations aiming to optimize their time use. This article will conduct a side-by-side comparison of four popular time-tracking applications: ActivityWatch, RescueTime, ManicTime, and Apple ScreenTime.</p>
+      <h2 id="feature-comparison"  id="feature-comparison" id="feature-comparison">
+        
+        
+          Feature Comparison <a href="#feature-comparison"></a>
+        
+        
+      </h2>
+    
+
+<p>Here’s a table outlining the features of each software:</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Feature Category</th>
+      <th>ActivityWatch</th>
+      <th>RescueTime</th>
+      <th>ManicTime</th>
+      <th>Apple ScreenTime</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>Tracking Capabilities</strong></td>
+      <td>Granular tracking of applications, browser activity, custom event tracking. Extensible architecture.</td>
+      <td>Application and website tracking, limited offline tracking, distraction-blocking features.</td>
+      <td>Comprehensive computer usage tracking, supports offline activity tagging.</td>
+      <td>Limited to Apple ecosystem; tracks applications and website usage. No custom event tracking.</td>
+    </tr>
+    <tr>
+      <td><strong>Reporting &amp; Analytics</strong></td>
+      <td>Rich dashboard with real-time and historical data. Custom reports possible due to open-source nature.</td>
+      <td>Detailed reports, limited customization.</td>
+      <td>Highly detailed reports, manual tagging and categorization.</td>
+      <td>Basic reporting on screen time and app categories, little customization.</td>
+    </tr>
+    <tr>
+      <td><strong>Privacy</strong></td>
+      <td>Local data storage by default. Robust privacy controls.</td>
+      <td>Data stored on their servers.</td>
+      <td>Local and cloud storage options.</td>
+      <td>Encrypted, on-device storage. Tightly integrated with Apple ecosystem.</td>
+    </tr>
+    <tr>
+      <td><strong>Customizability</strong></td>
+      <td>High levels due to open-source nature, from UI to tracking and reporting.</td>
+      <td>Limited to predefined settings and features.</td>
+      <td>Some customization like tagging and categorization.</td>
+      <td>Minimal customization, focused on app limits and downtime.</td>
+    </tr>
+    <tr>
+      <td><strong>Pricing</strong></td>
+      <td>Free and open-source.</td>
+      <td>Freemium model, premium version offers additional features.</td>
+      <td>Free version available, paid license for advanced features.</td>
+      <td>Free but limited to Apple devices.</td>
+    </tr>
+  </tbody>
+</table>
+      <h2 id="decision-matrix-for-use-cases"  id="decision-matrix-for-use-cases" id="decision-matrix-for-use-cases">
+        
+        
+          Decision Matrix for Use-Cases <a href="#decision-matrix-for-use-cases"></a>
+        
+        
+      </h2>
+    
+
+<p>Choosing a time-tracking software often depends on specific needs. The following matrix offers suggestions based on different use-cases:</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Use-Case</th>
+      <th>Recommended Software</th>
+      <th>Reasons</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>Highly Customizable Solution</strong></td>
+      <td>ActivityWatch</td>
+      <td>Open-source nature allows for extensive customization, from UI to tracking metrics.</td>
+    </tr>
+    <tr>
+      <td><strong>Privacy-Conscious Users</strong></td>
+      <td>ActivityWatch</td>
+      <td>Local data storage by default, with robust privacy controls.</td>
+    </tr>
+    <tr>
+      <td><strong>Multi-platform Support</strong></td>
+      <td>ActivityWatch,<br />ManicTime,<br />RescueTime</td>
+      <td>All three support multiple platforms (ActivityWatch and ManicTime support Linux too). Apple ScreenTime is limited to Apple devices.</td>
+    </tr>
+    <tr>
+      <td><strong>Enterprise Use</strong></td>
+      <td>RescueTime</td>
+      <td>Offers team features, data storage on cloud, and centralized reporting.</td>
+    </tr>
+    <tr>
+      <td><strong>Blocking Distractions</strong></td>
+      <td>RescueTime</td>
+      <td>Provides distraction-blocking features in the premium version. Note that there are other free and open-source tools for blocking distractions, which is why ActivityWatch doesn’t offer this feature.</td>
+    </tr>
+    <tr>
+      <td><strong>In-depth Reporting</strong></td>
+      <td>ActivityWatch,<br />ManicTime,<br />RescueTime</td>
+      <td>All offer robust reporting capabilities, with ActivityWatch and ManicTime allowing for greater customization.</td>
+    </tr>
+    <tr>
+      <td><strong>Apple Ecosystem</strong></td>
+      <td>Apple ScreenTime</td>
+      <td>Seamlessly integrates with Apple devices, from iPhones to Macs.</td>
+    </tr>
+    <tr>
+      <td><strong>Freelancers on Budget</strong></td>
+      <td>ActivityWatch</td>
+      <td>Free and open-source with an extensive set of features for individual tracking.</td>
+    </tr>
+    <tr>
+      <td><strong>Offline Activity Tracking</strong></td>
+      <td>ActivityWatch,<br />ManicTime</td>
+      <td>Both support offline activity tagging, making it suitable for tracking non-digital tasks.</td>
+    </tr>
+  </tbody>
+</table>
+      <h2 id="conclusion"  id="conclusion" id="conclusion">
+        
+        
+          Conclusion <a href="#conclusion"></a>
+        
+        
+      </h2>
+    
+
+<p>Time-tracking software options abound, each with its unique set of features, advantages, and limitations. While the final choice will ultimately depend on your specific needs, ActivityWatch emerges as a strong contender in multiple categories.</p>
+      <h3 id="strengths-of-activitywatch"  id="strengths-of-activitywatch" id="strengths-of-activitywatch">
+        
+        
+          Strengths of ActivityWatch: <a href="#strengths-of-activitywatch"></a>
+        
+        
+      </h3>
+    
+<ul>
+  <li>High level of customization thanks to its open-source nature</li>
+  <li>Strong commitment to user privacy with local data storage</li>
+  <li>Extensive tracking capabilities, including custom event tracking</li>
+  <li>Free and open-source, providing a comprehensive feature set without a financial barrier</li>
+</ul>
+      <h3 id="competitors-strengths"  id="competitors-strengths" id="competitors-strengths">
+        
+        
+          Competitors’ Strengths: <a href="#competitors-strengths"></a>
+        
+        
+      </h3>
+    
+<ul>
+  <li>RescueTime offers distraction-blocking and enterprise features</li>
+  <li>ManicTime provides a versatile tracking environment, including offline tagging</li>
+  <li>Apple ScreenTime integrates seamlessly within the Apple ecosystem</li>
+</ul>
+
+<p>In summary, ActivityWatch excels in customizability, privacy, and its free pricing model. It is an ideal choice for users ranging from freelancers to those who prioritize data privacy, all without compromising on tracking capabilities and analytics. If you’re looking for a comprehensive, customizable, and cost-effective time-tracking solution, ActivityWatch may well be the ideal choice for you.</p>
+
+    </div>
+
+    <div class="footer">
+        <div >
+            <span class="fa fa-link"></span>
+            <a href="/blog/comparing-time-trackers/">Permalink</a>
+        </div>
+    </div>
+</div>
+</article>
+
+    <div style="margin: 6em 0;">
+
+
+<!-- next page button/link goes here later -->
+
+    
+    </div>
+  </article>
+</div>
+</div>
+    </div><html>
+  <head></head>
+  <body>
+    <footer class="site-footer">
+      <div class="wrapper">
+        <h4 class="footer-heading" style="margin-bottom: 0.2em">ActivityWatch</h4>
+        <p><i>The best free and open-source automated time tracker. Cross-platform, extensible, local/privacy-first.
+</i></p>
+        <div class="footer-col-wrapper">
+          <div class="footer-col footer-col-3">
+            <ul class="social-media-list">
+              <li><a href="https://github.com/ActivityWatch"><span class="icon icon--github"><svg viewBox="0 0 16 16"><path fill="#828282" d="M7.999,0.431c-4.285,0-7.76,3.474-7.76,7.761 c0,3.428,2.223,6.337,5.307,7.363c0.388,0.071,0.53-0.168,0.53-0.374c0-0.184-0.007-0.672-0.01-1.32 c-2.159,0.469-2.614-1.04-2.614-1.04c-0.353-0.896-0.862-1.135-0.862-1.135c-0.705-0.481,0.053-0.472,0.053-0.472 c0.779,0.055,1.189,0.8,1.189,0.8c0.692,1.186,1.816,0.843,2.258,0.645c0.071-0.502,0.271-0.843,0.493-1.037 C4.86,11.425,3.049,10.76,3.049,7.786c0-0.847,0.302-1.54,0.799-2.082C3.768,5.507,3.501,4.718,3.924,3.65 c0,0,0.652-0.209,2.134,0.796C6.677,4.273,7.34,4.187,8,4.184c0.659,0.003,1.323,0.089,1.943,0.261 c1.482-1.004,2.132-0.796,2.132-0.796c0.423,1.068,0.157,1.857,0.077,2.054c0.497,0.542,0.798,1.235,0.798,2.082 c0,2.981-1.814,3.637-3.543,3.829c0.279,0.24,0.527,0.713,0.527,1.437c0,1.037-0.01,1.874-0.01,2.129 c0,0.208,0.14,0.449,0.534,0.373c3.081-1.028,5.302-3.935,5.302-7.362C15.76,3.906,12.285,0.431,7.999,0.431z"/></svg>
+</span><span class="username">ActivityWatch</span></a>
+</li>
+              
+              <li><a href="https://twitter.com/ActivityWatchIt"><span class="icon icon--twitter"><svg viewBox="0 0 16 16"><path fill="#828282" d="M15.969,3.058c-0.586,0.26-1.217,0.436-1.878,0.515c0.675-0.405,1.194-1.045,1.438-1.809c-0.632,0.375-1.332,0.647-2.076,0.793c-0.596-0.636-1.446-1.033-2.387-1.033c-1.806,0-3.27,1.464-3.27,3.27 c0,0.256,0.029,0.506,0.085,0.745C5.163,5.404,2.753,4.102,1.14,2.124C0.859,2.607,0.698,3.168,0.698,3.767 c0,1.134,0.577,2.135,1.455,2.722C1.616,6.472,1.112,6.325,0.671,6.08c0,0.014,0,0.027,0,0.041c0,1.584,1.127,2.906,2.623,3.206 C3.02,9.402,2.731,9.442,2.433,9.442c-0.211,0-0.416-0.021-0.615-0.059c0.416,1.299,1.624,2.245,3.055,2.271 c-1.119,0.877-2.529,1.4-4.061,1.4c-0.264,0-0.524-0.015-0.78-0.046c1.447,0.928,3.166,1.469,5.013,1.469 c6.015,0,9.304-4.983,9.304-9.304c0-0.142-0.003-0.283-0.009-0.423C14.976,4.29,15.531,3.714,15.969,3.058z"/></svg>
+</span><span class="username">ActivityWatchIt</span></a>
+</li>
+              
+              <li>
+  <a target=_blank href="https://www.linkedin.com/company/activitywatch/"><span class="icon icon--linkedin"><?xml version="1.0" ?><svg height="72" viewBox="0 0 72 72" width="72" xmlns="http://www.w3.org/2000/svg"><g fill="none" fill-rule="evenodd"><path d="M8,72 L64,72 C68.418278,72 72,68.418278 72,64 L72,8 C72,3.581722 68.418278,-8.11624501e-16 64,0 L8,0 C3.581722,8.11624501e-16 -5.41083001e-16,3.581722 0,8 L0,64 C5.41083001e-16,68.418278 3.581722,72 8,72 Z" fill="#007EBB"/><path d="M62,62 L51.315625,62 L51.315625,43.8021149 C51.315625,38.8127542 49.4197917,36.0245323 45.4707031,36.0245323 C41.1746094,36.0245323 38.9300781,38.9261103 38.9300781,43.8021149 L38.9300781,62 L28.6333333,62 L28.6333333,27.3333333 L38.9300781,27.3333333 L38.9300781,32.0029283 C38.9300781,32.0029283 42.0260417,26.2742151 49.3825521,26.2742151 C56.7356771,26.2742151 62,30.7644705 62,40.051212 L62,62 Z M16.349349,22.7940133 C12.8420573,22.7940133 10,19.9296567 10,16.3970067 C10,12.8643566 12.8420573,10 16.349349,10 C19.8566406,10 22.6970052,12.8643566 22.6970052,16.3970067 C22.6970052,19.9296567 19.8566406,22.7940133 16.349349,22.7940133 Z M11.0325521,62 L21.769401,62 L21.769401,27.3333333 L11.0325521,27.3333333 L11.0325521,62 Z" fill="#FFF"/></g></svg></span><span class="username"> activitywatch</span></a>
+
+</li>
+            </ul>
+          </div>
+          <div class="footer-col footer-col-2"></div>
+          <div class="footer-col footer-col-2">
+            <ul class="contact-list">
+              <li>Erik Bjäreholt</li>
+              <li><small>Founder, maintainer</small></li>
+              <li><small><a href="https://github.com/ErikBjare"><span class="icon icon--github"><svg viewBox="0 0 16 16"><path fill="#828282" d="M7.999,0.431c-4.285,0-7.76,3.474-7.76,7.761 c0,3.428,2.223,6.337,5.307,7.363c0.388,0.071,0.53-0.168,0.53-0.374c0-0.184-0.007-0.672-0.01-1.32 c-2.159,0.469-2.614-1.04-2.614-1.04c-0.353-0.896-0.862-1.135-0.862-1.135c-0.705-0.481,0.053-0.472,0.053-0.472 c0.779,0.055,1.189,0.8,1.189,0.8c0.692,1.186,1.816,0.843,2.258,0.645c0.071-0.502,0.271-0.843,0.493-1.037 C4.86,11.425,3.049,10.76,3.049,7.786c0-0.847,0.302-1.54,0.799-2.082C3.768,5.507,3.501,4.718,3.924,3.65 c0,0,0.652-0.209,2.134,0.796C6.677,4.273,7.34,4.187,8,4.184c0.659,0.003,1.323,0.089,1.943,0.261 c1.482-1.004,2.132-0.796,2.132-0.796c0.423,1.068,0.157,1.857,0.077,2.054c0.497,0.542,0.798,1.235,0.798,2.082 c0,2.981-1.814,3.637-3.543,3.829c0.279,0.24,0.527,0.713,0.527,1.437c0,1.037-0.01,1.874-0.01,2.129 c0,0.208,0.14,0.449,0.534,0.373c3.081-1.028,5.302-3.935,5.302-7.362C15.76,3.906,12.285,0.431,7.999,0.431z"/></svg>
+</span><span class="username">ErikBjare</span></a>
+</small></li>
+              <li><small><a href="https://twitter.com/ErikBjare"><span class="icon icon--twitter"><svg viewBox="0 0 16 16"><path fill="#828282" d="M15.969,3.058c-0.586,0.26-1.217,0.436-1.878,0.515c0.675-0.405,1.194-1.045,1.438-1.809c-0.632,0.375-1.332,0.647-2.076,0.793c-0.596-0.636-1.446-1.033-2.387-1.033c-1.806,0-3.27,1.464-3.27,3.27 c0,0.256,0.029,0.506,0.085,0.745C5.163,5.404,2.753,4.102,1.14,2.124C0.859,2.607,0.698,3.168,0.698,3.767 c0,1.134,0.577,2.135,1.455,2.722C1.616,6.472,1.112,6.325,0.671,6.08c0,0.014,0,0.027,0,0.041c0,1.584,1.127,2.906,2.623,3.206 C3.02,9.402,2.731,9.442,2.433,9.442c-0.211,0-0.416-0.021-0.615-0.059c0.416,1.299,1.624,2.245,3.055,2.271 c-1.119,0.877-2.529,1.4-4.061,1.4c-0.264,0-0.524-0.015-0.78-0.046c1.447,0.928,3.166,1.469,5.013,1.469 c6.015,0,9.304-4.983,9.304-9.304c0-0.142-0.003-0.283-0.009-0.423C14.976,4.29,15.531,3.714,15.969,3.058z"/></svg>
+</span><span class="username">ErikBjare</span></a>
+</small></li>
+              <li><small>
+  <a target=_blank href="https://www.linkedin.com/in/erikbjareholt/"><span class="icon icon--linkedin"><?xml version="1.0" ?><svg height="72" viewBox="0 0 72 72" width="72" xmlns="http://www.w3.org/2000/svg"><g fill="none" fill-rule="evenodd"><path d="M8,72 L64,72 C68.418278,72 72,68.418278 72,64 L72,8 C72,3.581722 68.418278,-8.11624501e-16 64,0 L8,0 C3.581722,8.11624501e-16 -5.41083001e-16,3.581722 0,8 L0,64 C5.41083001e-16,68.418278 3.581722,72 8,72 Z" fill="#007EBB"/><path d="M62,62 L51.315625,62 L51.315625,43.8021149 C51.315625,38.8127542 49.4197917,36.0245323 45.4707031,36.0245323 C41.1746094,36.0245323 38.9300781,38.9261103 38.9300781,43.8021149 L38.9300781,62 L28.6333333,62 L28.6333333,27.3333333 L38.9300781,27.3333333 L38.9300781,32.0029283 C38.9300781,32.0029283 42.0260417,26.2742151 49.3825521,26.2742151 C56.7356771,26.2742151 62,30.7644705 62,40.051212 L62,62 Z M16.349349,22.7940133 C12.8420573,22.7940133 10,19.9296567 10,16.3970067 C10,12.8643566 12.8420573,10 16.349349,10 C19.8566406,10 22.6970052,12.8643566 22.6970052,16.3970067 C22.6970052,19.9296567 19.8566406,22.7940133 16.349349,22.7940133 Z M11.0325521,62 L21.769401,62 L21.769401,27.3333333 L11.0325521,27.3333333 L11.0325521,62 Z" fill="#FFF"/></g></svg></span><span class="username"> erikbjareholt</span></a>
+
+</small>
+                <!--li><small><a href="mailto:erik@bjareho.lt">erik@bjareho.lt</a></small></li-->
+              </li>
+            </ul>
+          </div>
+          <div class="footer-col footer-col-2">
+            <ul class="contact-list">
+              <li>Johan Bjäreholt</li>
+              <li><small>Maintainer</small></li>
+              <li><small><a href="https://github.com/johan-bjareholt"><span class="icon icon--github"><svg viewBox="0 0 16 16"><path fill="#828282" d="M7.999,0.431c-4.285,0-7.76,3.474-7.76,7.761 c0,3.428,2.223,6.337,5.307,7.363c0.388,0.071,0.53-0.168,0.53-0.374c0-0.184-0.007-0.672-0.01-1.32 c-2.159,0.469-2.614-1.04-2.614-1.04c-0.353-0.896-0.862-1.135-0.862-1.135c-0.705-0.481,0.053-0.472,0.053-0.472 c0.779,0.055,1.189,0.8,1.189,0.8c0.692,1.186,1.816,0.843,2.258,0.645c0.071-0.502,0.271-0.843,0.493-1.037 C4.86,11.425,3.049,10.76,3.049,7.786c0-0.847,0.302-1.54,0.799-2.082C3.768,5.507,3.501,4.718,3.924,3.65 c0,0,0.652-0.209,2.134,0.796C6.677,4.273,7.34,4.187,8,4.184c0.659,0.003,1.323,0.089,1.943,0.261 c1.482-1.004,2.132-0.796,2.132-0.796c0.423,1.068,0.157,1.857,0.077,2.054c0.497,0.542,0.798,1.235,0.798,2.082 c0,2.981-1.814,3.637-3.543,3.829c0.279,0.24,0.527,0.713,0.527,1.437c0,1.037-0.01,1.874-0.01,2.129 c0,0.208,0.14,0.449,0.534,0.373c3.081-1.028,5.302-3.935,5.302-7.362C15.76,3.906,12.285,0.431,7.999,0.431z"/></svg>
+</span><span class="username">johan-bjareholt</span></a>
+</small></li>
+              <li><small><a href="https://twitter.com/johan_bjareholt"><span class="icon icon--twitter"><svg viewBox="0 0 16 16"><path fill="#828282" d="M15.969,3.058c-0.586,0.26-1.217,0.436-1.878,0.515c0.675-0.405,1.194-1.045,1.438-1.809c-0.632,0.375-1.332,0.647-2.076,0.793c-0.596-0.636-1.446-1.033-2.387-1.033c-1.806,0-3.27,1.464-3.27,3.27 c0,0.256,0.029,0.506,0.085,0.745C5.163,5.404,2.753,4.102,1.14,2.124C0.859,2.607,0.698,3.168,0.698,3.767 c0,1.134,0.577,2.135,1.455,2.722C1.616,6.472,1.112,6.325,0.671,6.08c0,0.014,0,0.027,0,0.041c0,1.584,1.127,2.906,2.623,3.206 C3.02,9.402,2.731,9.442,2.433,9.442c-0.211,0-0.416-0.021-0.615-0.059c0.416,1.299,1.624,2.245,3.055,2.271 c-1.119,0.877-2.529,1.4-4.061,1.4c-0.264,0-0.524-0.015-0.78-0.046c1.447,0.928,3.166,1.469,5.013,1.469 c6.015,0,9.304-4.983,9.304-9.304c0-0.142-0.003-0.283-0.009-0.423C14.976,4.29,15.531,3.714,15.969,3.058z"/></svg>
+</span><span class="username">johan_bjareholt</span></a>
+</small></li>
+              <li><small>
+  <a target=_blank href="https://www.linkedin.com/in/johanbjareholt/"><span class="icon icon--linkedin"><?xml version="1.0" ?><svg height="72" viewBox="0 0 72 72" width="72" xmlns="http://www.w3.org/2000/svg"><g fill="none" fill-rule="evenodd"><path d="M8,72 L64,72 C68.418278,72 72,68.418278 72,64 L72,8 C72,3.581722 68.418278,-8.11624501e-16 64,0 L8,0 C3.581722,8.11624501e-16 -5.41083001e-16,3.581722 0,8 L0,64 C5.41083001e-16,68.418278 3.581722,72 8,72 Z" fill="#007EBB"/><path d="M62,62 L51.315625,62 L51.315625,43.8021149 C51.315625,38.8127542 49.4197917,36.0245323 45.4707031,36.0245323 C41.1746094,36.0245323 38.9300781,38.9261103 38.9300781,43.8021149 L38.9300781,62 L28.6333333,62 L28.6333333,27.3333333 L38.9300781,27.3333333 L38.9300781,32.0029283 C38.9300781,32.0029283 42.0260417,26.2742151 49.3825521,26.2742151 C56.7356771,26.2742151 62,30.7644705 62,40.051212 L62,62 Z M16.349349,22.7940133 C12.8420573,22.7940133 10,19.9296567 10,16.3970067 C10,12.8643566 12.8420573,10 16.349349,10 C19.8566406,10 22.6970052,12.8643566 22.6970052,16.3970067 C22.6970052,19.9296567 19.8566406,22.7940133 16.349349,22.7940133 Z M11.0325521,62 L21.769401,62 L21.769401,27.3333333 L11.0325521,27.3333333 L11.0325521,62 Z" fill="#FFF"/></g></svg></span><span class="username"> johanbjareholt</span></a>
+
+</small></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>
+  </body>
+</html>

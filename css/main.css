@@ -6,6 +6,14 @@ h1, h2, h3, h4, h5, h6 { font-family: 'Varela Round', sans-serif !important; }
 /** Reset some basic elements */
 body, h1, h2, h3, h4, h5, h6, p, blockquote, pre, hr, dl, dd, ol, ul, figure { margin: 0; padding: 0; }
 
+.post { /* basic font for h2, h3, ... */ }
+
+.post h1.title { font-size: 2em; padding: 0; }
+
+.post h2, .post h3, .post h4, .post h5, .post h6 { padding-top: 0.5em; }
+
+.post h2:first-child, .post h3:first-child, .post h4:first-child, .post h5:first-child, .post h6:first-child { padding-top: 0; }
+
 summary h1, summary h2, summary h3, summary h4, summary h5, summary h6 { margin-bottom: 0; }
 
 .table.dense { width: auto !important; }
@@ -137,6 +145,10 @@ details { border: 2px solid #e8e8e8; margin-top: 0; }
 .post-content h4 { font-size: 20px; }
 
 @media screen and (max-width: 1000px) { .post-content h4 { font-size: 18px; } }
+
+.post-content table { border: 1px solid #e8e8e8; border-collapse: collapse; margin: 30px 0; width: 100%; font-size: 14px; }
+
+.post-content table th, .post-content table td { border: 1px solid #e8e8e8; padding: 7.5px; }
 
 /** Syntax highlighting styles */
 .highlight { background: #fff; }
