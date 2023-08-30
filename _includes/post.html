@@ -1,23 +1,23 @@
 <article class="post card" itemscope itemtype="http://schema.org/BlogPosting">
 <div class="card-body">
-    <header>
+    <header class="post-header">
         <h1 class="card-title"><a href="{{ page.url }}">{{ page.title }}</a></h1>
 
         <div class="post-meta">
-            <span class="meta-box">
+            <span class="meta-box" itemscope itemtype="http://schema.org/Person">
                 <span class="fa fa-user meta-icon"></span>
-                {{ page.author }}
+                <span itemprop="name">{{ page.author }}</span>
             </span>
             <span class="ml-2">
                 <span class="fa fa-calendar meta-icon"></span>
-                <time datetime="{{ page.date }}">
+                <time datetime="{{ page.date | date_to_xmlschema }}" itemprop="datePublished">
                     {{ page.date | date: "%F %R %Z" }}
                 </time>
             </span>
         </div>
     </header>
 
-    <div class="content py-3">
+    <div class="post-content" itemprop="articleBody">
         {{ include.content }}
     </div>
 
