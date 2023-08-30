@@ -15,6 +15,23 @@ dl, dd, ol, ul, figure {
     padding: 0;
 }
 
+.post {
+  h1.title {
+    font-size: 2em;
+    padding: 0;
+  }
+
+  /* basic font for h2, h3, ... */
+  h2, h3, h4, h5, h6 {
+    padding-top: 0.5em;
+
+    &:first-child {
+      padding-top: 0;
+    }
+  } 
+}
+
+
 summary {
   h1, h2, h3, h4, h5, h6 {
     margin-bottom: 0;
