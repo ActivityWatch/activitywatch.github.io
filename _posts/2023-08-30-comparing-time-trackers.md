@@ -1,8 +1,9 @@
 ---
 layout: post
 title: Comparing ActivityWatch with RescueTime, ManicTime, and Apple ScreenTime
-date: 2023-08-30 11:24 +0200
+date: 2023-08-30 15:55 +0200
 author: "Erik Bjäreholt"
+author_twitter: "ErikBjare"
 ---
 
 ## Introduction

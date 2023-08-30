@@ -1,8 +1,9 @@
 ---
 layout: post
 title: "The Future of Time Tracking: AI, Privacy, and Personalization"
-date: 2023-08-30 11:52 +0200
+date: 2023-08-30 15:57 +0200
 author: "Erik Bjäreholt"
+author_twitter: "ErikBjare"
 ---
 
 ## Introduction
