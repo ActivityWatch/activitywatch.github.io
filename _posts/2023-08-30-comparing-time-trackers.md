@@ -53,3 +53,5 @@ Time-tracking software options abound, each with its unique set of features, adv
 - Apple ScreenTime integrates seamlessly within the Apple ecosystem
 
 In summary, ActivityWatch excels in customizability, privacy, and its free pricing model. It is an ideal choice for users ranging from freelancers to those who prioritize data privacy, all without compromising on tracking capabilities and analytics. If you're looking for a comprehensive, customizable, and cost-effective time-tracking solution, ActivityWatch may well be the ideal choice for you.
+
+For more alternatives, you can check out [alternativeto.net](https://alternativeto.net/software/activitywatch/).
