@@ -1,6 +1,7 @@
 _site
 .*cache
 .jekyll-metadata
+.ruby-version
 .bundle
 vendor
 _build
