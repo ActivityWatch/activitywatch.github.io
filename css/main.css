@@ -395,6 +395,13 @@ details {
   padding: 7.5px;
 }
 
+.toc {
+  border: 1px solid #e8e8e8;
+  border-collapse: collapse;
+  border-radius: 3px;
+  margin: 30px 0;
+}
+
 /**
  * Syntax highlighting styles
  */
