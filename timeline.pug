@@ -1,0 +1,109 @@
+---
+layout: default
+---
+
+mixin timelineItem(title, url, date, description, type="unknown", italicTitle = false, color="blue")
+  div.timeline-item.bg-white.px-3.py-3.rounded-lg.shadow-md.mb-4(data-type=type)
+    div.mb-2
+      // Title
+      a(href=url)
+        h3.text-lg.mb-2(class=italicTitle ? 'italic' : '')
+          | #{title}
+
+      // Icon & Type
+      span.text-1xl.rounded-full.mr-2.px-2.py-1(class=`bg-${color}-200 text-${color}-800`)
+        if type == 'release'
+          | 📦 Release
+        else if type == 'feature'
+          | 🚀 Feature
+        else if type == 'milestone'
+          | 🏁 Milestone
+        else if type == 'article'
+          | 📰 Article
+        else if type == 'video'
+          | 📺 Video
+        else
+          | 🤷‍♂️ Unknown
+
+      // Date
+      span
+        time(datetime=date) #{date}
+
+    // Description
+    p #{description}
+
+    block
+
+mixin timelineArticle(title, url, date, description, author)
+  +timelineItem(title, url, date, description, type='article', italicTitle=true)
+    span By #[i #{author}]
+
+
+doctype html
+html(lang="en")
+  head
+    meta(charset="UTF-8")
+    title Timeline
+    link(href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.15/dist/tailwind.min.css", rel="stylesheet")
+    script(src="timeline.js")
+  body(class="bg-gray-100")
+    div.container.mx-auto.py-12
+      //- Filter Buttons
+      div.mb-8
+        button.filter-btn.px-4.py-2.bg-blue-500.text-white(data-type="all") All
+        button.filter-btn.px-4.py-2(data-type="feature")
+          span.mr-2 🚀
+          | Features
+        button.filter-btn.px-4.py-2(data-type="release")
+          span.mr-2 📦
+          | Releases
+        button.filter-btn.px-4.py-2(data-type="article")
+          span.mr-2 📰
+          | Articles
+        button.filter-btn.px-4.py-2(data-type="video")
+          span.mr-2 📺
+          | Videos
+        button.filter-btn.px-4.py-2(data-type="milestone")
+          span.mr-2 🏁
+          | Milestones
+      //- Timeline
+      div.timeline
+        // Milestones
+        | {% for event in site.data.milestones %}
+        +timelineItem("{{event.title}}", "{{event.url}}", "{{event.date | date: '%F' }}", "{{event.description}}", "milestone",
+                      false, color="green")
+        | {% endfor %}
+
+        // Releases
+        | {% for event in site.data.releases %}
+        +timelineItem("{{event.tag}}", "{{event.url}}", "{{event.date | date: '%F' }}", "{{event.description}}", "release")
+        | {% endfor %}
+
+        // Android releases
+        | {% for event in site.data.releases_android %}
+        +timelineItem("{{event.title}} (Android)", "{{event.url}}", "{{event.date | date: '%F' }}", "{{event.description}}", "release",
+                      false, color="green")
+        | {% endfor %}
+
+        // Features
+        | {% for event in site.data.features %}
+        +timelineItem("{{event.title}}", "{{event.url}}", "{{event.date | date: '%F' }}", "{{event.description}}", "feature",
+                      false, color="yellow")
+        | {% endfor %}
+
+        // Articles
+        | {% for event in site.posts %}
+        +timelineItem("{{event.title}}", "{{event.url}}", "{{event.date | date: '%F' }}", "{{event.description}}", "article")
+        | {% endfor %}
+
+        // External articles
+        | {% for event in site.data.articles %}
+        +timelineArticle("{{event.title}}", "{{event.url}}", "{{event.date | date: '%F' }}", "{{event.description}}",
+                         "{{event.author}}")
+        | {% endfor %}
+
+        // Videos
+        | {% for event in site.data.videos %}
+        +timelineItem("{{event.title}}", "{{event.url}}", "{{event.date | date: '%F' }}", "{{event.description}}", "video",
+                      true, color="red")
+        | {% endfor %}

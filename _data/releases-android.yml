@@ -1,0 +1,13 @@
+# Android releases
+# https://play.google.com/console/u/0/developers/8546008605074111507/app/4972792652066108621/statistics?metrics=ACTIVE_USERS-ALL-UNIQUE-PER_INTERVAL-DAY&dimension=APP_VERSION&dimensionValues=OVERALL%2C25%2C24%2C22&dateRange=2019_7_25-2023_9_30&tab=APP_STATISTICS&ctpMetric=DAU_MAU-ACQUISITION_UNSPECIFIED-COUNT_UNSPECIFIED-CALCULATION_UNSPECIFIED-DAY&ctpDateRange=2023_9_1-2023_9_30&ctpDimension=COUNTRY&ctpDimensionValue=OVERALL
+
+- title: "v0.10.0"
+  date: "2021-01-06"
+
+- title: "v0.9"
+  date: "2020-05-07"
+  url: "https://twitter.com/ActivityWatchIt/status/1258320915349241856"
+
+- title: "v0.4.12"
+  date: "2019-08-13"
+  url: ""

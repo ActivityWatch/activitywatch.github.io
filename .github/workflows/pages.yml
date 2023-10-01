@@ -49,7 +49,7 @@ jobs:
       - name: Get latest releases
         run: |
           source venv/bin/activate || source venv/Scripts/activate
-          pip install requests
+          pip install -r requirements.txt
           make update-downloads
 
       - name: Build 🔧 # This example project is built using npm and outputs the result to the 'build' folder. Replace with the commands required to build your project, or remove this step entirely if your site is pre-built.
@@ -68,7 +68,7 @@ jobs:
           folder: _site # The folder the action should deploy.
           git-config-name: GitHub Actions
           git-config-email: noreply@github.com
-          
+
       # Needed to prevent GitHub from disabling the cronjob after 60 days of repo inactivity
       # https://dev.to/gautamkrishnar/how-to-prevent-github-from-suspending-your-cronjob-based-triggers-knf
       - uses: gautamkrishnar/keepalive-workflow@master # using the workflow with default settings

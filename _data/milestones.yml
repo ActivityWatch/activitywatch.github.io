@@ -1,0 +1,51 @@
+# Milestones
+
+- title: "300,000 downloads!"
+  date: "2023-08-01"
+  type: "milestone"
+
+- title: "200,000 downloads!"
+  date: "2022-11-27"
+  type: "milestone"
+  url: "https://twitter.com/ActivityWatchIt/status/1589573602990776321"
+
+- title: "1,000 active Android installs"
+  date: "2021-9-26"
+
+- title: "1,000 Twitter followers!"
+  type: "milestone"
+  date: "2022-11-17"
+  url: "https://twitter.com/ActivityWatchIt/status/1593291868116221959"
+
+- title: "100,000 downloads!"
+  type: "milestone"
+  date: "2021-6-22"
+  url: "https://twitter.com/ActivityWatchIt/status/1407431230946168834"
+
+- title: "100 active Android installs"
+  date: "2019-12-27"
+
+- title: "ActivityWatch for Android announced \"usable\""
+  type: "milestone"
+  date: "2019-04-19"  # approximate
+  url: "https://twitter.com/ActivityWatchIt/status/1119258099334795264"  # approximate
+
+#- title: "10,000 downloads!"
+#  type: "milestone"
+#  date: ""
+
+#- title: "1,000 downloads!"
+#  type: "milestone"
+#  date: ""
+
+- title: "Johan joined the project"
+  date: "2016-04-28"
+
+- title: "Started rewrite"
+  date: "2016-04-17"
+
+- title: "First commit"
+  date: "2014-12-30"
+  url: "https://github.com/ActivityWatch/activitywatch-old/commit/689440200bd51f7ee7c0e4e7ef63bc2b8fc53c3f"
+
+# More?

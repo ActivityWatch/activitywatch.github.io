@@ -9,7 +9,7 @@ url: "https://activitywatch.net" # the base hostname & protocol for your site
 twitter_username: ActivityWatchIt
 github_username:  ActivityWatch
 linkedin_company: activitywatch
-  
+
 collections:
     posts:
         output: true
@@ -30,6 +30,7 @@ exclude:
  - contributor-stats/
  - vendor
  - venv
+ - .pug-cache
 
 sass:
     sass_dir: _sass

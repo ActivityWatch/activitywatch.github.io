@@ -6,6 +6,7 @@ _site
 vendor
 _build
 venv
+.vim
 
 stats
 img/stats
