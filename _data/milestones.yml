@@ -1,45 +1,75 @@
 # Milestones
+#
+# TODO
+#  - Contributors count milestones
+#    - Kerkko joined
+#  - Browser extension DAU milestones
+#  - Funding milestones
+#    - Total sponsored/month
 
 - title: "300,000 downloads!"
   date: "2023-08-01"
-  type: "milestone"
+  url: "/stats/"
+
+- title: "Ghent University sponsors with €500"
+  date: "2023-05-01"
+  description: "After getting help with adopting ActivityWatch for their research, they returned the favor by sponsoring with €500."
 
 - title: "200,000 downloads!"
   date: "2022-11-27"
-  type: "milestone"
   url: "https://twitter.com/ActivityWatchIt/status/1589573602990776321"
 
-- title: "1,000 active Android installs"
-  date: "2021-9-26"
-
 - title: "1,000 Twitter followers!"
-  type: "milestone"
   date: "2022-11-17"
   url: "https://twitter.com/ActivityWatchIt/status/1593291868116221959"
 
+- title: "Research group adopts ActivityWatch for long-term study"
+  date: "2022-10-26"
+  url: "https://cordis.europa.eu/project/id/950635"
+  description: "A 5-year research project studying digital wellbeing evaluated their options and adopted ActivityWatch for part of their study."
+
+- title: "Erik Bjäreholt finishes his M.Sc. thesis"
+  date: "2022-01-25"
+  url: "https://github.com/ErikBjare/thesis"
+  description: "The founder of ActivityWatch finishes his M.Sc. thesis, which used EEG (electroencephalography) with ActivityWatch data to study the brain activity of developers during work tasks"
+
+- title: "1,000 active Android installs"
+  date: "2021-09-26"
+
 - title: "100,000 downloads!"
-  type: "milestone"
   date: "2021-6-22"
   url: "https://twitter.com/ActivityWatchIt/status/1407431230946168834"
+
+- title: "5,000 stars!"
+  date: "2021-04-06"
 
 - title: "100 active Android installs"
   date: "2019-12-27"
 
 - title: "ActivityWatch for Android announced \"usable\""
-  type: "milestone"
   date: "2019-04-19"  # approximate
   url: "https://twitter.com/ActivityWatchIt/status/1119258099334795264"  # approximate
 
-#- title: "10,000 downloads!"
-#  type: "milestone"
-#  date: ""
+- title: "10,000 downloads!"
+  date: "2019-01-05"
 
-#- title: "1,000 downloads!"
-#  type: "milestone"
-#  date: ""
+- title: "1,000 stars!"
+  date: "2018-06-23"
+
+- title: "1,000 downloads!"
+  date: "2017-11-30"
+
+- title: "100 stars!"
+  date: "2017-11-10"
+
+- title: "100 downloads!"
+  date: "2017-09-10"
 
 - title: "Johan joined the project"
   date: "2016-04-28"
+
+- title: "Awarded €3000 grant from FUUG.fi"
+  date: "2020-04-01"
 
 - title: "Started rewrite"
   date: "2016-04-17"

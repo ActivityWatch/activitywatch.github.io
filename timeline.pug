@@ -7,7 +7,7 @@ mixin timelineItem(title, url, date, description, type="unknown", italicTitle = 
     div.mb-2
       // Title
       a(href=url)
-        h3.text-lg.mb-2(class=italicTitle ? 'italic' : '')
+        div.text-lg.mb-2(class=italicTitle ? 'italic' : '')
           | #{title}
 
       // Icon & Type
@@ -35,7 +35,7 @@ mixin timelineItem(title, url, date, description, type="unknown", italicTitle = 
     block
 
 mixin timelineArticle(title, url, date, description, author)
-  +timelineItem(title, url, date, description, type='article', italicTitle=true)
+  +timelineItem(title, url, date, description, type='article', italicTitle=true, color="purple")
     span By #[i #{author}]
 
 
@@ -47,25 +47,27 @@ html(lang="en")
     link(href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.15/dist/tailwind.min.css", rel="stylesheet")
     script(src="timeline.js")
   body(class="bg-gray-100")
-    div.container.mx-auto.py-12
+    div.container.mx-auto
+      div.bg-white.rounded-lg.shadow.px-3.py-3.mb-4
+        h1.text-3xl.mb-2
+          | Timeline of ActivityWatch
+        p A brief history of ActivityWatch, including releases, milestones, features, articles, and videos.
+
       //- Filter Buttons
-      div.mb-8
-        button.filter-btn.px-4.py-2.bg-blue-500.text-white(data-type="all") All
-        button.filter-btn.px-4.py-2(data-type="feature")
-          span.mr-2 🚀
-          | Features
-        button.filter-btn.px-4.py-2(data-type="release")
-          span.mr-2 📦
-          | Releases
-        button.filter-btn.px-4.py-2(data-type="article")
-          span.mr-2 📰
-          | Articles
-        button.filter-btn.px-4.py-2(data-type="video")
-          span.mr-2 📺
-          | Videos
-        button.filter-btn.px-4.py-2(data-type="milestone")
-          span.mr-2 🏁
-          | Milestones
+      //-div.px-3.text-gray-500.bold.text-lg.mb-2
+      //-  | Filters
+      div.mb-8.bg-white.rounded-lg.px-3.py-3.shadow
+        mixin filterButton(type, text, emoji = '', active = false)
+          button.filter-btn.text-lg.rounded.px-3.py-1(data-type=type)(class=active ? 'bg-blue-500 text-white' : '')
+            span.mr-2.py-0= emoji
+            = text
+        +filterButton('all', 'All', '⭐', active=true)
+        +filterButton('milestone', 'Milestones', '🏁')
+        +filterButton('feature', 'Features', '🚀')
+        +filterButton('release', 'Releases', '📦')
+        +filterButton('article', 'Articles', '📰')
+        +filterButton('video', 'Videos', '📺')
+
       //- Timeline
       div.timeline
         // Milestones
@@ -76,13 +78,14 @@ html(lang="en")
 
         // Releases
         | {% for event in site.data.releases %}
-        +timelineItem("{{event.tag}}", "{{event.url}}", "{{event.date | date: '%F' }}", "{{event.description}}", "release")
+        +timelineItem("{{event.tag}}", "{{event.url}}", "{{event.date | date: '%F' }}", "{{event.description}}", "release",
+                      false, color="blue")
         | {% endfor %}
 
         // Android releases
         | {% for event in site.data.releases_android %}
         +timelineItem("{{event.title}} (Android)", "{{event.url}}", "{{event.date | date: '%F' }}", "{{event.description}}", "release",
-                      false, color="green")
+                      false, color="blue")
         | {% endfor %}
 
         // Features
@@ -93,7 +96,8 @@ html(lang="en")
 
         // Articles
         | {% for event in site.posts %}
-        +timelineItem("{{event.title}}", "{{event.url}}", "{{event.date | date: '%F' }}", "{{event.description}}", "article")
+        +timelineItem("{{event.title}}", "{{event.url}}", "{{event.date | date: '%F' }}", "{{event.description}}", "article",
+                      true, color="purple")
         | {% endfor %}
 
         // External articles

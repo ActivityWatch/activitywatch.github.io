@@ -36,11 +36,14 @@ releases = fetch_all_releases(owner, repo)
 # Create a list to store the formatted releases
 formatted_releases = []
 
-for release in sorted(releases, key=lambda r: r["published_at"], reverse=True):
+# NOTE: we want to get the commit date "created_at", not the tag date "published_at"
+#       in particular for oopsied: https://github.com/ActivityWatch/activitywatch/releases/tag/v0.10.0
+
+for release in sorted(releases, key=lambda r: r["created_at"], reverse=True):
     formatted_release = {
         "title": release["name"],
         "tag": release["tag_name"],
-        "date": release["published_at"],
+        "date": release["created_at"],
         "link": release["html_url"],
         "type": "release",
     }
