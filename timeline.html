@@ -148,21 +148,31 @@
     <script src="timeline.js"></script>
   </head>
   <body class="bg-gray-100">
-    <div class="container mx-auto py-12">
-      <div class="mb-8">
-        <button class="filter-btn px-4 py-2 bg-blue-500 text-white" data-type="all">All</button>
-        <button class="filter-btn px-4 py-2" data-type="feature"><span class="mr-2">🚀</span>Features</button>
-        <button class="filter-btn px-4 py-2" data-type="release"><span class="mr-2">📦</span>Releases</button>
-        <button class="filter-btn px-4 py-2" data-type="article"><span class="mr-2">📰</span>Articles</button>
-        <button class="filter-btn px-4 py-2" data-type="video"><span class="mr-2">📺</span>Videos</button>
-        <button class="filter-btn px-4 py-2" data-type="milestone"><span class="mr-2">🏁</span>Milestones</button>
+    <div class="container mx-auto">
+      <div class="bg-white rounded-lg shadow px-3 py-3 mb-4">
+        <h1 class="text-3xl mb-2">Timeline of ActivityWatch</h1>
+        <p>A brief history of ActivityWatch, including releases, milestones, features, articles, and videos.</p>
+      </div>
+      <div class="mb-8 bg-white rounded-lg px-3 py-3 shadow">
+                <button class="filter-btn text-lg rounded px-3 py-1 bg-blue-500 text-white" data-type="all"><span class="mr-2 py-0">⭐</span>All
+                </button>
+                <button class="filter-btn text-lg rounded px-3 py-1" data-type="milestone"><span class="mr-2 py-0">🏁</span>Milestones
+                </button>
+                <button class="filter-btn text-lg rounded px-3 py-1" data-type="feature"><span class="mr-2 py-0">🚀</span>Features
+                </button>
+                <button class="filter-btn text-lg rounded px-3 py-1" data-type="release"><span class="mr-2 py-0">📦</span>Releases
+                </button>
+                <button class="filter-btn text-lg rounded px-3 py-1" data-type="article"><span class="mr-2 py-0">📰</span>Articles
+                </button>
+                <button class="filter-btn text-lg rounded px-3 py-1" data-type="video"><span class="mr-2 py-0">📺</span>Videos
+                </button>
       </div>
       <div class="timeline">
         <!-- Milestones-->
         <div class="timeline-item bg-white px-3 py-3 rounded-lg shadow-md mb-4" data-type="milestone">
           <div class="mb-2">
-            <!-- Title--><a href="">
-              <h3 class="text-lg mb-2">300,000 downloads!</h3></a>
+            <!-- Title--><a href="/stats/">
+              <div class="text-lg mb-2">300,000 downloads!</div></a>
             <!-- Icon & Type--><span class="text-1xl rounded-full mr-2 px-2 py-1 bg-green-200 text-green-800">🏁 Milestone</span>
             <!-- Date--><span>
               <time datetime="2023-08-01">2023-08-01</time></span>
@@ -172,8 +182,19 @@
         </div>
         <div class="timeline-item bg-white px-3 py-3 rounded-lg shadow-md mb-4" data-type="milestone">
           <div class="mb-2">
+            <!-- Title--><a href="">
+              <div class="text-lg mb-2">Ghent University sponsors with €500</div></a>
+            <!-- Icon & Type--><span class="text-1xl rounded-full mr-2 px-2 py-1 bg-green-200 text-green-800">🏁 Milestone</span>
+            <!-- Date--><span>
+              <time datetime="2023-05-01">2023-05-01</time></span>
+          </div>
+          <!-- Description-->
+          <p>After getting help with adopting ActivityWatch for their research, they returned the favor by sponsoring with €500.</p>
+        </div>
+        <div class="timeline-item bg-white px-3 py-3 rounded-lg shadow-md mb-4" data-type="milestone">
+          <div class="mb-2">
             <!-- Title--><a href="https://twitter.com/ActivityWatchIt/status/1589573602990776321">
-              <h3 class="text-lg mb-2">200,000 downloads!</h3></a>
+              <div class="text-lg mb-2">200,000 downloads!</div></a>
             <!-- Icon & Type--><span class="text-1xl rounded-full mr-2 px-2 py-1 bg-green-200 text-green-800">🏁 Milestone</span>
             <!-- Date--><span>
               <time datetime="2022-11-27">2022-11-27</time></span>
@@ -183,19 +204,8 @@
         </div>
         <div class="timeline-item bg-white px-3 py-3 rounded-lg shadow-md mb-4" data-type="milestone">
           <div class="mb-2">
-            <!-- Title--><a href="">
-              <h3 class="text-lg mb-2">1,000 active Android installs</h3></a>
-            <!-- Icon & Type--><span class="text-1xl rounded-full mr-2 px-2 py-1 bg-green-200 text-green-800">🏁 Milestone</span>
-            <!-- Date--><span>
-              <time datetime="2021-09-26">2021-09-26</time></span>
-          </div>
-          <!-- Description-->
-          <p></p>
-        </div>
-        <div class="timeline-item bg-white px-3 py-3 rounded-lg shadow-md mb-4" data-type="milestone">
-          <div class="mb-2">
             <!-- Title--><a href="https://twitter.com/ActivityWatchIt/status/1593291868116221959">
-              <h3 class="text-lg mb-2">1,000 Twitter followers!</h3></a>
+              <div class="text-lg mb-2">1,000 Twitter followers!</div></a>
             <!-- Icon & Type--><span class="text-1xl rounded-full mr-2 px-2 py-1 bg-green-200 text-green-800">🏁 Milestone</span>
             <!-- Date--><span>
               <time datetime="2022-11-17">2022-11-17</time></span>
@@ -205,8 +215,41 @@
         </div>
         <div class="timeline-item bg-white px-3 py-3 rounded-lg shadow-md mb-4" data-type="milestone">
           <div class="mb-2">
+            <!-- Title--><a href="https://cordis.europa.eu/project/id/950635">
+              <div class="text-lg mb-2">Research group adopts ActivityWatch for long-term study</div></a>
+            <!-- Icon & Type--><span class="text-1xl rounded-full mr-2 px-2 py-1 bg-green-200 text-green-800">🏁 Milestone</span>
+            <!-- Date--><span>
+              <time datetime="2022-10-26">2022-10-26</time></span>
+          </div>
+          <!-- Description-->
+          <p>A 5-year research project studying digital wellbeing evaluated their options and adopted ActivityWatch for part of their study.</p>
+        </div>
+        <div class="timeline-item bg-white px-3 py-3 rounded-lg shadow-md mb-4" data-type="milestone">
+          <div class="mb-2">
+            <!-- Title--><a href="https://github.com/ErikBjare/thesis">
+              <div class="text-lg mb-2">Erik Bjäreholt finishes his M.Sc. thesis</div></a>
+            <!-- Icon & Type--><span class="text-1xl rounded-full mr-2 px-2 py-1 bg-green-200 text-green-800">🏁 Milestone</span>
+            <!-- Date--><span>
+              <time datetime="2022-01-25">2022-01-25</time></span>
+          </div>
+          <!-- Description-->
+          <p>The founder of ActivityWatch finishes his M.Sc. thesis, which used EEG (electroencephalography) with ActivityWatch data to study the brain activity of developers during work tasks</p>
+        </div>
+        <div class="timeline-item bg-white px-3 py-3 rounded-lg shadow-md mb-4" data-type="milestone">
+          <div class="mb-2">
+            <!-- Title--><a href="">
+              <div class="text-lg mb-2">1,000 active Android installs</div></a>
+            <!-- Icon & Type--><span class="text-1xl rounded-full mr-2 px-2 py-1 bg-green-200 text-green-800">🏁 Milestone</span>
+            <!-- Date--><span>
+              <time datetime="2021-09-26">2021-09-26</time></span>
+          </div>
+          <!-- Description-->
+          <p></p>
+        </div>
+        <div class="timeline-item bg-white px-3 py-3 rounded-lg shadow-md mb-4" data-type="milestone">
+          <div class="mb-2">
             <!-- Title--><a href="https://twitter.com/ActivityWatchIt/status/1407431230946168834">
-              <h3 class="text-lg mb-2">100,000 downloads!</h3></a>
+              <div class="text-lg mb-2">100,000 downloads!</div></a>
             <!-- Icon & Type--><span class="text-1xl rounded-full mr-2 px-2 py-1 bg-green-200 text-green-800">🏁 Milestone</span>
             <!-- Date--><span>
               <time datetime="2021-06-22">2021-06-22</time></span>
@@ -217,7 +260,18 @@
         <div class="timeline-item bg-white px-3 py-3 rounded-lg shadow-md mb-4" data-type="milestone">
           <div class="mb-2">
             <!-- Title--><a href="">
-              <h3 class="text-lg mb-2">100 active Android installs</h3></a>
+              <div class="text-lg mb-2">5,000 stars!</div></a>
+            <!-- Icon & Type--><span class="text-1xl rounded-full mr-2 px-2 py-1 bg-green-200 text-green-800">🏁 Milestone</span>
+            <!-- Date--><span>
+              <time datetime="2021-04-06">2021-04-06</time></span>
+          </div>
+          <!-- Description-->
+          <p></p>
+        </div>
+        <div class="timeline-item bg-white px-3 py-3 rounded-lg shadow-md mb-4" data-type="milestone">
+          <div class="mb-2">
+            <!-- Title--><a href="">
+              <div class="text-lg mb-2">100 active Android installs</div></a>
             <!-- Icon & Type--><span class="text-1xl rounded-full mr-2 px-2 py-1 bg-green-200 text-green-800">🏁 Milestone</span>
             <!-- Date--><span>
               <time datetime="2019-12-27">2019-12-27</time></span>
@@ -228,7 +282,7 @@
         <div class="timeline-item bg-white px-3 py-3 rounded-lg shadow-md mb-4" data-type="milestone">
           <div class="mb-2">
             <!-- Title--><a href="https://twitter.com/ActivityWatchIt/status/1119258099334795264">
-              <h3 class="text-lg mb-2">ActivityWatch for Android announced "usable"</h3></a>
+              <div class="text-lg mb-2">ActivityWatch for Android announced "usable"</div></a>
             <!-- Icon & Type--><span class="text-1xl rounded-full mr-2 px-2 py-1 bg-green-200 text-green-800">🏁 Milestone</span>
             <!-- Date--><span>
               <time datetime="2019-04-19">2019-04-19</time></span>
@@ -239,7 +293,62 @@
         <div class="timeline-item bg-white px-3 py-3 rounded-lg shadow-md mb-4" data-type="milestone">
           <div class="mb-2">
             <!-- Title--><a href="">
-              <h3 class="text-lg mb-2">Johan joined the project</h3></a>
+              <div class="text-lg mb-2">10,000 downloads!</div></a>
+            <!-- Icon & Type--><span class="text-1xl rounded-full mr-2 px-2 py-1 bg-green-200 text-green-800">🏁 Milestone</span>
+            <!-- Date--><span>
+              <time datetime="2019-01-05">2019-01-05</time></span>
+          </div>
+          <!-- Description-->
+          <p></p>
+        </div>
+        <div class="timeline-item bg-white px-3 py-3 rounded-lg shadow-md mb-4" data-type="milestone">
+          <div class="mb-2">
+            <!-- Title--><a href="">
+              <div class="text-lg mb-2">1,000 stars!</div></a>
+            <!-- Icon & Type--><span class="text-1xl rounded-full mr-2 px-2 py-1 bg-green-200 text-green-800">🏁 Milestone</span>
+            <!-- Date--><span>
+              <time datetime="2018-06-23">2018-06-23</time></span>
+          </div>
+          <!-- Description-->
+          <p></p>
+        </div>
+        <div class="timeline-item bg-white px-3 py-3 rounded-lg shadow-md mb-4" data-type="milestone">
+          <div class="mb-2">
+            <!-- Title--><a href="">
+              <div class="text-lg mb-2">1,000 downloads!</div></a>
+            <!-- Icon & Type--><span class="text-1xl rounded-full mr-2 px-2 py-1 bg-green-200 text-green-800">🏁 Milestone</span>
+            <!-- Date--><span>
+              <time datetime="2017-11-30">2017-11-30</time></span>
+          </div>
+          <!-- Description-->
+          <p></p>
+        </div>
+        <div class="timeline-item bg-white px-3 py-3 rounded-lg shadow-md mb-4" data-type="milestone">
+          <div class="mb-2">
+            <!-- Title--><a href="">
+              <div class="text-lg mb-2">100 stars!</div></a>
+            <!-- Icon & Type--><span class="text-1xl rounded-full mr-2 px-2 py-1 bg-green-200 text-green-800">🏁 Milestone</span>
+            <!-- Date--><span>
+              <time datetime="2017-11-10">2017-11-10</time></span>
+          </div>
+          <!-- Description-->
+          <p></p>
+        </div>
+        <div class="timeline-item bg-white px-3 py-3 rounded-lg shadow-md mb-4" data-type="milestone">
+          <div class="mb-2">
+            <!-- Title--><a href="">
+              <div class="text-lg mb-2">100 downloads!</div></a>
+            <!-- Icon & Type--><span class="text-1xl rounded-full mr-2 px-2 py-1 bg-green-200 text-green-800">🏁 Milestone</span>
+            <!-- Date--><span>
+              <time datetime="2017-09-10">2017-09-10</time></span>
+          </div>
+          <!-- Description-->
+          <p></p>
+        </div>
+        <div class="timeline-item bg-white px-3 py-3 rounded-lg shadow-md mb-4" data-type="milestone">
+          <div class="mb-2">
+            <!-- Title--><a href="">
+              <div class="text-lg mb-2">Johan joined the project</div></a>
             <!-- Icon & Type--><span class="text-1xl rounded-full mr-2 px-2 py-1 bg-green-200 text-green-800">🏁 Milestone</span>
             <!-- Date--><span>
               <time datetime="2016-04-28">2016-04-28</time></span>
@@ -250,7 +359,18 @@
         <div class="timeline-item bg-white px-3 py-3 rounded-lg shadow-md mb-4" data-type="milestone">
           <div class="mb-2">
             <!-- Title--><a href="">
-              <h3 class="text-lg mb-2">Started rewrite</h3></a>
+              <div class="text-lg mb-2">Awarded €3000 grant from FUUG.fi</div></a>
+            <!-- Icon & Type--><span class="text-1xl rounded-full mr-2 px-2 py-1 bg-green-200 text-green-800">🏁 Milestone</span>
+            <!-- Date--><span>
+              <time datetime="2020-04-01">2020-04-01</time></span>
+          </div>
+          <!-- Description-->
+          <p></p>
+        </div>
+        <div class="timeline-item bg-white px-3 py-3 rounded-lg shadow-md mb-4" data-type="milestone">
+          <div class="mb-2">
+            <!-- Title--><a href="">
+              <div class="text-lg mb-2">Started rewrite</div></a>
             <!-- Icon & Type--><span class="text-1xl rounded-full mr-2 px-2 py-1 bg-green-200 text-green-800">🏁 Milestone</span>
             <!-- Date--><span>
               <time datetime="2016-04-17">2016-04-17</time></span>
@@ -261,7 +381,7 @@
         <div class="timeline-item bg-white px-3 py-3 rounded-lg shadow-md mb-4" data-type="milestone">
           <div class="mb-2">
             <!-- Title--><a href="https://github.com/ActivityWatch/activitywatch-old/commit/689440200bd51f7ee7c0e4e7ef63bc2b8fc53c3f">
-              <h3 class="text-lg mb-2">First commit</h3></a>
+              <div class="text-lg mb-2">First commit</div></a>
             <!-- Icon & Type--><span class="text-1xl rounded-full mr-2 px-2 py-1 bg-green-200 text-green-800">🏁 Milestone</span>
             <!-- Date--><span>
               <time datetime="2014-12-30">2014-12-30</time></span>
@@ -272,8 +392,8 @@
         <!-- Releases-->
         <div class="timeline-item bg-white px-3 py-3 rounded-lg shadow-md mb-4" data-type="release">
           <div class="mb-2">
-            <!-- Title--><a href="https://github.com/ActivityWatch/activitywatch/releases/tag/v0.12.3b10">
-              <h3 class="text-lg mb-2">v0.12.3b10</h3></a>
+            <!-- Title--><a href="">
+              <div class="text-lg mb-2">v0.12.3b10</div></a>
             <!-- Icon & Type--><span class="text-1xl rounded-full mr-2 px-2 py-1 bg-blue-200 text-blue-800">📦 Release</span>
             <!-- Date--><span>
               <time datetime="2023-09-13">2023-09-13</time></span>
@@ -283,8 +403,8 @@
         </div>
         <div class="timeline-item bg-white px-3 py-3 rounded-lg shadow-md mb-4" data-type="release">
           <div class="mb-2">
-            <!-- Title--><a href="https://github.com/ActivityWatch/activitywatch/releases/tag/v0.12.3b9">
-              <h3 class="text-lg mb-2">v0.12.3b9</h3></a>
+            <!-- Title--><a href="">
+              <div class="text-lg mb-2">v0.12.3b9</div></a>
             <!-- Icon & Type--><span class="text-1xl rounded-full mr-2 px-2 py-1 bg-blue-200 text-blue-800">📦 Release</span>
             <!-- Date--><span>
               <time datetime="2023-08-30">2023-08-30</time></span>
@@ -294,8 +414,8 @@
         </div>
         <div class="timeline-item bg-white px-3 py-3 rounded-lg shadow-md mb-4" data-type="release">
           <div class="mb-2">
-            <!-- Title--><a href="https://github.com/ActivityWatch/activitywatch/releases/tag/v0.12.3b8">
-              <h3 class="text-lg mb-2">v0.12.3b8</h3></a>
+            <!-- Title--><a href="">
+              <div class="text-lg mb-2">v0.12.3b8</div></a>
             <!-- Icon & Type--><span class="text-1xl rounded-full mr-2 px-2 py-1 bg-blue-200 text-blue-800">📦 Release</span>
             <!-- Date--><span>
               <time datetime="2023-08-17">2023-08-17</time></span>
@@ -305,8 +425,8 @@
         </div>
         <div class="timeline-item bg-white px-3 py-3 rounded-lg shadow-md mb-4" data-type="release">
           <div class="mb-2">
-            <!-- Title--><a href="https://github.com/ActivityWatch/activitywatch/releases/tag/v0.12.3b7">
-              <h3 class="text-lg mb-2">v0.12.3b7</h3></a>
+            <!-- Title--><a href="">
+              <div class="text-lg mb-2">v0.12.3b7</div></a>
             <!-- Icon & Type--><span class="text-1xl rounded-full mr-2 px-2 py-1 bg-blue-200 text-blue-800">📦 Release</span>
             <!-- Date--><span>
               <time datetime="2023-08-10">2023-08-10</time></span>
@@ -316,8 +436,8 @@
         </div>
         <div class="timeline-item bg-white px-3 py-3 rounded-lg shadow-md mb-4" data-type="release">
           <div class="mb-2">
-            <!-- Title--><a href="https://github.com/ActivityWatch/activitywatch/releases/tag/v0.12.3b6">
-              <h3 class="text-lg mb-2">v0.12.3b6</h3></a>
+            <!-- Title--><a href="">
+              <div class="text-lg mb-2">v0.12.3b6</div></a>
             <!-- Icon & Type--><span class="text-1xl rounded-full mr-2 px-2 py-1 bg-blue-200 text-blue-800">📦 Release</span>
             <!-- Date--><span>
               <time datetime="2023-08-02">2023-08-02</time></span>
@@ -327,19 +447,19 @@
         </div>
         <div class="timeline-item bg-white px-3 py-3 rounded-lg shadow-md mb-4" data-type="release">
           <div class="mb-2">
-            <!-- Title--><a href="https://github.com/ActivityWatch/activitywatch/releases/tag/v0.12.3b5">
-              <h3 class="text-lg mb-2">v0.12.3b5</h3></a>
+            <!-- Title--><a href="">
+              <div class="text-lg mb-2">v0.12.3b5</div></a>
             <!-- Icon & Type--><span class="text-1xl rounded-full mr-2 px-2 py-1 bg-blue-200 text-blue-800">📦 Release</span>
             <!-- Date--><span>
-              <time datetime="2023-07-21">2023-07-21</time></span>
+              <time datetime="2023-07-13">2023-07-13</time></span>
           </div>
           <!-- Description-->
           <p></p>
         </div>
         <div class="timeline-item bg-white px-3 py-3 rounded-lg shadow-md mb-4" data-type="release">
           <div class="mb-2">
-            <!-- Title--><a href="https://github.com/ActivityWatch/activitywatch/releases/tag/v0.12.3b4">
-              <h3 class="text-lg mb-2">v0.12.3b4</h3></a>
+            <!-- Title--><a href="">
+              <div class="text-lg mb-2">v0.12.3b4</div></a>
             <!-- Icon & Type--><span class="text-1xl rounded-full mr-2 px-2 py-1 bg-blue-200 text-blue-800">📦 Release</span>
             <!-- Date--><span>
               <time datetime="2023-07-07">2023-07-07</time></span>
@@ -349,8 +469,8 @@
         </div>
         <div class="timeline-item bg-white px-3 py-3 rounded-lg shadow-md mb-4" data-type="release">
           <div class="mb-2">
-            <!-- Title--><a href="https://github.com/ActivityWatch/activitywatch/releases/tag/v0.12.3b3">
-              <h3 class="text-lg mb-2">v0.12.3b3</h3></a>
+            <!-- Title--><a href="">
+              <div class="text-lg mb-2">v0.12.3b3</div></a>
             <!-- Icon & Type--><span class="text-1xl rounded-full mr-2 px-2 py-1 bg-blue-200 text-blue-800">📦 Release</span>
             <!-- Date--><span>
               <time datetime="2023-05-26">2023-05-26</time></span>
@@ -360,30 +480,19 @@
         </div>
         <div class="timeline-item bg-white px-3 py-3 rounded-lg shadow-md mb-4" data-type="release">
           <div class="mb-2">
-            <!-- Title--><a href="https://github.com/ActivityWatch/activitywatch/releases/tag/v0.12.3b2">
-              <h3 class="text-lg mb-2">v0.12.3b2</h3></a>
+            <!-- Title--><a href="">
+              <div class="text-lg mb-2">v0.12.3b2</div></a>
             <!-- Icon & Type--><span class="text-1xl rounded-full mr-2 px-2 py-1 bg-blue-200 text-blue-800">📦 Release</span>
             <!-- Date--><span>
-              <time datetime="2023-05-16">2023-05-16</time></span>
+              <time datetime="2023-05-15">2023-05-15</time></span>
           </div>
           <!-- Description-->
           <p></p>
         </div>
         <div class="timeline-item bg-white px-3 py-3 rounded-lg shadow-md mb-4" data-type="release">
           <div class="mb-2">
-            <!-- Title--><a href="https://github.com/ActivityWatch/activitywatch/releases/tag/v0.12.3b1">
-              <h3 class="text-lg mb-2">v0.12.3b1</h3></a>
-            <!-- Icon & Type--><span class="text-1xl rounded-full mr-2 px-2 py-1 bg-blue-200 text-blue-800">📦 Release</span>
-            <!-- Date--><span>
-              <time datetime="2023-03-25">2023-03-25</time></span>
-          </div>
-          <!-- Description-->
-          <p></p>
-        </div>
-        <div class="timeline-item bg-white px-3 py-3 rounded-lg shadow-md mb-4" data-type="release">
-          <div class="mb-2">
-            <!-- Title--><a href="https://github.com/ActivityWatch/activitywatch/releases/tag/v0.12.2">
-              <h3 class="text-lg mb-2">v0.12.2</h3></a>
+            <!-- Title--><a href="">
+              <div class="text-lg mb-2">v0.12.3b1</div></a>
             <!-- Icon & Type--><span class="text-1xl rounded-full mr-2 px-2 py-1 bg-blue-200 text-blue-800">📦 Release</span>
             <!-- Date--><span>
               <time datetime="2023-03-22">2023-03-22</time></span>
@@ -393,8 +502,19 @@
         </div>
         <div class="timeline-item bg-white px-3 py-3 rounded-lg shadow-md mb-4" data-type="release">
           <div class="mb-2">
-            <!-- Title--><a href="https://github.com/ActivityWatch/activitywatch/releases/tag/v0.12.2b1">
-              <h3 class="text-lg mb-2">v0.12.2b1</h3></a>
+            <!-- Title--><a href="">
+              <div class="text-lg mb-2">v0.12.2</div></a>
+            <!-- Icon & Type--><span class="text-1xl rounded-full mr-2 px-2 py-1 bg-blue-200 text-blue-800">📦 Release</span>
+            <!-- Date--><span>
+              <time datetime="2023-01-24">2023-01-24</time></span>
+          </div>
+          <!-- Description-->
+          <p></p>
+        </div>
+        <div class="timeline-item bg-white px-3 py-3 rounded-lg shadow-md mb-4" data-type="release">
+          <div class="mb-2">
+            <!-- Title--><a href="">
+              <div class="text-lg mb-2">v0.12.2b1</div></a>
             <!-- Icon & Type--><span class="text-1xl rounded-full mr-2 px-2 py-1 bg-blue-200 text-blue-800">📦 Release</span>
             <!-- Date--><span>
               <time datetime="2023-01-11">2023-01-11</time></span>
@@ -404,8 +524,8 @@
         </div>
         <div class="timeline-item bg-white px-3 py-3 rounded-lg shadow-md mb-4" data-type="release">
           <div class="mb-2">
-            <!-- Title--><a href="https://github.com/ActivityWatch/activitywatch/releases/tag/v0.12.1">
-              <h3 class="text-lg mb-2">v0.12.1</h3></a>
+            <!-- Title--><a href="">
+              <div class="text-lg mb-2">v0.12.1</div></a>
             <!-- Icon & Type--><span class="text-1xl rounded-full mr-2 px-2 py-1 bg-blue-200 text-blue-800">📦 Release</span>
             <!-- Date--><span>
               <time datetime="2022-09-26">2022-09-26</time></span>
@@ -415,8 +535,8 @@
         </div>
         <div class="timeline-item bg-white px-3 py-3 rounded-lg shadow-md mb-4" data-type="release">
           <div class="mb-2">
-            <!-- Title--><a href="https://github.com/ActivityWatch/activitywatch/releases/tag/v0.12.0">
-              <h3 class="text-lg mb-2">v0.12.0</h3></a>
+            <!-- Title--><a href="">
+              <div class="text-lg mb-2">v0.12.0</div></a>
             <!-- Icon & Type--><span class="text-1xl rounded-full mr-2 px-2 py-1 bg-blue-200 text-blue-800">📦 Release</span>
             <!-- Date--><span>
               <time datetime="2022-08-31">2022-08-31</time></span>
@@ -426,8 +546,8 @@
         </div>
         <div class="timeline-item bg-white px-3 py-3 rounded-lg shadow-md mb-4" data-type="release">
           <div class="mb-2">
-            <!-- Title--><a href="https://github.com/ActivityWatch/activitywatch/releases/tag/v0.12.0b3">
-              <h3 class="text-lg mb-2">v0.12.0b3</h3></a>
+            <!-- Title--><a href="">
+              <div class="text-lg mb-2">v0.12.0b3</div></a>
             <!-- Icon & Type--><span class="text-1xl rounded-full mr-2 px-2 py-1 bg-blue-200 text-blue-800">📦 Release</span>
             <!-- Date--><span>
               <time datetime="2022-07-14">2022-07-14</time></span>
@@ -437,8 +557,8 @@
         </div>
         <div class="timeline-item bg-white px-3 py-3 rounded-lg shadow-md mb-4" data-type="release">
           <div class="mb-2">
-            <!-- Title--><a href="https://github.com/ActivityWatch/activitywatch/releases/tag/v0.12.0b2">
-              <h3 class="text-lg mb-2">v0.12.0b2</h3></a>
+            <!-- Title--><a href="">
+              <div class="text-lg mb-2">v0.12.0b2</div></a>
             <!-- Icon & Type--><span class="text-1xl rounded-full mr-2 px-2 py-1 bg-blue-200 text-blue-800">📦 Release</span>
             <!-- Date--><span>
               <time datetime="2022-05-15">2022-05-15</time></span>
@@ -448,8 +568,8 @@
         </div>
         <div class="timeline-item bg-white px-3 py-3 rounded-lg shadow-md mb-4" data-type="release">
           <div class="mb-2">
-            <!-- Title--><a href="https://github.com/ActivityWatch/activitywatch/releases/tag/v0.12.0b1">
-              <h3 class="text-lg mb-2">v0.12.0b1</h3></a>
+            <!-- Title--><a href="">
+              <div class="text-lg mb-2">v0.12.0b1</div></a>
             <!-- Icon & Type--><span class="text-1xl rounded-full mr-2 px-2 py-1 bg-blue-200 text-blue-800">📦 Release</span>
             <!-- Date--><span>
               <time datetime="2022-03-03">2022-03-03</time></span>
@@ -459,8 +579,8 @@
         </div>
         <div class="timeline-item bg-white px-3 py-3 rounded-lg shadow-md mb-4" data-type="release">
           <div class="mb-2">
-            <!-- Title--><a href="https://github.com/ActivityWatch/activitywatch/releases/tag/v0.11.0">
-              <h3 class="text-lg mb-2">v0.11.0</h3></a>
+            <!-- Title--><a href="">
+              <div class="text-lg mb-2">v0.11.0</div></a>
             <!-- Icon & Type--><span class="text-1xl rounded-full mr-2 px-2 py-1 bg-blue-200 text-blue-800">📦 Release</span>
             <!-- Date--><span>
               <time datetime="2021-06-16">2021-06-16</time></span>
@@ -470,8 +590,8 @@
         </div>
         <div class="timeline-item bg-white px-3 py-3 rounded-lg shadow-md mb-4" data-type="release">
           <div class="mb-2">
-            <!-- Title--><a href="https://github.com/ActivityWatch/activitywatch/releases/tag/v0.10.0">
-              <h3 class="text-lg mb-2">v0.10.0</h3></a>
+            <!-- Title--><a href="">
+              <div class="text-lg mb-2">v0.11.0b1</div></a>
             <!-- Icon & Type--><span class="text-1xl rounded-full mr-2 px-2 py-1 bg-blue-200 text-blue-800">📦 Release</span>
             <!-- Date--><span>
               <time datetime="2021-06-15">2021-06-15</time></span>
@@ -481,19 +601,19 @@
         </div>
         <div class="timeline-item bg-white px-3 py-3 rounded-lg shadow-md mb-4" data-type="release">
           <div class="mb-2">
-            <!-- Title--><a href="https://github.com/ActivityWatch/activitywatch/releases/tag/v0.11.0b1">
-              <h3 class="text-lg mb-2">v0.11.0b1</h3></a>
+            <!-- Title--><a href="">
+              <div class="text-lg mb-2">v0.10.0</div></a>
             <!-- Icon & Type--><span class="text-1xl rounded-full mr-2 px-2 py-1 bg-blue-200 text-blue-800">📦 Release</span>
             <!-- Date--><span>
-              <time datetime="2021-06-15">2021-06-15</time></span>
+              <time datetime="2020-11-24">2020-11-24</time></span>
           </div>
           <!-- Description-->
           <p></p>
         </div>
         <div class="timeline-item bg-white px-3 py-3 rounded-lg shadow-md mb-4" data-type="release">
           <div class="mb-2">
-            <!-- Title--><a href="https://github.com/ActivityWatch/activitywatch/releases/tag/v0.9.2">
-              <h3 class="text-lg mb-2">v0.9.2</h3></a>
+            <!-- Title--><a href="">
+              <div class="text-lg mb-2">v0.9.2</div></a>
             <!-- Icon & Type--><span class="text-1xl rounded-full mr-2 px-2 py-1 bg-blue-200 text-blue-800">📦 Release</span>
             <!-- Date--><span>
               <time datetime="2020-03-23">2020-03-23</time></span>
@@ -503,8 +623,8 @@
         </div>
         <div class="timeline-item bg-white px-3 py-3 rounded-lg shadow-md mb-4" data-type="release">
           <div class="mb-2">
-            <!-- Title--><a href="https://github.com/ActivityWatch/activitywatch/releases/tag/v0.9.1">
-              <h3 class="text-lg mb-2">v0.9.1</h3></a>
+            <!-- Title--><a href="">
+              <div class="text-lg mb-2">v0.9.1</div></a>
             <!-- Icon & Type--><span class="text-1xl rounded-full mr-2 px-2 py-1 bg-blue-200 text-blue-800">📦 Release</span>
             <!-- Date--><span>
               <time datetime="2020-03-21">2020-03-21</time></span>
@@ -514,19 +634,19 @@
         </div>
         <div class="timeline-item bg-white px-3 py-3 rounded-lg shadow-md mb-4" data-type="release">
           <div class="mb-2">
-            <!-- Title--><a href="https://github.com/ActivityWatch/activitywatch/releases/tag/v0.9.0">
-              <h3 class="text-lg mb-2">v0.9.0</h3></a>
+            <!-- Title--><a href="">
+              <div class="text-lg mb-2">v0.9.0</div></a>
             <!-- Icon & Type--><span class="text-1xl rounded-full mr-2 px-2 py-1 bg-blue-200 text-blue-800">📦 Release</span>
             <!-- Date--><span>
-              <time datetime="2020-03-18">2020-03-18</time></span>
+              <time datetime="2020-03-15">2020-03-15</time></span>
           </div>
           <!-- Description-->
           <p></p>
         </div>
         <div class="timeline-item bg-white px-3 py-3 rounded-lg shadow-md mb-4" data-type="release">
           <div class="mb-2">
-            <!-- Title--><a href="https://github.com/ActivityWatch/activitywatch/releases/tag/v0.8.4">
-              <h3 class="text-lg mb-2">v0.8.4</h3></a>
+            <!-- Title--><a href="">
+              <div class="text-lg mb-2">v0.8.4</div></a>
             <!-- Icon & Type--><span class="text-1xl rounded-full mr-2 px-2 py-1 bg-blue-200 text-blue-800">📦 Release</span>
             <!-- Date--><span>
               <time datetime="2019-12-10">2019-12-10</time></span>
@@ -536,8 +656,8 @@
         </div>
         <div class="timeline-item bg-white px-3 py-3 rounded-lg shadow-md mb-4" data-type="release">
           <div class="mb-2">
-            <!-- Title--><a href="https://github.com/ActivityWatch/activitywatch/releases/tag/v0.8.3">
-              <h3 class="text-lg mb-2">v0.8.3</h3></a>
+            <!-- Title--><a href="">
+              <div class="text-lg mb-2">v0.8.3</div></a>
             <!-- Icon & Type--><span class="text-1xl rounded-full mr-2 px-2 py-1 bg-blue-200 text-blue-800">📦 Release</span>
             <!-- Date--><span>
               <time datetime="2019-11-13">2019-11-13</time></span>
@@ -547,8 +667,8 @@
         </div>
         <div class="timeline-item bg-white px-3 py-3 rounded-lg shadow-md mb-4" data-type="release">
           <div class="mb-2">
-            <!-- Title--><a href="https://github.com/ActivityWatch/activitywatch/releases/tag/v0.8.2">
-              <h3 class="text-lg mb-2">v0.8.2</h3></a>
+            <!-- Title--><a href="">
+              <div class="text-lg mb-2">v0.8.2</div></a>
             <!-- Icon & Type--><span class="text-1xl rounded-full mr-2 px-2 py-1 bg-blue-200 text-blue-800">📦 Release</span>
             <!-- Date--><span>
               <time datetime="2019-11-13">2019-11-13</time></span>
@@ -558,8 +678,8 @@
         </div>
         <div class="timeline-item bg-white px-3 py-3 rounded-lg shadow-md mb-4" data-type="release">
           <div class="mb-2">
-            <!-- Title--><a href="https://github.com/ActivityWatch/activitywatch/releases/tag/v0.8.1">
-              <h3 class="text-lg mb-2">v0.8.1</h3></a>
+            <!-- Title--><a href="">
+              <div class="text-lg mb-2">v0.8.1</div></a>
             <!-- Icon & Type--><span class="text-1xl rounded-full mr-2 px-2 py-1 bg-blue-200 text-blue-800">📦 Release</span>
             <!-- Date--><span>
               <time datetime="2019-11-12">2019-11-12</time></span>
@@ -569,8 +689,8 @@
         </div>
         <div class="timeline-item bg-white px-3 py-3 rounded-lg shadow-md mb-4" data-type="release">
           <div class="mb-2">
-            <!-- Title--><a href="https://github.com/ActivityWatch/activitywatch/releases/tag/v0.8.0b9">
-              <h3 class="text-lg mb-2">v0.8.0b9</h3></a>
+            <!-- Title--><a href="">
+              <div class="text-lg mb-2">v0.8.0b9</div></a>
             <!-- Icon & Type--><span class="text-1xl rounded-full mr-2 px-2 py-1 bg-blue-200 text-blue-800">📦 Release</span>
             <!-- Date--><span>
               <time datetime="2019-07-03">2019-07-03</time></span>
@@ -580,8 +700,8 @@
         </div>
         <div class="timeline-item bg-white px-3 py-3 rounded-lg shadow-md mb-4" data-type="release">
           <div class="mb-2">
-            <!-- Title--><a href="https://github.com/ActivityWatch/activitywatch/releases/tag/v0.8.0b8">
-              <h3 class="text-lg mb-2">v0.8.0b8</h3></a>
+            <!-- Title--><a href="">
+              <div class="text-lg mb-2">v0.8.0b8</div></a>
             <!-- Icon & Type--><span class="text-1xl rounded-full mr-2 px-2 py-1 bg-blue-200 text-blue-800">📦 Release</span>
             <!-- Date--><span>
               <time datetime="2019-03-09">2019-03-09</time></span>
@@ -591,8 +711,8 @@
         </div>
         <div class="timeline-item bg-white px-3 py-3 rounded-lg shadow-md mb-4" data-type="release">
           <div class="mb-2">
-            <!-- Title--><a href="https://github.com/ActivityWatch/activitywatch/releases/tag/v0.8.0b7">
-              <h3 class="text-lg mb-2">v0.8.0b7</h3></a>
+            <!-- Title--><a href="">
+              <div class="text-lg mb-2">v0.8.0b7</div></a>
             <!-- Icon & Type--><span class="text-1xl rounded-full mr-2 px-2 py-1 bg-blue-200 text-blue-800">📦 Release</span>
             <!-- Date--><span>
               <time datetime="2018-11-03">2018-11-03</time></span>
@@ -602,8 +722,8 @@
         </div>
         <div class="timeline-item bg-white px-3 py-3 rounded-lg shadow-md mb-4" data-type="release">
           <div class="mb-2">
-            <!-- Title--><a href="https://github.com/ActivityWatch/activitywatch/releases/tag/v0.8.0b6">
-              <h3 class="text-lg mb-2">v0.8.0b6</h3></a>
+            <!-- Title--><a href="">
+              <div class="text-lg mb-2">v0.8.0b6</div></a>
             <!-- Icon & Type--><span class="text-1xl rounded-full mr-2 px-2 py-1 bg-blue-200 text-blue-800">📦 Release</span>
             <!-- Date--><span>
               <time datetime="2018-08-27">2018-08-27</time></span>
@@ -613,8 +733,8 @@
         </div>
         <div class="timeline-item bg-white px-3 py-3 rounded-lg shadow-md mb-4" data-type="release">
           <div class="mb-2">
-            <!-- Title--><a href="https://github.com/ActivityWatch/activitywatch/releases/tag/v0.8.0b5">
-              <h3 class="text-lg mb-2">v0.8.0b5</h3></a>
+            <!-- Title--><a href="">
+              <div class="text-lg mb-2">v0.8.0b5</div></a>
             <!-- Icon & Type--><span class="text-1xl rounded-full mr-2 px-2 py-1 bg-blue-200 text-blue-800">📦 Release</span>
             <!-- Date--><span>
               <time datetime="2018-07-09">2018-07-09</time></span>
@@ -624,8 +744,8 @@
         </div>
         <div class="timeline-item bg-white px-3 py-3 rounded-lg shadow-md mb-4" data-type="release">
           <div class="mb-2">
-            <!-- Title--><a href="https://github.com/ActivityWatch/activitywatch/releases/tag/v0.8.0b4">
-              <h3 class="text-lg mb-2">v0.8.0b4</h3></a>
+            <!-- Title--><a href="">
+              <div class="text-lg mb-2">v0.8.0b4</div></a>
             <!-- Icon & Type--><span class="text-1xl rounded-full mr-2 px-2 py-1 bg-blue-200 text-blue-800">📦 Release</span>
             <!-- Date--><span>
               <time datetime="2018-07-03">2018-07-03</time></span>
@@ -635,8 +755,8 @@
         </div>
         <div class="timeline-item bg-white px-3 py-3 rounded-lg shadow-md mb-4" data-type="release">
           <div class="mb-2">
-            <!-- Title--><a href="https://github.com/ActivityWatch/activitywatch/releases/tag/v0.8.0b3">
-              <h3 class="text-lg mb-2">v0.8.0b3</h3></a>
+            <!-- Title--><a href="">
+              <div class="text-lg mb-2">v0.8.0b3</div></a>
             <!-- Icon & Type--><span class="text-1xl rounded-full mr-2 px-2 py-1 bg-blue-200 text-blue-800">📦 Release</span>
             <!-- Date--><span>
               <time datetime="2018-05-30">2018-05-30</time></span>
@@ -646,8 +766,8 @@
         </div>
         <div class="timeline-item bg-white px-3 py-3 rounded-lg shadow-md mb-4" data-type="release">
           <div class="mb-2">
-            <!-- Title--><a href="https://github.com/ActivityWatch/activitywatch/releases/tag/v0.8.0b2">
-              <h3 class="text-lg mb-2">v0.8.0b2</h3></a>
+            <!-- Title--><a href="">
+              <div class="text-lg mb-2">v0.8.0b2</div></a>
             <!-- Icon & Type--><span class="text-1xl rounded-full mr-2 px-2 py-1 bg-blue-200 text-blue-800">📦 Release</span>
             <!-- Date--><span>
               <time datetime="2018-05-28">2018-05-28</time></span>
@@ -657,8 +777,8 @@
         </div>
         <div class="timeline-item bg-white px-3 py-3 rounded-lg shadow-md mb-4" data-type="release">
           <div class="mb-2">
-            <!-- Title--><a href="https://github.com/ActivityWatch/activitywatch/releases/tag/v0.8.0b1">
-              <h3 class="text-lg mb-2">v0.8.0b1</h3></a>
+            <!-- Title--><a href="">
+              <div class="text-lg mb-2">v0.8.0b1</div></a>
             <!-- Icon & Type--><span class="text-1xl rounded-full mr-2 px-2 py-1 bg-blue-200 text-blue-800">📦 Release</span>
             <!-- Date--><span>
               <time datetime="2018-05-07">2018-05-07</time></span>
@@ -668,8 +788,8 @@
         </div>
         <div class="timeline-item bg-white px-3 py-3 rounded-lg shadow-md mb-4" data-type="release">
           <div class="mb-2">
-            <!-- Title--><a href="https://github.com/ActivityWatch/activitywatch/releases/tag/v0.7.1">
-              <h3 class="text-lg mb-2">v0.7.1</h3></a>
+            <!-- Title--><a href="">
+              <div class="text-lg mb-2">v0.7.1</div></a>
             <!-- Icon & Type--><span class="text-1xl rounded-full mr-2 px-2 py-1 bg-blue-200 text-blue-800">📦 Release</span>
             <!-- Date--><span>
               <time datetime="2017-11-06">2017-11-06</time></span>
@@ -679,8 +799,8 @@
         </div>
         <div class="timeline-item bg-white px-3 py-3 rounded-lg shadow-md mb-4" data-type="release">
           <div class="mb-2">
-            <!-- Title--><a href="https://github.com/ActivityWatch/activitywatch/releases/tag/v0.7.0b4">
-              <h3 class="text-lg mb-2">v0.7.0b4</h3></a>
+            <!-- Title--><a href="">
+              <div class="text-lg mb-2">v0.7.0b4</div></a>
             <!-- Icon & Type--><span class="text-1xl rounded-full mr-2 px-2 py-1 bg-blue-200 text-blue-800">📦 Release</span>
             <!-- Date--><span>
               <time datetime="2017-10-22">2017-10-22</time></span>
@@ -690,8 +810,8 @@
         </div>
         <div class="timeline-item bg-white px-3 py-3 rounded-lg shadow-md mb-4" data-type="release">
           <div class="mb-2">
-            <!-- Title--><a href="https://github.com/ActivityWatch/activitywatch/releases/tag/v0.7.0b3">
-              <h3 class="text-lg mb-2">v0.7.0b3</h3></a>
+            <!-- Title--><a href="">
+              <div class="text-lg mb-2">v0.7.0b3</div></a>
             <!-- Icon & Type--><span class="text-1xl rounded-full mr-2 px-2 py-1 bg-blue-200 text-blue-800">📦 Release</span>
             <!-- Date--><span>
               <time datetime="2017-08-25">2017-08-25</time></span>
@@ -701,8 +821,8 @@
         </div>
         <div class="timeline-item bg-white px-3 py-3 rounded-lg shadow-md mb-4" data-type="release">
           <div class="mb-2">
-            <!-- Title--><a href="https://github.com/ActivityWatch/activitywatch/releases/tag/v0.7.0b2">
-              <h3 class="text-lg mb-2">v0.7.0b2</h3></a>
+            <!-- Title--><a href="">
+              <div class="text-lg mb-2">v0.7.0b2</div></a>
             <!-- Icon & Type--><span class="text-1xl rounded-full mr-2 px-2 py-1 bg-blue-200 text-blue-800">📦 Release</span>
             <!-- Date--><span>
               <time datetime="2017-08-09">2017-08-09</time></span>
@@ -712,8 +832,8 @@
         </div>
         <div class="timeline-item bg-white px-3 py-3 rounded-lg shadow-md mb-4" data-type="release">
           <div class="mb-2">
-            <!-- Title--><a href="https://github.com/ActivityWatch/activitywatch/releases/tag/v0.7.0b1">
-              <h3 class="text-lg mb-2">v0.7.0b1</h3></a>
+            <!-- Title--><a href="">
+              <div class="text-lg mb-2">v0.7.0b1</div></a>
             <!-- Icon & Type--><span class="text-1xl rounded-full mr-2 px-2 py-1 bg-blue-200 text-blue-800">📦 Release</span>
             <!-- Date--><span>
               <time datetime="2017-06-14">2017-06-14</time></span>
@@ -723,8 +843,8 @@
         </div>
         <div class="timeline-item bg-white px-3 py-3 rounded-lg shadow-md mb-4" data-type="release">
           <div class="mb-2">
-            <!-- Title--><a href="https://github.com/ActivityWatch/activitywatch/releases/tag/v0.5.1">
-              <h3 class="text-lg mb-2">v0.5.1</h3></a>
+            <!-- Title--><a href="">
+              <div class="text-lg mb-2">v0.5.1</div></a>
             <!-- Icon & Type--><span class="text-1xl rounded-full mr-2 px-2 py-1 bg-blue-200 text-blue-800">📦 Release</span>
             <!-- Date--><span>
               <time datetime="2016-08-19">2016-08-19</time></span>
@@ -734,8 +854,8 @@
         </div>
         <div class="timeline-item bg-white px-3 py-3 rounded-lg shadow-md mb-4" data-type="release">
           <div class="mb-2">
-            <!-- Title--><a href="https://github.com/ActivityWatch/activitywatch/releases/tag/v0.5.0">
-              <h3 class="text-lg mb-2">v0.5.0</h3></a>
+            <!-- Title--><a href="">
+              <div class="text-lg mb-2">v0.5.0</div></a>
             <!-- Icon & Type--><span class="text-1xl rounded-full mr-2 px-2 py-1 bg-blue-200 text-blue-800">📦 Release</span>
             <!-- Date--><span>
               <time datetime="2016-08-18">2016-08-18</time></span>
@@ -745,8 +865,8 @@
         </div>
         <div class="timeline-item bg-white px-3 py-3 rounded-lg shadow-md mb-4" data-type="release">
           <div class="mb-2">
-            <!-- Title--><a href="https://github.com/ActivityWatch/activitywatch/releases/tag/v0.4.0">
-              <h3 class="text-lg mb-2">v0.4.0</h3></a>
+            <!-- Title--><a href="">
+              <div class="text-lg mb-2">v0.4.0</div></a>
             <!-- Icon & Type--><span class="text-1xl rounded-full mr-2 px-2 py-1 bg-blue-200 text-blue-800">📦 Release</span>
             <!-- Date--><span>
               <time datetime="2016-07-28">2016-07-28</time></span>
@@ -756,8 +876,8 @@
         </div>
         <div class="timeline-item bg-white px-3 py-3 rounded-lg shadow-md mb-4" data-type="release">
           <div class="mb-2">
-            <!-- Title--><a href="https://github.com/ActivityWatch/activitywatch/releases/tag/v0.3.2">
-              <h3 class="text-lg mb-2">v0.3.2</h3></a>
+            <!-- Title--><a href="">
+              <div class="text-lg mb-2">v0.3.2</div></a>
             <!-- Icon & Type--><span class="text-1xl rounded-full mr-2 px-2 py-1 bg-blue-200 text-blue-800">📦 Release</span>
             <!-- Date--><span>
               <time datetime="2016-07-20">2016-07-20</time></span>
@@ -767,8 +887,8 @@
         </div>
         <div class="timeline-item bg-white px-3 py-3 rounded-lg shadow-md mb-4" data-type="release">
           <div class="mb-2">
-            <!-- Title--><a href="https://github.com/ActivityWatch/activitywatch/releases/tag/v0.3.1">
-              <h3 class="text-lg mb-2">v0.3.1</h3></a>
+            <!-- Title--><a href="">
+              <div class="text-lg mb-2">v0.3.1</div></a>
             <!-- Icon & Type--><span class="text-1xl rounded-full mr-2 px-2 py-1 bg-blue-200 text-blue-800">📦 Release</span>
             <!-- Date--><span>
               <time datetime="2016-07-19">2016-07-19</time></span>
@@ -778,8 +898,8 @@
         </div>
         <div class="timeline-item bg-white px-3 py-3 rounded-lg shadow-md mb-4" data-type="release">
           <div class="mb-2">
-            <!-- Title--><a href="https://github.com/ActivityWatch/activitywatch/releases/tag/v0.3.0">
-              <h3 class="text-lg mb-2">v0.3.0</h3></a>
+            <!-- Title--><a href="">
+              <div class="text-lg mb-2">v0.3.0</div></a>
             <!-- Icon & Type--><span class="text-1xl rounded-full mr-2 px-2 py-1 bg-blue-200 text-blue-800">📦 Release</span>
             <!-- Date--><span>
               <time datetime="2016-07-19">2016-07-19</time></span>
@@ -789,8 +909,8 @@
         </div>
         <div class="timeline-item bg-white px-3 py-3 rounded-lg shadow-md mb-4" data-type="release">
           <div class="mb-2">
-            <!-- Title--><a href="https://github.com/ActivityWatch/activitywatch/releases/tag/v0.2.0">
-              <h3 class="text-lg mb-2">v0.2.0</h3></a>
+            <!-- Title--><a href="">
+              <div class="text-lg mb-2">v0.2.0</div></a>
             <!-- Icon & Type--><span class="text-1xl rounded-full mr-2 px-2 py-1 bg-blue-200 text-blue-800">📦 Release</span>
             <!-- Date--><span>
               <time datetime="2016-07-08">2016-07-08</time></span>
@@ -800,8 +920,8 @@
         </div>
         <div class="timeline-item bg-white px-3 py-3 rounded-lg shadow-md mb-4" data-type="release">
           <div class="mb-2">
-            <!-- Title--><a href="https://github.com/ActivityWatch/activitywatch/releases/tag/v0.1">
-              <h3 class="text-lg mb-2">v0.1</h3></a>
+            <!-- Title--><a href="">
+              <div class="text-lg mb-2">v0.1.1</div></a>
             <!-- Icon & Type--><span class="text-1xl rounded-full mr-2 px-2 py-1 bg-blue-200 text-blue-800">📦 Release</span>
             <!-- Date--><span>
               <time datetime="2016-06-29">2016-06-29</time></span>
@@ -811,21 +931,54 @@
         </div>
         <div class="timeline-item bg-white px-3 py-3 rounded-lg shadow-md mb-4" data-type="release">
           <div class="mb-2">
-            <!-- Title--><a href="https://github.com/ActivityWatch/activitywatch/releases/tag/v0.1.1">
-              <h3 class="text-lg mb-2">v0.1.1</h3></a>
+            <!-- Title--><a href="">
+              <div class="text-lg mb-2">v0.1</div></a>
             <!-- Icon & Type--><span class="text-1xl rounded-full mr-2 px-2 py-1 bg-blue-200 text-blue-800">📦 Release</span>
             <!-- Date--><span>
-              <time datetime="2016-06-29">2016-06-29</time></span>
+              <time datetime="2016-06-10">2016-06-10</time></span>
           </div>
           <!-- Description-->
           <p></p>
         </div>
         <!-- Android releases-->
+        <div class="timeline-item bg-white px-3 py-3 rounded-lg shadow-md mb-4" data-type="release">
+          <div class="mb-2">
+            <!-- Title--><a href="">
+              <div class="text-lg mb-2">v0.10.0 (Android)</div></a>
+            <!-- Icon & Type--><span class="text-1xl rounded-full mr-2 px-2 py-1 bg-blue-200 text-blue-800">📦 Release</span>
+            <!-- Date--><span>
+              <time datetime="2021-01-06">2021-01-06</time></span>
+          </div>
+          <!-- Description-->
+          <p></p>
+        </div>
+        <div class="timeline-item bg-white px-3 py-3 rounded-lg shadow-md mb-4" data-type="release">
+          <div class="mb-2">
+            <!-- Title--><a href="https://twitter.com/ActivityWatchIt/status/1258320915349241856">
+              <div class="text-lg mb-2">v0.9.0 (Android)</div></a>
+            <!-- Icon & Type--><span class="text-1xl rounded-full mr-2 px-2 py-1 bg-blue-200 text-blue-800">📦 Release</span>
+            <!-- Date--><span>
+              <time datetime="2020-05-07">2020-05-07</time></span>
+          </div>
+          <!-- Description-->
+          <p></p>
+        </div>
+        <div class="timeline-item bg-white px-3 py-3 rounded-lg shadow-md mb-4" data-type="release">
+          <div class="mb-2">
+            <!-- Title--><a href="">
+              <div class="text-lg mb-2">v0.4.12 (Android)</div></a>
+            <!-- Icon & Type--><span class="text-1xl rounded-full mr-2 px-2 py-1 bg-blue-200 text-blue-800">📦 Release</span>
+            <!-- Date--><span>
+              <time datetime="2019-08-13">2019-08-13</time></span>
+          </div>
+          <!-- Description-->
+          <p></p>
+        </div>
         <!-- Features-->
         <div class="timeline-item bg-white px-3 py-3 rounded-lg shadow-md mb-4" data-type="feature">
           <div class="mb-2">
             <!-- Title--><a href="https://github.com/ActivityWatch/aw-webui/pull/375">
-              <h3 class="text-lg mb-2">Always-count-as-active</h3></a>
+              <div class="text-lg mb-2">Always-count-as-active</div></a>
             <!-- Icon & Type--><span class="text-1xl rounded-full mr-2 px-2 py-1 bg-yellow-200 text-yellow-800">🚀 Feature</span>
             <!-- Date--><span>
               <time datetime="2022-10-11">2022-10-11</time></span>
@@ -836,7 +989,7 @@
         <div class="timeline-item bg-white px-3 py-3 rounded-lg shadow-md mb-4" data-type="feature">
           <div class="mb-2">
             <!-- Title--><a href="https://github.com/ActivityWatch/aw-webui/pull/307">
-              <h3 class="text-lg mb-2">Dark mode</h3></a>
+              <div class="text-lg mb-2">Dark mode</div></a>
             <!-- Icon & Type--><span class="text-1xl rounded-full mr-2 px-2 py-1 bg-yellow-200 text-yellow-800">🚀 Feature</span>
             <!-- Date--><span>
               <time datetime="2021-10-05">2021-10-05</time></span>
@@ -847,7 +1000,7 @@
         <div class="timeline-item bg-white px-3 py-3 rounded-lg shadow-md mb-4" data-type="feature">
           <div class="mb-2">
             <!-- Title--><a href="https://github.com/ActivityWatch/aw-webui/pull/262">
-              <h3 class="text-lg mb-2">Audible-as-active</h3></a>
+              <div class="text-lg mb-2">Audible-as-active</div></a>
             <!-- Icon & Type--><span class="text-1xl rounded-full mr-2 px-2 py-1 bg-yellow-200 text-yellow-800">🚀 Feature</span>
             <!-- Date--><span>
               <time datetime="2021-02-28">2021-02-28</time></span>
@@ -858,7 +1011,7 @@
         <div class="timeline-item bg-white px-3 py-3 rounded-lg shadow-md mb-4" data-type="feature">
           <div class="mb-2">
             <!-- Title--><a href="https://github.com/ActivityWatch/aw-webui/pull/254">
-              <h3 class="text-lg mb-2">Category colors!</h3></a>
+              <div class="text-lg mb-2">Category colors!</div></a>
             <!-- Icon & Type--><span class="text-1xl rounded-full mr-2 px-2 py-1 bg-yellow-200 text-yellow-800">🚀 Feature</span>
             <!-- Date--><span>
               <time datetime="2021-02-22">2021-02-22</time></span>
@@ -869,7 +1022,7 @@
         <div class="timeline-item bg-white px-3 py-3 rounded-lg shadow-md mb-4" data-type="feature">
           <div class="mb-2">
             <!-- Title--><a href="https://github.com/ActivityWatch/aw-webui/pull/145">
-              <h3 class="text-lg mb-2">Categorization</h3></a>
+              <div class="text-lg mb-2">Categorization</div></a>
             <!-- Icon & Type--><span class="text-1xl rounded-full mr-2 px-2 py-1 bg-yellow-200 text-yellow-800">🚀 Feature</span>
             <!-- Date--><span>
               <time datetime="2019-10-19">2019-10-19</time></span>
@@ -880,7 +1033,7 @@
         <div class="timeline-item bg-white px-3 py-3 rounded-lg shadow-md mb-4" data-type="feature">
           <div class="mb-2">
             <!-- Title--><a href="https://github.com/ActivityWatch/aw-webui/pull/83">
-              <h3 class="text-lg mb-2">Browser extension support</h3></a>
+              <div class="text-lg mb-2">Browser extension support</div></a>
             <!-- Icon & Type--><span class="text-1xl rounded-full mr-2 px-2 py-1 bg-yellow-200 text-yellow-800">🚀 Feature</span>
             <!-- Date--><span>
               <time datetime="2018-06-20">2018-06-20</time></span>
@@ -891,7 +1044,7 @@
         <div class="timeline-item bg-white px-3 py-3 rounded-lg shadow-md mb-4" data-type="feature">
           <div class="mb-2">
             <!-- Title--><a href="https://github.com/ActivityWatch/aw-webui/pull/76">
-              <h3 class="text-lg mb-2">Editor watcher support</h3></a>
+              <div class="text-lg mb-2">Editor watcher support</div></a>
             <!-- Icon & Type--><span class="text-1xl rounded-full mr-2 px-2 py-1 bg-yellow-200 text-yellow-800">🚀 Feature</span>
             <!-- Date--><span>
               <time datetime="2018-06-17">2018-06-17</time></span>
@@ -903,8 +1056,8 @@
         <div class="timeline-item bg-white px-3 py-3 rounded-lg shadow-md mb-4" data-type="article">
           <div class="mb-2">
             <!-- Title--><a href="/blog/future-of-time-tracking/">
-              <h3 class="text-lg mb-2">The Future of Time Tracking: AI, Privacy, and Personalization</h3></a>
-            <!-- Icon & Type--><span class="text-1xl rounded-full mr-2 px-2 py-1 bg-blue-200 text-blue-800">📰 Article</span>
+              <div class="text-lg mb-2 italic">The Future of Time Tracking: AI, Privacy, and Personalization</div></a>
+            <!-- Icon & Type--><span class="text-1xl rounded-full mr-2 px-2 py-1 bg-purple-200 text-purple-800">📰 Article</span>
             <!-- Date--><span>
               <time datetime="2023-08-30">2023-08-30</time></span>
           </div>
@@ -914,8 +1067,8 @@
         <div class="timeline-item bg-white px-3 py-3 rounded-lg shadow-md mb-4" data-type="article">
           <div class="mb-2">
             <!-- Title--><a href="/blog/comparing-time-trackers/">
-              <h3 class="text-lg mb-2">Comparing ActivityWatch with RescueTime, ManicTime, and Apple ScreenTime</h3></a>
-            <!-- Icon & Type--><span class="text-1xl rounded-full mr-2 px-2 py-1 bg-blue-200 text-blue-800">📰 Article</span>
+              <div class="text-lg mb-2 italic">Comparing ActivityWatch with RescueTime, ManicTime, and Apple ScreenTime</div></a>
+            <!-- Icon & Type--><span class="text-1xl rounded-full mr-2 px-2 py-1 bg-purple-200 text-purple-800">📰 Article</span>
             <!-- Date--><span>
               <time datetime="2023-08-30">2023-08-30</time></span>
           </div>
@@ -926,8 +1079,8 @@
         <div class="timeline-item bg-white px-3 py-3 rounded-lg shadow-md mb-4" data-type="article">
           <div class="mb-2">
             <!-- Title--><a href="https://news.itsfoss.com/activitywatch-0-11-release/">
-              <h3 class="text-lg mb-2 italic">ActivityWatch v0.11 release</h3></a>
-            <!-- Icon & Type--><span class="text-1xl rounded-full mr-2 px-2 py-1 bg-blue-200 text-blue-800">📰 Article</span>
+              <div class="text-lg mb-2 italic">ActivityWatch v0.11 release</div></a>
+            <!-- Icon & Type--><span class="text-1xl rounded-full mr-2 px-2 py-1 bg-purple-200 text-purple-800">📰 Article</span>
             <!-- Date--><span>
               <time datetime="2021-06-18">2021-06-18</time></span>
           </div>
@@ -937,8 +1090,8 @@
         <div class="timeline-item bg-white px-3 py-3 rounded-lg shadow-md mb-4" data-type="article">
           <div class="mb-2">
             <!-- Title--><a href="https://www.ghacks.net/2019/09/26/activitywatch-open-source-personal-activity-tracker-for-windows-linux-and-macos/">
-              <h3 class="text-lg mb-2 italic">ActivityWatch is an open source personal activity tracker...</h3></a>
-            <!-- Icon & Type--><span class="text-1xl rounded-full mr-2 px-2 py-1 bg-blue-200 text-blue-800">📰 Article</span>
+              <div class="text-lg mb-2 italic">ActivityWatch is an open source personal activity tracker...</div></a>
+            <!-- Icon & Type--><span class="text-1xl rounded-full mr-2 px-2 py-1 bg-purple-200 text-purple-800">📰 Article</span>
             <!-- Date--><span>
               <time datetime="2019-09-26">2019-09-26</time></span>
           </div>
@@ -949,7 +1102,7 @@
         <div class="timeline-item bg-white px-3 py-3 rounded-lg shadow-md mb-4" data-type="video">
           <div class="mb-2">
             <!-- Title--><a href="https://www.youtube.com/watch?v=zjIn43lZq3U">
-              <h3 class="text-lg mb-2 italic">Development Visualization 2014-2020</h3></a>
+              <div class="text-lg mb-2 italic">Development Visualization 2014-2020</div></a>
             <!-- Icon & Type--><span class="text-1xl rounded-full mr-2 px-2 py-1 bg-red-200 text-red-800">📺 Video</span>
             <!-- Date--><span>
               <time datetime="2020-12-20">2020-12-20</time></span>
