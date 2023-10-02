@@ -44,8 +44,7 @@ for release in sorted(releases, key=lambda r: r["created_at"], reverse=True):
         "title": release["name"],
         "tag": release["tag_name"],
         "date": release["created_at"],
-        "link": release["html_url"],
-        "type": "release",
+        "url": release["html_url"],
     }
     formatted_releases.append(formatted_release)
 
