@@ -43,12 +43,26 @@
 - title: "5,000 stars!"
   date: "2021-04-06"
 
+- title: "Discord server created"
+  date: "2020-12-07"
+
+- title: "Awarded €3000 grant from FUUG.fi"
+  date: "2020-04-01"
+  description: "Funded part of Kerkko's work"
+
+- title: "Erik sent first email to Kerkko, who joined the following days"
+  date: "2020-02-10"
+
+- title: "aw-server-rust added to the main bundle"
+  date: "2020-02-01"
+  url: "https://github.com/ActivityWatch/activitywatch/commits/master/.gitmodules"
+
 - title: "100 active Android installs"
   date: "2019-12-27"
 
 - title: "ActivityWatch for Android announced \"usable\""
   date: "2019-04-19"  # approximate
-  url: "https://twitter.com/ActivityWatchIt/status/1119258099334795264"  # approximate
+  url: "https://twitter.com/ActivityWatchIt/status/1119258099334795264"
 
 - title: "10,000 downloads!"
   date: "2019-01-05"
@@ -62,14 +76,19 @@
 - title: "100 stars!"
   date: "2017-11-10"
 
+- title: "Forum went live"
+  date: "2017-08-31"
+  url: "https://forum.activitywatch.net/t/the-forum-is-up/13"
+
 - title: "100 downloads!"
   date: "2017-09-10"
 
 - title: "Johan joined the project"
   date: "2016-04-28"
 
-- title: "Awarded €3000 grant from FUUG.fi"
-  date: "2020-04-01"
+- title: "aw-server-rust initial commit"
+  date: "2017-12-29"
+  url: "https://github.com/ActivityWatch/aw-server-rust/commit/758c8a448e247c302a06216a0a3c26ef9c1f9517"
 
 - title: "Started rewrite"
   date: "2016-04-17"
@@ -77,5 +96,3 @@
 - title: "First commit"
   date: "2014-12-30"
   url: "https://github.com/ActivityWatch/activitywatch-old/commit/689440200bd51f7ee7c0e4e7ef63bc2b8fc53c3f"
-
-# More?

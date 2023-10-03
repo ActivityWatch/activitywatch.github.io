@@ -20,10 +20,14 @@
   date: "2019-10-19"
   url: "https://github.com/ActivityWatch/aw-webui/pull/145"
 
-- title: "Browser extension support"
+- title: "Browser watcher visualizations"
   date: "2018-06-20"
   url: "https://github.com/ActivityWatch/aw-webui/pull/83"
 
-- title: "Editor watcher support"
+- title: "Editor watcher visualizations"
   date: "2018-06-17"
   url: "https://github.com/ActivityWatch/aw-webui/pull/76"
+
+- title: "Browser extension released"
+  date: "2017-10-9"
+  url: "https://forum.activitywatch.net/t/you-can-now-track-your-web-browsing-with-activitywatch/28"
