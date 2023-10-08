@@ -3,7 +3,6 @@ html
   | {% include head.pug %}
   body
     | {% include header.pug %}
-    div.page-content
-      div
-        | {{ content }}
+    div(class="page-content {{page.bg_class}}")
+      | {{ content }}
     | {% include footer.pug %}

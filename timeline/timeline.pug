@@ -1,14 +1,16 @@
 ---
+title: Timeline
 layout: default
 permalink: /timeline/
+bg_class: bg-gray-100
 ---
 
-mixin timelineItem(title, url, date, description, type="unknown", italicTitle = false, color="blue")
+mixin timelineItem(title, type="unknown", italicTitle = false, color="blue")
   div.timeline-item.bg-white.px-3.py-3.rounded-lg.shadow-md.mb-4(data-type=type)
     div.mb-2
       // Title
-      a(href=url)
-        div.text-lg.mb-2(class=italicTitle ? 'italic' : '')
+      a(href="{{event.url}}")
+        div.mb-2.text-lg(class=italicTitle ? 'italic' : '')
           | #{title}
 
       // Icon & Type
@@ -28,26 +30,22 @@ mixin timelineItem(title, url, date, description, type="unknown", italicTitle = 
 
       // Date
       span
-        time(datetime=date) #{date}
+        time(datetime="{{event.date | date: '%F'}}") {{event.date | date: '%F'}}
+
+    | {% if event.author %}
+    p.gray-200.text-sm By #[i {{event.author}}]
+    | {% endif %}
 
     // Description
-    p #{description}
+    p {{event.description}}
 
     block
 
-mixin timelineArticle(title, url, date, description, author)
-  +timelineItem(title, url, date, description, type='article', italicTitle=true, color="purple")
-    span By #[i #{author}]
 
-
-doctype html
-html(lang="en")
-  head
-    meta(charset="UTF-8")
-    title Timeline
-    link(href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.15/dist/tailwind.min.css", rel="stylesheet")
-    script(src="timeline.js")
-  body(class="bg-gray-100")
+link(href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.15/dist/tailwind.min.css", rel="stylesheet")
+script(src="timeline.js")
+div
+  div
     div.container.mx-auto
       div.bg-white.rounded-lg.shadow.px-3.py-3.mb-4
         h1.text-3xl.mb-2
@@ -59,7 +57,7 @@ html(lang="en")
       //-  | Filters
       div.mb-8.bg-white.rounded-lg.px-3.py-3.shadow
         mixin filterButton(type, text, emoji = '', active = false)
-          button.filter-btn.text-lg.rounded.px-3.py-1(data-type=type)(class=active ? 'bg-blue-500 text-white' : '')
+          button.filter-btn.text-lg.rounded.px-3.py-1(data-type=type, class=active ? 'bg-blue-500 text-white' : '')
             span.mr-2.py-0= emoji
             = text
         +filterButton('all', 'All', '⭐', active=true)
@@ -73,42 +71,35 @@ html(lang="en")
       div.timeline
         // Milestones
         | {% for event in site.data.milestones %}
-        +timelineItem("{{event.title}}", "{{event.url}}", "{{event.date | date: '%F' }}", "{{event.description}}", "milestone",
-                      false, color="green")
+        +timelineItem("{{event.title}}", "milestone", false, color="green")
         | {% endfor %}
 
         // Releases
         | {% for event in site.data.releases %}
-        +timelineItem("{{event.tag}}", "{{event.url}}", "{{event.date | date: '%F' }}", "{{event.description}}", "release",
-                      false, color="blue")
+        +timelineItem("{{event.tag}}", "release", false, color="blue")
         | {% endfor %}
 
         // Android releases
         | {% for event in site.data.releases_android %}
-        +timelineItem("{{event.title}} (Android)", "{{event.url}}", "{{event.date | date: '%F' }}", "{{event.description}}", "release",
-                      false, color="blue")
+        +timelineItem("{{event.title}} (Android)", "release", false, color="blue")
         | {% endfor %}
 
         // Features
         | {% for event in site.data.features %}
-        +timelineItem("{{event.title}}", "{{event.url}}", "{{event.date | date: '%F' }}", "{{event.description}}", "feature",
-                      false, color="yellow")
+        +timelineItem("{{event.title}}", "feature", false, color="yellow")
         | {% endfor %}
 
         // Articles
         | {% for event in site.posts %}
-        +timelineItem("{{event.title}}", "{{event.url}}", "{{event.date | date: '%F' }}", "{{event.description}}", "article",
-                      true, color="purple")
+        +timelineItem("{{event.title}}", "article", true, color="purple")
         | {% endfor %}
 
         // External articles
         | {% for event in site.data.articles %}
-        +timelineArticle("{{event.title}}", "{{event.url}}", "{{event.date | date: '%F' }}", "{{event.description}}",
-                         "{{event.author}}")
+        +timelineItem("{{event.title}}", "article", true, color="purple")
         | {% endfor %}
 
         // Videos
         | {% for event in site.data.videos %}
-        +timelineItem("{{event.title}}", "{{event.url}}", "{{event.date | date: '%F' }}", "{{event.description}}", "video",
-                      true, color="red")
+        +timelineItem("{{event.title}}", "video", true, color="red")
         | {% endfor %}
