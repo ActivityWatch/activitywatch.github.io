@@ -1,6 +1,17 @@
 # Videos
 
+- title: "ActivityWatch - Application time tracking done well"
+  url: "https://www.youtube.com/watch?v=FIP3Qvja7RM"
+  date: "2023-2-3"
+  author: "Hex DSL"
+
+- title: "ActivityWatch: Save Time With Helpful Telemetry"
+  date: "2021-06-13"
+  url: "https://www.youtube.com/watch?v=ZmYNc-dXm2s"
+  author: "Brodie Robertson"
+
 - title: "Development Visualization 2014-2020"
   date: "2020-12-20"
   url: "https://www.youtube.com/watch?v=zjIn43lZq3U"
+  author: "Erik Bjäreholt"
   description: "Visualization of development activity. From project inception in 2014 until the end of 2020. Created with gource."
