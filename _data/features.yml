@@ -31,3 +31,13 @@
 - title: "Browser extension released"
   date: "2017-10-9"
   url: "https://forum.activitywatch.net/t/you-can-now-track-your-web-browsing-with-activitywatch/28"
+
+- title: "macOS support implemented"
+  date: "2016-9-19"
+  author: "@exoji2e"
+  url: "https://github.com/ActivityWatch/aw-watcher-macos/commit/64cea259353117dae79b6bf7f0f74490dc77c162"
+
+- title: "Web UI first commit"
+  date: "2016-7-9"
+  author: "@patriklaurell"
+  url: "https://github.com/ActivityWatch/aw-webui/commit/0c203dcd30485c70f2ead288396ecad52aa398e5"
