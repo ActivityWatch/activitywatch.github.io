@@ -4,7 +4,22 @@ layout: page
 permalink: /screenshots/
 toc: true
 excerpt: "Some screenshots of ActivityWatch, listed in reverse chronological order (recent first)."
+container_class: container
 ---
+
+style
+  | .row img {
+  |    margin-bottom: 1rem;
+  |    border-radius: 0.25rem;
+  |    box-shadow: 0 0 0.5rem rgba(0, 0, 0, 0.15);
+  |    border: 1px solid rgba(0, 0, 0, 0.1);
+  | }
+  | h4 {
+  |   padding-top: 1rem !important;
+  | }
+  | .small {
+  |   font-style: italic;
+  | }
 
 p
   | {{ page.excerpt }}
@@ -17,10 +32,77 @@ p.py-2
 
   .row
     .col-md-6
-      h4 Dark mode
-      | Screenshot taken by @BelKed
+      h4 Activity
+      a(href="/img/screenshots/thelifeimliving/activity.png")
+        img(src="/img/screenshots/thelifeimliving/activity.png" alt="Screenshot of ActivityWatch" width="100%")
+      .small By @thelifeimliving
+
+    .col-md-6
+      h4 Activity with productivity categories
+      a(href="/img/screenshots/realhyperchango/activity-productivity.png")
+        img(src="/img/screenshots/realhyperchango/activity-productivity.png" alt="Screenshot of ActivityWatch" width="100%")
+      .small By @realhyperchango
+
+    .col-md-6
+      h4 Activity (dark)
       a(href="/img/screenshots/BelKed/screenshot-v0.12.0b2-activity.png")
         img(src="/img/screenshots/BelKed/screenshot-v0.12.0b2-activity.png" alt="Screenshot of ActivityWatch" width="100%")
+      .small By @BelKed
+
+    .col-md-6
+      h4 Timeline (dark)
+      a(href="/img/screenshots/thelifeimliving/timeline-dark.png")
+        img(src="/img/screenshots/thelifeimliving/timeline-dark.png" alt="Screenshot of ActivityWatch" width="100%")
+      .small By @thelifeimliving
+
+    .col-md-6
+      h4 Month view
+      a(href="/img/screenshots/maholli/month.png")
+        img(src="/img/screenshots/maholli/month.png" alt="Screenshot of ActivityWatch" width="100%")
+      .small By @maholli
+
+    .col-md-6
+      h4 Search
+      a(href="/img/screenshots/thelifeimliving/search.png")
+        img(src="/img/screenshots/thelifeimliving/search.png" alt="Screenshot of ActivityWatch" width="100%")
+      .small By @thelifeimliving
+
+  .row
+    .col-md-12
+      h4 Stopwatch
+    .col-md-6
+      a(href="/img/screenshots/thelifeimliving/stopwatch.png")
+        img(src="/img/screenshots/thelifeimliving/stopwatch.png" alt="Screenshot of ActivityWatch" width="100%")
+    .col-md-6
+      a(href="/img/screenshots/thelifeimliving/stopwatch-dark.png")
+        img(src="/img/screenshots/thelifeimliving/stopwatch-dark.png" alt="Screenshot of ActivityWatch" width="100%")
+    .col-md-12
+      .small By @thelifeimliving
+
+  .row
+    .col-md-12
+      h4 Query explorer
+    .col-md-6
+      a(href="/img/screenshots/thelifeimliving/query-explorer.png")
+        img(src="/img/screenshots/thelifeimliving/query-explorer.png" alt="Screenshot of ActivityWatch" width="100%")
+    .col-md-6
+      a(href="/img/screenshots/thelifeimliving/query-explorer-dark.png")
+        img(src="/img/screenshots/thelifeimliving/query-explorer-dark.png" alt="Screenshot of ActivityWatch" width="100%")
+    .col-md-12
+      .small By @thelifeimliving
+
+  .row
+    .col-md-12
+      h4 Settings
+    .col-md-6
+      a(href="/img/screenshots/thelifeimliving/settings.png")
+        img(src="/img/screenshots/thelifeimliving/settings.png" alt="Screenshot of ActivityWatch" width="100%")
+    .col-md-6
+      a(href="/img/screenshots/thelifeimliving/settings-dark.png")
+        img(src="/img/screenshots/thelifeimliving/settings-dark.png" alt="Screenshot of ActivityWatch" width="100%")
+    .col-md-12
+      .small By @thelifeimliving
+
 
 p.py-2
   h3 v0.9.3
