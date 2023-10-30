@@ -6,9 +6,91 @@
 </description>
     <link>https://activitywatch.net/</link>
     <atom:link href="https://activitywatch.net/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Mon, 30 Oct 2023 01:34:58 +0000</pubDate>
-    <lastBuildDate>Mon, 30 Oct 2023 01:34:58 +0000</lastBuildDate>
+    <pubDate>Mon, 30 Oct 2023 10:11:03 +0000</pubDate>
+    <lastBuildDate>Mon, 30 Oct 2023 10:11:03 +0000</lastBuildDate>
     <generator>Jekyll v4.3.2</generator>
+    
+      <item>
+        <title>Announcing Winners of Screenshot Competition!</title>
+        <description>&lt;p&gt;We’re excited to announce the winners of the &lt;a href=&quot;https://github.com/orgs/ActivityWatch/discussions/741&quot;&gt;ActivityWatch Screenshot Competition&lt;/a&gt;! We received some great submissions, and we’d like to thank everyone who participated. Your contributions will help us showcase ActivityWatch to the world!&lt;/p&gt;
+
+&lt;p&gt;Submissions were accepted in the &lt;a href=&quot;https://github.com/orgs/ActivityWatch/discussions/741&quot;&gt;GitHub discussion&lt;/a&gt; announcing the competition, and the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;#screenshots&lt;/code&gt; channel on our Discord.&lt;/p&gt;
+
+&lt;p&gt;We’d like to apologize for the delay in announcing the winners. We are grateful for everyone’s patience and enthusiastic participation in this competition.&lt;/p&gt;
+
+&lt;p&gt;You can find selected screenshots from the winners on our &lt;a href=&quot;https://activitywatch.net/screenshots/&quot;&gt;screenshots page&lt;/a&gt;.&lt;/p&gt;
+
+&lt;h2 id=&quot;the-winners&quot;&gt;The Winners&lt;/h2&gt;
+
+&lt;h3 id=&quot;-1st-place-erik-thelifeimliving&quot;&gt;🥇 1st place: Erik (@thelifeimliving)&lt;/h3&gt;
+
+&lt;p&gt;For the sheer number of screenshots submitted, and of very high resolution, Erik takes the top spot. Your contribution will greatly help us in showcasing the versatility of ActivityWatch!&lt;/p&gt;
+
+&lt;div class=&quot;row&quot;&gt;
+  &lt;div class=&quot;col-md-6&quot;&gt;
+    &lt;img class=&quot;border&quot; src=&quot;/img/screenshots/thelifeimliving/activity.png&quot; width=&quot;400&quot; alt=&quot;Erik&apos;s Submission&quot; /&gt;
+  &lt;/div&gt;
+  &lt;div class=&quot;col-md-6&quot;&gt;
+    &lt;div&gt;
+      &lt;img class=&quot;border&quot; src=&quot;/img/screenshots/thelifeimliving/search.png&quot; width=&quot;400&quot; alt=&quot;Erik&apos;s Submission&quot; /&gt;
+    &lt;/div&gt;
+    &lt;div&gt;
+      &lt;img class=&quot;border mt-4&quot; src=&quot;/img/screenshots/thelifeimliving/timeline-dark.png&quot; width=&quot;400&quot; alt=&quot;Erik&apos;s Submission&quot; /&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+
+&lt;h3 id=&quot;-2nd-place-hernan-realhyperchango&quot;&gt;🥈 2nd place: Hernan (@realhyperchango)&lt;/h3&gt;
+
+&lt;p&gt;Hernan showed us how category rules can be set up to get productivity classification instead of just activity classification. This is incredibly useful for users focused on time management.&lt;/p&gt;
+
+&lt;p&gt;&lt;img class=&quot;border d-block mx-auto&quot; src=&quot;/img/screenshots/realhyperchango/activity-productivity.png&quot; width=&quot;400&quot; alt=&quot;Hernan&apos;s Submission&quot; /&gt;&lt;/p&gt;
+
+&lt;h3 id=&quot;-3rd-place-belked-and-maholli&quot;&gt;🥉 3rd place: @BelKed and @maholli&lt;/h3&gt;
+
+&lt;p&gt;For third place we have a tie between @BelKed and @maholli.&lt;/p&gt;
+
+&lt;p&gt;@BelKed showed us an excellent dark mode screenshot. It shows how elegant ActivityWatch can look in different themes.&lt;/p&gt;
+
+&lt;p&gt;&lt;img class=&quot;border d-block mx-auto&quot; src=&quot;/img/screenshots/BelKed/screenshot-v0.12.0b2-activity.png&quot; width=&quot;400&quot; alt=&quot;BelKed&apos;s Submission&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;@maholli showed us a whole month of activity! Good luck with your thesis!&lt;/p&gt;
+
+&lt;p&gt;&lt;img class=&quot;border d-block mx-auto&quot; src=&quot;/img/screenshots/maholli/month.png&quot; width=&quot;400&quot; alt=&quot;Hernan&apos;s Submission&quot; /&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;prizes&quot;&gt;Prizes&lt;/h2&gt;
+
+&lt;p&gt;All winners will have their screenshots featured on the &lt;a href=&quot;https://activitywatch.net/screenshots/&quot;&gt;ActivityWatch website&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;We were supposed to have additional prizes, which we still aim to give out, but we have yet to order the swag we planned to ship. However, winners can expect to get swag for free as soon as we order it!&lt;/p&gt;
+
+&lt;p&gt;We promise the winners will one day get ActivityWatch swag, including:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;mug&lt;/li&gt;
+  &lt;li&gt;T-shirt&lt;/li&gt;
+  &lt;li&gt;stickers&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;We’ll reach out to the winners to distribute the prizes once we have them. (sorry if it takes a while!)&lt;/p&gt;
+
+&lt;h2 id=&quot;next-steps&quot;&gt;Next Steps&lt;/h2&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;A big thank you to everyone who participated! Your contributions are invaluable.&lt;/li&gt;
+  &lt;li&gt;The selected screenshots will be showcased on our &lt;a href=&quot;https://activitywatch.net/screenshots/&quot;&gt;website&lt;/a&gt;.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;further-discussion&quot;&gt;Further Discussion&lt;/h2&gt;
+
+&lt;p&gt;For further discussion, a GitHub thread has been set up. Feel free to share your thoughts [here][gh-discussion].&lt;/p&gt;
+</description>
+        <pubDate>Mon, 30 Oct 2023 09:56:00 +0000</pubDate>
+        <link>https://activitywatch.net/blog/announcing-winners-of-screenshot-competition/</link>
+        <guid isPermaLink="true">https://activitywatch.net/blog/announcing-winners-of-screenshot-competition/</guid>
+        
+        
+      </item>
     
       <item>
         <title>The Future of Time Tracking: AI, Privacy, and Personalization</title>
