@@ -56,3 +56,4 @@ img/stats: stats
 	cd stats && poetry run python analyze_stats.py --since 2017-07-01 --column downloads --per-day --save ../img/stats/downloads.png
 	cd stats && poetry run python analyze_stats.py --since 2017-07-01 --column 'Chrome WAU' --title 'Chrome Weekly Active Users' --save ../img/stats/chrome-wau.png
 	cd stats && poetry run python analyze_stats.py --since 2017-07-01 --column 'Firefox DAU' --resample 7D --title 'Firefox Daily Active Users (7D mean)' --save ../img/stats/firefox-dau-7d.png
+	cd stats && poetry run python analyze_stats.py --since 2017-07-01 --column 'Android installed devices' --title 'Android Installed Devices' --save ../img/stats/android-devices.png
