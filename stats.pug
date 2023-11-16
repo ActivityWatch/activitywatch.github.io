@@ -11,30 +11,137 @@ p Some stats of ActivityWatch downloads, users, and stars.
 
 p All data is collected in the #[a(href="https://github.com/ActivityWatch/stats") stats] repository.
 
-hr
+hr.my-5
 
-h3 Downloads
-p
-  | Download statistics for releases, updated every 24h.
-div.img-center
-  img.width-500(src="/img/stats/downloads.png")
+div.text-center
+  h3 Downloads
+  p
+    | Download statistics for releases
+  div.img-center
+    img.width-500(src="/img/stats/downloads.png")
+  div.small (Updated every 24 hours)
 
-hr
+hr.my-5
 
-h3 Active users
-p
-  | How many people are using the aw-watcher-web extension in Chrome or Firefox. Updated manually on an irregular basis.
-div.img-center
-  img.width-500(src="/img/stats/chrome-wau.png")
-  img.width-500(src="/img/stats/firefox-dau-7d.png")
+div.text-center
+  h3 Active users
+  p
+    | Metrics of how many active users there are
 
-hr
+  h4.mt-5 Web extensions
+  p
+    | How many people are using the aw-watcher-web extension
+    br
+  div.img-center
+    img.width-500(src="/img/stats/chrome-wau.png")
+    img.width-500(src="/img/stats/firefox-dau-7d.png")
+  div.small (Updated manually on an irregular basis)
 
-h3 Stargazers over time
-a(href="https://starchart.cc/ActivityWatch/activitywatch")
-  img(title="Stargazers over time" src="https://starchart.cc/ActivityWatch/activitywatch.svg" width="100%")
+  h4.mt-5 Android app
+  p
+    | How many active installations there are of the Android app
+  div.img-center
+    img.width-500(src="/img/stats/android-devices.png")
+  div.small (Updated manually on an irregular basis)
 
-hr
+hr.my-5
 
-p
-  small Want more statistics? Check out the #[a(href="/contributors/") contributor stats].
+div.text-center
+  h3 Stargazers
+  p
+    | How many people have starred the ActivityWatch repository on GitHub
+  div.img-center
+    a(href="https://starchart.cc/ActivityWatch/activitywatch")
+      img.width-700(title="Stargazers over time" src="https://starchart.cc/ActivityWatch/activitywatch.svg")
+  div.small
+    | Provided by starchart.cc
+
+hr.my-5
+
+h3.text-center Ratings
+div.row.text-center
+  div.col-12.img-center.mb-4.mt-2
+    h6 Product Hunt
+    a(href="https://www.producthunt.com/products/activitywatch/reviews?utm_source=badge-product_rating&utm_medium=badge&utm_souce=badge-activitywatch" target="_blank")
+      img(src="https://api.producthunt.com/widgets/embed-image/v1/product_rating.svg?product_id=112754&theme=neutral" alt="ActivityWatch - Open-source time tracker | Product Hunt")
+
+  div.col-sm-4
+    h6 Arch Linux (AUR)
+    p
+      a(href="https://aur.archlinux.org/packages/activitywatch-bin/")
+        img(src="https://img.shields.io/aur/votes/activitywatch-bin?logo=arch-linux")
+
+  div.col-sm-4
+    h6 aw-watcher-web
+    p
+      a(href="https://chromewebstore.google.com/detail/activitywatch-web-watcher/nglaklhklhcoonedhgnpgddginnjdadi")
+        img(alt="Chrome Web Store" src="https://img.shields.io/chrome-web-store/rating/nglaklhklhcoonedhgnpgddginnjdadi?logo=googlechrome")
+      br
+      a(href="https://addons.mozilla.org/en-US/firefox/addon/aw-watcher-web/")
+        img(src="https://img.shields.io/amo/rating/aw-watcher-web?logo=firefox")
+
+  div.col-sm-4
+    h6 aw-watcher-vscode
+    p.my-0
+      div.small Visual Studio Marketplace
+      a(href="https://marketplace.visualstudio.com/items?itemName=activitywatch.aw-watcher-vscode")
+        img(alt="Visual Studio Marketplace Rating (Stars)" src="https://img.shields.io/visual-studio-marketplace/stars/activitywatch.aw-watcher-vscode?logo=visual-studio-code")
+    p.my-0
+      div.small Open-VSX
+      a(href="https://open-vsx.org/extension/ActivityWatch/aw-watcher-vscode")
+        img(src="https://img.shields.io/open-vsx/rating/ActivityWatch/aw-watcher-vscode?logo=visual-studio-code")
+    //br
+    //a(href="https://open-vsx.org/extension/ActivityWatch/aw-watcher-vscode")
+      img(src="https://img.shields.io/open-vsx/dt/ActivityWatch/aw-watcher-vscode?logo=visual-studio-code")
+
+hr.my-5
+
+h3.text-center Donations
+div.row.text-center
+  div.col-sm-4
+    h6 OpenCollective
+    p
+      //div
+        a(href="https://opencollective.com/activitywatch")
+          img(src="https://opencollective.com/activitywatch/tiers/backer.svg?avatarHeight=36")
+      a(href="https://opencollective.com/activitywatch")
+        img(src="https://img.shields.io/opencollective/all/activitywatch?logo=opencollective")
+
+  div.col-sm-4
+    h6 GitHub Sponsors
+    p
+      a(href="https://github.com/sponsors/activitywatch")
+        img(src="https://img.shields.io/github/sponsors/activitywatch?logo=github")
+
+  div.col-sm-4
+    h6 Liberapay
+    p
+      a(href="https://liberapay.com/ActivityWatch/")
+        img(src="https://img.shields.io/liberapay/receives/ActivityWatch.svg?logo=liberapay")
+
+hr.my-5
+
+h3.text-center Social
+div.row.text-center
+  div.col-sm-4
+    h6 Discord
+    p
+      a(href="https://discord.gg/vDskV9q")
+      img(alt="Discord" src="https://img.shields.io/discord/755040852727955476?logo=discord")
+
+  div.col-sm-4
+    h6 GitHub stars #[span.small (all repos)]
+    p
+      img(src="https://img.shields.io/github/stars/ActivityWatch?logo=github")
+
+  div.col-sm-4
+    h6 Reddit
+    p
+      a(href="https://www.reddit.com/r/activitywatch/")
+        img(src="https://img.shields.io/reddit/subreddit-subscribers/activitywatch?color=green&logo=reddit")
+
+hr.my-5
+
+div.text-center
+  p
+    small Want more statistics? Check out the #[a(href="/contributors/") contributor stats].
