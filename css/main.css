@@ -621,6 +621,10 @@ details {
   max-width: 700px;
 }
 
+.dim {
+  opacity: 0.4;
+}
+
 /* in dark mode, apply inverted filter */
 /* commented out because we don't have dark mode yet
 @media (prefers-color-scheme: dark) {
