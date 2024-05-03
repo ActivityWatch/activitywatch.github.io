@@ -18,7 +18,7 @@ Aw-tauri is built with the [rust server](https://github.com/ActivityWatch/aw-ser
 
 Cross platform development before tauri was a hassle. Binaries had to be built and tested for each target platform separately. Tauri greatly simplifies this.
 
-Tauri enables us to generate releases from the same codebase through a CI/CD pipeline. It handles everything platform specific, on linux you get a lightweight ```.appimage```, on windows a ```.msi``` installer and ```.app``` on macos. It just works!
+Tauri enables us to generate releases from the same codebase with a single command. It handles everything platform specific: on Linux you get a lightweight `.AppImage`, on windows a `.msi` installer, and `.app` on macOS. It just works!
 
 ## User Experience
 
