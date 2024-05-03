@@ -26,4 +26,6 @@ Aw-Tauri aims to consolidate most of the functionality that is offered by additi
 
 ## Conclusion
 
-Aw-Tauri is still in active development and contributions are welcome and encouraged. More eyes on the code will be beneficial to the project. We are excited to see where this project goes and how it will shape the future of ActivityWatch.
+`aw-tauri` is still in active development and contributions are welcome and encouraged! More eyes on the code will be beneficial to the project.
+
+We are hopeful that it will help solve many of our outstanding challenges, and are excited to see it shape the future of ActivityWatch.
