@@ -6,7 +6,7 @@ author: "Brian Vuku"
 author_twitter: "subrupt"
 ---
 
-We're excited to introduce a new project [aw-tauri](http://github.com/ActivityWatch/aw-tauri). Aw-Tauri is a lighter, faster cross-platform repackaging of ActivityWatch. As the name implies the project is built with [Tauri](https://Tauri.app), a relatively new toolkit that offers all the benefits of electron with none of the downsides!
+We're excited to introduce a new initiative `[aw-tauri](http://github.com/ActivityWatch/aw-tauri)`, which is a lighter, faster cross-platform repackaging of ActivityWatch. As the name implies the project is built with [Tauri](https://tauri.app), a relatively new Rust-based toolkit that enables easy development of small, fast, and secure applications with a great developer experience.
 
 ## Why Tauri
 
