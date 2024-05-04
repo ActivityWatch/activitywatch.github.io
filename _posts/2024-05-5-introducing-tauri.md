@@ -10,7 +10,7 @@ We're excited to introduce a new initiative [`aw-tauri`](http://github.com/Activ
 
 ## Why Tauri
 
-Tauri apps are lightweight, memory efficient and secure by design. Tauri does not ship a renderer but uses the platform native renderer via webviews. This simple design choice makes the app size compact and memory efficient during runtime, as compared to electron apps. Tauri apps are secure, only interacting with the host systems through tauri apis. This protects the host computer from arbitary code execution (at least in theory).
+Tauri apps are lightweight, memory efficient and secure by design. Tauri does not ship a renderer but uses the platform native renderer via webviews. This simple design choice makes the app size compact and memory efficient during runtime, as compared to electron apps. Tauri apps are secure, only interacting with the host systems through tauri apis. Security is a top priority for Tauri, and so it is for ActivityWatch.
 
 ## Developer Experience
 
@@ -22,7 +22,7 @@ Tauri enables us to generate releases from the same codebase with a single comma
 
 ## User Experience
 
-Aw-Tauri aims to consolidate most of the functionality that is offered by additional code by other repos. It integrates the window and afk watchers natively. It offers support of notifications by default via [aw-notify](https://github.com/ActivityWatch/aw-notify). It houses its own webview, no need to visit ```http://localhost:5600``` anymore. Watchers can be started and stopped right from the trayicon. Updates can be pushed seemlessly across platforms provided by tauri's update system!
+Aw-Tauri aims to consolidate most of the functionality that is offered by additional code by other repos. It integrates the window and afk watchers natively. It offers support of notifications by default via [aw-notify](https://github.com/ActivityWatch/aw-notify). It houses its own webview, no need to visit ```http://localhost:5600``` anymore. Watchers can be started and stopped right from the trayicon. Updates can be pushed seemlessly across platforms provided by tauri's update system! [Aw-sync](https://github.com/ActivityWatch/aw-sync) which is still in active development will be integrated into the app. Syncing data across devices will be just as seemless. We will work closely with the user community to make a product that we all love to use.
 
 ## Conclusion
 
