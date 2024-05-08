@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Tauri the future of ActivityWatch
-date: 2024-5-5 16:35 +0300
+date: 2024-5-10 16:35 +0300
 author: "Brian Vuku"
 author_twitter: "subrupt"
 ---
@@ -24,10 +24,10 @@ With Tauri, they have handled most of the heavy lifting, and make it easy to pro
 
 `aw-tauri` aims to consolidate much of the functionality that is currently implemented in [`aw-qt`](https://github.com/ActivityWatch/aw-qt), [`aw-server-rust`](https://github.com/ActivityWatch/aw-server-rust), and [`aw-notify`](https://github.com/ActivityWatch/aw-notify).
 
- - It houses its own webview, no need to visit `http://localhost:5600` in your browser anymore.
- - Watchers can be started and stopped right from the trayicon, just like in `aw-qt`.
- - Updates can be pushed seemlessly across platforms provided by tauri's update system!
- - [aw-sync](https://github.com/ActivityWatch/aw-server-rust/tree/master/aw-sync), which is still in active development, will be integrated into the app. Syncing data across devices will be just as seamless.
+- It houses its own webview, no need to visit `http://localhost:5600` in your browser anymore.
+- Watchers can be started and stopped right from the trayicon, just like in `aw-qt`.
+- Updates can be pushed seemlessly across platforms provided by tauri's update system!
+- [aw-sync](https://github.com/ActivityWatch/aw-server-rust/tree/master/aw-sync), which is still in active development, will be integrated into the app. Syncing data across devices will be just as seamless.
 
 These are only the first steps to getting aw-tauri usable, but most of all it serves as a stable foundation enabling many improvements down the line.
 
