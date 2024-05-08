@@ -22,7 +22,14 @@ Tauri enables us to generate releases from the same codebase with a single comma
 
 ## User Experience
 
-Aw-Tauri aims to consolidate most of the functionality that is offered by additional code by other repos. It integrates the window and afk watchers natively. It offers support of notifications by default via [aw-notify](https://github.com/ActivityWatch/aw-notify). It houses its own webview, no need to visit ```http://localhost:5600``` anymore. Watchers can be started and stopped right from the trayicon. Updates can be pushed seemlessly across platforms provided by tauri's update system! [Aw-sync](https://github.com/ActivityWatch/aw-server-rust/tree/c056e50646b45070c330de8a6dbd14042b3455e4/aw-sync) which is still in active development will be integrated into the app. Syncing data across devices will be just as seemless. We will work closely with the user community to make a product that we all love to use.
+`aw-tauri` aims to consolidate much of the functionality that is currently implemented in [`aw-qt`](https://github.com/ActivityWatch/aw-qt), [`aw-server-rust`](https://github.com/ActivityWatch/aw-server-rust), and [`aw-notify`](https://github.com/ActivityWatch/aw-notify).
+
+ - It houses its own webview, no need to visit `http://localhost:5600` in your browser anymore.
+ - Watchers can be started and stopped right from the trayicon, just like in `aw-qt`.
+ - Updates can be pushed seemlessly across platforms provided by tauri's update system!
+ - [aw-sync](https://github.com/ActivityWatch/aw-server-rust/tree/master/aw-sync), which is still in active development, will be integrated into the app. Syncing data across devices will be just as seamless.
+
+These are only the first steps to getting aw-tauri usable, but most of all it serves as a stable foundation enabling many improvements down the line.
 
 ## Conclusion
 
