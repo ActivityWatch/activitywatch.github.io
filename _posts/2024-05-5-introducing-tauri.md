@@ -16,9 +16,9 @@ Tauri apps are lightweight, memory efficient and secure by design. Tauri does no
 
 Aw-tauri is built with the [rust server](https://github.com/ActivityWatch/aw-server-rust) serving the backend and a UI written in Vue. It takes almost no time to get upto speed with the project!
 
-Cross platform development before tauri was a hassle. Binaries had to be built and tested for each target platform separately. Tauri greatly simplifies this.
+In our current build process, we rely heavily on PyInstaller for building the modules written in Python. This has been an enduring source of problems, and many developer weeks (if not months) have been spent trying to work out all the issues over the years (especially macOS support, because of the need to codesign a very messy `.app` bundle).
 
-Tauri enables us to generate releases from the same codebase with a single command. It handles everything platform specific: on Linux you get a lightweight `.AppImage`, on windows a `.msi` installer, and `.app` on macOS. It just works!
+With Tauri, they have handled most of the heavy lifting, and make it easy to produce working binaries for all target platforms. Much of this is simply due to Rust (avoids PyInstaller), but the added tooling for codesigning and producing suitable bundles for each platform: on Linux you get a lightweight `.AppImage`, on windows a `.msi` installer, and `.app` on macOS.
 
 ## User Experience
 
