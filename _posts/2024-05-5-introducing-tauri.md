@@ -33,6 +33,8 @@ These are only the first steps to getting aw-tauri usable, but most of all it se
 
 ## Conclusion
 
-`aw-tauri` is still in active development and contributions are welcome and encouraged! More eyes on the code will be beneficial to the project.
+`aw-tauri` is still in active development, contributions are welcome and encouraged!
 
-We are hopeful that it will help solve many of our outstanding challenges, and are excited to see it shape the future of ActivityWatch.
+Check out the [README](https://github.com/ActivityWatch/aw-tauri/blob/master/README.md) to see the status of development, and where you can help out.
+
+We are hopeful that it will help solve many of our remaining challenges, and are excited to see it help shape the future of ActivityWatch.
