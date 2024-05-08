@@ -14,7 +14,7 @@ Tauri apps are lightweight, memory efficient and secure by design. Tauri does no
 
 ## Developer Experience
 
-Aw-tauri is built with the [rust server](https://github.com/ActivityWatch/aw-server-rust) serving the backend and a UI written in Vue. It takes almost no time to get upto speed with the project!
+`aw-tauri` is built with [aw-server-rust](https://github.com/ActivityWatch/aw-server-rust) serving the backend together with [aw-webui](https://github.com/ActivityWatch/aw-webui). We have taken care to keep the codebase lean and clean, such that it takes very little time to get acquainted with the codebase.
 
 In our current build process, we rely heavily on PyInstaller for building the modules written in Python. This has been an enduring source of problems, and many developer weeks (if not months) have been spent trying to work out all the issues over the years (especially macOS support, because of the need to codesign a very messy `.app` bundle).
 
