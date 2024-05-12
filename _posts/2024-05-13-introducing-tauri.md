@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Tauri the future of ActivityWatch
-date: 2024-5-10 16:35 +0300
+date: 2024-5-13 16:35 +0300
 author: "Brian Vuku"
 author_twitter: "subrupt"
 ---
