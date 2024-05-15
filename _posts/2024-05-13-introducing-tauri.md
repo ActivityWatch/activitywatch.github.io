@@ -22,7 +22,7 @@ With Tauri, they have handled most of the heavy lifting, and make it easy to pro
 
 ## User Experience
 
-`aw-tauri` aims to consolidate much of the functionality that is currently implemented in [`aw-qt`](https://github.com/ActivityWatch/aw-qt), [`aw-server-rust`](https://github.com/ActivityWatch/aw-server-rust), and [`aw-notify`](https://github.com/ActivityWatch/aw-notify).
+`aw-tauri` aims to replace the functionality that is currently implemented in [`aw-qt`](https://github.com/ActivityWatch/aw-qt) and [`aw-notify`](https://github.com/ActivityWatch/aw-notify). Creating a new Rust-powered entrypoint for running ActivityWatch and its modules. With [`aw-server-rust`](https://github.com/ActivityWatch/aw-server-rust) as the default server, it leads to a reliable and highly performant application. Reliability and performance is very important for apps like ActivityWatch, which always run in the background and collect data that is otherwise lost.
 
 - It houses its own webview, no need to visit `http://localhost:5600` in your browser anymore.
 - Watchers can be started and stopped right from the trayicon, just like in `aw-qt`.
