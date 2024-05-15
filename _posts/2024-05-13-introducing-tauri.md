@@ -18,7 +18,7 @@ Tauri apps are lightweight, memory efficient and secure by design. Tauri does no
 
 In our current build process for Python modules like `aw-qt`, we rely heavily on PyInstaller for building into binaries. This has been an enduring source of problems, and many developer weeks (if not months) have been spent trying to work out all the issues over the years (especially macOS support, because of the need to codesign a very messy `.app` bundle).
 
-With Tauri, they have handled most of the heavy lifting, and make it easy to produce working binaries for all target platforms. Much of this is simply due to Rust (avoids PyInstaller), but the added tooling for codesigning and producing suitable bundles for each platform: on Linux you get a lightweight `.AppImage`, on windows a `.msi` installer, and `.app` on macOS.
+With Tauri, they have handled most of the heavy lifting, and make it easy to produce working binaries for all target platforms. Much of this is simply due to Rust (avoids PyInstaller and its complexity), but also the added tooling for codesigning, and producing suitable bundles for each platform: on Linux you get a lightweight `.AppImage`, on windows a `.msi` installer, and `.app` on macOS.
 
 ## User Experience
 
