@@ -10,7 +10,7 @@ We're excited to introduce a new initiative [`aw-tauri`](http://github.com/Activ
 
 ## Why Tauri
 
-Tauri apps are lightweight, memory efficient and secure by design. Tauri does not ship a renderer but uses the platform native renderer via webviews. This simple design choice makes the app size compact and memory efficient during runtime, as compared to electron apps. Tauri apps are secure, only interacting with the host systems through tauri apis. Security is a top priority for Tauri, and so it is for ActivityWatch.
+Tauri apps are lightweight, memory efficient and secure by design. Tauri does not ship a renderer but uses the platform native renderer via WebViews. This simple design choice makes the app size compact and memory efficient during runtime, as compared to electron apps. Tauri apps are secure, only interacting with the host systems through Tauri APIs.
 
 ## Developer Experience
 
