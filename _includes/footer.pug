@@ -3,11 +3,11 @@ html
   body
     footer.site-footer
       .wrapper
-        h4.footer-heading(style='margin-bottom: 0.2em') {{ site.title_short }}
-        p
-          i {{ site.description }}
         .footer-col-wrapper
           .footer-col.footer-col-3
+            h4.footer-heading(style='margin-bottom: 0.2em') {{ site.title_short }}
+            p
+              i {{ site.description }}
             ul.social-media-list
               | {% if site.github_username %}
               li {% include icon-github.html username=site.github_username %}
