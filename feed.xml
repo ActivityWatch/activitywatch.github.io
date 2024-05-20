@@ -6,8 +6,8 @@
 </description>
     <link>https://activitywatch.net/</link>
     <atom:link href="https://activitywatch.net/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Mon, 20 May 2024 01:39:40 +0000</pubDate>
-    <lastBuildDate>Mon, 20 May 2024 01:39:40 +0000</lastBuildDate>
+    <pubDate>Mon, 20 May 2024 08:43:37 +0000</pubDate>
+    <lastBuildDate>Mon, 20 May 2024 08:43:37 +0000</lastBuildDate>
     <generator>Jekyll v4.3.2</generator>
     
       <item>
@@ -404,6 +404,287 @@
         <pubDate>Wed, 30 Aug 2023 13:55:00 +0000</pubDate>
         <link>https://activitywatch.net/blog/comparing-time-trackers/</link>
         <guid isPermaLink="true">https://activitywatch.net/blog/comparing-time-trackers/</guid>
+        
+        
+      </item>
+    
+      <item>
+        <title>Development Update March 2019</title>
+        <description>&lt;p&gt;It’s time for another development update!&lt;/p&gt;
+
+&lt;p&gt;We are sorry for the long delay in our development updates, but infrequent updates also mean &lt;strong&gt;&lt;em&gt;larger&lt;/em&gt;&lt;/strong&gt; updates. &lt;a href=&quot;https://forum.activitywatch.net/t/development-update-august-2018/136&quot;&gt;The last development update&lt;/a&gt; was written about half a year ago, so we have a lot of things to share!&lt;/p&gt;
+
+&lt;p&gt;If you don’t want to read all these notes and just want to experience the new beta of ActivityWatch right away, &lt;a href=&quot;https://github.com/ActivityWatch/activitywatch/releases/tag/v0.8.0b8&quot;&gt;you can download it here&lt;/a&gt;!&lt;/p&gt;
+
+&lt;h1 id=&quot;-milestones&quot;&gt;🏁 Milestones&lt;/h1&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;strong&gt;2019-03-09:&lt;/strong&gt; 🚢 &lt;a href=&quot;https://github.com/ActivityWatch/activitywatch/releases/tag/v0.8.0b8&quot;&gt;0.8.0 beta 8&lt;/a&gt; was released&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;strong&gt;2019-01-14:&lt;/strong&gt; 🤖 First &lt;a href=&quot;https://github.com/ActivityWatch/aw-android/&quot;&gt;aw-android&lt;/a&gt; release&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;strong&gt;2019-01-05:&lt;/strong&gt; ⬇️ We passed 10,000 downloads!&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;strong&gt;2018-12-08:&lt;/strong&gt; ⚙️ &lt;a href=&quot;https://github.com/ActivityWatch/aw-server-rust/&quot;&gt;aw-server-rust&lt;/a&gt; reached feature parity&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;strong&gt;2018-11-03:&lt;/strong&gt; 🚢 &lt;a href=&quot;https://github.com/ActivityWatch/activitywatch/releases/tag/v0.8.0b7&quot;&gt;0.8.0 beta 7&lt;/a&gt; was released&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://activitywatch.readthedocs.io/en/latest/changelog.html#v0-8-0b8&quot;&gt;Changelog can be found here&lt;/a&gt;&lt;/p&gt;
+
+&lt;h1 id=&quot;-major-news&quot;&gt;📯 Major News&lt;/h1&gt;
+
+&lt;h2 id=&quot;-activitywatch-is-now-in-early-beta-on-android&quot;&gt;🤖 ActivityWatch is now in early beta on Android!&lt;/h2&gt;
+
+&lt;p&gt;We have been working on getting ActivityWatch to Android for a long time (see &lt;a href=&quot;https://github.com/ActivityWatch/activitywatch/issues/6&quot;&gt;this issue&lt;/a&gt;). There’s a good reason why we think it’s important: in my own analysis, it accounts for almost half of my screen time!&lt;/p&gt;
+
+&lt;p&gt;So now we finally have something that you can try out! While not great (yet) there’s a lot to be excited about.&lt;/p&gt;
+
+&lt;p&gt;By being backed by our new high-performance implementation of the aw-server written in Rust (see below) it will have the same underlying features and APIs of the desktop version of ActivityWatch, making it a great foundation that will make development easy going forward. The web UI is currently available in the app (but is notably broken in a lot of ways), but we hope to be able to build some native UI elements in the future!&lt;/p&gt;
+
+&lt;p&gt;Now we just need to find the time to keep building, but we hope we might be able to find some contributors to help us out with doing so now that we have a solid foundation built on the same APIs already available in ActivityWatch elsewhere!&lt;/p&gt;
+
+&lt;p&gt;Get it on the &lt;a href=&quot;https://play.google.com/store/apps/details?id=net.activitywatch.android&quot;&gt;Play Store&lt;/a&gt;, or &lt;a href=&quot;https://github.com/ActivityWatch/aw-android&quot;&gt;check out the code on GitHub&lt;/a&gt;!&lt;/p&gt;
+
+&lt;h2 id=&quot;️-new-high-performance-implementation-of-aw-server-written-in-rust&quot;&gt;⚙️ New high-performance implementation of aw-server written in Rust&lt;/h2&gt;
+
+&lt;p&gt;While Python is a great language to quickly build new features in, it’s not great for performance or deploying to multiple platforms (especially Android). So @johan-bjareholt took on the tremendous task of reimplementing aw-server in the highly performant and secure programming language Rust.&lt;/p&gt;
+
+&lt;p&gt;This is big news for several reasons:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Since Rust compiles to Android we have built a library for use on Android, letting us avoid reimplement all of ActivityWatch to Android devices specifically (and vastly decreases the time to port future features like sync to Android).&lt;/li&gt;
+  &lt;li&gt;The high-performance improves battery life on devices like laptops, phones, and tablets.&lt;/li&gt;
+  &lt;li&gt;The high-performance will make it easier for us to implement weekly summaries&lt;/li&gt;
+  &lt;li&gt;Having two implementations gives us better testing and encourages work towards common specifications and standards.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;The Python implementation will still be used for experimenting with new features, but expect the Rust implementation to be shipped with the normal desktop releases sometime in the future!&lt;/p&gt;
+
+&lt;h2 id=&quot;️-more-editor-watchers&quot;&gt;✏️ More editor watchers&lt;/h2&gt;
+
+&lt;p&gt;The community has contributed with many new editor watchers the past few months which we appreciate a lot! They have done some awesome work and most of them are even in a better state than the vim watcher we have written ourselves. Thanks everyone for the awesome work!&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;https://github.com/ActivityWatch/aw-watcher-vscode&quot;&gt;aw-watcher-vscode&lt;/a&gt; - Visual Studio Code extension, by &lt;a href=&quot;https://github.com/Otto-AA&quot;&gt;@Otto-AA&lt;/a&gt;.&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://github.com/pauldub/activity-watch-mode&quot;&gt;activity-watch-mode&lt;/a&gt; - emacs mode forked from wakatime-mode, by &lt;a href=&quot;https://github.com/pauldub&quot;&gt;@pauldub&lt;/a&gt;.&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://github.com/OlivierMary/aw-watcher-jetbrains&quot;&gt;aw-watcher-jetbrains&lt;/a&gt; - JetBrains IntelliJ plugin, by &lt;a href=&quot;https://github.com/OlivierMary&quot;&gt;@OlivierMary&lt;/a&gt;.&lt;/li&gt;
+  &lt;li&gt;(Alpha) &lt;a href=&quot;https://github.com/LaggAt/ActivityWatchVS&quot;&gt;ActivityWatchVS&lt;/a&gt; - Visual Studio plugin, by &lt;a href=&quot;https://github.com/LaggAt&quot;&gt;@LaggAt&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;--windows-and-macos-builds-now-work-again&quot;&gt;🔧  Windows and macOS builds now work again&lt;/h2&gt;
+&lt;p&gt;In v0.8 beta 7 we had issues with the windows bundle due to breaking updates of our dependencies PyInstaller and jsonschema. This is now fixed and our windows builds should now work properly again in v0.8 beta 8.&lt;/p&gt;
+
+&lt;p&gt;Back in 0.8 beta 6 macOS support was also broken, but that has been working for a while now since beta 7 which has been around for a few months already.&lt;/p&gt;
+
+&lt;p&gt;## 📦 Import and export
+The import and export APIs now work consistently (&lt;a href=&quot;https://github.com/ActivityWatch/aw-server/pull/41&quot;&gt;aw-server#41&lt;/a&gt;). We have added a UI to export all buckets and to import buckets. Migrating your activitywatch data to another computer is now as easy as using one export button on one computer, moving the file to your new computer and upload it in with the import button! Import and export can also be used if you want to try out the new aw-server-rust and want to move over all your previously logged aw-server data.&lt;/p&gt;
+
+&lt;h1 id=&quot;️-going-forward&quot;&gt;🏃‍♀️ Going forward&lt;/h1&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;🛰️ Raw SQL datastore
+    &lt;ul&gt;
+      &lt;li&gt;@johan-bjareholt has merged a raw SQLite implementation of the datastore that has performance improvements compared to the current Peewee SQLite datastore. Automatic migration from the old datastore to the new one is supported. The new datastore is however not the default yet, we need more user-testing before doing that. (&lt;a href=&quot;https://github.com/ActivityWatch/aw-core/pull/57&quot;&gt;aw-core#57&lt;/a&gt;)&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;🔄 Decentralized sync
+    &lt;ul&gt;
+      &lt;li&gt;Still being worked on, see last developer update for more info and the &lt;a href=&quot;&quot;&gt;latest comments in the issue&lt;/a&gt;.&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;⏱️ Stopwatch beta
+    &lt;ul&gt;
+      &lt;li&gt;The web-ui now has a stopwatch watcher where you can manually set timers with different tags to track for example how long you have been at work, how long you have been working on a specific project or whatever else you can come up with it being useful for.&lt;/li&gt;
+      &lt;li&gt;It’s is very limited and lacks some important features, such as manually editing start/stop times. There is also a lack of visualization, it currently only shows a list of the individual entries.&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;🖥️ Wayland support
+    &lt;ul&gt;
+      &lt;li&gt;@johan-bjareholt has had discussions with a few wayland compositor devs and have tried to convince the xdg-desktop-portal API bundle to add a protocol for exposing focused windows appname and title, &lt;a href=&quot;https://github.com/flatpak/xdg-desktop-portal/issues/304&quot;&gt;but it’s a hard sell unfortunately…&lt;/a&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;🗓️ Weekly summary view
+    &lt;ul&gt;
+      &lt;li&gt;Weekly/monthly/yearly summaries is a highly requested feature and a high priority for us. We have acceptable performance in aw-server to support weekly summaries, and when we switch over to aw-server-rust we hope to be able to support monthly summaries without issues. Summaries longer than a month will need more work though and won’t be supported in the near future.&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;🤖 Better Android version
+    &lt;ul&gt;
+      &lt;li&gt;The Android app, while technically released, isn’t “production ready” yet. We would ❤️ contributions from people with some Android development experience!&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h1 id=&quot;support-us-️-&quot;&gt;Support us! ❤️ 💸&lt;/h1&gt;
+
+&lt;p&gt;Last month we &lt;strong&gt;only received &lt;em&gt;$26&lt;/em&gt; in donations&lt;/strong&gt;, that means your donation could be extra important to us. &lt;strong&gt;Do you use ActivityWatch and want to see many updates like this in the future?  Please support us with donations, it really does make a difference!&lt;/strong&gt;
+All donation methods are listed on our &lt;a href=&quot;https://activitywatch.net/donate/&quot;&gt;donations page&lt;/a&gt;.&lt;/p&gt;
+
+&lt;h1 id=&quot;-stay-up-to-date&quot;&gt;📧 Stay up to date&lt;/h1&gt;
+
+&lt;p&gt;Want to get notified when we have more amazing news to share? Sign up on the forum, &lt;a href=&quot;http://eepurl.com/cTU6QX&quot;&gt;subscribe to the newsletter&lt;/a&gt;, and &lt;a href=&quot;https://twitter.com/ActivityWatchIt&quot;&gt;follow us on Twitter&lt;/a&gt;!&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;This post was originally published on &lt;a href=&quot;https://forum.activitywatch.net/t/development-update-march-2019/189&quot;&gt;the forum&lt;/a&gt;. It has been reposted here on the blog for archival purposes.&lt;/p&gt;
+&lt;/blockquote&gt;
+</description>
+        <pubDate>Tue, 12 Mar 2019 11:06:00 +0000</pubDate>
+        <link>https://activitywatch.net/blog/development-update-mar-2019/</link>
+        <guid isPermaLink="true">https://activitywatch.net/blog/development-update-mar-2019/</guid>
+        
+        
+      </item>
+    
+      <item>
+        <title>Development Update August 2018</title>
+        <description>&lt;p&gt;It’s now been 104 days since the last “bimonthly” development update, this means:&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;It’s time for a new one, and this is a unusually good “bimonthly” update. :ok_hand:&lt;/li&gt;
+  &lt;li&gt;Development updates will now be quarterly.&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h2 id=&quot;milestones-&quot;&gt;Milestones 🏁&lt;/h2&gt;
+
+&lt;p&gt;2018-05-28: We released &lt;a href=&quot;https://github.com/ActivityWatch/activitywatch/releases/tag/v0.8.0b2&quot;&gt;v0.8.0b2&lt;/a&gt;.  🚢&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;Major performance improvement: pre-merging of heartbeats. (&lt;a href=&quot;https://github.com/ActivityWatch/aw-client/pull/33&quot;&gt;aw-client#33&lt;/a&gt;)&lt;/li&gt;
+  &lt;li&gt;Query2 now supports a syntax for creating lists, allowing queries to return multiple things. (&lt;a href=&quot;https://github.com/ActivityWatch/aw-core/pull/50&quot;&gt;aw-core#50&lt;/a&gt;)&lt;/li&gt;
+  &lt;li&gt;View full diff &lt;a href=&quot;https://github.com/ActivityWatch/activitywatch/compare/v0.8.0b1...v0.8.0b2&quot;&gt;on GitHub&lt;/a&gt;.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;2018-05-30: We released &lt;a href=&quot;https://github.com/ActivityWatch/activitywatch/releases/tag/v0.8.0b3&quot;&gt;v0.8.0b3&lt;/a&gt;.  🚢&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;Major performance improvements by pre-merging heartbeats on the server and client-side&lt;/li&gt;
+  &lt;li&gt;Improved design of the web UI&lt;/li&gt;
+  &lt;li&gt;Implemented flooding (&lt;a href=&quot;https://github.com/ActivityWatch/aw-core/pull/58&quot;&gt;aw-core#58&lt;/a&gt;) which significantly improving the accuracy some types of events (notably window events, &lt;a href=&quot;https://github.com/ActivityWatch/activitywatch/issues/124&quot;&gt;see this issue for numbers&lt;/a&gt;).&lt;/li&gt;
+  &lt;li&gt;View full diff &lt;a href=&quot;https://github.com/ActivityWatch/activitywatch/compare/v0.8.0b2...v0.8.0b3&quot;&gt;on GitHub&lt;/a&gt;.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;2018-06-22: We hit 1000 stars on GitHub 🌟&lt;/p&gt;
+
+&lt;p&gt;2018-07-03: We hit 5000 downloads ⬇️ &lt;strong&gt;and&lt;/strong&gt; we released &lt;a href=&quot;https://github.com/ActivityWatch/activitywatch/releases/tag/v0.8.0b4&quot;&gt;v0.8.0b4&lt;/a&gt;!  🚢&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;View full diff &lt;a href=&quot;https://github.com/ActivityWatch/activitywatch/compare/v0.8.0b3...v0.8.0b4&quot;&gt;on GitHub&lt;/a&gt;.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;2018-07-09: We released &lt;a href=&quot;https://github.com/ActivityWatch/activitywatch/releases/tag/v0.8.0b5&quot;&gt;v0.8.0b5&lt;/a&gt;. 🚢&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;View full diff &lt;a href=&quot;https://github.com/ActivityWatch/activitywatch/compare/v0.8.0b4...v0.8.0b5&quot;&gt;on GitHub&lt;/a&gt;.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;2018-07-17: We hit over 200 daily active users for the web watcher. :chart_with_upwards_trend:&lt;/p&gt;
+
+&lt;p&gt;2018-08-14: We hit 6000 downloads ⬇️&lt;/p&gt;
+
+&lt;p&gt;2018-08-27: We released &lt;a href=&quot;https://github.com/ActivityWatch/activitywatch/releases/tag/v0.8.0b6&quot;&gt;v0.8.0b6&lt;/a&gt;. 🚢&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;Added a new timeline visualization to better visualize event history. (&lt;a href=&quot;https://github.com/ActivityWatch/aw-webui/pull/97&quot;&gt;aw-webui#97&lt;/a&gt;)&lt;/li&gt;
+  &lt;li&gt;Fixed the highly popular Windows-specific issue where all modules started by aw-qt also opened a terminal window which they ran in. (&lt;a href=&quot;https://github.com/ActivityWatch/activitywatch/issues/212&quot;&gt;activitywatch#212&lt;/a&gt;)&lt;/li&gt;
+  &lt;li&gt;View full diff &lt;a href=&quot;https://github.com/ActivityWatch/activitywatch/compare/v0.8.0b5...v0.8.0b6&quot;&gt;on GitHub&lt;/a&gt;.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Unknown date:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;At some point we implemented support for the text editors Vim and VSCode, probably in v0.8.0b4. This included a visualization in the web UI where you can see the most edited files, most edited languages, and most edited projects!&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;going-forward-️&quot;&gt;Going forward 🏃‍♀️&lt;/h2&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Raw SQL datastore
+    &lt;ul&gt;
+      &lt;li&gt;@johan-bjareholt is still working on a raw SQL implementation of the Peewee datastore that is expected to give further performance improvements, among other things. (&lt;a href=&quot;https://github.com/ActivityWatch/aw-core/pull/57&quot;&gt;aw-core#57&lt;/a&gt;)&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;Import bucket API (&lt;a href=&quot;https://github.com/ActivityWatch/aw-server/pull/41&quot;&gt;aw-server#41&lt;/a&gt;)
+    &lt;ul&gt;
+      &lt;li&gt;And later web UI button to make export/import cycle possible, enabling the ability to manually move data between instances with a simple export file.&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;Decentralized sync
+    &lt;ul&gt;
+      &lt;li&gt;We’ve started researching the possibility for a very simple type of sync where you choose a folder that is being synced by Syncthing/Dropbox/Google Drive which is then used to exchange data between hosts.  (&lt;a href=&quot;https://github.com/ActivityWatch/aw-server/pull/50&quot;&gt;aw-server#50&lt;/a&gt;)&lt;/li&gt;
+      &lt;li&gt;A huge step towards finally implementing a decentralized sync MVP (thanks to Syncthing ❤️).&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;what-else&quot;&gt;What else?&lt;/h2&gt;
+
+&lt;p&gt;During the summer @ErikBjare, @johan-bjareholt, @Powersource, and three other wonderful people have been developing &lt;a href=&quot;https://github.com/ActivityWatch/thankful&quot;&gt;Thankful&lt;/a&gt; under the group name &lt;a href=&quot;https://superuserlabs.github.io/&quot;&gt;Superuser Labs&lt;/a&gt;. We think we’re onto something kinda amazing, but we have a bit to go before it’s an improvement over existing donation methods.&lt;/p&gt;
+
+&lt;h2 id=&quot;support-us-️-&quot;&gt;Support us! ❤️ 💸&lt;/h2&gt;
+
+&lt;p&gt;Last month we &lt;strong&gt;only received &lt;em&gt;$13&lt;/em&gt; in donations&lt;/strong&gt; (after fees), that means your donation could be extra important to us. &lt;strong&gt;Do you use ActivityWatch and want to see many updates like this in the future? Support us on &lt;a href=&quot;https://www.patreon.com/erikbjare&quot;&gt;Patreon&lt;/a&gt; or &lt;a href=&quot;https://opencollective.com/activitywatch&quot;&gt;OpenCollective&lt;/a&gt;!&lt;/strong&gt;&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;This post was originally published on &lt;a href=&quot;https://forum.activitywatch.net/t/development-update-august-2018/136&quot;&gt;the forum&lt;/a&gt;. It has been reposted here on the blog for archival purposes.&lt;/p&gt;
+&lt;/blockquote&gt;
+</description>
+        <pubDate>Tue, 28 Aug 2018 17:06:00 +0000</pubDate>
+        <link>https://activitywatch.net/blog/development-update-aug-2018/</link>
+        <guid isPermaLink="true">https://activitywatch.net/blog/development-update-aug-2018/</guid>
+        
+        
+      </item>
+    
+      <item>
+        <title>Development Update May 2018</title>
+        <description>&lt;p&gt;&lt;a href=&quot;https://www.patreon.com/posts/17206179&quot;&gt;On request&lt;/a&gt; we’ve decided to start doing these bimonthly development updates in order to keep you all updated about how development is progressing. It might take a few updates for us to get this going, but we’ll get there!&lt;/p&gt;
+
+&lt;h2 id=&quot;milestones&quot;&gt;Milestones&lt;/h2&gt;
+
+&lt;p&gt;May 7th: We finally released &lt;a href=&quot;https://github.com/ActivityWatch/activitywatch/releases/tag/v0.8.0b1&quot;&gt;v0.8.0b1&lt;/a&gt;. It’s been our first release since November 2017 and is the first beta release of the upcoming (and amazing) new v0.8 release.&lt;/p&gt;
+
+&lt;p&gt;May 15th: We hit 4000 downloads 🌟&lt;/p&gt;
+
+&lt;h2 id=&quot;improvements&quot;&gt;Improvements&lt;/h2&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Implemented our query2 querying language and rewrote much of the visualization code to use it. This is a huge step forward for future visualization work. (&lt;a href=&quot;https://github.com/ActivityWatch/aw-core/pull/46&quot;&gt;aw-core#46&lt;/a&gt;, &lt;a href=&quot;https://github.com/ActivityWatch/aw-server/pull/35&quot;&gt;aw-server#35&lt;/a&gt;, &lt;a href=&quot;https://github.com/ActivityWatch/aw-webui/pull/48&quot;&gt;aw-webui#48&lt;/a&gt;)&lt;/li&gt;
+  &lt;li&gt;Added a query explorer in the web UI to help with testing queries. (&lt;a href=&quot;https://github.com/ActivityWatch/aw-webui/pull/64&quot;&gt;aw-webui#64&lt;/a&gt;)&lt;/li&gt;
+  &lt;li&gt;Made watchers more resilient by switching to a new type of request queue. (&lt;a href=&quot;https://github.com/ActivityWatch/aw-client/pull/28&quot;&gt;aw-client#28&lt;/a&gt;)&lt;/li&gt;
+  &lt;li&gt;Started developing &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;aw-client-js&lt;/code&gt; (&lt;a href=&quot;https://github.com/ActivityWatch/aw-client-js/pull/2&quot;&gt;aw-client-js#2&lt;/a&gt;) and switched to using it in &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;aw-webui&lt;/code&gt; (&lt;a href=&quot;https://github.com/ActivityWatch/aw-webui/pull/62&quot;&gt;aw-webui#62&lt;/a&gt;).&lt;/li&gt;
+  &lt;li&gt;The web UI now has a view for the most-visited domains. (&lt;a href=&quot;https://github.com/ActivityWatch/aw-webui/commit/8f443bc1e258c54f1838994e0f1f79e254d86d6a&quot;&gt;this commit&lt;/a&gt;)&lt;/li&gt;
+  &lt;li&gt;The web UI now has a button for removing buckets. (&lt;a href=&quot;https://github.com/ActivityWatch/aw-webui/commit/6410170d3192c9e73bb7957ea7e7b9ce606e25ac#diff-32c6cbf8ae7a966f7e41ec78a6d775cb&quot;&gt;this commit&lt;/a&gt;)&lt;/li&gt;
+  &lt;li&gt;We now have &lt;a href=&quot;https://aur.archlinux.org/packages/activitywatch-bin/&quot;&gt;a package on the AUR&lt;/a&gt; for easy installation on Arch Linux!&lt;/li&gt;
+  &lt;li&gt;And a bunch of smaller bugfixes and reliability improvements.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;going-forward&quot;&gt;Going forward&lt;/h2&gt;
+
+&lt;p&gt;We’ve been hard at work trying to improve the performance of ActivityWatch (&lt;a href=&quot;https://github.com/ActivityWatch/activitywatch/issues/98&quot;&gt;activitywatch#98&lt;/a&gt;) using several approaches:&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;Switching to a pure-SQL implementation of the SQLite datastore. (&lt;a href=&quot;https://github.com/ActivityWatch/aw-core/pull/57&quot;&gt;aw-core#57&lt;/a&gt;)&lt;/li&gt;
+  &lt;li&gt;Pre-merging of heartbeat events. (&lt;a href=&quot;https://github.com/ActivityWatch/aw-client/pull/33&quot;&gt;aw-client#33&lt;/a&gt;)&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;We’ll also spend a considerate amount of time developing ActivityWatch this coming summer as we’re a team of five people who will be working on our related project &lt;a href=&quot;https://github.com/ActivityWatch/thankful&quot;&gt;Thankful&lt;/a&gt;. Certainly something to look forward to!&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Do you like ActivityWatch and hope to see many updates like this in the future? &lt;a href=&quot;https://www.patreon.com/erikbjare&quot;&gt;Support us on Patreon!&lt;/a&gt;&lt;/strong&gt;&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;This post was originally published on &lt;a href=&quot;https://forum.activitywatch.net/t/development-update-may-2018/108&quot;&gt;the forum&lt;/a&gt;. It has been reposted here on the blog for archival purposes.&lt;/p&gt;
+&lt;/blockquote&gt;
+</description>
+        <pubDate>Wed, 16 May 2018 09:36:00 +0000</pubDate>
+        <link>https://activitywatch.net/blog/development-update-may-2018/</link>
+        <guid isPermaLink="true">https://activitywatch.net/blog/development-update-may-2018/</guid>
         
         
       </item>

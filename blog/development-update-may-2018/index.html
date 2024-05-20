@@ -3,12 +3,11 @@
   <meta charset="utf-8"/>
   <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
   <meta name="viewport" content="width=device-width,initial-scale=1"/>
-  <title>ActivityWatch - Open-source time tracker</title>
-  <meta name="description" content="The best free and open-source automated time tracker. Cross-platform, extensible, local/privacy-first.
-"/>
+  <title>Development Update May 2018 | ActivityWatch - Open-source time tracker</title>
+  <meta name="description" content="On request we’ve decided to start doing these bimonthly development updates in order to keep you all updated about how development is progressing. It might t..."/>
   <link rel="icon" type="image/png" href="/img/logo.png"/>
   <link rel="stylesheet" href="/css/main.css"/>
-  <link rel="canonical" href="https://activitywatch.net/"/>
+  <link rel="canonical" href="https://activitywatch.net/blog/development-update-may-2018/"/>
   <link rel="alternate" type="application/rss+xml" title="ActivityWatch - Open-source time tracker" href="https://activitywatch.net"/>
   <!-- Bootstrap CSS and JS-->
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous"/>
@@ -100,7 +99,9 @@
 <!-- From: https://brianbunke.com/blog/2017/09/06/twitter-cards-on-jekyll/#tweak-to-fit-your-needs -->
 <meta name="twitter:site"    content="@ActivityWatchIt">
 
-<meta name="twitter:title"   content="">
+<meta name="twitter:creator" content="@ErikBjare">
+
+<meta name="twitter:title"   content="Development Update May 2018">
 
 
 <meta name="twitter:description" content="The best free and open-source automated time tracker. Cross-platform, extensible, local/privacy-first.
@@ -138,214 +139,95 @@
     </nav>
   </body>
 </html>
-    <div class="page-content "><article class="wrapper mt-4"><img class="d-block mx-auto mb-4" style="max-width: 100%" src="/img/banner.png"/>
-  <p><b>ActivityWatch</b> is an app that automatically tracks how you spend time on your devices.</p>
-  <p>It is <b>open source</b>, <b>privacy-first</b>, <b>cross-platform</b>, and a great alternative to services like RescueTime, ManicTime, and WakaTime.</p>
-  <p>It can be used to keep track of your productivity, time spent on different projects, bad screen habits, or just to understand how you spend your time.</p>
-  <div class="mb-5 mt-2">
-    <div class="mb-2"><span><span class="mb-2" style="display: inline-block">
-    <div><a class="btn btn-success mr-1" id="download" href="/downloads/" style="text-align: left"><i class="fa fa-download mr-2"></i><span style="display: inline-block;"><span>Download</span><br/><span id="download-info" style="font-size: 0.6em; color: #DDD; float: left; margin-top: -0.5em"></span></span></a></div>
-    <!--div| <a href="/downloads/" style="font-size: 0.8em; opacity: 0.8;">All downloads</a>
-    
-    --></span>
-  <script>
-    function getOS() {
-  // Supports and returns one of: Windows, macOS, Linux, Android, iOS, or null if unknown
-  const userAgent = window.navigator.userAgent;
-  const platform = window.navigator.platform;
+    <div class="page-content "><div class="wrapper">
+  <article class="post card" itemscope itemtype="http://schema.org/BlogPosting">
+<div class="card-body">
+    <header class="post-header">
+        <h1 class="card-title"><a href="/blog/development-update-may-2018/">Development Update May 2018</a></h1>
 
-  const macosPlatforms = ["Macintosh", "MacIntel", "MacPPC", "Mac68K"];
-  const windowsPlatforms = ["Win32", "Win64", "Windows", "WinCE"];
-  const iosPlatforms = ["iPhone", "iPad", "iPod"];
-
-  if (macosPlatforms.indexOf(platform) !== -1) {
-    return "macOS";
-  } else if (iosPlatforms.indexOf(platform) !== -1) {
-    return "iOS";
-  } else if (windowsPlatforms.indexOf(platform) !== -1) {
-    return "Windows";
-  } else if (/Android/.test(userAgent)) {
-    return "Android";
-  } else if (/Linux/.test(platform)) {
-    return "Linux";
-  } else {
-    // Unknown
-    return null;
-  }
-}
-
-function getDownloadInfo() {
-  let os = getOS();
-  if (os !== null) {
-    let version = "v0.12.2";
-    let platforms = JSON.parse(`[{"name":"Windows","assets":[{"title":"Installer","description":" (recommended)","url":"https://github.com/ActivityWatch/activitywatch/releases/download/v0.12.2/activitywatch-v0.12.2-windows-x86_64-setup.exe"},{"title":".zip","url":"https://github.com/ActivityWatch/activitywatch/releases/download/v0.12.2/activitywatch-v0.12.2-windows-x86_64.zip"},{"title":"Chocolatey","url":"https://chocolatey.org/packages/activitywatch"}]},{"name":"Linux","assets":[{"title":".zip","url":"https://github.com/ActivityWatch/activitywatch/releases/download/v0.12.2/activitywatch-v0.12.2-linux-x86_64.zip"},{"title":".AppImage","url":"https://github.com/ActivityWatch/activitywatch/releases/download/v0.12.2/activitywatch-linux-x86_64.AppImage"},{"title":"AUR","description":", for Arch Linux and Manjaro","url":"https://aur.archlinux.org/packages/activitywatch-bin/"},{"title":"nixpkgs","description":", for NixOS","url":"https://search.nixos.org/packages?query=activitywatch&show=activitywatch"}]},{"name":"macOS","assets":[{"title":".dmg","description":" (recommended)","url":"https://github.com/ActivityWatch/activitywatch/releases/download/v0.12.2/activitywatch-v0.12.2-macos-x86_64.dmg"},{"type":"zip","title":".zip","url":"https://github.com/ActivityWatch/activitywatch/releases/download/v0.12.2/activitywatch-v0.12.2-macos-x86_64.zip"},{"title":"Homebrew","url":"https://formulae.brew.sh/cask/activitywatch"}]},{"name":"Android","assets":[{"title":"Play Store","description":" (beta)","url":"https://play.google.com/store/apps/details?id=net.activitywatch.android"}]}]`);
-    let p = platforms.filter((p) => p.name === os)[0] || null;
-    if (p !== null) {
-      return {
-        title: `${p.name}, ${p.assets[0].title}, ${version}`,
-        url: p.assets[0].url,
-      };
-    }
-  }
-
-  // If all else fails
-  return {
-    title: "All platforms",
-    url: `/downloads/`,
-  };
-}
-
-function adaptDownloadButton() {
-  let downloadinfo = getDownloadInfo();
-  console.log(downloadinfo);
-
-  let $button = document.getElementById("download");
-  $button.href = downloadinfo.url;
-
-  let $info = document.getElementById("download-info");
-  $info.innerHTML = downloadinfo.title;
-
-  console.log(`Set {downloadinfo}`);
-}
+        <div class="post-meta">
+            <span class="meta-box" itemscope itemtype="http://schema.org/Person">
+                <span class="fa fa-user meta-icon"></span>
+                <span itemprop="name">Erik Bjäreholt</span>
+            </span>
+            <span class="ml-2">
+                <span class="fa fa-calendar meta-icon"></span>
+                <time datetime="2018-05-16T09:36:00+00:00" itemprop="datePublished">
+                    2018-05-16 09:36 UTC
+                </time>
+            </span>
+        </div>
+    </header>
 
     
-    // Sets the download url and text
-    adaptDownloadButton();
-  </script></span><a class="mr-2 mb-2 btn btn-primary" href="https://docs.activitywatch.net/en/latest/getting-started.html" target="_blank" style="vertical-align: top"><i class="fa fa-question-circle mr-2"></i>Getting started guide</a><a class="mr-1 mb-2 btn btn-outline-secondary" href="https://github.com/ActivityWatch/activitywatch" target="_blank" style="vertical-align: top"><i class="fa fa-github mr-2"></i>Contribute on GitHub</a></div>
-    <div>
-      <!-- Badges and stuff--><a class="mr-2" href="https://github.com/ActivityWatch/activitywatch"><img title="GitHub stars" src="https://img.shields.io/github/stars/ActivityWatch/activitywatch.svg?style=social&amp;label=Star"/></a><a href="https://twitter.com/ActivityWatchIt"><img title="Twitter followers" src="https://img.shields.io/twitter/follow/ActivityWatchIt.svg?style=social&amp;label=Follow"/></a>
-    </div>
-  </div>
-</article>
-<div class="container">
-  <div class="row">
-    <div class="col-md-8">
-      <h2>Features</h2>
-      <ul>
-        <li><b>Tracking:</b> Tracks active application and window title out of the box, more with <a href="https://docs.activitywatch.net/en/latest/watchers.html">watchers</a>.</li>
-        <li><b>Categories:</b> Get a better overview of your usage by breaking it down into categories.</li>
-        <li><b>Browser extensions:</b> Track the active tab using the extensions for <a href="https://chrome.google.com/webstore/detail/activitywatch-web-watcher/nglaklhklhcoonedhgnpgddginnjdadi">Chrome</a> and <a href="https://addons.mozilla.org/en-US/firefox/addon/aw-watcher-web/">Firefox</a>.</li>
-        <li><b>Editor plugins:</b> Track how you spend time writing code with <a href="https://docs.activitywatch.net/en/latest/watchers.html#editor-watchers">editor watchers</a>.</li>
-        <li><b>Privacy:</b> Data is stored locally and doesn't leave your device, we put <a href="https://www.inkandswitch.com/local-first.html">local and privacy first</a>.</li>
-        <li><b>Cross-platform:</b> Runs on <a href="/downloads/#windows">Windows</a>, <a href="/downloads/#macos">macOS</a>, <a href="/downloads/#linux">Linux</a>, and <a href="https://play.google.com/store/apps/details?id=net.activitywatch.android">Android</a>.</li>
-        <li>
-          <s><b>Synchronization:</b> Sync your activity between your devices.</s> (We're <a href="https://github.com/ActivityWatch/aw-server-rust/tree/master/aw-sync">working on it</a>)
-        </li>
-      </ul>
-      <h2 class="mt-4">Why use it?</h2>
-      <p>You can use ActivityWatch to:</p>
-      <ul>
-        <li>Monitor your productivity.</li>
-        <li>Track how much time you spend on different projects.</li>
-        <li>Get an overview of time spent on apps, games, videos, and music.</li>
-        <li>Manage your bad screen habits.</li>
-        <li>Measure your work-life balance.</li>
-        <li>Find behavioral trends in how you use your devices.</li>
-        <li>Gain "self-knowledge through numbers" (<a href="https://en.wikipedia.org/wiki/Quantified_self">Quantified Self</a>)</li>
-        <li>Keep a log of your digital life (<a href="https://en.wikipedia.org/wiki/Lifelog">lifelogging</a>).</li>
-        <li>Research attention, productivity, and behavior (researchers: contact us!)</li>
-        <li>Track who creates the things you use, so you can incentivize them to continue</li>
-        <ul>
-          <li>The goal of the <a href="#thankful">Thankful</a> app</li>
-        </ul>
-      </ul>
-      <p>
-        Our users are diverse and we keep being surprised by what people use ActivityWatch for.
-        If you've built something cool that you want to share with us, post about it on <a href="https://forum.activitywatch.net">the forum</a>!
-      </p>
-    </div>
-    <!-- Move the column to be the first one on small screens-->
-    <div class="col-md-4 order-first order-md-last">
-      <h4>Screenshots</h4><a href="/img/screenshots/screenshot-v0.9.3-activity.png">
-        <figure style="width: 100%; border: 1px #999 solid; border-radius: 2px"><img style="width: 100%" src="/img/screenshots/screenshot-v0.9.3-activity.png"/></figure></a><a href="/img/screenshots/screenshot-v0.8.0b9-timeline.png">
-        <figure class="mb-0" style="width: 100%; border: 1px #999 solid; border-radius: 2px"><img style="width: 100%" src="/img/screenshots/screenshot-v0.8.0b9-timeline.png"/></figure></a><a class="mt-0 small" href="/screenshots/"><i>More screenshots here</i></a>
-    </div>
-  </div>
-  <div class="row mt-4">
-    <div class="col-md-6">
-      <h2 class="mt-4">How to use it</h2>
-      <p>To get started with ActivityWatch, you need to <a href="/downloads/">download</a> and <a href="https://docs.activitywatch.net/en/latest/getting-started.html">install</a> the application on your computer. </p>
-      <p>After you've installed it and it's running (see your system tray), you can visit <a href="http://localhost:5600">localhost:5600</a> in your browser to open the UI.</p>
-      <p>For more detail, see the <a href="https://docs.activitywatch.net/en/latest/getting-started.html">getting started guide</a>.</p>
-      <h4 class="mt-4">Learn more</h4>
-      <p>For more about ActivityWatch see the <a href="https://docs.activitywatch.net/en/latest/">documentation</a> and the <a href="https://docs.activitywatch.net/en/latest/faq.html">Frequently asked questions</a>.</p>
-      <p>
-         For a feature comparison with other similar software, see the <a href="https://github.com/ActivityWatch/activitywatch/blob/master/README.md#feature-comparison">comparison section in the README</a>.</p>
-    </div>
-    <div class="col-md-6">
-      <h2 class="mt-4">How to contribute</h2>
-      <p>
-        ActivityWatch is built entirely by volunteers and we need help from people (like you!) to keep the project going.
-        If you're interested in contributing, check out the <a href="https://github.com/ActivityWatch/activitywatch/blob/master/CONTRIBUTING.md">contributing guide</a>.
-      </p>
-      <h4>Donate</h4>
-      <p>If ActivityWatch has helped you in any way, and you don't have the means or time to contribute, please consider <a href="/donate/">donating</a>.</p>
-      <h4>Spread the word</h4>
-      <p>If you like ActivityWatch, please consider spreading the word by sharing it on social media, writing a blog post, or recommending it to a friend.</p>
-    </div>
-  </div>
-  <hr/>
-  <div class="row py-4">
-    <div class="col-md-6">
-      <h2>Blog posts</h2><!-- list latest jekyll posts -->
+    <details class="toc small">
+        <summary class="py-2 font-weight-bold">Table of Contents</summary>
+        <div class="mt-2">
+            <ul id="toc" class="section-nav">
+<li class="toc-entry toc-h2"><a href="#milestones">Milestones</a></li>
+<li class="toc-entry toc-h2"><a href="#improvements">Improvements</a></li>
+<li class="toc-entry toc-h2"><a href="#going-forward">Going forward</a></li>
+</ul>
+        </div>
+    </details>
+    
+
+    <div class="post-content" itemprop="articleBody">
+        <p><a href="https://www.patreon.com/posts/17206179">On request</a> we’ve decided to start doing these bimonthly development updates in order to keep you all updated about how development is progressing. It might take a few updates for us to get this going, but we’ll get there!</p>
+
+<h2 id="milestones">
+<a class="anchor" href="#milestones" aria-hidden="true"><span class="octicon octicon-link"></span></a>Milestones</h2>
+
+<p>May 7th: We finally released <a href="https://github.com/ActivityWatch/activitywatch/releases/tag/v0.8.0b1">v0.8.0b1</a>. It’s been our first release since November 2017 and is the first beta release of the upcoming (and amazing) new v0.8 release.</p>
+
+<p>May 15th: We hit 4000 downloads 🌟</p>
+
+<h2 id="improvements">
+<a class="anchor" href="#improvements" aria-hidden="true"><span class="octicon octicon-link"></span></a>Improvements</h2>
 
 <ul>
-
-  <li>
-    30 Oct 2023 -
-    <a href="/blog/announcing-winners-of-screenshot-competition/">Announcing Winners of Screenshot Competition!</a>
-  </li>
-
-  <li>
-    30 Aug 2023 -
-    <a href="/blog/future-of-time-tracking/">The Future of Time Tracking: AI, Privacy, and Personalization</a>
-  </li>
-
-  <li>
-    30 Aug 2023 -
-    <a href="/blog/comparing-time-trackers/">Comparing ActivityWatch with RescueTime, ManicTime, and Apple ScreenTime</a>
-  </li>
-
-  <li>
-    12 Mar 2019 -
-    <a href="/blog/development-update-mar-2019/">Development Update March 2019</a>
-  </li>
-
-  <li>
-    28 Aug 2018 -
-    <a href="/blog/development-update-aug-2018/">Development Update August 2018</a>
-  </li>
-
-  <li>
-    16 May 2018 -
-    <a href="/blog/development-update-may-2018/">Development Update May 2018</a>
-  </li>
-
+  <li>Implemented our query2 querying language and rewrote much of the visualization code to use it. This is a huge step forward for future visualization work. (<a href="https://github.com/ActivityWatch/aw-core/pull/46">aw-core#46</a>, <a href="https://github.com/ActivityWatch/aw-server/pull/35">aw-server#35</a>, <a href="https://github.com/ActivityWatch/aw-webui/pull/48">aw-webui#48</a>)</li>
+  <li>Added a query explorer in the web UI to help with testing queries. (<a href="https://github.com/ActivityWatch/aw-webui/pull/64">aw-webui#64</a>)</li>
+  <li>Made watchers more resilient by switching to a new type of request queue. (<a href="https://github.com/ActivityWatch/aw-client/pull/28">aw-client#28</a>)</li>
+  <li>Started developing <code class="language-plaintext highlighter-rouge">aw-client-js</code> (<a href="https://github.com/ActivityWatch/aw-client-js/pull/2">aw-client-js#2</a>) and switched to using it in <code class="language-plaintext highlighter-rouge">aw-webui</code> (<a href="https://github.com/ActivityWatch/aw-webui/pull/62">aw-webui#62</a>).</li>
+  <li>The web UI now has a view for the most-visited domains. (<a href="https://github.com/ActivityWatch/aw-webui/commit/8f443bc1e258c54f1838994e0f1f79e254d86d6a">this commit</a>)</li>
+  <li>The web UI now has a button for removing buckets. (<a href="https://github.com/ActivityWatch/aw-webui/commit/6410170d3192c9e73bb7957ea7e7b9ce606e25ac#diff-32c6cbf8ae7a966f7e41ec78a6d775cb">this commit</a>)</li>
+  <li>We now have <a href="https://aur.archlinux.org/packages/activitywatch-bin/">a package on the AUR</a> for easy installation on Arch Linux!</li>
+  <li>And a bunch of smaller bugfixes and reliability improvements.</li>
 </ul>
 
-      <h2 class="mt-4">Timeline</h2>
-      <p>For an overview of events in the project's history, see the <a href="/timeline/">timeline</a>. <br/>It includes milestones, features, releases, articles, and videos.</p>
-      <h2 class="mt-4">Where to follow the project</h2>
-      <p>You can follow the project on social media, like <a href="https://twitter.com/ActivityWatchIt">Twitter</a>, <a href="https://www.linkedin.com/company/activitywatch">LinkedIn</a>, <a href="https://www.reddit.com/r/activitywatch">Reddit</a>, and <a href="https://www.facebook.com/ActivityWatch">Facebook</a>.</p>
-      <p>You can chat with us in our <a href="https://discord.gg/vDskV9q">Discord server</a>, or discuss with us on the <a href="https://forum.activitywatch.net">forum</a>.</p>
-      <p>You can also <a href="http://eepurl.com/cTU6QX">subscribe to our very low-traffic newsletter</a> to get very rare updates about the project.</p>
+<h2 id="going-forward">
+<a class="anchor" href="#going-forward" aria-hidden="true"><span class="octicon octicon-link"></span></a>Going forward</h2>
+
+<p>We’ve been hard at work trying to improve the performance of ActivityWatch (<a href="https://github.com/ActivityWatch/activitywatch/issues/98">activitywatch#98</a>) using several approaches:</p>
+<ul>
+  <li>Switching to a pure-SQL implementation of the SQLite datastore. (<a href="https://github.com/ActivityWatch/aw-core/pull/57">aw-core#57</a>)</li>
+  <li>Pre-merging of heartbeat events. (<a href="https://github.com/ActivityWatch/aw-client/pull/33">aw-client#33</a>)</li>
+</ul>
+
+<p>We’ll also spend a considerate amount of time developing ActivityWatch this coming summer as we’re a team of five people who will be working on our related project <a href="https://github.com/ActivityWatch/thankful">Thankful</a>. Certainly something to look forward to!</p>
+
+<p><strong>Do you like ActivityWatch and hope to see many updates like this in the future? <a href="https://www.patreon.com/erikbjare">Support us on Patreon!</a></strong></p>
+
+<hr>
+
+<blockquote>
+  <p>This post was originally published on <a href="https://forum.activitywatch.net/t/development-update-may-2018/108">the forum</a>. It has been reposted here on the blog for archival purposes.</p>
+</blockquote>
+
     </div>
-    <div class="col-md-6">
-      <h2>About the maintainers</h2>
-      <p>
-        ActivityWatch was founded by brothers and current maintainers Erik Bjäreholt and Johan Bjäreholt.
-        We started building ActivityWatch because we thought something like it should exist (it didn't), so we decided to build it ourselves. You can read the <a href="https://docs.activitywatch.net/en/latest/history.html">History</a> page in the docs for more about the project's origins.
-      </p>
-      <p>We don't work on ActivityWatch full-time, so development may slow at times. But we think that ActivityWatch is important software (if you agree, <a href="/donate/">donate</a>!), and we're building for the long term. 
-        We want to build an as useful tool as possible for as many people as possible.
-      </p>
-      <p>
-        Over the years, many significant contributions have come from the community, and we hope to see them increase over time.
-        For details on who has contributed what and how much to ActivityWatch, check out the <a href="https://activitywatch.net/contributors/">contributor statistics</a>.
-      </p>
+
+    <div class="footer">
+        <div >
+            <span class="fa fa-link"></span>
+            <a href="/blog/development-update-may-2018/">Permalink</a>
+        </div>
     </div>
-  </div>
-</div></div><html>
+</div>
+</article>
+
+</div>
+</div><html>
   <head></head>
   <body>
     <footer class="site-footer">

@@ -902,6 +902,494 @@
 
     <div style="margin: 6em 0;">
 
+    <article class="post card" itemscope itemtype="http://schema.org/BlogPosting">
+<div class="card-body"><header class="post-header">
+      <h1 class="card-title"  id="development-update-march-2019" id="development-update-march-2019" id="development-update-march-2019" id="development-update-march-2019">
+        
+        
+          <a href="/blog/development-update-mar-2019/">Development Update March 2019</a> <a href="#development-update-march-2019"></a>
+        
+        
+      </h1>
+    
+
+        <div class="post-meta">
+            <span class="meta-box" itemscope itemtype="http://schema.org/Person">
+                <span class="fa fa-user meta-icon"></span>
+                <span itemprop="name">Erik Bjäreholt</span>
+            </span>
+            <span class="ml-2">
+                <span class="fa fa-calendar meta-icon"></span>
+                <time datetime="2019-03-12T11:06:00+00:00" itemprop="datePublished">
+                    2019-03-12 11:06 UTC
+                </time>
+            </span>
+        </div>
+    </header>
+
+    
+    <details class="toc small">
+        <summary class="py-2 font-weight-bold">Table of Contents</summary>
+        <div class="mt-2">
+            
+        </div>
+    </details>
+    
+
+    <div class="post-content" itemprop="articleBody">
+        <p>It’s time for another development update!</p>
+
+<p>We are sorry for the long delay in our development updates, but infrequent updates also mean <strong><em>larger</em></strong> updates. <a href="https://forum.activitywatch.net/t/development-update-august-2018/136">The last development update</a> was written about half a year ago, so we have a lot of things to share!</p>
+
+<p>If you don’t want to read all these notes and just want to experience the new beta of ActivityWatch right away, <a href="https://github.com/ActivityWatch/activitywatch/releases/tag/v0.8.0b8">you can download it here</a>!</p>
+      <h1 id="-milestones"  id="-milestones" id="-milestones" id="-milestones" id="-milestones">
+        
+        
+          🏁 Milestones <a href="#-milestones"></a>
+        
+        
+      </h1>
+    
+
+<ul>
+  <li>
+    <p><strong>2019-03-09:</strong> 🚢 <a href="https://github.com/ActivityWatch/activitywatch/releases/tag/v0.8.0b8">0.8.0 beta 8</a> was released</p>
+  </li>
+  <li>
+    <p><strong>2019-01-14:</strong> 🤖 First <a href="https://github.com/ActivityWatch/aw-android/">aw-android</a> release</p>
+  </li>
+  <li>
+    <p><strong>2019-01-05:</strong> ⬇️ We passed 10,000 downloads!</p>
+  </li>
+  <li>
+    <p><strong>2018-12-08:</strong> ⚙️ <a href="https://github.com/ActivityWatch/aw-server-rust/">aw-server-rust</a> reached feature parity</p>
+  </li>
+  <li>
+    <p><strong>2018-11-03:</strong> 🚢 <a href="https://github.com/ActivityWatch/activitywatch/releases/tag/v0.8.0b7">0.8.0 beta 7</a> was released</p>
+  </li>
+</ul>
+
+<p><a href="https://activitywatch.readthedocs.io/en/latest/changelog.html#v0-8-0b8">Changelog can be found here</a></p>
+      <h1 id="-major-news"  id="-major-news" id="-major-news" id="-major-news" id="-major-news">
+        
+        
+          📯 Major News <a href="#-major-news"></a>
+        
+        
+      </h1>
+    
+      <h2 id="-activitywatch-is-now-in-early-beta-on-android"  id="-activitywatch-is-now-in-early-beta-on-android" id="-activitywatch-is-now-in-early-beta-on-android" id="-activitywatch-is-now-in-early-beta-on-android" id="-activitywatch-is-now-in-early-beta-on-android">
+        
+        
+          🤖 ActivityWatch is now in early beta on Android! <a href="#-activitywatch-is-now-in-early-beta-on-android"></a>
+        
+        
+      </h2>
+    
+
+<p>We have been working on getting ActivityWatch to Android for a long time (see <a href="https://github.com/ActivityWatch/activitywatch/issues/6">this issue</a>). There’s a good reason why we think it’s important: in my own analysis, it accounts for almost half of my screen time!</p>
+
+<p>So now we finally have something that you can try out! While not great (yet) there’s a lot to be excited about.</p>
+
+<p>By being backed by our new high-performance implementation of the aw-server written in Rust (see below) it will have the same underlying features and APIs of the desktop version of ActivityWatch, making it a great foundation that will make development easy going forward. The web UI is currently available in the app (but is notably broken in a lot of ways), but we hope to be able to build some native UI elements in the future!</p>
+
+<p>Now we just need to find the time to keep building, but we hope we might be able to find some contributors to help us out with doing so now that we have a solid foundation built on the same APIs already available in ActivityWatch elsewhere!</p>
+
+<p>Get it on the <a href="https://play.google.com/store/apps/details?id=net.activitywatch.android">Play Store</a>, or <a href="https://github.com/ActivityWatch/aw-android">check out the code on GitHub</a>!</p>
+      <h2 id="️-new-high-performance-implementation-of-aw-server-written-in-rust"  id="️-new-high-performance-implementation-of-aw-server-written-in-rust" id="️-new-high-performance-implementation-of-aw-server-written-in-rust" id="️-new-high-performance-implementation-of-aw-server-written-in-rust" id="️-new-high-performance-implementation-of-aw-server-written-in-rust">
+        
+        
+          ⚙️ New high-performance implementation of aw-server written in Rust <a href="#️-new-high-performance-implementation-of-aw-server-written-in-rust"></a>
+        
+        
+      </h2>
+    
+
+<p>While Python is a great language to quickly build new features in, it’s not great for performance or deploying to multiple platforms (especially Android). So @johan-bjareholt took on the tremendous task of reimplementing aw-server in the highly performant and secure programming language Rust.</p>
+
+<p>This is big news for several reasons:</p>
+
+<ul>
+  <li>Since Rust compiles to Android we have built a library for use on Android, letting us avoid reimplement all of ActivityWatch to Android devices specifically (and vastly decreases the time to port future features like sync to Android).</li>
+  <li>The high-performance improves battery life on devices like laptops, phones, and tablets.</li>
+  <li>The high-performance will make it easier for us to implement weekly summaries</li>
+  <li>Having two implementations gives us better testing and encourages work towards common specifications and standards.</li>
+</ul>
+
+<p>The Python implementation will still be used for experimenting with new features, but expect the Rust implementation to be shipped with the normal desktop releases sometime in the future!</p>
+      <h2 id="️-more-editor-watchers"  id="️-more-editor-watchers" id="️-more-editor-watchers" id="️-more-editor-watchers" id="️-more-editor-watchers">
+        
+        
+          ✏️ More editor watchers <a href="#️-more-editor-watchers"></a>
+        
+        
+      </h2>
+    
+
+<p>The community has contributed with many new editor watchers the past few months which we appreciate a lot! They have done some awesome work and most of them are even in a better state than the vim watcher we have written ourselves. Thanks everyone for the awesome work!</p>
+
+<ul>
+  <li><a href="https://github.com/ActivityWatch/aw-watcher-vscode">aw-watcher-vscode</a> - Visual Studio Code extension, by <a href="https://github.com/Otto-AA">@Otto-AA</a>.</li>
+  <li><a href="https://github.com/pauldub/activity-watch-mode">activity-watch-mode</a> - emacs mode forked from wakatime-mode, by <a href="https://github.com/pauldub">@pauldub</a>.</li>
+  <li><a href="https://github.com/OlivierMary/aw-watcher-jetbrains">aw-watcher-jetbrains</a> - JetBrains IntelliJ plugin, by <a href="https://github.com/OlivierMary">@OlivierMary</a>.</li>
+  <li>(Alpha) <a href="https://github.com/LaggAt/ActivityWatchVS">ActivityWatchVS</a> - Visual Studio plugin, by <a href="https://github.com/LaggAt">@LaggAt</a></li>
+</ul>
+      <h2 id="--windows-and-macos-builds-now-work-again"  id="--windows-and-macos-builds-now-work-again" id="--windows-and-macos-builds-now-work-again" id="--windows-and-macos-builds-now-work-again" id="--windows-and-macos-builds-now-work-again">
+        
+        
+          🔧  Windows and macOS builds now work again <a href="#--windows-and-macos-builds-now-work-again"></a>
+        
+        
+      </h2>
+    
+<p>In v0.8 beta 7 we had issues with the windows bundle due to breaking updates of our dependencies PyInstaller and jsonschema. This is now fixed and our windows builds should now work properly again in v0.8 beta 8.</p>
+
+<p>Back in 0.8 beta 6 macOS support was also broken, but that has been working for a while now since beta 7 which has been around for a few months already.</p>
+
+<p>## 📦 Import and export
+The import and export APIs now work consistently (<a href="https://github.com/ActivityWatch/aw-server/pull/41">aw-server#41</a>). We have added a UI to export all buckets and to import buckets. Migrating your activitywatch data to another computer is now as easy as using one export button on one computer, moving the file to your new computer and upload it in with the import button! Import and export can also be used if you want to try out the new aw-server-rust and want to move over all your previously logged aw-server data.</p>
+      <h1 id="️-going-forward"  id="️-going-forward" id="️-going-forward" id="️-going-forward" id="️-going-forward">
+        
+        
+          🏃‍♀️ Going forward <a href="#️-going-forward"></a>
+        
+        
+      </h1>
+    
+
+<ul>
+  <li>🛰️ Raw SQL datastore
+    <ul>
+      <li>@johan-bjareholt has merged a raw SQLite implementation of the datastore that has performance improvements compared to the current Peewee SQLite datastore. Automatic migration from the old datastore to the new one is supported. The new datastore is however not the default yet, we need more user-testing before doing that. (<a href="https://github.com/ActivityWatch/aw-core/pull/57">aw-core#57</a>)</li>
+    </ul>
+  </li>
+  <li>🔄 Decentralized sync
+    <ul>
+      <li>Still being worked on, see last developer update for more info and the <a href="">latest comments in the issue</a>.</li>
+    </ul>
+  </li>
+  <li>⏱️ Stopwatch beta
+    <ul>
+      <li>The web-ui now has a stopwatch watcher where you can manually set timers with different tags to track for example how long you have been at work, how long you have been working on a specific project or whatever else you can come up with it being useful for.</li>
+      <li>It’s is very limited and lacks some important features, such as manually editing start/stop times. There is also a lack of visualization, it currently only shows a list of the individual entries.</li>
+    </ul>
+  </li>
+  <li>🖥️ Wayland support
+    <ul>
+      <li>@johan-bjareholt has had discussions with a few wayland compositor devs and have tried to convince the xdg-desktop-portal API bundle to add a protocol for exposing focused windows appname and title, <a href="https://github.com/flatpak/xdg-desktop-portal/issues/304">but it’s a hard sell unfortunately…</a></li>
+    </ul>
+  </li>
+  <li>🗓️ Weekly summary view
+    <ul>
+      <li>Weekly/monthly/yearly summaries is a highly requested feature and a high priority for us. We have acceptable performance in aw-server to support weekly summaries, and when we switch over to aw-server-rust we hope to be able to support monthly summaries without issues. Summaries longer than a month will need more work though and won’t be supported in the near future.</li>
+    </ul>
+  </li>
+  <li>🤖 Better Android version
+    <ul>
+      <li>The Android app, while technically released, isn’t “production ready” yet. We would ❤️ contributions from people with some Android development experience!</li>
+    </ul>
+  </li>
+</ul>
+      <h1 id="support-us-️-"  id="support-us-️-" id="support-us-️-" id="support-us-️-" id="support-us-️-">
+        
+        
+          Support us! ❤️ 💸 <a href="#support-us-️-"></a>
+        
+        
+      </h1>
+    
+
+<p>Last month we <strong>only received <em>$26</em> in donations</strong>, that means your donation could be extra important to us. <strong>Do you use ActivityWatch and want to see many updates like this in the future?  Please support us with donations, it really does make a difference!</strong>
+All donation methods are listed on our <a href="https://activitywatch.net/donate/">donations page</a>.</p>
+      <h1 id="-stay-up-to-date"  id="-stay-up-to-date" id="-stay-up-to-date" id="-stay-up-to-date" id="-stay-up-to-date">
+        
+        
+          📧 Stay up to date <a href="#-stay-up-to-date"></a>
+        
+        
+      </h1>
+    
+
+<p>Want to get notified when we have more amazing news to share? Sign up on the forum, <a href="http://eepurl.com/cTU6QX">subscribe to the newsletter</a>, and <a href="https://twitter.com/ActivityWatchIt">follow us on Twitter</a>!</p><hr />
+
+<blockquote>
+  <p>This post was originally published on <a href="https://forum.activitywatch.net/t/development-update-march-2019/189">the forum</a>. It has been reposted here on the blog for archival purposes.</p>
+</blockquote>
+
+    </div>
+
+    <div class="footer">
+        <div >
+            <span class="fa fa-link"></span>
+            <a href="/blog/development-update-mar-2019/">Permalink</a>
+        </div>
+    </div>
+</div>
+</article>
+
+    <div style="margin: 6em 0;">
+
+    <article class="post card" itemscope itemtype="http://schema.org/BlogPosting">
+<div class="card-body"><header class="post-header">
+      <h1 class="card-title"  id="development-update-august-2018" id="development-update-august-2018" id="development-update-august-2018" id="development-update-august-2018" id="development-update-august-2018">
+        
+        
+          <a href="/blog/development-update-aug-2018/">Development Update August 2018</a> <a href="#development-update-august-2018"></a>
+        
+        
+      </h1>
+    
+
+        <div class="post-meta">
+            <span class="meta-box" itemscope itemtype="http://schema.org/Person">
+                <span class="fa fa-user meta-icon"></span>
+                <span itemprop="name">Erik Bjäreholt</span>
+            </span>
+            <span class="ml-2">
+                <span class="fa fa-calendar meta-icon"></span>
+                <time datetime="2018-08-28T17:06:00+00:00" itemprop="datePublished">
+                    2018-08-28 17:06 UTC
+                </time>
+            </span>
+        </div>
+    </header>
+
+    
+    <details class="toc small">
+        <summary class="py-2 font-weight-bold">Table of Contents</summary>
+        <div class="mt-2">
+            
+        </div>
+    </details>
+    
+
+    <div class="post-content" itemprop="articleBody">
+        <p>It’s now been 104 days since the last “bimonthly” development update, this means:</p>
+
+<ol>
+  <li>It’s time for a new one, and this is a unusually good “bimonthly” update. :ok_hand:</li>
+  <li>Development updates will now be quarterly.</li>
+</ol>
+      <h2 id="milestones-"  id="milestones-" id="milestones-" id="milestones-" id="milestones-" id="milestones-">
+        
+        
+          Milestones 🏁 <a href="#milestones-"></a>
+        
+        
+      </h2>
+    
+
+<p>2018-05-28: We released <a href="https://github.com/ActivityWatch/activitywatch/releases/tag/v0.8.0b2">v0.8.0b2</a>.  🚢</p>
+<ul>
+  <li>Major performance improvement: pre-merging of heartbeats. (<a href="https://github.com/ActivityWatch/aw-client/pull/33">aw-client#33</a>)</li>
+  <li>Query2 now supports a syntax for creating lists, allowing queries to return multiple things. (<a href="https://github.com/ActivityWatch/aw-core/pull/50">aw-core#50</a>)</li>
+  <li>View full diff <a href="https://github.com/ActivityWatch/activitywatch/compare/v0.8.0b1...v0.8.0b2">on GitHub</a>.</li>
+</ul>
+
+<p>2018-05-30: We released <a href="https://github.com/ActivityWatch/activitywatch/releases/tag/v0.8.0b3">v0.8.0b3</a>.  🚢</p>
+<ul>
+  <li>Major performance improvements by pre-merging heartbeats on the server and client-side</li>
+  <li>Improved design of the web UI</li>
+  <li>Implemented flooding (<a href="https://github.com/ActivityWatch/aw-core/pull/58">aw-core#58</a>) which significantly improving the accuracy some types of events (notably window events, <a href="https://github.com/ActivityWatch/activitywatch/issues/124">see this issue for numbers</a>).</li>
+  <li>View full diff <a href="https://github.com/ActivityWatch/activitywatch/compare/v0.8.0b2...v0.8.0b3">on GitHub</a>.</li>
+</ul>
+
+<p>2018-06-22: We hit 1000 stars on GitHub 🌟</p>
+
+<p>2018-07-03: We hit 5000 downloads ⬇️ <strong>and</strong> we released <a href="https://github.com/ActivityWatch/activitywatch/releases/tag/v0.8.0b4">v0.8.0b4</a>!  🚢</p>
+<ul>
+  <li>View full diff <a href="https://github.com/ActivityWatch/activitywatch/compare/v0.8.0b3...v0.8.0b4">on GitHub</a>.</li>
+</ul>
+
+<p>2018-07-09: We released <a href="https://github.com/ActivityWatch/activitywatch/releases/tag/v0.8.0b5">v0.8.0b5</a>. 🚢</p>
+<ul>
+  <li>View full diff <a href="https://github.com/ActivityWatch/activitywatch/compare/v0.8.0b4...v0.8.0b5">on GitHub</a>.</li>
+</ul>
+
+<p>2018-07-17: We hit over 200 daily active users for the web watcher. :chart_with_upwards_trend:</p>
+
+<p>2018-08-14: We hit 6000 downloads ⬇️</p>
+
+<p>2018-08-27: We released <a href="https://github.com/ActivityWatch/activitywatch/releases/tag/v0.8.0b6">v0.8.0b6</a>. 🚢</p>
+<ul>
+  <li>Added a new timeline visualization to better visualize event history. (<a href="https://github.com/ActivityWatch/aw-webui/pull/97">aw-webui#97</a>)</li>
+  <li>Fixed the highly popular Windows-specific issue where all modules started by aw-qt also opened a terminal window which they ran in. (<a href="https://github.com/ActivityWatch/activitywatch/issues/212">activitywatch#212</a>)</li>
+  <li>View full diff <a href="https://github.com/ActivityWatch/activitywatch/compare/v0.8.0b5...v0.8.0b6">on GitHub</a>.</li>
+</ul>
+
+<p>Unknown date:</p>
+
+<ul>
+  <li>At some point we implemented support for the text editors Vim and VSCode, probably in v0.8.0b4. This included a visualization in the web UI where you can see the most edited files, most edited languages, and most edited projects!</li>
+</ul>
+      <h2 id="going-forward-️"  id="going-forward-️" id="going-forward-️" id="going-forward-️" id="going-forward-️" id="going-forward-️">
+        
+        
+          Going forward 🏃‍♀️ <a href="#going-forward-️"></a>
+        
+        
+      </h2>
+    
+
+<ul>
+  <li>Raw SQL datastore
+    <ul>
+      <li>@johan-bjareholt is still working on a raw SQL implementation of the Peewee datastore that is expected to give further performance improvements, among other things. (<a href="https://github.com/ActivityWatch/aw-core/pull/57">aw-core#57</a>)</li>
+    </ul>
+  </li>
+  <li>Import bucket API (<a href="https://github.com/ActivityWatch/aw-server/pull/41">aw-server#41</a>)
+    <ul>
+      <li>And later web UI button to make export/import cycle possible, enabling the ability to manually move data between instances with a simple export file.</li>
+    </ul>
+  </li>
+  <li>Decentralized sync
+    <ul>
+      <li>We’ve started researching the possibility for a very simple type of sync where you choose a folder that is being synced by Syncthing/Dropbox/Google Drive which is then used to exchange data between hosts.  (<a href="https://github.com/ActivityWatch/aw-server/pull/50">aw-server#50</a>)</li>
+      <li>A huge step towards finally implementing a decentralized sync MVP (thanks to Syncthing ❤️).</li>
+    </ul>
+  </li>
+</ul>
+      <h2 id="what-else"  id="what-else" id="what-else" id="what-else" id="what-else" id="what-else">
+        
+        
+          What else? <a href="#what-else"></a>
+        
+        
+      </h2>
+    
+
+<p>During the summer @ErikBjare, @johan-bjareholt, @Powersource, and three other wonderful people have been developing <a href="https://github.com/ActivityWatch/thankful">Thankful</a> under the group name <a href="https://superuserlabs.github.io/">Superuser Labs</a>. We think we’re onto something kinda amazing, but we have a bit to go before it’s an improvement over existing donation methods.</p>
+      <h2 id="support-us-️-"  id="support-us-️-" id="support-us-️-" id="support-us-️-" id="support-us-️-" id="support-us-️-">
+        
+        
+          Support us! ❤️ 💸 <a href="#support-us-️-"></a>
+        
+        
+      </h2>
+    
+
+<p>Last month we <strong>only received <em>$13</em> in donations</strong> (after fees), that means your donation could be extra important to us. <strong>Do you use ActivityWatch and want to see many updates like this in the future? Support us on <a href="https://www.patreon.com/erikbjare">Patreon</a> or <a href="https://opencollective.com/activitywatch">OpenCollective</a>!</strong></p><hr />
+
+<blockquote>
+  <p>This post was originally published on <a href="https://forum.activitywatch.net/t/development-update-august-2018/136">the forum</a>. It has been reposted here on the blog for archival purposes.</p>
+</blockquote>
+
+    </div>
+
+    <div class="footer">
+        <div >
+            <span class="fa fa-link"></span>
+            <a href="/blog/development-update-aug-2018/">Permalink</a>
+        </div>
+    </div>
+</div>
+</article>
+
+    <div style="margin: 6em 0;">
+
+    <article class="post card" itemscope itemtype="http://schema.org/BlogPosting">
+<div class="card-body"><header class="post-header">
+      <h1 class="card-title"  id="development-update-may-2018" id="development-update-may-2018" id="development-update-may-2018" id="development-update-may-2018" id="development-update-may-2018" id="development-update-may-2018">
+        
+        
+          <a href="/blog/development-update-may-2018/">Development Update May 2018</a> <a href="#development-update-may-2018"></a>
+        
+        
+      </h1>
+    
+
+        <div class="post-meta">
+            <span class="meta-box" itemscope itemtype="http://schema.org/Person">
+                <span class="fa fa-user meta-icon"></span>
+                <span itemprop="name">Erik Bjäreholt</span>
+            </span>
+            <span class="ml-2">
+                <span class="fa fa-calendar meta-icon"></span>
+                <time datetime="2018-05-16T09:36:00+00:00" itemprop="datePublished">
+                    2018-05-16 09:36 UTC
+                </time>
+            </span>
+        </div>
+    </header>
+
+    
+    <details class="toc small">
+        <summary class="py-2 font-weight-bold">Table of Contents</summary>
+        <div class="mt-2">
+            
+        </div>
+    </details>
+    
+
+    <div class="post-content" itemprop="articleBody">
+        <p><a href="https://www.patreon.com/posts/17206179">On request</a> we’ve decided to start doing these bimonthly development updates in order to keep you all updated about how development is progressing. It might take a few updates for us to get this going, but we’ll get there!</p>
+      <h2 id="milestones"  id="milestones" id="milestones" id="milestones" id="milestones" id="milestones" id="milestones">
+        
+        
+          Milestones <a href="#milestones"></a>
+        
+        
+      </h2>
+    
+
+<p>May 7th: We finally released <a href="https://github.com/ActivityWatch/activitywatch/releases/tag/v0.8.0b1">v0.8.0b1</a>. It’s been our first release since November 2017 and is the first beta release of the upcoming (and amazing) new v0.8 release.</p>
+
+<p>May 15th: We hit 4000 downloads 🌟</p>
+      <h2 id="improvements"  id="improvements" id="improvements" id="improvements" id="improvements" id="improvements" id="improvements">
+        
+        
+          Improvements <a href="#improvements"></a>
+        
+        
+      </h2>
+    
+
+<ul>
+  <li>Implemented our query2 querying language and rewrote much of the visualization code to use it. This is a huge step forward for future visualization work. (<a href="https://github.com/ActivityWatch/aw-core/pull/46">aw-core#46</a>, <a href="https://github.com/ActivityWatch/aw-server/pull/35">aw-server#35</a>, <a href="https://github.com/ActivityWatch/aw-webui/pull/48">aw-webui#48</a>)</li>
+  <li>Added a query explorer in the web UI to help with testing queries. (<a href="https://github.com/ActivityWatch/aw-webui/pull/64">aw-webui#64</a>)</li>
+  <li>Made watchers more resilient by switching to a new type of request queue. (<a href="https://github.com/ActivityWatch/aw-client/pull/28">aw-client#28</a>)</li>
+  <li>Started developing <code class="language-plaintext highlighter-rouge">aw-client-js</code> (<a href="https://github.com/ActivityWatch/aw-client-js/pull/2">aw-client-js#2</a>) and switched to using it in <code class="language-plaintext highlighter-rouge">aw-webui</code> (<a href="https://github.com/ActivityWatch/aw-webui/pull/62">aw-webui#62</a>).</li>
+  <li>The web UI now has a view for the most-visited domains. (<a href="https://github.com/ActivityWatch/aw-webui/commit/8f443bc1e258c54f1838994e0f1f79e254d86d6a">this commit</a>)</li>
+  <li>The web UI now has a button for removing buckets. (<a href="https://github.com/ActivityWatch/aw-webui/commit/6410170d3192c9e73bb7957ea7e7b9ce606e25ac#diff-32c6cbf8ae7a966f7e41ec78a6d775cb">this commit</a>)</li>
+  <li>We now have <a href="https://aur.archlinux.org/packages/activitywatch-bin/">a package on the AUR</a> for easy installation on Arch Linux!</li>
+  <li>And a bunch of smaller bugfixes and reliability improvements.</li>
+</ul>
+      <h2 id="going-forward"  id="going-forward" id="going-forward" id="going-forward" id="going-forward" id="going-forward" id="going-forward">
+        
+        
+          Going forward <a href="#going-forward"></a>
+        
+        
+      </h2>
+    
+
+<p>We’ve been hard at work trying to improve the performance of ActivityWatch (<a href="https://github.com/ActivityWatch/activitywatch/issues/98">activitywatch#98</a>) using several approaches:</p>
+<ul>
+  <li>Switching to a pure-SQL implementation of the SQLite datastore. (<a href="https://github.com/ActivityWatch/aw-core/pull/57">aw-core#57</a>)</li>
+  <li>Pre-merging of heartbeat events. (<a href="https://github.com/ActivityWatch/aw-client/pull/33">aw-client#33</a>)</li>
+</ul>
+
+<p>We’ll also spend a considerate amount of time developing ActivityWatch this coming summer as we’re a team of five people who will be working on our related project <a href="https://github.com/ActivityWatch/thankful">Thankful</a>. Certainly something to look forward to!</p>
+
+<p><strong>Do you like ActivityWatch and hope to see many updates like this in the future? <a href="https://www.patreon.com/erikbjare">Support us on Patreon!</a></strong></p><hr />
+
+<blockquote>
+  <p>This post was originally published on <a href="https://forum.activitywatch.net/t/development-update-may-2018/108">the forum</a>. It has been reposted here on the blog for archival purposes.</p>
+</blockquote>
+
+    </div>
+
+    <div class="footer">
+        <div >
+            <span class="fa fa-link"></span>
+            <a href="/blog/development-update-may-2018/">Permalink</a>
+        </div>
+    </div>
+</div>
+</article>
+
+    <div style="margin: 6em 0;">
+
 
 <!-- next page button/link goes here later -->
 
