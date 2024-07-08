@@ -1,6 +1,6 @@
 ---
 layout: post
-A lighter faster ActivityWatch with Tauri: now available for testing
+title: "A lighter faster ActivityWatch with Tauri: now available for testing" 
 date: 2024-5-13 16:35 +0300
 author: "Brian Vuku"
 author_twitter: "subrupt"
