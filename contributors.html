@@ -16,6 +16,22 @@ permalink: /contributors/
   The list is updated every 24 hours.
 </p>
 
+
+<style>
+.avatar {
+  width: 64px;
+  height: 64px;
+  margin: 5px;
+  border-radius: 50%;
+  border: 1px solid #ddd;
+}
+</style>
+{% for contributor in site.data.contributors %}
+<a href="https://github.com/{{contributor}}">
+  <img src="https://github.com/{{contributor}}.png?size=64" class="avatar" width=64>
+</a>
+{% endfor %}
+
 <br>
 <h3>Visualization</h3>
 <p>
