@@ -39,4 +39,6 @@ head
   | {% include twitter_cards.html %}
 
   // Schema.org
+  | {% if page.url == "/" %}
   | {% include schema-index.html %}
+  | {% endif %}
