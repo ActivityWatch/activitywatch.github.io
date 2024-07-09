@@ -69,97 +69,107 @@ div.row.text-center
     a(href="https://www.producthunt.com/products/activitywatch/reviews?utm_source=badge-product_rating&utm_medium=badge&utm_souce=badge-activitywatch" target="_blank")
       img(src="https://api.producthunt.com/widgets/embed-image/v1/product_rating.svg?product_id=112754&theme=neutral" alt="ActivityWatch - Open-source time tracker | Product Hunt")
 
-  div.col-sm-3
-    h6 Arch Linux (AUR)
-    p
-      a(href="https://aur.archlinux.org/packages/activitywatch-bin/")
-        img(src="https://img.shields.io/aur/votes/activitywatch-bin?logo=arch-linux")
+  style.
+    .group {
+      display: flex;
+      border-radius: 5px;
+      border: 1px solid #e1e4e8;
+      flex-direction: column;
+      padding: 1rem 1rem 1rem 1rem;
+      align-items: center;
+      margin: 2rem 0;
+    }
 
-  div.col-sm-3
-    h6 AlternativeTo
-    p
+  div.col-md-3.col-sm-0
+  div.col-md-3.col-sm-6
+    div.group
+      h6 AlternativeTo
       a(href="https://alternativeto.net/software/activitywatch/about/")
-        img(src="https://img.shields.io/badge/rating-{{ site.data.ratings.alternativeto.average }}%2F5%20({{ site.data.ratings.alternativeto.count }})-green")
+        img(src="https://img.shields.io/badge/rating-{{ site.data.ratings.alternativeto.average }}%2F5%20({{ site.data.ratings.alternativeto.count }})-brightgreen")
 
-  div.col-sm-3
-    h6 Play Store
-    p
+    div.group
+      h6 Play Store
       a(href="https://play.google.com/store/apps/details?id=net.activitywatch.android")
         img(src="https://PlayBadges.pavi2410.me/badge/ratings?id=net.activitywatch.android&country=us")
 
-  div.col-sm-3
-    h6 aw-watcher-web
-    p
+    div.group
+      h6 Arch Linux (AUR)
+      a(href="https://aur.archlinux.org/packages/activitywatch-bin/")
+        img(src="https://img.shields.io/aur/votes/activitywatch-bin?logo=arch-linux&color=brightgreen")
+
+  div.col-md-3.col-sm-6
+    div.group
+      h6 aw-watcher-web
       a(href="https://chromewebstore.google.com/detail/activitywatch-web-watcher/nglaklhklhcoonedhgnpgddginnjdadi")
         img(alt="Chrome Web Store" src="https://img.shields.io/chrome-web-store/rating/nglaklhklhcoonedhgnpgddginnjdadi?logo=googlechrome")
       br
       a(href="https://addons.mozilla.org/en-US/firefox/addon/aw-watcher-web/")
         img(src="https://img.shields.io/amo/rating/aw-watcher-web?logo=firefox")
 
-  div.col-sm-3
-    h6 aw-watcher-vscode
-    p.my-0
-      div.small Visual Studio Marketplace
-      a(href="https://marketplace.visualstudio.com/items?itemName=activitywatch.aw-watcher-vscode")
-        img(alt="Visual Studio Marketplace Rating" src="https://img.shields.io/visual-studio-marketplace/r/activitywatch.aw-watcher-vscode?logo=visual-studio-code")
-    p.my-0
-      div.small Open-VSX
-      a(href="https://open-vsx.org/extension/ActivityWatch/aw-watcher-vscode")
-        img(src="https://img.shields.io/open-vsx/rating/ActivityWatch/aw-watcher-vscode?logo=visual-studio-code")
-    //br
-    //a(href="https://open-vsx.org/extension/ActivityWatch/aw-watcher-vscode")
-      img(src="https://img.shields.io/open-vsx/dt/ActivityWatch/aw-watcher-vscode?logo=visual-studio-code")
+    div.group
+      h6 aw-watcher-vscode
+      p.my-0
+        div.small VS Marketplace
+        a(href="https://marketplace.visualstudio.com/items?itemName=activitywatch.aw-watcher-vscode")
+          img(alt="Visual Studio Marketplace Rating" src="https://img.shields.io/visual-studio-marketplace/r/activitywatch.aw-watcher-vscode?logo=visual-studio-code")
+      p.my-0
+        div.small Open-VSX
+        a(href="https://open-vsx.org/extension/ActivityWatch/aw-watcher-vscode")
+          img(src="https://img.shields.io/open-vsx/rating/ActivityWatch/aw-watcher-vscode?logo=visual-studio-code")
+      //br
+      //a(href="https://open-vsx.org/extension/ActivityWatch/aw-watcher-vscode")
+        img(src="https://img.shields.io/open-vsx/dt/ActivityWatch/aw-watcher-vscode?logo=visual-studio-code")
 
 hr.my-5
 
 h3.text-center.mb-5 Donations
 div.row.text-center
-  div.col-sm-3
-    h6 OpenCollective
-    p
+  div.col-md-3.col-sm-0
+  div.col-md-3.col-sm-6
+    div.group
+      h6 OpenCollective
       //div
         a(href="https://opencollective.com/activitywatch")
           img(src="https://opencollective.com/activitywatch/tiers/backer.svg?avatarHeight=36")
       a(href="https://opencollective.com/activitywatch")
         img(src="https://img.shields.io/opencollective/all/activitywatch?logo=opencollective")
 
-  div.col-sm-3
-    h6 GitHub Sponsors
-    p
+    div.group
+      h6 GitHub Sponsors
       a(href="https://github.com/sponsors/activitywatch")
-        img(src="https://img.shields.io/github/sponsors/activitywatch?logo=github")
+        img(src="https://img.shields.io/github/sponsors/activitywatch?logo=github&color=brightgreen")
 
-  div.col-sm-3
-    h6 Liberapay
-    p
+  div.col-md-3.col-sm-6
+    div.group
+      h6 Liberapay
       a(href="https://liberapay.com/ActivityWatch/")
-        img(src="https://img.shields.io/liberapay/receives/ActivityWatch.svg?logo=liberapay")
+        img(src="https://img.shields.io/liberapay/receives/ActivityWatch.svg?logo=liberapay&color=darkgreen")
 
-  div.col-sm-3
-    h6 Patreon
-    a(href="https://patreon.com/erikbjare")
-      img(src="https://img.shields.io/endpoint.svg?url=https%3A%2F%2Fshieldsio-patreon.vercel.app%2Fapi%3Fusername%3Derikbjare%26type%3Dpledges&style=flat&color=green")
+    div.group
+      h6 Patreon
+      a(href="https://patreon.com/erikbjare")
+        img(src="https://img.shields.io/endpoint.svg?url=https%3A%2F%2Fshieldsio-patreon.vercel.app%2Fapi%3Fusername%3Derikbjare%26type%3Dpledges&style=flat&color=darkgreen")
 
 hr.my-5
 
 h3.text-center.mb-5 Social
 div.row.text-center
   div.col-sm-4
-    h6 Discord
-    p
+    div.group
+      h6 Discord
       a(href="https://discord.gg/vDskV9q")
       img(alt="Discord" src="https://img.shields.io/discord/755040852727955476?logo=discord")
 
   div.col-sm-4
-    h6 GitHub stars #[span.small.dim (all repos)]
-    p
+    div.group
+      h6 GitHub stars #[span.small.dim (all repos)]
       img(src="https://img.shields.io/github/stars/ActivityWatch?logo=github")
 
   div.col-sm-4
-    h6 Reddit
-    p
+    div.group
+      h6 Reddit
       a(href="https://www.reddit.com/r/activitywatch/")
-        img(src="https://img.shields.io/reddit/subreddit-subscribers/activitywatch?color=green&logo=reddit")
+        img(src="https://img.shields.io/reddit/subreddit-subscribers/activitywatch?color=brightgreen&logo=reddit")
 
 hr.my-5
 
