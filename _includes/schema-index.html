@@ -3,22 +3,21 @@
 {
     "@context": "https://schema.org",
     "@type": "SoftwareApplication",
-    "name": "ActivityWatch",
-    "url": "https://activitywatch.net/",
-    "description": "The best free and open-source automated time tracker: cross-platform, extensible, and privacy-focused. Ideal for freelancers and designed with ADHD users in mind.",
-    "disambiguatingDescription": "This app is designed for personal task and time management. It helps users efficiently organize their tasks and manage their time effectively. With features tailored to enhance productivity and streamline workflow, it ensures that users can stay on top of their schedules and prioritize their responsibilities with ease.",
-    "keywords": ["time management", "task management", "software", "free auto time tracker", "free freelancer time tracking software"],
-    "abstract": "A collection of trackers that monitor and log key activities on your computer, such as detecting if you are AFK or identifying the active window. A system for storing the data collected by these trackers. A flexible data format that meets most logging requirements. An ecosystem of tools that allows users to customize and extend the software to suit their needs.",
-    "alternativeHeadline": "A free automated time tracker designed to monitor your activity and screen time. This tool helps you keep an accurate record of how you spend your time on your computer, providing insights into your productivity and screen usage patterns. It's an essential tool for improving time management and boosting efficiency.",
-    "about": "ActivityWatch is a bundle of software that tracks your computer activity. You are, by default, the sole owner of your data. It also offers an ecosystem of software to work around it, including ways to collect more data and do different kinds of analysis. We created ActivityWatch completely free and open source so anyone can use, improve and extend it.",
+    "name": "{{ site.title_short }}",
+    "url": "{{ site.url }}",
+    "description": "{{ site.description }}",
+    "disambiguatingDescription": "{{ site.abstract }}",
+    "keywords": ["time tracker", "time tracking", "software", "app", "screen time", "free", "open source", "automatic", "self-hosted"],
+    "abstract": "{{ site.abstract }}",
+    "about": "ActivityWatch is a bundle of software that tracks your computer activity and respects your privacy. It offers an ecosystem of software to work around it, including ways to collect more data and do different kinds of analysis. We created ActivityWatch completely free and open source so anyone can use, improve and extend it.",
     "applicationCategory": "https://en.wikipedia.org/wiki/Time-tracking_software",
     "applicationSubCategory": ["DesktopApplication", "MobileApplication", "WebApplication"],
     "aggregateRating": {
         "@type": "AggregateRating",
-        "ratingValue": "4.7",
-        "reviewCount": "124"
+        "ratingValue": "{{ site.data.ratings.alternativeto.average }}",
+        "reviewCount": "{{ site.data.ratings.alternativeto.count }}"
     },
-    "softwareVersion": "0.13.1",
+    "softwareVersion": "{{ site.data.downloads.version }}",
     "datePublished": "2024-06-12",
     "dateCreated": "2016-06-10",
     "downloadUrl": "https://activitywatch.net/downloads/",
@@ -36,7 +35,15 @@
     ],
     "audience": {
         "@type": "Audience",
-        "audienceType": ["Business Professionals", "Freelancers", "Small Business", "ADHD individuals"]
+        "audienceType": [
+          "Students",
+          "Professionals",
+          "Software Developers",
+          "Freelancers",
+          "Small Business",
+          "ADHD individuals"
+          "Researchers",
+        ]
     },
     "typicalAgeRange": "all ages",
     "operatingSystem": ["Windows", "macOS", "Linux", "Android"],
@@ -46,106 +53,20 @@
         "target": [
           "https://activitywatch.net/downloads/",
           "android-app:https://play.google.com/store/apps/details?id=net.activitywatch.android",
+          {% for platform in site.data.downloads.platforms %}
+            {% for asset in platform.assets %}
           {
             "@type": "EntryPoint",
-            "urlTemplate": "https://github.com/ActivityWatch/activitywatch/releases/download/v0.13.1/activitywatch-v0.13.1-windows-x86_64-setup.exe",
+            "urlTemplate": "{{ asset.url }}",
             "actionApplication": {
               "@type": "SoftwareApplication",
-              "@id": "activitywatch-windows-setup",
-              "name": "ActivityWatch Windows Setup",
-              "operatingSystem": "Windows"
+              "@id": "activitywatch-{{ site.data.downloads.version }}-{{ platform.name | downcase }}-{{ asset.title | replace: ".", "" | downcase }}",
+              "name": "ActivityWatch {{ site.data.downloads.version }} {{ platform.name }} {{ asset.title }}",
+              "operatingSystem": "{{ platform.name }}"
             }
           },
-          {
-            "@type": "EntryPoint",
-            "urlTemplate": "https://github.com/ActivityWatch/activitywatch/releases/download/v0.13.1/activitywatch-v0.13.1-windows-x86_64.zip",
-            "actionApplication": {
-              "@type": "SoftwareApplication",
-              "@id": "activitywatch-windows-zip",
-              "name": "ActivityWatch Windows Zip",
-              "operatingSystem": "Windows"
-            }
-          },
-          {
-            "@type": "EntryPoint",
-            "urlTemplate": "https://chocolatey.org/packages/activitywatch",
-            "actionApplication": {
-              "@type": "SoftwareApplication",
-              "@id": "activitywatch-chocolatey",
-              "name": "ActivityWatch Chocolatey",
-              "operatingSystem": "Windows"
-            }
-          },
-          {
-            "@type": "EntryPoint",
-            "urlTemplate": "https://github.com/ActivityWatch/activitywatch/releases/download/v0.13.1/activitywatch-v0.13.1-macos-x86_64.dmg",
-            "actionApplication": {
-              "@type": "SoftwareApplication",
-              "@id": "activitywatch-macos-dmg",
-              "name": "ActivityWatch macOS DMG",
-              "operatingSystem": "macOS"
-            }
-          },
-          {
-            "@type": "EntryPoint",
-            "urlTemplate": "https://github.com/ActivityWatch/activitywatch/releases/download/v0.13.1/activitywatch-v0.13.1-macos-x86_64.zip",
-            "actionApplication": {
-              "@type": "SoftwareApplication",
-              "@id": "activitywatch-macos-zip",
-              "name": "ActivityWatch macOS Zip",
-              "operatingSystem": "macOS"
-            }
-          },
-          {
-            "@type": "EntryPoint",
-            "urlTemplate": "https://formulae.brew.sh/cask/activitywatch",
-            "actionApplication": {
-              "@type": "SoftwareApplication",
-              "@id": "activitywatch-homebrew",
-              "name": "ActivityWatch Homebrew",
-              "operatingSystem": "macOS"
-            }
-          },
-          {
-            "@type": "EntryPoint",
-            "urlTemplate": "https://github.com/ActivityWatch/activitywatch/releases/download/v0.13.1/activitywatch-v0.13.1-linux-x86_64.zip",
-            "actionApplication": {
-              "@type": "SoftwareApplication",
-              "@id": "activitywatch-linux-zip",
-              "name": "ActivityWatch Linux Zip",
-              "operatingSystem": "Linux"
-            }
-          },
-          {
-            "@type": "EntryPoint",
-            "urlTemplate": "https://github.com/ActivityWatch/activitywatch/releases/download/v0.13.1/activitywatch-linux-x86_64.AppImage",
-            "actionApplication": {
-              "@type": "SoftwareApplication",
-              "@id": "activitywatch-linux-appimage",
-              "name": "ActivityWatch Linux AppImage",
-              "operatingSystem": "Linux"
-            }
-          },
-          {
-            "@type": "EntryPoint",
-            "urlTemplate": "https://aur.archlinux.org/packages/activitywatch-bin/",
-            "actionApplication": {
-              "@type": "SoftwareApplication",
-              "@id": "activitywatch-arch-linux",
-              "name": "ActivityWatch Arch Linux",
-              "operatingSystem": "Linux"
-            }
-          },
-          {
-            "@type": "EntryPoint",
-            "urlTemplate": "https://search.nixos.org/packages?query=activitywatch&show=activitywatch",
-            "actionApplication": {
-              "@type": "SoftwareApplication",
-              "@id": "activitywatch-nixos",
-              "name": "ActivityWatch NixOS",
-              "operatingSystem": "Linux"
-            }
-          },
+            {% endfor %}
+          {% endfor %}
           {
             "@type": "EntryPoint",
             "urlTemplate": "https://chrome.google.com/webstore/detail/nglaklhklhcoonedhgnpgddginnjdadi/",

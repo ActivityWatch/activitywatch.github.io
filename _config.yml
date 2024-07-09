@@ -1,9 +1,11 @@
 title: ActivityWatch - Open-source time tracker
 title_short: ActivityWatch
 title_image: /img/media/banners/banner-social.png
-email: erik@bjareho.lt
 description: > # this means to ignore newlines until "baseurl:"
   The best free and open-source automated time tracker. Cross-platform, extensible, local/privacy-first.
+abstract: >
+  ActivityWatch is an open-source, privacy-focused, cross-platform automated time tracker.
+  It helps you keep track of what you do on your computer, and is great for developers, designers, writers, students, or anyone who spends their day on a computer.
 baseurl: "" # the subpath of your site, e.g. /blog
 url: "https://activitywatch.net" # the base hostname & protocol for your site
 twitter_username: ActivityWatchIt
