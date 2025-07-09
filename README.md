@@ -31,3 +31,5 @@ dest           | source
 ## Generated stats
 
 Stats are generated for downloads (using https://github.com/ActivityWatch/stats/) and contributor statistics (using https://github.com/ActivityWatch/contributor-stats).
+
+If the stats are not up to date, then there may not have been a successful build in a while, and CI may have been disabled and needs to be manually triggered.
