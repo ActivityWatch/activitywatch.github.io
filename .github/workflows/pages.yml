@@ -16,7 +16,7 @@ jobs:
     strategy:
       matrix:
         ruby_version: ['3.1']
-        python_version: ['3.10']
+        python_version: ['3.12']
     steps:
       - name: Checkout 🛎️
         uses: actions/checkout@v2 # If you're using actions/checkout@v2 you must set persist-credentials to false in most cases for the deployment to work correctly.
@@ -69,6 +69,15 @@ jobs:
           git-config-name: GitHub Actions
           git-config-email: noreply@github.com
 
-      # Needed to prevent GitHub from disabling the cronjob after 60 days of repo inactivity
-      # https://dev.to/gautamkrishnar/how-to-prevent-github-from-suspending-your-cronjob-based-triggers-knf
-      - uses: gautamkrishnar/keepalive-workflow@master # using the workflow with default settings
+  # Needed to prevent GitHub from disabling the cronjob after 60 days of repo inactivity
+  # https://github.com/marketplace/actions/keepalive-workflow
+  # https://dev.to/gautamkrishnar/how-to-prevent-github-from-suspending-your-cronjob-based-triggers-knf
+  # Repo Disabled by GitHub due to breaking ToS!
+  #keepalive-job:
+  #  name: Keepalive Workflow
+  #  runs-on: ubuntu-latest
+  #  permissions:
+  #    actions: write
+  #  steps:
+  #    - uses: actions/checkout@v4
+  #    - uses: gautamkrishnar/keepalive-workflow@v2
