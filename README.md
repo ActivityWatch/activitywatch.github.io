@@ -3,7 +3,10 @@ activitywatch.github.io
 
 [![Build Status](https://github.com/ActivityWatch/activitywatch.github.io/workflows/Build/badge.svg)](https://github.com/ActivityWatch/activitywatch.github.io/actions)
 
-Official ActivityWatch site
+Official [ActivityWatch][activitywatch] site
+
+https://activitywatch.net/ ➝ this repo  
+https://docs.activitywatch.net/ ➝ [ActivityWatch/docs][docs]
 
 ## Building
 
@@ -33,3 +36,6 @@ dest           | source
 Stats are generated for downloads (using https://github.com/ActivityWatch/stats/) and contributor statistics (using https://github.com/ActivityWatch/contributor-stats).
 
 If the stats are not up to date, then there may not have been a successful build in a while, and CI may have been disabled and needs to be manually triggered.
+
+[activitywatch]: https://github.com/ActivityWatch/activitywatch
+[docs]: https://github.com/ActivityWatch/docs
