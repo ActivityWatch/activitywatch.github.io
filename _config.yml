@@ -2,7 +2,7 @@ title: ActivityWatch - Open-source time tracker
 title_short: ActivityWatch
 title_image: /img/media/banners/banner-social.png
 description: > # this means to ignore newlines until "baseurl:"
-  The best free and open-source automated time tracker. Cross-platform, extensible, local/privacy-first.
+  Free, open-source time tracker for Windows, macOS, Linux & Android. Automatically tracks app and website usage. Privacy-first alternative to RescueTime. All data stays on your device.
 abstract: >
   ActivityWatch is an open-source, privacy-focused, cross-platform automated time tracker.
   It helps you keep track of what you do on your computer, and is great for developers, designers, writers, students, or anyone who spends their day on a computer.
