@@ -86,6 +86,7 @@ Your RescueTime data can be exported and potentially imported — check our [doc
 ## What Users Say
 
 People who switched from RescueTime consistently highlight:
+<!-- TODO: link to real such testimonials? they are abundant -->
 
 > "I switched when RescueTime dropped Linux. ActivityWatch is better in every way — I can actually see all my data without paying."
 
