@@ -2,12 +2,12 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>ActivityWatch - Open-source time tracker</title>
-    <description>The best free and open-source automated time tracker. Cross-platform, extensible, local/privacy-first.
+    <description>The best free and open-source automated time tracker. Cross-platform, extensible, local/privacy-first. Tracks app and website usage on Windows, macOS, Linux &amp; Android. All data stays on your device.
 </description>
     <link>https://activitywatch.net/</link>
     <atom:link href="https://activitywatch.net/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Mon, 02 Mar 2026 08:41:18 +0000</pubDate>
-    <lastBuildDate>Mon, 02 Mar 2026 08:41:18 +0000</lastBuildDate>
+    <pubDate>Mon, 02 Mar 2026 08:44:44 +0000</pubDate>
+    <lastBuildDate>Mon, 02 Mar 2026 08:44:44 +0000</lastBuildDate>
     <generator>Jekyll v4.3.2</generator>
     
       <item>
