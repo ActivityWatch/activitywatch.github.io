@@ -26,7 +26,6 @@ We currently support the following donation methods (roughly in our order of pre
  - [Patreon][patreon] (5% service fee + VAT + payment processing fees)
  - [Open Collective][open-collective] (10% fee + payment processing fees)
  - Cryptocurrency
-   - [Gitcoin][gitcoin] - **matching funds available!** (**0% fee** + transaction fees)
    - Direct transfer
        - **Note:** Please send us an email with the transaction ID so we can attribute the donation to you!
        - Bitcoin: [1NSxJs1wYUrRv53ZVH2DX9fquXdSPAdyYh](bitcoin:1NSxJs1wYUrRv53ZVH2DX9fquXdSPAdyYh)  <!-- Kept by Erik Bjäreholt on Coinbase -->
@@ -35,7 +34,6 @@ We currently support the following donation methods (roughly in our order of pre
 [open-collective]: https://opencollective.com/activitywatch
 [patreon]: https://www.patreon.com/erikbjare
 [liberapay]: https://liberapay.com/ActivityWatch/
-[gitcoin]: https://gitcoin.co/grants/383/activitywatch
 [gh-sponsors]: https://github.com/sponsors/ActivityWatch
 
 
