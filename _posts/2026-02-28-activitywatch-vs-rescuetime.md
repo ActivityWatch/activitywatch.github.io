@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "ActivityWatch vs RescueTime: Why I Built a Free Open-Source Alternative"
-date: 2026-02-28 12:00 +0100
+date: 2026-03-02 09:37 +0100
 author: "Erik Bjäreholt"
 author_twitter: "ErikBjare"
 toc: true
