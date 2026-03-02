@@ -6,9 +6,194 @@
 </description>
     <link>https://activitywatch.net/</link>
     <atom:link href="https://activitywatch.net/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Mon, 02 Mar 2026 03:16:34 +0000</pubDate>
-    <lastBuildDate>Mon, 02 Mar 2026 03:16:34 +0000</lastBuildDate>
+    <pubDate>Mon, 02 Mar 2026 08:41:18 +0000</pubDate>
+    <lastBuildDate>Mon, 02 Mar 2026 08:41:18 +0000</lastBuildDate>
     <generator>Jekyll v4.3.2</generator>
+    
+      <item>
+        <title>ActivityWatch vs RescueTime: Why I Built a Free Open-Source Alternative</title>
+        <description>&lt;h2 id=&quot;the-story-behind-activitywatch&quot;&gt;The Story Behind ActivityWatch&lt;/h2&gt;
+
+&lt;p&gt;I started building ActivityWatch because I was frustrated with RescueTime. As someone who wanted to understand how I spent my time on the computer, I had been a RescueTime user for years. But over time, the problems kept piling up:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;strong&gt;My data wasn’t mine.&lt;/strong&gt; RescueTime stores everything on their servers. I had no way to self-host or keep my data local. For something as personal as a complete log of everything I do on my computer, that felt wrong.&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;It wasn’t open source.&lt;/strong&gt; When I found bugs — like Xbox controller input being tracked incorrectly — I couldn’t fix them myself. I filed reports, but they went nowhere.&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;Linux support was an afterthought.&lt;/strong&gt; As a Linux user, I was a second-class citizen. The Linux client was always behind, and eventually RescueTime &lt;a href=&quot;https://blog.rescuetime.com/linux-update-2024/&quot;&gt;dropped Linux support entirely&lt;/a&gt;.&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;“Pay or lose your history.”&lt;/strong&gt; The free tier only showed the last 3 months. Want to see your all-time data? Pay up. It felt like they were holding my own data hostage.&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;No extensibility.&lt;/strong&gt; I couldn’t add custom watchers, build integrations, or extend the tracking in any meaningful way. What you got was what you got.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;So I built ActivityWatch — a free, open-source, privacy-first time tracker that keeps your data on your device and lets you extend it however you want.&lt;/p&gt;
+
+&lt;h2 id=&quot;feature-comparison&quot;&gt;Feature Comparison&lt;/h2&gt;
+
+&lt;p&gt;Here’s how ActivityWatch compares to RescueTime in 2026:&lt;/p&gt;
+
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th&gt;Feature&lt;/th&gt;
+      &lt;th&gt;ActivityWatch&lt;/th&gt;
+      &lt;th&gt;RescueTime&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;strong&gt;Price&lt;/strong&gt;&lt;/td&gt;
+      &lt;td&gt;Free and open-source&lt;/td&gt;
+      &lt;td&gt;$12/month (Premium)&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;strong&gt;Data storage&lt;/strong&gt;&lt;/td&gt;
+      &lt;td&gt;Local (your device)&lt;/td&gt;
+      &lt;td&gt;Cloud (their servers)&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;strong&gt;Linux support&lt;/strong&gt;&lt;/td&gt;
+      &lt;td&gt;Full support&lt;/td&gt;
+      &lt;td&gt;Discontinued&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;strong&gt;Open source&lt;/strong&gt;&lt;/td&gt;
+      &lt;td&gt;Yes (MPL-2.0)&lt;/td&gt;
+      &lt;td&gt;No&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;strong&gt;Custom watchers&lt;/strong&gt;&lt;/td&gt;
+      &lt;td&gt;Yes — write your own&lt;/td&gt;
+      &lt;td&gt;No&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;strong&gt;Browser tracking&lt;/strong&gt;&lt;/td&gt;
+      &lt;td&gt;Chrome, Firefox, Edge, Opera&lt;/td&gt;
+      &lt;td&gt;Chrome, Firefox, Edge&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;strong&gt;Offline tracking&lt;/strong&gt;&lt;/td&gt;
+      &lt;td&gt;Yes&lt;/td&gt;
+      &lt;td&gt;Limited&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;strong&gt;API access&lt;/strong&gt;&lt;/td&gt;
+      &lt;td&gt;Full local REST API&lt;/td&gt;
+      &lt;td&gt;Limited API&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;strong&gt;Self-hosting&lt;/strong&gt;&lt;/td&gt;
+      &lt;td&gt;Built-in (it’s local-first)&lt;/td&gt;
+      &lt;td&gt;Not available&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;strong&gt;Data export&lt;/strong&gt;&lt;/td&gt;
+      &lt;td&gt;Full export anytime&lt;/td&gt;
+      &lt;td&gt;Limited in free tier&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;strong&gt;Distraction blocking&lt;/strong&gt;&lt;/td&gt;
+      &lt;td&gt;Via third-party tools&lt;/td&gt;
+      &lt;td&gt;Built-in (Premium)&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;strong&gt;Team features&lt;/strong&gt;&lt;/td&gt;
+      &lt;td&gt;Coming soon&lt;/td&gt;
+      &lt;td&gt;Available (Premium)&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;strong&gt;Mobile tracking&lt;/strong&gt;&lt;/td&gt;
+      &lt;td&gt;Android&lt;/td&gt;
+      &lt;td&gt;Android, iOS&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;h2 id=&quot;where-activitywatch-wins&quot;&gt;Where ActivityWatch Wins&lt;/h2&gt;
+
+&lt;h3 id=&quot;privacy-and-data-ownership&quot;&gt;Privacy and Data Ownership&lt;/h3&gt;
+
+&lt;p&gt;This is the fundamental difference. ActivityWatch stores all your data locally on your device. No cloud accounts, no data uploads, no risk of a company going under and taking your data with it. You own your data, period.&lt;/p&gt;
+
+&lt;h3 id=&quot;extensibility&quot;&gt;Extensibility&lt;/h3&gt;
+
+&lt;p&gt;ActivityWatch has a modular architecture. The core is a local server that stores events from “watchers” — small programs that observe different things. You can write your own watchers for anything: IDE activity, music listening, exercise, or whatever you want to track.&lt;/p&gt;
+
+&lt;p&gt;The community has built watchers for:&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;VS Code and JetBrains IDEs&lt;/li&gt;
+  &lt;li&gt;Spotify and media players&lt;/li&gt;
+  &lt;li&gt;VR headsets&lt;/li&gt;
+  &lt;li&gt;Custom hardware&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;cross-platform-including-linux&quot;&gt;Cross-Platform (Including Linux)&lt;/h3&gt;
+
+&lt;p&gt;ActivityWatch runs on Windows, macOS, and Linux. When RescueTime dropped Linux in 2024, many users switched to ActivityWatch. We’re committed to supporting all major platforms — it’s a core part of who we are.&lt;/p&gt;
+
+&lt;h3 id=&quot;no-paywalls-on-your-own-data&quot;&gt;No Paywalls on Your Own Data&lt;/h3&gt;
+
+&lt;p&gt;All your data is always accessible. There’s no “upgrade to see your history” or “pay to unlock analytics.” Every feature is available to every user.&lt;/p&gt;
+
+&lt;h2 id=&quot;where-rescuetime-still-has-an-edge&quot;&gt;Where RescueTime Still Has an Edge&lt;/h2&gt;
+
+&lt;p&gt;To be fair, RescueTime does some things well:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;strong&gt;Built-in distraction blocking&lt;/strong&gt; — FocusTime lets you block distracting websites. ActivityWatch focuses on tracking; for blocking, you can use tools like &lt;a href=&quot;https://getcoldturkey.com/&quot;&gt;Cold Turkey&lt;/a&gt; or &lt;a href=&quot;https://addons.mozilla.org/en-US/firefox/addon/leechblock-ng/&quot;&gt;LeechBlock&lt;/a&gt;.&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;Team management&lt;/strong&gt; — RescueTime has built-in team dashboards and management features. ActivityWatch is primarily designed for individuals (though team features are on our roadmap).&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;iOS support&lt;/strong&gt; — RescueTime has an iOS app. ActivityWatch currently only supports Android for mobile.&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;Polished onboarding&lt;/strong&gt; — RescueTime has a smoother out-of-box experience for non-technical users. We’re actively working on improving our onboarding.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;migrating-from-rescuetime&quot;&gt;Migrating from RescueTime&lt;/h2&gt;
+
+&lt;p&gt;Switching to ActivityWatch is straightforward:&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;&lt;strong&gt;Download ActivityWatch&lt;/strong&gt; from &lt;a href=&quot;https://activitywatch.net/downloads/&quot;&gt;activitywatch.net/downloads&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;Install and run&lt;/strong&gt; — it starts tracking immediately&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;Install the browser extension&lt;/strong&gt; for &lt;a href=&quot;https://chrome.google.com/webstore/detail/activitywatch-web-watcher/nglaklhklhcoonedhgnpgddginnjdadi&quot;&gt;Chrome&lt;/a&gt;, &lt;a href=&quot;https://addons.mozilla.org/en-US/firefox/addon/aw-watcher-web/&quot;&gt;Firefox&lt;/a&gt;, or &lt;a href=&quot;https://microsoftedge.microsoft.com/addons/detail/activitywatch-web-watcher/nfabjmiphddfnpmmilgjkfnaakceocog&quot;&gt;Edge&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;Check the dashboard&lt;/strong&gt; at &lt;a href=&quot;http://localhost:5600&quot;&gt;localhost:5600&lt;/a&gt; to see your data&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;Your RescueTime data can be exported and potentially imported — check our &lt;a href=&quot;https://docs.activitywatch.net&quot;&gt;documentation&lt;/a&gt; for details on data import options.&lt;/p&gt;
+
+&lt;h2 id=&quot;what-users-say&quot;&gt;What Users Say&lt;/h2&gt;
+
+&lt;p&gt;People who switched from RescueTime consistently highlight:
+&lt;!-- TODO: link to real such testimonials? they are abundant --&gt;&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;“I switched when RescueTime dropped Linux. ActivityWatch is better in every way — I can actually see all my data without paying.”&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;“As a developer, the extensibility is what sold me. I wrote a custom watcher for my terminal in an afternoon.”&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;“The privacy aspect is huge. I don’t want a company having a complete log of everything I do on my computer.”&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h2 id=&quot;try-activitywatch&quot;&gt;Try ActivityWatch&lt;/h2&gt;
+
+&lt;p&gt;ActivityWatch is free, open-source, and takes about two minutes to set up. Download it at &lt;a href=&quot;https://activitywatch.net/downloads/&quot;&gt;activitywatch.net/downloads&lt;/a&gt; and see for yourself.&lt;/p&gt;
+
+&lt;p&gt;If you’re coming from RescueTime, you’ll find that ActivityWatch tracks everything RescueTime did — and more — while keeping your data private and giving you full control.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Links:&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;https://activitywatch.net/downloads/&quot;&gt;Download ActivityWatch&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://docs.activitywatch.net&quot;&gt;Documentation&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://github.com/ActivityWatch/activitywatch&quot;&gt;GitHub&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;/blog/comparing-time-trackers/&quot;&gt;General comparison of time trackers&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+        <pubDate>Mon, 02 Mar 2026 08:37:00 +0000</pubDate>
+        <link>https://activitywatch.net/blog/activitywatch-vs-rescuetime/</link>
+        <guid isPermaLink="true">https://activitywatch.net/blog/activitywatch-vs-rescuetime/</guid>
+        
+        
+      </item>
     
       <item>
         <title>Announcing Winners of Screenshot Competition!</title>
