@@ -40,9 +40,9 @@ The lead developer (Erik) is not paid from donations — every dollar goes to th
 
 We currently support the following donation methods:
 
-- **[Open Collective][open-collective]** — credit card, bank transfer, PayPal
-- **[GitHub Sponsors][gh-sponsors]** — credit card (GitHub covers payment processing fees)
 - **[Liberapay][liberapay]** — credit card, bank transfer (**0% platform fee**)
+- **[GitHub Sponsors][gh-sponsors]** — credit card (GitHub covers payment processing fees; backed by Open Collective, so their 10% fee may apply)
+- **[Open Collective][open-collective]** — credit card, bank transfer, PayPal (10% platform fee)
 - **[Patreon][patreon]** — credit card, PayPal
 - **Cryptocurrency** — direct transfer
   - *Please send us an email with the transaction ID so we can attribute your donation!*
