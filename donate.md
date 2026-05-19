@@ -29,10 +29,10 @@ Commit to the long game. Annual supporters give us the confidence to plan ahead 
 
 ## Where does the money go?
 
-All expenses are [transparently published on Open Collective](https://opencollective.com/activitywatch). Donations currently cover:
+Donations routed through [Open Collective](https://opencollective.com/activitywatch) are transparently published there. They currently help cover:
 - Forum and infrastructure costs
 - Funding other open-source projects ActivityWatch depends on
-- (Future) contributor stipends and development bounties
+- Contributor stipends and development bounties, including work by contributors like Kerkko and Brayo; when donations have not been enough, Erik has covered the gap out of pocket
 
 The lead developer (Erik) is not paid from donations — every dollar goes to the project.
 
@@ -46,8 +46,8 @@ We currently support the following donation methods:
 - **[Patreon][patreon]** — credit card, PayPal (platform fees apply)
 - **Cryptocurrency** — direct transfer
   - *Please send us an email with the transaction ID so we can attribute your donation!*
-  - Bitcoin: [1NSxJs1wYUrRv53ZVH2DX9fquXdSPAdyYh](bitcoin:1NSxJs1wYUrRv53ZVH2DX9fquXdSPAdyYh)
-  - Ether: [0x8A8D0B2BeDa2E29A859cB95d6541Ef19608b234A](ethereum:0x8A8D0B2BeDa2E29A859cB95d6541Ef19608b234A)
+  - Bitcoin: [1NSxJs1wYUrRv53ZVH2DX9fquXdSPAdyYh](bitcoin:1NSxJs1wYUrRv53ZVH2DX9fquXdSPAdyYh) <!-- Kept by Erik Bjäreholt on Coinbase -->
+  - Ether: [0x8A8D0B2BeDa2E29A859cB95d6541Ef19608b234A](ethereum:0x8A8D0B2BeDa2E29A859cB95d6541Ef19608b234A) <!-- Kept by Erik Bjäreholt in a file used with MyEtherWallet -->
 
 [open-collective]: https://opencollective.com/activitywatch
 [patreon]: https://www.patreon.com/erikbjare
