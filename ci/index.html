@@ -162,7 +162,10 @@
 
       
       
-      <p>Here we try to list all our continuous integration pipelines along with some useful stats to get an overview of the subprojects.</p>
+      <p>
+  Here we try to list all our continuous integration pipelines along with some useful stats to get an overview of the subprojects.
+   The issue table also includes label-specific badges for the most useful backlog slices: priority: high, priority: medium, and type: bug.
+</p>
       <h2  id="pipelines">
         
         
@@ -303,12 +306,18 @@
   <tr>
     <th>Module</th>
     <th>Issues</th>
+    <th>High</th>
+    <th>Medium</th>
+    <th>Bugs</th>
     <th>PRs</th>
     <th>LoC</th>
   </tr>
   <tr>
     <td>activitywatch</td>
     <td><a href="https://github.com/ActivityWatch/activitywatch/issues"><img alt="Open issues" src="https://img.shields.io/github/issues/activitywatch/activitywatch.svg?style=flat-square"/></a></td>
+    <td><a href="https://github.com/ActivityWatch/activitywatch/issues?q=is%3Aissue%20is%3Aopen%20label%3A%22priority%3A%20high%22"><img alt="Open high-priority issues" src="https://img.shields.io/github/issues-raw/activitywatch/activitywatch/priority%3A%20high.svg?style=flat-square"/></a></td>
+    <td><a href="https://github.com/ActivityWatch/activitywatch/issues?q=is%3Aissue%20is%3Aopen%20label%3A%22priority%3A%20medium%22"><img alt="Open medium-priority issues" src="https://img.shields.io/github/issues-raw/activitywatch/activitywatch/priority%3A%20medium.svg?style=flat-square"/></a></td>
+    <td><a href="https://github.com/ActivityWatch/activitywatch/issues?q=is%3Aissue%20is%3Aopen%20label%3A%22type%3A%20bug%22"><img alt="Open bug issues" src="https://img.shields.io/github/issues-raw/activitywatch/activitywatch/type%3A%20bug.svg?style=flat-square"/></a></td>
     <td><a href="https://github.com/ActivityWatch/activitywatch/pulls"><img alt="Open pull requests" src="https://img.shields.io/github/issues-pr/activitywatch/activitywatch.svg?style=flat-square"/></a></td>
     <td><a href="#"><img alt="Lines of code" src="https://img.shields.io/tokei/lines/github/activitywatch/activitywatch.svg"/></a></td>
   </tr>
@@ -316,6 +325,9 @@
   <tr>
     <td>aw-core</td>
     <td><a href="https://github.com/ActivityWatch/aw-core/issues"><img alt="Open issues" src="https://img.shields.io/github/issues/activitywatch/aw-core.svg?style=flat-square"/></a></td>
+    <td><a href="https://github.com/ActivityWatch/aw-core/issues?q=is%3Aissue%20is%3Aopen%20label%3A%22priority%3A%20high%22"><img alt="Open high-priority issues" src="https://img.shields.io/github/issues-raw/activitywatch/aw-core/priority%3A%20high.svg?style=flat-square"/></a></td>
+    <td><a href="https://github.com/ActivityWatch/aw-core/issues?q=is%3Aissue%20is%3Aopen%20label%3A%22priority%3A%20medium%22"><img alt="Open medium-priority issues" src="https://img.shields.io/github/issues-raw/activitywatch/aw-core/priority%3A%20medium.svg?style=flat-square"/></a></td>
+    <td><a href="https://github.com/ActivityWatch/aw-core/issues?q=is%3Aissue%20is%3Aopen%20label%3A%22type%3A%20bug%22"><img alt="Open bug issues" src="https://img.shields.io/github/issues-raw/activitywatch/aw-core/type%3A%20bug.svg?style=flat-square"/></a></td>
     <td><a href="https://github.com/ActivityWatch/aw-core/pulls"><img alt="Open pull requests" src="https://img.shields.io/github/issues-pr/activitywatch/aw-core.svg?style=flat-square"/></a></td>
     <td><a href="#"><img alt="Lines of code" src="https://img.shields.io/tokei/lines/github/activitywatch/aw-core.svg"/></a></td>
   </tr>
@@ -323,6 +335,9 @@
   <tr>
     <td>aw-server</td>
     <td><a href="https://github.com/ActivityWatch/aw-server/issues"><img alt="Open issues" src="https://img.shields.io/github/issues/activitywatch/aw-server.svg?style=flat-square"/></a></td>
+    <td><a href="https://github.com/ActivityWatch/aw-server/issues?q=is%3Aissue%20is%3Aopen%20label%3A%22priority%3A%20high%22"><img alt="Open high-priority issues" src="https://img.shields.io/github/issues-raw/activitywatch/aw-server/priority%3A%20high.svg?style=flat-square"/></a></td>
+    <td><a href="https://github.com/ActivityWatch/aw-server/issues?q=is%3Aissue%20is%3Aopen%20label%3A%22priority%3A%20medium%22"><img alt="Open medium-priority issues" src="https://img.shields.io/github/issues-raw/activitywatch/aw-server/priority%3A%20medium.svg?style=flat-square"/></a></td>
+    <td><a href="https://github.com/ActivityWatch/aw-server/issues?q=is%3Aissue%20is%3Aopen%20label%3A%22type%3A%20bug%22"><img alt="Open bug issues" src="https://img.shields.io/github/issues-raw/activitywatch/aw-server/type%3A%20bug.svg?style=flat-square"/></a></td>
     <td><a href="https://github.com/ActivityWatch/aw-server/pulls"><img alt="Open pull requests" src="https://img.shields.io/github/issues-pr/activitywatch/aw-server.svg?style=flat-square"/></a></td>
     <td><a href="#"><img alt="Lines of code" src="https://img.shields.io/tokei/lines/github/activitywatch/aw-server.svg"/></a></td>
   </tr>
@@ -330,6 +345,9 @@
   <tr>
     <td>aw-server-rust</td>
     <td><a href="https://github.com/ActivityWatch/aw-server-rust/issues"><img alt="Open issues" src="https://img.shields.io/github/issues/activitywatch/aw-server-rust.svg?style=flat-square"/></a></td>
+    <td><a href="https://github.com/ActivityWatch/aw-server-rust/issues?q=is%3Aissue%20is%3Aopen%20label%3A%22priority%3A%20high%22"><img alt="Open high-priority issues" src="https://img.shields.io/github/issues-raw/activitywatch/aw-server-rust/priority%3A%20high.svg?style=flat-square"/></a></td>
+    <td><a href="https://github.com/ActivityWatch/aw-server-rust/issues?q=is%3Aissue%20is%3Aopen%20label%3A%22priority%3A%20medium%22"><img alt="Open medium-priority issues" src="https://img.shields.io/github/issues-raw/activitywatch/aw-server-rust/priority%3A%20medium.svg?style=flat-square"/></a></td>
+    <td><a href="https://github.com/ActivityWatch/aw-server-rust/issues?q=is%3Aissue%20is%3Aopen%20label%3A%22type%3A%20bug%22"><img alt="Open bug issues" src="https://img.shields.io/github/issues-raw/activitywatch/aw-server-rust/type%3A%20bug.svg?style=flat-square"/></a></td>
     <td><a href="https://github.com/ActivityWatch/aw-server-rust/pulls"><img alt="Open pull requests" src="https://img.shields.io/github/issues-pr/activitywatch/aw-server-rust.svg?style=flat-square"/></a></td>
     <td><a href="#"><img alt="Lines of code" src="https://img.shields.io/tokei/lines/github/activitywatch/aw-server-rust.svg"/></a></td>
   </tr>
@@ -337,6 +355,9 @@
   <tr>
     <td>aw-qt</td>
     <td><a href="https://github.com/ActivityWatch/aw-qt/issues"><img alt="Open issues" src="https://img.shields.io/github/issues/activitywatch/aw-qt.svg?style=flat-square"/></a></td>
+    <td><a href="https://github.com/ActivityWatch/aw-qt/issues?q=is%3Aissue%20is%3Aopen%20label%3A%22priority%3A%20high%22"><img alt="Open high-priority issues" src="https://img.shields.io/github/issues-raw/activitywatch/aw-qt/priority%3A%20high.svg?style=flat-square"/></a></td>
+    <td><a href="https://github.com/ActivityWatch/aw-qt/issues?q=is%3Aissue%20is%3Aopen%20label%3A%22priority%3A%20medium%22"><img alt="Open medium-priority issues" src="https://img.shields.io/github/issues-raw/activitywatch/aw-qt/priority%3A%20medium.svg?style=flat-square"/></a></td>
+    <td><a href="https://github.com/ActivityWatch/aw-qt/issues?q=is%3Aissue%20is%3Aopen%20label%3A%22type%3A%20bug%22"><img alt="Open bug issues" src="https://img.shields.io/github/issues-raw/activitywatch/aw-qt/type%3A%20bug.svg?style=flat-square"/></a></td>
     <td><a href="https://github.com/ActivityWatch/aw-qt/pulls"><img alt="Open pull requests" src="https://img.shields.io/github/issues-pr/activitywatch/aw-qt.svg?style=flat-square"/></a></td>
     <td><a href="#"><img alt="Lines of code" src="https://img.shields.io/tokei/lines/github/activitywatch/aw-qt.svg"/></a></td>
   </tr>
@@ -344,6 +365,9 @@
   <tr>
     <td>aw-android</td>
     <td><a href="https://github.com/ActivityWatch/aw-android/issues"><img alt="Open issues" src="https://img.shields.io/github/issues/activitywatch/aw-android.svg?style=flat-square"/></a></td>
+    <td><a href="https://github.com/ActivityWatch/aw-android/issues?q=is%3Aissue%20is%3Aopen%20label%3A%22priority%3A%20high%22"><img alt="Open high-priority issues" src="https://img.shields.io/github/issues-raw/activitywatch/aw-android/priority%3A%20high.svg?style=flat-square"/></a></td>
+    <td><a href="https://github.com/ActivityWatch/aw-android/issues?q=is%3Aissue%20is%3Aopen%20label%3A%22priority%3A%20medium%22"><img alt="Open medium-priority issues" src="https://img.shields.io/github/issues-raw/activitywatch/aw-android/priority%3A%20medium.svg?style=flat-square"/></a></td>
+    <td><a href="https://github.com/ActivityWatch/aw-android/issues?q=is%3Aissue%20is%3Aopen%20label%3A%22type%3A%20bug%22"><img alt="Open bug issues" src="https://img.shields.io/github/issues-raw/activitywatch/aw-android/type%3A%20bug.svg?style=flat-square"/></a></td>
     <td><a href="https://github.com/ActivityWatch/aw-android/pulls"><img alt="Open pull requests" src="https://img.shields.io/github/issues-pr/activitywatch/aw-android.svg?style=flat-square"/></a></td>
     <td><a href="#"><img alt="Lines of code" src="https://img.shields.io/tokei/lines/github/activitywatch/aw-android.svg"/></a></td>
   </tr>
@@ -351,6 +375,9 @@
   <tr>
     <td>aw-client</td>
     <td><a href="https://github.com/ActivityWatch/aw-client/issues"><img alt="Open issues" src="https://img.shields.io/github/issues/activitywatch/aw-client.svg?style=flat-square"/></a></td>
+    <td><a href="https://github.com/ActivityWatch/aw-client/issues?q=is%3Aissue%20is%3Aopen%20label%3A%22priority%3A%20high%22"><img alt="Open high-priority issues" src="https://img.shields.io/github/issues-raw/activitywatch/aw-client/priority%3A%20high.svg?style=flat-square"/></a></td>
+    <td><a href="https://github.com/ActivityWatch/aw-client/issues?q=is%3Aissue%20is%3Aopen%20label%3A%22priority%3A%20medium%22"><img alt="Open medium-priority issues" src="https://img.shields.io/github/issues-raw/activitywatch/aw-client/priority%3A%20medium.svg?style=flat-square"/></a></td>
+    <td><a href="https://github.com/ActivityWatch/aw-client/issues?q=is%3Aissue%20is%3Aopen%20label%3A%22type%3A%20bug%22"><img alt="Open bug issues" src="https://img.shields.io/github/issues-raw/activitywatch/aw-client/type%3A%20bug.svg?style=flat-square"/></a></td>
     <td><a href="https://github.com/ActivityWatch/aw-client/pulls"><img alt="Open pull requests" src="https://img.shields.io/github/issues-pr/activitywatch/aw-client.svg?style=flat-square"/></a></td>
     <td><a href="#"><img alt="Lines of code" src="https://img.shields.io/tokei/lines/github/activitywatch/aw-client.svg"/></a></td>
   </tr>
@@ -358,6 +385,9 @@
   <tr>
     <td>aw-client-js</td>
     <td><a href="https://github.com/ActivityWatch/aw-client-js/issues"><img alt="Open issues" src="https://img.shields.io/github/issues/activitywatch/aw-client-js.svg?style=flat-square"/></a></td>
+    <td><a href="https://github.com/ActivityWatch/aw-client-js/issues?q=is%3Aissue%20is%3Aopen%20label%3A%22priority%3A%20high%22"><img alt="Open high-priority issues" src="https://img.shields.io/github/issues-raw/activitywatch/aw-client-js/priority%3A%20high.svg?style=flat-square"/></a></td>
+    <td><a href="https://github.com/ActivityWatch/aw-client-js/issues?q=is%3Aissue%20is%3Aopen%20label%3A%22priority%3A%20medium%22"><img alt="Open medium-priority issues" src="https://img.shields.io/github/issues-raw/activitywatch/aw-client-js/priority%3A%20medium.svg?style=flat-square"/></a></td>
+    <td><a href="https://github.com/ActivityWatch/aw-client-js/issues?q=is%3Aissue%20is%3Aopen%20label%3A%22type%3A%20bug%22"><img alt="Open bug issues" src="https://img.shields.io/github/issues-raw/activitywatch/aw-client-js/type%3A%20bug.svg?style=flat-square"/></a></td>
     <td><a href="https://github.com/ActivityWatch/aw-client-js/pulls"><img alt="Open pull requests" src="https://img.shields.io/github/issues-pr/activitywatch/aw-client-js.svg?style=flat-square"/></a></td>
     <td><a href="#"><img alt="Lines of code" src="https://img.shields.io/tokei/lines/github/activitywatch/aw-client-js.svg"/></a></td>
   </tr>
@@ -365,6 +395,9 @@
   <tr>
     <td>aw-webui</td>
     <td><a href="https://github.com/ActivityWatch/aw-webui/issues"><img alt="Open issues" src="https://img.shields.io/github/issues/activitywatch/aw-webui.svg?style=flat-square"/></a></td>
+    <td><a href="https://github.com/ActivityWatch/aw-webui/issues?q=is%3Aissue%20is%3Aopen%20label%3A%22priority%3A%20high%22"><img alt="Open high-priority issues" src="https://img.shields.io/github/issues-raw/activitywatch/aw-webui/priority%3A%20high.svg?style=flat-square"/></a></td>
+    <td><a href="https://github.com/ActivityWatch/aw-webui/issues?q=is%3Aissue%20is%3Aopen%20label%3A%22priority%3A%20medium%22"><img alt="Open medium-priority issues" src="https://img.shields.io/github/issues-raw/activitywatch/aw-webui/priority%3A%20medium.svg?style=flat-square"/></a></td>
+    <td><a href="https://github.com/ActivityWatch/aw-webui/issues?q=is%3Aissue%20is%3Aopen%20label%3A%22type%3A%20bug%22"><img alt="Open bug issues" src="https://img.shields.io/github/issues-raw/activitywatch/aw-webui/type%3A%20bug.svg?style=flat-square"/></a></td>
     <td><a href="https://github.com/ActivityWatch/aw-webui/pulls"><img alt="Open pull requests" src="https://img.shields.io/github/issues-pr/activitywatch/aw-webui.svg?style=flat-square"/></a></td>
     <td><a href="#"><img alt="Lines of code" src="https://img.shields.io/tokei/lines/github/activitywatch/aw-webui.svg"/></a></td>
   </tr>
@@ -372,6 +405,9 @@
   <tr>
     <td>aw-watcher-afk</td>
     <td><a href="https://github.com/ActivityWatch/aw-watcher-afk/issues"><img alt="Open issues" src="https://img.shields.io/github/issues/activitywatch/aw-watcher-afk.svg?style=flat-square"/></a></td>
+    <td><a href="https://github.com/ActivityWatch/aw-watcher-afk/issues?q=is%3Aissue%20is%3Aopen%20label%3A%22priority%3A%20high%22"><img alt="Open high-priority issues" src="https://img.shields.io/github/issues-raw/activitywatch/aw-watcher-afk/priority%3A%20high.svg?style=flat-square"/></a></td>
+    <td><a href="https://github.com/ActivityWatch/aw-watcher-afk/issues?q=is%3Aissue%20is%3Aopen%20label%3A%22priority%3A%20medium%22"><img alt="Open medium-priority issues" src="https://img.shields.io/github/issues-raw/activitywatch/aw-watcher-afk/priority%3A%20medium.svg?style=flat-square"/></a></td>
+    <td><a href="https://github.com/ActivityWatch/aw-watcher-afk/issues?q=is%3Aissue%20is%3Aopen%20label%3A%22type%3A%20bug%22"><img alt="Open bug issues" src="https://img.shields.io/github/issues-raw/activitywatch/aw-watcher-afk/type%3A%20bug.svg?style=flat-square"/></a></td>
     <td><a href="https://github.com/ActivityWatch/aw-watcher-afk/pulls"><img alt="Open pull requests" src="https://img.shields.io/github/issues-pr/activitywatch/aw-watcher-afk.svg?style=flat-square"/></a></td>
     <td><a href="#"><img alt="Lines of code" src="https://img.shields.io/tokei/lines/github/activitywatch/aw-watcher-afk.svg"/></a></td>
   </tr>
@@ -379,6 +415,9 @@
   <tr>
     <td>aw-watcher-window</td>
     <td><a href="https://github.com/ActivityWatch/aw-watcher-window/issues"><img alt="Open issues" src="https://img.shields.io/github/issues/activitywatch/aw-watcher-window.svg?style=flat-square"/></a></td>
+    <td><a href="https://github.com/ActivityWatch/aw-watcher-window/issues?q=is%3Aissue%20is%3Aopen%20label%3A%22priority%3A%20high%22"><img alt="Open high-priority issues" src="https://img.shields.io/github/issues-raw/activitywatch/aw-watcher-window/priority%3A%20high.svg?style=flat-square"/></a></td>
+    <td><a href="https://github.com/ActivityWatch/aw-watcher-window/issues?q=is%3Aissue%20is%3Aopen%20label%3A%22priority%3A%20medium%22"><img alt="Open medium-priority issues" src="https://img.shields.io/github/issues-raw/activitywatch/aw-watcher-window/priority%3A%20medium.svg?style=flat-square"/></a></td>
+    <td><a href="https://github.com/ActivityWatch/aw-watcher-window/issues?q=is%3Aissue%20is%3Aopen%20label%3A%22type%3A%20bug%22"><img alt="Open bug issues" src="https://img.shields.io/github/issues-raw/activitywatch/aw-watcher-window/type%3A%20bug.svg?style=flat-square"/></a></td>
     <td><a href="https://github.com/ActivityWatch/aw-watcher-window/pulls"><img alt="Open pull requests" src="https://img.shields.io/github/issues-pr/activitywatch/aw-watcher-window.svg?style=flat-square"/></a></td>
     <td><a href="#"><img alt="Lines of code" src="https://img.shields.io/tokei/lines/github/activitywatch/aw-watcher-window.svg"/></a></td>
   </tr>
@@ -386,6 +425,9 @@
   <tr>
     <td>aw-watcher-window-wayland</td>
     <td><a href="https://github.com/ActivityWatch/aw-watcher-window-wayland/issues"><img alt="Open issues" src="https://img.shields.io/github/issues/activitywatch/aw-watcher-window-wayland.svg?style=flat-square"/></a></td>
+    <td><a href="https://github.com/ActivityWatch/aw-watcher-window-wayland/issues?q=is%3Aissue%20is%3Aopen%20label%3A%22priority%3A%20high%22"><img alt="Open high-priority issues" src="https://img.shields.io/github/issues-raw/activitywatch/aw-watcher-window-wayland/priority%3A%20high.svg?style=flat-square"/></a></td>
+    <td><a href="https://github.com/ActivityWatch/aw-watcher-window-wayland/issues?q=is%3Aissue%20is%3Aopen%20label%3A%22priority%3A%20medium%22"><img alt="Open medium-priority issues" src="https://img.shields.io/github/issues-raw/activitywatch/aw-watcher-window-wayland/priority%3A%20medium.svg?style=flat-square"/></a></td>
+    <td><a href="https://github.com/ActivityWatch/aw-watcher-window-wayland/issues?q=is%3Aissue%20is%3Aopen%20label%3A%22type%3A%20bug%22"><img alt="Open bug issues" src="https://img.shields.io/github/issues-raw/activitywatch/aw-watcher-window-wayland/type%3A%20bug.svg?style=flat-square"/></a></td>
     <td><a href="https://github.com/ActivityWatch/aw-watcher-window-wayland/pulls"><img alt="Open pull requests" src="https://img.shields.io/github/issues-pr/activitywatch/aw-watcher-window-wayland.svg?style=flat-square"/></a></td>
     <td><a href="#"><img alt="Lines of code" src="https://img.shields.io/tokei/lines/github/activitywatch/aw-watcher-window-wayland.svg"/></a></td>
   </tr>
@@ -393,6 +435,9 @@
   <tr>
     <td>aw-watcher-web</td>
     <td><a href="https://github.com/ActivityWatch/aw-watcher-web/issues"><img alt="Open issues" src="https://img.shields.io/github/issues/activitywatch/aw-watcher-web.svg?style=flat-square"/></a></td>
+    <td><a href="https://github.com/ActivityWatch/aw-watcher-web/issues?q=is%3Aissue%20is%3Aopen%20label%3A%22priority%3A%20high%22"><img alt="Open high-priority issues" src="https://img.shields.io/github/issues-raw/activitywatch/aw-watcher-web/priority%3A%20high.svg?style=flat-square"/></a></td>
+    <td><a href="https://github.com/ActivityWatch/aw-watcher-web/issues?q=is%3Aissue%20is%3Aopen%20label%3A%22priority%3A%20medium%22"><img alt="Open medium-priority issues" src="https://img.shields.io/github/issues-raw/activitywatch/aw-watcher-web/priority%3A%20medium.svg?style=flat-square"/></a></td>
+    <td><a href="https://github.com/ActivityWatch/aw-watcher-web/issues?q=is%3Aissue%20is%3Aopen%20label%3A%22type%3A%20bug%22"><img alt="Open bug issues" src="https://img.shields.io/github/issues-raw/activitywatch/aw-watcher-web/type%3A%20bug.svg?style=flat-square"/></a></td>
     <td><a href="https://github.com/ActivityWatch/aw-watcher-web/pulls"><img alt="Open pull requests" src="https://img.shields.io/github/issues-pr/activitywatch/aw-watcher-web.svg?style=flat-square"/></a></td>
     <td><a href="#"><img alt="Lines of code" src="https://img.shields.io/tokei/lines/github/activitywatch/aw-watcher-web.svg"/></a></td>
   </tr>
@@ -400,6 +445,9 @@
   <tr>
     <td>aw-watcher-input</td>
     <td><a href="https://github.com/ActivityWatch/aw-watcher-input/issues"><img alt="Open issues" src="https://img.shields.io/github/issues/activitywatch/aw-watcher-input.svg?style=flat-square"/></a></td>
+    <td><a href="https://github.com/ActivityWatch/aw-watcher-input/issues?q=is%3Aissue%20is%3Aopen%20label%3A%22priority%3A%20high%22"><img alt="Open high-priority issues" src="https://img.shields.io/github/issues-raw/activitywatch/aw-watcher-input/priority%3A%20high.svg?style=flat-square"/></a></td>
+    <td><a href="https://github.com/ActivityWatch/aw-watcher-input/issues?q=is%3Aissue%20is%3Aopen%20label%3A%22priority%3A%20medium%22"><img alt="Open medium-priority issues" src="https://img.shields.io/github/issues-raw/activitywatch/aw-watcher-input/priority%3A%20medium.svg?style=flat-square"/></a></td>
+    <td><a href="https://github.com/ActivityWatch/aw-watcher-input/issues?q=is%3Aissue%20is%3Aopen%20label%3A%22type%3A%20bug%22"><img alt="Open bug issues" src="https://img.shields.io/github/issues-raw/activitywatch/aw-watcher-input/type%3A%20bug.svg?style=flat-square"/></a></td>
     <td><a href="https://github.com/ActivityWatch/aw-watcher-input/pulls"><img alt="Open pull requests" src="https://img.shields.io/github/issues-pr/activitywatch/aw-watcher-input.svg?style=flat-square"/></a></td>
     <td><a href="#"><img alt="Lines of code" src="https://img.shields.io/tokei/lines/github/activitywatch/aw-watcher-input.svg"/></a></td>
   </tr>
@@ -407,6 +455,9 @@
   <tr>
     <td>activitywatch.github.io</td>
     <td><a href="https://github.com/ActivityWatch/activitywatch.github.io/issues"><img alt="Open issues" src="https://img.shields.io/github/issues/activitywatch/activitywatch.github.io.svg?style=flat-square"/></a></td>
+    <td><a href="https://github.com/ActivityWatch/activitywatch.github.io/issues?q=is%3Aissue%20is%3Aopen%20label%3A%22priority%3A%20high%22"><img alt="Open high-priority issues" src="https://img.shields.io/github/issues-raw/activitywatch/activitywatch.github.io/priority%3A%20high.svg?style=flat-square"/></a></td>
+    <td><a href="https://github.com/ActivityWatch/activitywatch.github.io/issues?q=is%3Aissue%20is%3Aopen%20label%3A%22priority%3A%20medium%22"><img alt="Open medium-priority issues" src="https://img.shields.io/github/issues-raw/activitywatch/activitywatch.github.io/priority%3A%20medium.svg?style=flat-square"/></a></td>
+    <td><a href="https://github.com/ActivityWatch/activitywatch.github.io/issues?q=is%3Aissue%20is%3Aopen%20label%3A%22type%3A%20bug%22"><img alt="Open bug issues" src="https://img.shields.io/github/issues-raw/activitywatch/activitywatch.github.io/type%3A%20bug.svg?style=flat-square"/></a></td>
     <td><a href="https://github.com/ActivityWatch/activitywatch.github.io/pulls"><img alt="Open pull requests" src="https://img.shields.io/github/issues-pr/activitywatch/activitywatch.github.io.svg?style=flat-square"/></a></td>
     <td><a href="#"><img alt="Lines of code" src="https://img.shields.io/tokei/lines/github/activitywatch/activitywatch.github.io.svg"/></a></td>
   </tr>
@@ -414,6 +465,9 @@
   <tr>
     <td>docs</td>
     <td><a href="https://github.com/ActivityWatch/docs/issues"><img alt="Open issues" src="https://img.shields.io/github/issues/activitywatch/docs.svg?style=flat-square"/></a></td>
+    <td><a href="https://github.com/ActivityWatch/docs/issues?q=is%3Aissue%20is%3Aopen%20label%3A%22priority%3A%20high%22"><img alt="Open high-priority issues" src="https://img.shields.io/github/issues-raw/activitywatch/docs/priority%3A%20high.svg?style=flat-square"/></a></td>
+    <td><a href="https://github.com/ActivityWatch/docs/issues?q=is%3Aissue%20is%3Aopen%20label%3A%22priority%3A%20medium%22"><img alt="Open medium-priority issues" src="https://img.shields.io/github/issues-raw/activitywatch/docs/priority%3A%20medium.svg?style=flat-square"/></a></td>
+    <td><a href="https://github.com/ActivityWatch/docs/issues?q=is%3Aissue%20is%3Aopen%20label%3A%22type%3A%20bug%22"><img alt="Open bug issues" src="https://img.shields.io/github/issues-raw/activitywatch/docs/type%3A%20bug.svg?style=flat-square"/></a></td>
     <td><a href="https://github.com/ActivityWatch/docs/pulls"><img alt="Open pull requests" src="https://img.shields.io/github/issues-pr/activitywatch/docs.svg?style=flat-square"/></a></td>
     <td><a href="#"><img alt="Lines of code" src="https://img.shields.io/tokei/lines/github/activitywatch/docs.svg"/></a></td>
   </tr>
