@@ -1,55 +1,59 @@
 ---
 layout: page
-title: Donate
+title: Support ActivityWatch
 permalink: /donate/
 ---
 
-Thanks for considering a donation!
+ActivityWatch is built on a simple promise: **privacy-first time tracking that stays on your machine**. No cloud lock-in, no data harvesting, no subscription gates. That will never change.
 
-We hope you make the right call and decide to spend some money each month for such an awesome piece of software as ActivityWatch. We aim to spend the money wisely, and commit to being transparent about any expenses we have in the future.
+But open-source software doesn't build itself. Every feature, every bug fix, every platform we support takes real human hours. Right now, the project is sustained by donations from a small group of supporters. We want to grow that base so we can do more.
 
+**Choose how you want to help:**
 
-## What's in it for me?
+### Supporter — $5/month
+Recurring support keeps the project alive. Pay for infrastructure, fund regular development, and help us plan beyond the next release. Small amounts add up fast — if every active user contributed $5/month, ActivityWatch would have a full-time team. Your name gets listed on our [sponsors page](/sponsors/).
 
-Our eternal gratitude, better future versions of ActivityWatch, and the love of the community. If you want something else, just ask!
+### Champion — $25+ one-time
+Make a statement that ActivityWatch matters to you. One-time contributions help us take on larger expenses: desktop app rewrites, platform expansions, and the features you've been asking for. Your name gets listed on our [sponsors page](/sponsors/).
 
-You will also get your name listed on the [sponsors page](/sponsors/).
+### Believer — $50/year
+Commit to the long game. Annual supporters give us the confidence to plan ahead and invest in the features that take time to get right. Believers get listed on our [sponsors page](/sponsors/) with special recognition.
 
+---
+
+## Why donate?
+
+- **Sustainability**: Every dollar improves the probability that ActivityWatch will be actively developed for years to come.
+- **Independence**: Donations keep us accountable to you — not to investors or advertisers. Privacy-first software shouldn't depend on charity, but it does depend on you.
+- **Proof of value**: Your support tells us (and the world) that privacy-respecting tools are worth building.
+
+## Where does the money go?
+
+Donations routed through [Open Collective](https://opencollective.com/activitywatch) are transparently published there. They currently help cover:
+- Forum and infrastructure costs
+- Funding other open-source projects ActivityWatch depends on
+- Contributor stipends and development bounties, including work by contributors like Kerkko and Brayo; when donations have not been enough, Erik has covered the gap out of pocket
+
+The lead developer (Erik) is not paid from donations — every dollar goes to the project.
 
 ## Methods
 
-We currently support the following donation methods (roughly in our order of preference):
+We currently support the following donation methods:
 
- - [Liberapay][liberapay] (**0% fee** + payment processing fees)
- - [GitHub Sponsors][gh-sponsors] (0% fee (sort of), GitHub covers payment processing costs)
-   - Backed by Open Collective, so their fees apply.
- - [Patreon][patreon] (5% service fee + VAT + payment processing fees)
- - [Open Collective][open-collective] (10% fee + payment processing fees)
- - Cryptocurrency
-   - Direct transfer
-       - **Note:** Please send us an email with the transaction ID so we can attribute the donation to you!
-       - Bitcoin: [1NSxJs1wYUrRv53ZVH2DX9fquXdSPAdyYh](bitcoin:1NSxJs1wYUrRv53ZVH2DX9fquXdSPAdyYh)  <!-- Kept by Erik Bjäreholt on Coinbase -->
-       - Ether: [0x8A8D0B2BeDa2E29A859cB95d6541Ef19608b234A](ethereum:0x8A8D0B2BeDa2E29A859cB95d6541Ef19608b234A)   <!-- Kept by Erik Bjäreholt in a file used with MyEtherWallet -->
+- **[Liberapay][liberapay]** — credit card, bank transfer (**0% platform fee**)
+- **[GitHub Sponsors][gh-sponsors]** — credit card (GitHub covers payment processing fees; backed by Open Collective, so their 10% fee applies)
+- **[Open Collective][open-collective]** — credit card, bank transfer, PayPal (10% platform fee)
+- **[Patreon][patreon]** — credit card, PayPal (platform fees apply)
+- **Cryptocurrency** — direct transfer
+  - *Please send us an email with the transaction ID so we can attribute your donation!*
+  - Bitcoin: [1NSxJs1wYUrRv53ZVH2DX9fquXdSPAdyYh](bitcoin:1NSxJs1wYUrRv53ZVH2DX9fquXdSPAdyYh) <!-- Kept by Erik Bjäreholt on Coinbase -->
+  - Ether: [0x8A8D0B2BeDa2E29A859cB95d6541Ef19608b234A](ethereum:0x8A8D0B2BeDa2E29A859cB95d6541Ef19608b234A) <!-- Kept by Erik Bjäreholt in a file used with MyEtherWallet -->
 
 [open-collective]: https://opencollective.com/activitywatch
 [patreon]: https://www.patreon.com/erikbjare
 [liberapay]: https://liberapay.com/ActivityWatch/
 [gh-sponsors]: https://github.com/sponsors/ActivityWatch
 
+---
 
-## Why do we need donations?
-
- - They help the sustainability of the project; every dollar improves the probability that the project will be actively developed for a long time.
- - It helps us attract developers to the project.
- - They serve as proof that the project is valuable to our users, which is very useful when we apply to grants.
-
-
-## What is the money used for?
-
- - All expenses will be entirely transparent for community review.
- - They will not pay for the work of the current lead developer Erik.
- - Server costs of the forum and other infrastructure.
- - Funding other open source projects that ActivityWatch depends on.
-
-Do you think we could do a better job or want your donation to go towards something specific? Send us an email!
-
+*ActivityWatch will always be free and open-source. Your support makes that sustainable.*
