@@ -6,6 +6,7 @@ permalink: /ci/
 
 p
   | Here we try to list all our continuous integration pipelines along with some useful stats to get an overview of the subprojects.
+  |  The issue table also includes label-specific badges for the most useful backlog slices: priority: high, priority: medium, and type: bug.
 
 | {% assign modules =             "activitywatch,aw-core,aw-server,aw-server-rust,aw-qt,aw-android,aw-client,aw-client-js,aw-webui,aw-watcher-afk,aw-watcher-window,aw-watcher-window-wayland,aw-watcher-web,aw-watcher-input,activitywatch.github.io,docs" | split: ',' %}
 | {% assign ghactions_modules =   "activitywatch,aw-core,aw-server,aw-server-rust,aw-qt,aw-android,aw-client,aw-client-js,aw-webui,aw-watcher-afk,aw-watcher-window,aw-watcher-window-wayland,aw-watcher-web,aw-watcher-input,activitywatch.github.io,docs" | split: ',' %}
@@ -54,6 +55,9 @@ table(class="table dense")
   tr
     th Module
     th Issues
+    th High
+    th Medium
+    th Bugs
     th PRs
     th LoC
 
@@ -66,6 +70,17 @@ table(class="table dense")
       a(href="https://github.com/ActivityWatch/{{module}}/issues")
         img(alt="Open issues" src="https://img.shields.io/github/issues/activitywatch/{{module}}.svg?style=flat-square")
 
+    td
+      a(href="https://github.com/ActivityWatch/{{module}}/issues?q=is%3Aissue%20is%3Aopen%20label%3A%22priority%3A%20high%22")
+        img(alt="Open high-priority issues" src="https://img.shields.io/github/issues-raw/activitywatch/{{module}}/priority%3A%20high.svg?style=flat-square")
+
+    td
+      a(href="https://github.com/ActivityWatch/{{module}}/issues?q=is%3Aissue%20is%3Aopen%20label%3A%22priority%3A%20medium%22")
+        img(alt="Open medium-priority issues" src="https://img.shields.io/github/issues-raw/activitywatch/{{module}}/priority%3A%20medium.svg?style=flat-square")
+
+    td
+      a(href="https://github.com/ActivityWatch/{{module}}/issues?q=is%3Aissue%20is%3Aopen%20label%3A%22type%3A%20bug%22")
+        img(alt="Open bug issues" src="https://img.shields.io/github/issues-raw/activitywatch/{{module}}/type%3A%20bug.svg?style=flat-square")
 
     td
       a(href="https://github.com/ActivityWatch/{{module}}/pulls")
