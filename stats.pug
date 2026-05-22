@@ -24,6 +24,14 @@ div.text-center
   div.img-center
     img.width-500(src="/img/stats/downloads.png")
   div.small.dim (Updated every 24 hours)
+  p.small.text-left.mx-auto.mt-3(style="max-width: 42rem;")
+    strong Note:
+    |  The dip around March 14-25, 2026 is not a broken chart. v0.13.2 was
+    |  temporarily marked as a pre-release, which sent
+    code  /releases/latest
+    |  traffic back to v0.13.1 and materially reduced downloads. A few March
+    |  collection runs also failed due to GitHub API rate limits, so short
+    |  gaps are interpolated instead of being backfilled with guessed data.
 
 hr.my-5
 
