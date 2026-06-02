@@ -15,10 +15,7 @@ html
               | {% if site.twitter_username %}
               li {% include icon-twitter.html username=site.twitter_username %}
               | {% endif %}
-              li
-                a(href='https://www.reddit.com/r/activitywatch/')
-                  span.fa.fa-reddit(aria-hidden='true')
-                  span.username r/activitywatch
+              li {% include icon-reddit.html %}
               | {% if site.linkedin_company %}
               li {% include icon-linkedin.html company=site.linkedin_company %}
               | {% endif %}
