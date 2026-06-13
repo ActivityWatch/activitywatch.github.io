@@ -41,8 +41,11 @@ clean:
 stats:
 	git clone --recurse-submodules https://github.com/ActivityWatch/stats.git || true
 
+# Shallow clone: contributor-stats commits regenerated stats every few hours,
+# so its history grows ~10MB/year; only the latest checkout is needed here
+# (gitstats analyzes the AW repos it clones itself, not this repo's history).
 contributor-stats:
-	git clone --recurse-submodules https://github.com/ActivityWatch/contributor-stats.git || true
+	git clone --depth 1 --recurse-submodules https://github.com/ActivityWatch/contributor-stats.git || true
 
 _includes/tables: contributor-stats
 	make --directory=contributor-stats build-aw
