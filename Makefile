@@ -31,7 +31,6 @@ clean:
 	-rm -r _site
 	-rm -r _build
 	-rm -r _includes/tables
-	-git restore _includes/tables/github-stats.html
 	-make --directory=contributor-stats clean
 
 
@@ -48,6 +47,11 @@ contributor-stats:
 _includes/tables: contributor-stats
 	make --directory=contributor-stats build-aw
 	cp -r contributor-stats/tables _includes/
+	# contributor-stats commits only its sync-state JSON, not the rendered
+	# table, so generate the GitHub stats table from that state here.
+	cd contributor-stats && poetry install --no-interaction
+	make --directory=contributor-stats render
+	cp contributor-stats/github-activity-table.html _includes/tables/github-stats.html
 
 img/stats: stats
 	cd stats && poetry install
