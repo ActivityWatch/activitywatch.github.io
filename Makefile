@@ -31,7 +31,6 @@ clean:
 	-rm -r _site
 	-rm -r _build
 	-rm -r _includes/tables
-	-git restore _includes/tables/github-stats.html
 	-make --directory=contributor-stats clean
 
 
@@ -42,12 +41,20 @@ clean:
 stats:
 	git clone --recurse-submodules https://github.com/ActivityWatch/stats.git || true
 
+# Shallow clone: contributor-stats commits regenerated stats every few hours,
+# so its history grows ~10MB/year; only the latest checkout is needed here
+# (gitstats analyzes the AW repos it clones itself, not this repo's history).
 contributor-stats:
-	git clone --recurse-submodules https://github.com/ActivityWatch/contributor-stats.git || true
+	git clone --depth 1 --recurse-submodules https://github.com/ActivityWatch/contributor-stats.git || true
 
 _includes/tables: contributor-stats
 	make --directory=contributor-stats build-aw
 	cp -r contributor-stats/tables _includes/
+	# contributor-stats commits only its sync-state JSON, not the rendered
+	# table, so generate the GitHub stats table from that state here.
+	cd contributor-stats && poetry install --no-interaction
+	make --directory=contributor-stats render
+	cp contributor-stats/github-activity-table.html _includes/tables/github-stats.html
 
 img/stats: stats
 	cd stats && poetry install
