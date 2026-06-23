@@ -55,6 +55,9 @@ _includes/tables: contributor-stats
 	cd contributor-stats && poetry install --no-interaction
 	make --directory=contributor-stats render
 	cp contributor-stats/github-activity-table.html _includes/tables/github-stats.html
+	# The contributors avatar list (_data/contributors.yml) is likewise
+	# generated from the sync state, not hand-maintained.
+	cp contributor-stats/contributors.yml _data/contributors.yml
 
 img/stats: stats
 	cd stats && poetry install
