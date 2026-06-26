@@ -13,3 +13,5 @@ img/stats
 
 contributor-stats
 _includes/tables
+# Generated from contributor-stats sync state by the build (see Makefile)
+_data/contributors.yml
