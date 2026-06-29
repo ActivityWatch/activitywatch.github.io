@@ -1,8 +1,9 @@
 // Import font for h1, h2, ...
-@import url('https://fonts.googleapis.com/css?family=Varela+Round');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
 
 h1, h2, h3, h4, h5, h6 {
-  font-family: 'Varela Round', sans-serif !important;
+  font-family: 'Poppins', sans-serif !important;
+  letter-spacing: -0.5px;
 }
 
 /**
@@ -268,4 +269,21 @@ details > summary > * {
 details {
   border: 2px solid $grey-color-light;
   margin-top: 0;
+}
+
+@media (min-width: 768px) {
+  .row:not(.no-dividers) > .col-md-6:nth-child(odd):not(:last-child),
+  .row:not(.no-dividers) > .col-md-8:first-child:not(:last-child) {
+    position: relative;
+  }
+  .row:not(.no-dividers) > .col-md-6:nth-child(odd):not(:last-child)::after,
+  .row:not(.no-dividers) > .col-md-8:first-child:not(:last-child)::after {
+    content: "";
+    position: absolute;
+    top: 15%;
+    bottom: 15%;
+    right: 0;
+    width: 1px;
+    background-color: #dee2e6;
+  }
 }

@@ -5,8 +5,10 @@
 
 
 
+@use "sass:color";
+
 // Our variables
-$base-font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+$base-font-family: "Poppins", sans-serif;
 $base-font-size:   16px;
 $base-font-weight: 400;
 $small-font-size:  $base-font-size * 0.875;
@@ -19,8 +21,8 @@ $background-color: #fdfdfd;
 $brand-color:      #2a7ae2;
 
 $grey-color:       #828282;
-$grey-color-light: lighten($grey-color, 40%);
-$grey-color-dark:  darken($grey-color, 25%);
+$grey-color-light: color.scale($grey-color, $lightness: 40%);
+$grey-color-dark:  color.scale($grey-color, $lightness: -25%);
 
 // Width of the content area
 $content-width:    1000px;

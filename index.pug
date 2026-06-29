@@ -2,42 +2,46 @@
 layout: default
 ---
 
-article.wrapper.mt-4
-  img.d-block.mx-auto.mb-4(style='max-width: 100%' src='/img/banner.png' alt='ActivityWatch - free open-source time tracker for Windows, macOS, Linux, and Android')
-  h1 Free Open-Source Time Tracker
-  p
-    | #[b ActivityWatch] is an app that automatically tracks how you spend time on your devices.
-    | It is the best #[b free and open-source time tracking software] for #[b Windows], #[b macOS], #[b Linux], and #[b Android].
-  p
-    | It is #[b privacy-first] and #[b cross-platform], and a great alternative to services like RescueTime, ManicTime, and WakaTime.
-    | Unlike closed-source time trackers, your data stays on your device — never uploaded to the cloud.
-  p
-    | Use it as an #[b activity tracker] or #[b productivity tracker] to monitor time spent on different projects,
-    | manage screen time habits, track work hours, or just understand how you spend your day.
+article.container.mt-3.mb-0
+  .row
+    .col-md-12
+      h1.mb-4(style="font-weight: 700;") Free Open-Source Time Tracker
+      p
+        | #[b ActivityWatch] is an app that automatically tracks how you spend time on your devices.
+        | It is the best #[b free and open-source time tracking software] for #[b Windows], #[b macOS], #[b Linux], and #[b Android].
+      p
+        | It is #[b privacy-first] and #[b cross-platform], and a great alternative to services like RescueTime, ManicTime, and WakaTime.
+        | Unlike closed-source time trackers, your data stays on your device — never uploaded to the cloud.
+      p
+        | Use it as an #[b activity tracker] or #[b productivity tracker] to monitor time spent on different projects,
+        | manage screen time habits, track work hours, or just understand how you spend your day.
 
-  .mb-5.mt-2
-    .mb-2
-      | {% include download-button.pug %}
-      a.mr-2.mb-2.btn.btn-primary(href='https://docs.activitywatch.net/en/latest/getting-started.html', target="_blank", style="vertical-align: top")
-        i.fa.fa-question-circle.mr-2
-        | Getting started guide
-      a.mr-1.mb-2.btn.btn-outline-secondary(href='https://github.com/ActivityWatch/activitywatch', target="_blank", style="vertical-align: top")
-        i.fa.fa-github.mr-2
-        | Contribute on GitHub
+      .mb-0.mt-2
+        .mb-2.d-flex.flex-wrap.align-items-stretch
+          div(style="display: flex; align-items: stretch;")
+            | {% include download-button.pug %}
+          a.mr-2.mb-2.btn.btn-primary.d-flex.align-items-center(href='https://docs.activitywatch.net/en/latest/getting-started.html', target="_blank", style="border-radius: 12px;")
+            span
+              i.fa.fa-question-circle.mr-2
+              | Getting started guide
+          a.mr-1.mb-2.btn.btn-outline-secondary.d-flex.align-items-center(href='https://github.com/ActivityWatch/activitywatch', target="_blank", style="border-radius: 12px;")
+            span
+              i.fa.fa-github.mr-2
+              | Contribute on GitHub
 
-    div
-      // Badges and stuff
-      a.mr-2(href='https://github.com/ActivityWatch/activitywatch')
-        img(title='GitHub stars' src='https://img.shields.io/github/stars/ActivityWatch/activitywatch.svg?style=social&label=Star' alt='Number of GitHub stars for ActivityWatch')
-      a.mr-2(href='https://twitter.com/ActivityWatchIt')
-        img(title='Twitter followers' src='https://img.shields.io/twitter/follow/ActivityWatchIt.svg?style=social&label=Follow' alt='Number of Twitter followers for ActivityWatch')
-      a(href='https://discord.gg/vDskV9q')
-        img(title='Discord members' src='https://img.shields.io/discord/755040852727955476.svg?style=social&label=Chat&logo=discord' alt='Number of Discord members in ActivityWatch server')
+        div
+          // Badges and stuff
+          a.mr-2(href='https://github.com/ActivityWatch/activitywatch')
+            img(title='GitHub stars' src='https://img.shields.io/github/stars/ActivityWatch/activitywatch.svg?style=social&label=Star' alt='Number of GitHub stars for ActivityWatch')
+          a.mr-2(href='https://twitter.com/ActivityWatchIt')
+            img(title='Twitter followers' src='https://img.shields.io/twitter/follow/ActivityWatchIt.svg?style=social&label=Follow' alt='Number of Twitter followers for ActivityWatch')
+          a(href='https://discord.gg/vDskV9q')
+            img(title='Discord members' src='https://img.shields.io/discord/755040852727955476.svg?style=social&label=Chat&logo=discord' alt='Number of Discord members in ActivityWatch server')
 
 div.container
   div.row
     .col-md-8
-      h2 Time Tracking Features
+      h2(style="margin-top: 3rem;") Time Tracking Features
       ul
         li #[b Tracking:] Tracks active application and window title out of the box, more with #[a(href="https://docs.activitywatch.net/en/latest/watchers.html") watchers].
         li #[b Categories:] Get a better overview of your usage by breaking it down into categories.
@@ -70,7 +74,7 @@ div.container
 
     // Move the column to be the first one on small screens
     .col-md-4.order-first.order-md-last
-      h4 Screenshots
+      h4(style="margin-top: 3rem;") Screenshots
       a(href='/img/screenshots/screenshot-v0.9.3-activity.png')
         figure(style='width: 100%; border: 1px #999 solid; border-radius: 2px')
           img(style='width: 100%' src='/img/screenshots/screenshot-v0.9.3-activity.png' alt='Screenshot of the ActivityWatch Web App Dashboard showing the activity usage of a user.')
@@ -113,8 +117,6 @@ div.container
       p
         | If you like ActivityWatch, please consider spreading the word by sharing it on social media, writing a blog post, or recommending it to a friend.
 
-  hr
-
   div.row.py-4
     .col-md-12
       h2.mt-4 Frequently Asked Questions About ActivityWatch
@@ -141,8 +143,6 @@ div.container
 
       p.mt-3
         | For more answers, see the #[a(href="https://docs.activitywatch.net/en/latest/faq.html") full FAQ in the documentation].
-
-  hr
 
   div.row.py-4
     .col-md-6

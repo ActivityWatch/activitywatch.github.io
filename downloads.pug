@@ -11,10 +11,20 @@ article.container
 
   h3.mt-4.mb-2 ActivityWatch {{ site.data.downloads.version }}
 
-  div.row.mt-4
+  div.row.mt-4.no-dividers
     | {% for platform in site.data.downloads.platforms %}
-    div.col-md-6(id="{{ platform.name }}")
-      b {{ platform.name }}
+    div.col-md-6.mb-4(id="{{ platform.name }}")
+      b
+        | {% if platform.name == 'Windows' %}
+        i.fa.fa-windows.mr-2
+        | {% elsif platform.name == 'macOS' %}
+        i.fa.fa-apple.mr-2
+        | {% elsif platform.name == 'Linux' %}
+        i.fa.fa-linux.mr-2
+        | {% elsif platform.name == 'Android' %}
+        i.fa.fa-android.mr-2
+        | {% endif %}
+        | {{ platform.name }}
       ul
         | {% for asset in platform.assets %}
         li
