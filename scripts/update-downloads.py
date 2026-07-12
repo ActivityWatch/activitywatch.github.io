@@ -119,7 +119,11 @@ if __name__ == "__main__":
     token = os.getenv("GITHUB_TOKEN")
     if token:
         headers["Authorization"] = f"Bearer {token}"
-    releases = requests.get(API, headers=headers, timeout=30).json()
+    resp = requests.get(API, headers=headers, timeout=30)
+    resp.raise_for_status()  # fail loudly on rate-limit/auth/5xx, don't parse an error body
+    releases = resp.json()
+    if not isinstance(releases, list):
+        raise SystemExit(f"Unexpected GitHub API response (not a release list): {releases}")
 
     # Ignore drafts and anything <1h old (assets may still be uploading).
     releases = [r for r in releases

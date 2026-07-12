@@ -26,8 +26,8 @@ function getOS() {
 function getDownloadInfo() {
   let os = getOS();
   if (os !== null) {
-    let version = "{{ site.data.downloads.version }}";
-    let platforms = JSON.parse(`{{ site.data.downloads.platforms | jsonify }}`);
+    let version = "{{ site.data.downloads.stable.version }}";
+    let platforms = JSON.parse(`{{ site.data.downloads.stable.platforms | jsonify }}`);
     let p = platforms.filter((p) => p.name === os)[0] || null;
     if (p !== null) {
       return {

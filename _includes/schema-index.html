@@ -17,7 +17,7 @@
         "ratingValue": "{{ site.data.ratings.alternativeto.average }}",
         "reviewCount": "{{ site.data.ratings.alternativeto.count }}"
     },
-    "softwareVersion": "{{ site.data.downloads.version }}",
+    "softwareVersion": "{{ site.data.downloads.stable.version }}",
     "datePublished": "2024-06-12",
     "dateCreated": "2016-06-10",
     "downloadUrl": "https://activitywatch.net/downloads/",
@@ -53,15 +53,15 @@
         "target": [
           "https://activitywatch.net/downloads/",
           "android-app:https://play.google.com/store/apps/details?id=net.activitywatch.android",
-          {% for platform in site.data.downloads.platforms %}
+          {% for platform in site.data.downloads.stable.platforms %}
             {% for asset in platform.assets %}
           {
             "@type": "EntryPoint",
             "urlTemplate": "{{ asset.url }}",
             "actionApplication": {
               "@type": "SoftwareApplication",
-              "@id": "activitywatch-{{ site.data.downloads.version }}-{{ platform.name | downcase }}-{{ asset.title | replace: ".", "" | downcase }}",
-              "name": "ActivityWatch {{ site.data.downloads.version }} {{ platform.name }} {{ asset.title }}",
+              "@id": "activitywatch-{{ site.data.downloads.stable.version }}-{{ platform.name | downcase }}-{{ asset.title | replace: ".", "" | downcase }}",
+              "name": "ActivityWatch {{ site.data.downloads.stable.version }} {{ platform.name }} {{ asset.title }}",
               "operatingSystem": "{{ platform.name }}"
             }
           },
