@@ -9,10 +9,10 @@ article.container
   header
     h1 Downloads
 
-  h3.mt-4.mb-2 ActivityWatch {{ site.data.downloads.version }}
+  h3.mt-4.mb-2 ActivityWatch {{ site.data.downloads.stable.version }}
 
   div.row.mt-4
-    | {% for platform in site.data.downloads.platforms %}
+    | {% for platform in site.data.downloads.stable.platforms %}
     div.col-md-6(id="{{ platform.name }}")
       b {{ platform.name }}
       ul
@@ -22,6 +22,23 @@ article.container
           | {{ asset.description }}
         | {% endfor %}
     | {% endfor %}
+
+  | {% if site.data.downloads.prerelease %}
+  h3.mt-5.mb-2 Pre-release: ActivityWatch {{ site.data.downloads.prerelease.version }}
+  p.small.dim
+    | A newer pre-release is available for testing new features and fixes. It may be unstable — for everyday use, prefer the stable release above.
+  div.row.mt-2
+    | {% for platform in site.data.downloads.prerelease.platforms %}
+    div.col-md-6(id="prerelease-{{ platform.name }}")
+      b {{ platform.name }}
+      ul
+        | {% for asset in platform.assets %}
+        li
+          a(href="{{asset.url}}" style="{% if forloop.first %} font-weight: bold {% endif %}") {{ asset.title }}
+          | {{ asset.description }}
+        | {% endfor %}
+    | {% endfor %}
+  | {% endif %}
 
   div For help on how to get started, see the #[a(href="https://docs.activitywatch.net/en/latest/getting-started.html") Getting Started guide] in the documentation.
 
