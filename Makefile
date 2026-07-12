@@ -68,3 +68,5 @@ img/stats: stats
 	cd stats && poetry run python analyze_stats.py --since 2017-07-01 --column 'Chrome WAU' --title 'Chrome Weekly Active Users' --save ../img/stats/chrome-wau.png
 	cd stats && poetry run python analyze_stats.py --since 2017-07-01 --column 'Firefox DAU' --resample 7D --title 'Firefox Daily Active Users (7D mean)' --save ../img/stats/firefox-dau-7d.png
 	cd stats && poetry run python analyze_stats.py --since 2017-07-01 --column 'Android installed devices' --title 'Android Installed Devices' --save ../img/stats/android-devices.png
+	cd stats && poetry run python analyze_stats.py --since 2019-01-01 --column 'Android Play Store rating' --title 'Android Play Store Rating' --save ../img/stats/android-rating.png
+	cd stats && poetry run python analyze_stats.py --since 2025-06-01 --column 'Android crash rate (%)' --title 'Android Crash Rate (user-perceived, %)' --save ../img/stats/android-crash-rate.png
