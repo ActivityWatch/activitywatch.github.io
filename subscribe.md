@@ -6,9 +6,7 @@ permalink: /subscribe/
 
 <!--
   AW Pro / patronage subscribe page. DRAFT — Erik to iterate.
-  Stripe Payment Links below are PLACEHOLDERS: create them in the Stripe Dashboard
-  (test mode first) per knowledge/strategic/aw-pro-stripe-setup-spec.md, then replace
-  the href="#" values. Links should carry ?src= for the counting-redirect instrumentation.
+  Checkout stays intentionally unpublished until the Stripe Payment Links are ready.
 -->
 
 ActivityWatch is free, open source, and runs entirely on your own machine — no account, no cloud, no tracking. Your data never leaves your computer, and it never will.
@@ -21,16 +19,11 @@ That independence has a cost. ActivityWatch is built by a tiny team, with no ven
 
 For individuals. Prefer to pay yearly? **$50/year** (two months free).
 
-<a class="btn btn-success" href="#" role="button"><!-- TODO: Stripe Payment Link awpro_personal_monthly?src=web-subscribe -->Subscribe monthly</a>
-<a class="btn btn-outline-success" href="#" role="button"><!-- TODO: Stripe Payment Link awpro_personal_yearly?src=web-subscribe -->Subscribe yearly</a>
-
-*Optional:* flip on a supporter badge in the app if you'd like one. That's the only visible difference — no gated features, ever. (Client-side, off by default, nothing phones home.)
+*Monthly and yearly checkout links are being prepared. This page is a preview; subscriptions are not open yet.*
 
 ### Business — $20 per user / month
 
 For teams and companies using ActivityWatch at work. Includes a proper VAT invoice. Minimum one seat.
-
-<a class="btn btn-success" href="#" role="button"><!-- TODO: Stripe Payment Link awpro_business_seat?src=web-subscribe -->Subscribe</a>
 
 ### Believer — one-time
 
@@ -38,8 +31,6 @@ For people who want ActivityWatch to still be here in a decade.
 
 - **$250** — a five-year vote of confidence
 - **$450** — a ten-year vote of confidence
-
-<a class="btn btn-outline-success" href="#" role="button"><!-- TODO: Stripe Payment Link awpro_believer_5yr?src=web-subscribe -->Contribute</a>
 
 ---
 
@@ -52,7 +43,7 @@ Because free software still costs real time to maintain, support, and improve. I
 No, and that's on purpose. We don't want a version of ActivityWatch that's deliberately worse unless you pay. Every feature ships to everyone. You're funding the project, not buying a tier.
 
 **Can I cancel anytime?**
-Yes — one click in the [customer portal](#). No emails to write, no retention traps.
+Yes. Self-service subscription management will be available when checkout opens. No emails to write, no retention traps.
 
 **Where does the money go?**
 Development, maintenance, and keeping ActivityWatch independent: no ads, no selling data, no pressure to get acquired. ActivityWatch is developed by [Superuser Labs](https://superuserlabs.org), a small company in Sweden. See the [full breakdown on our donate page](/donate/).
