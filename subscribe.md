@@ -6,7 +6,8 @@ permalink: /subscribe/
 
 <!--
   AW Pro / patronage subscribe page. DRAFT — Erik to iterate.
-  Checkout stays intentionally unpublished until the Stripe Payment Links are ready.
+  Subscriptions are live via Stripe Payment Links, routed through /go/ for
+  privacy-clean click instrumentation. Buttons link /go/?src=web-subscribe&to=<key>.
 -->
 
 ActivityWatch is free, open source, and runs entirely on your own machine — no account, no cloud, no tracking. Your data never leaves your computer, and it never will.
@@ -19,11 +20,14 @@ That independence has a cost. ActivityWatch is built by a tiny team, with no ven
 
 For individuals. Prefer to pay yearly? **$50/year** (two months free).
 
-*Monthly and yearly checkout links are being prepared. This page is a preview; subscriptions are not open yet.*
+<a class="btn btn-success" href="/go/?src=web-subscribe&amp;to=stripe-personal-monthly" role="button">Subscribe monthly</a>
+<a class="btn btn-outline-success" href="/go/?src=web-subscribe&amp;to=stripe-personal-yearly" role="button">Subscribe yearly</a>
 
 ### Business — $20 per user / month
 
-For teams and companies using ActivityWatch at work. Includes a proper VAT invoice. Minimum one seat.
+For teams and companies using ActivityWatch at work. Per seat (set the quantity at checkout), VAT invoice with reverse-charge for EU VAT numbers. Minimum one seat.
+
+<a class="btn btn-success" href="/go/?src=web-subscribe&amp;to=stripe-business-seat" role="button">Subscribe</a>
 
 ### Believer — one-time
 
@@ -31,6 +35,9 @@ For people who want ActivityWatch to still be here in a decade.
 
 - **$250** — a five-year vote of confidence
 - **$450** — a ten-year vote of confidence
+
+<a class="btn btn-outline-success" href="/go/?src=web-subscribe&amp;to=stripe-believer-5yr" role="button">Contribute $250</a>
+<a class="btn btn-outline-success" href="/go/?src=web-subscribe&amp;to=stripe-believer-10yr" role="button">Contribute $450</a>
 
 ---
 
@@ -43,7 +50,7 @@ Because free software still costs real time to maintain, support, and improve. I
 No, and that's on purpose. We don't want a version of ActivityWatch that's deliberately worse unless you pay. Every feature ships to everyone. You're funding the project, not buying a tier.
 
 **Can I cancel anytime?**
-Yes. Self-service subscription management will be available when checkout opens. No emails to write, no retention traps.
+Yes — one click in Stripe's customer portal (linked from your receipt). No emails to write, no retention traps.
 
 **What does my subscription pay for?**
 Full-time development. The goal is simple: enough recurring supporters to fund ongoing work on ActivityWatch. Even a small fraction of our roughly 100,000 active users subscribing would fund a developer full-time — and as the userbase grows, so does what we can build.
