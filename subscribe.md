@@ -45,8 +45,11 @@ No, and that's on purpose. We don't want a version of ActivityWatch that's delib
 **Can I cancel anytime?**
 Yes. Self-service subscription management will be available when checkout opens. No emails to write, no retention traps.
 
+**What does my subscription pay for?**
+Full-time development. The goal is simple: enough recurring supporters to fund ongoing work on ActivityWatch. Even a small fraction of our roughly 100,000 active users subscribing would fund a developer full-time — and as the userbase grows, so does what we can build.
+
 **Where does the money go?**
-Development, maintenance, and keeping ActivityWatch independent: no ads, no selling data, no pressure to get acquired. ActivityWatch is developed by [Superuser Labs](https://superuserlabs.org), a small company in Sweden. See the [full breakdown on our donate page](/donate/).
+Development, maintenance, and keeping ActivityWatch independent: no ads, no selling data, no pressure to get acquired. ActivityWatch is developed by [Superuser Labs](https://superuserlabs.org), a small Swedish company **100% owned by its founder** — no investors, no outside owners. We keep our finances in the open: see the [company's public financials](https://github.com/SuperuserLabs/meta), the annual report via [allabolag](https://www.allabolag.se/5593881773), and the [full breakdown on our donate page](/donate/).
 
 **I can't afford it / I'm a student.**
 Then don't — keep using everything for free, with our blessing. Tell a friend about ActivityWatch instead. That helps too.
