@@ -20,6 +20,11 @@ import yaml
 
 API = "https://api.github.com/repos/ActivityWatch/activitywatch/releases"
 
+# Only standard-edition tags. Suffixed variants like v0.14.0b3-research are
+# also flagged prerelease on GitHub but must never be surfaced as the site's
+# beta — an allowlist keeps any future suffixed variant out too.
+STANDARD_TAG = re.compile(r"^v\d+\.\d+\.\d+(?:(?:a|b|rc)\d+)?$")
+
 # Static (non-GitHub) distribution links, appended per platform for the stable
 # release only — package managers and the Play Store track stable, not betas.
 PACKAGE_LINKS = {
@@ -125,9 +130,11 @@ if __name__ == "__main__":
     if not isinstance(releases, list):
         raise SystemExit(f"Unexpected GitHub API response (not a release list): {releases}")
 
-    # Ignore drafts and anything <1h old (assets may still be uploading).
+    # Ignore drafts, anything <1h old (assets may still be uploading), and
+    # non-standard editions (research builds etc.).
     releases = [r for r in releases
-                if not r["draft"] and is_older(r["created_at"], timedelta(hours=1))]
+                if not r["draft"] and is_older(r["created_at"], timedelta(hours=1))
+                and STANDARD_TAG.match(r["tag_name"])]
     releases.sort(key=lambda r: r["created_at"])
 
     stable = [r for r in releases if not r["prerelease"]]
