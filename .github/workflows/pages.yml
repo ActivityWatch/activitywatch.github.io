@@ -50,6 +50,7 @@ jobs:
         run: |
           source venv/bin/activate || source venv/Scripts/activate
           pip install -r requirements.txt
+          python3 scripts/test_update_downloads.py
           make update-downloads
 
       - name: Build 🔧 # This example project is built using npm and outputs the result to the 'build' folder. Replace with the commands required to build your project, or remove this step entirely if your site is pre-built.

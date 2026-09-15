@@ -69,6 +69,11 @@ PLATFORM_SPECS = {
     ],
 }
 
+# macOS ships one asset per architecture; Windows/Linux stay single-pick.
+MULTI_ARCH_PLATFORMS = {"macOS"}
+
+_ARCH_ORDER = {"arm64": 0, "x86_64": 1, "unknown": 2}
+
 
 def _arch(asset: dict) -> str:
     name = asset["name"].lower()
@@ -79,11 +84,40 @@ def _arch(asset: dict) -> str:
     return ""
 
 
-def _pick(assets: list, pattern: str):
-    """First asset matching pattern, preferring the plain (non-tauri) build."""
+def _arch_key(name: str) -> str:
+    n = name.lower()
+    if "arm64" in n or "aarch64" in n:
+        return "arm64"
+    if "x86_64" in n or "amd64" in n:
+        return "x86_64"
+    return "unknown"
+
+
+def _matches(assets: list, pattern: str) -> list:
+    """Assets matching pattern, preferring the plain (non-tauri) build."""
     cands = [a for a in assets if re.search(pattern, a["name"], re.I)]
     cands.sort(key=lambda a: ("tauri" in a["name"].lower(), len(a["name"])))
+    return cands
+
+
+def _pick(assets: list, pattern: str):
+    """First asset matching pattern, preferring the plain (non-tauri) build."""
+    cands = _matches(assets, pattern)
     return cands[0] if cands else None
+
+
+def _pick_per_arch(assets: list, pattern: str) -> list:
+    """One asset per architecture, preferring the plain (non-tauri) build.
+
+    `_pick` returns a single candidate, which silently drops Intel (or Apple
+    Silicon) when a release ships both. macOS 0.14+ does that.
+    """
+    by_arch = {}
+    for a in _matches(assets, pattern):
+        key = _arch_key(a["name"])
+        if key not in by_arch:
+            by_arch[key] = a
+    return [by_arch[k] for k in sorted(by_arch, key=lambda k: _ARCH_ORDER.get(k, 9))]
 
 
 def platforms_for(release: dict, include_packages: bool) -> list:
@@ -92,14 +126,17 @@ def platforms_for(release: dict, include_packages: bool) -> list:
     for name, specs in PLATFORM_SPECS.items():
         entries = []
         for pattern, title, desc in specs:
-            a = _pick(assets, pattern)
-            if not a:
-                continue
-            entry = {"title": title, "url": a["browser_download_url"]}
-            d = desc(a) if callable(desc) else desc
-            if d:
-                entry["description"] = d
-            entries.append(entry)
+            if name in MULTI_ARCH_PLATFORMS:
+                picked = _pick_per_arch(assets, pattern)
+            else:
+                a = _pick(assets, pattern)
+                picked = [a] if a else []
+            for a in picked:
+                entry = {"title": title, "url": a["browser_download_url"]}
+                d = desc(a) if callable(desc) else desc
+                if d:
+                    entry["description"] = d
+                entries.append(entry)
         if include_packages:
             entries += PACKAGE_LINKS.get(name, [])
         if entries:
