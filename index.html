@@ -499,6 +499,18 @@ function getDownloadInfo() {
     let platforms = JSON.parse(`[{"name":"Windows","assets":[{"title":"Installer","url":"https://github.com/ActivityWatch/activitywatch/releases/download/v0.13.2/activitywatch-v0.13.2-windows-x86_64-setup.exe","description":" (recommended)"},{"title":".zip","url":"https://github.com/ActivityWatch/activitywatch/releases/download/v0.13.2/activitywatch-v0.13.2-windows-x86_64.zip"},{"title":"Chocolatey","url":"https://chocolatey.org/packages/activitywatch"}]},{"name":"Linux","assets":[{"title":".zip","url":"https://github.com/ActivityWatch/activitywatch/releases/download/v0.13.2/activitywatch-v0.13.2-linux-x86_64.zip"},{"title":".AppImage","url":"https://github.com/ActivityWatch/activitywatch/releases/download/v0.13.2/activitywatch-linux-x86_64.AppImage"},{"title":".deb","url":"https://github.com/ActivityWatch/activitywatch/releases/download/v0.13.2/activitywatch-v0.13.2-linux-x86_64.deb"},{"title":"AUR","description":", for Arch Linux and Manjaro","url":"https://aur.archlinux.org/packages/activitywatch-bin/"},{"title":"nixpkgs","description":", for NixOS","url":"https://search.nixos.org/packages?query=activitywatch&show=activitywatch"}]},{"name":"macOS","assets":[{"title":".dmg","url":"https://github.com/ActivityWatch/activitywatch/releases/download/v0.13.2/activitywatch-v0.13.2-macos-x86_64.dmg","description":" (recommended) (Intel)"},{"title":".zip","url":"https://github.com/ActivityWatch/activitywatch/releases/download/v0.13.2/activitywatch-v0.13.2-macos-x86_64.zip","description":" (Intel)"},{"title":"Homebrew","url":"https://formulae.brew.sh/cask/activitywatch"}]},{"name":"Android","assets":[{"title":"Play Store","description":" (beta)","url":"https://play.google.com/store/apps/details?id=net.activitywatch.android"}]}]`);
     let p = platforms.filter((p) => p.name === os)[0] || null;
     if (p !== null) {
+      // macOS 0.14+ ships both Apple Silicon and Intel. The first listed
+      // .dmg is not the right download for every Mac, so send those users
+      // to the downloads page instead of guessing the architecture.
+      if (os === "macOS") {
+        const dmgs = p.assets.filter((a) => a.title === ".dmg");
+        if (dmgs.length > 1) {
+          return {
+            title: `${p.name}, pick architecture, ${version}`,
+            url: "/downloads/#macos",
+          };
+        }
+      }
       return {
         title: `${p.name}, ${p.assets[0].title}, ${version}`,
         url: p.assets[0].url,
