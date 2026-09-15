@@ -30,6 +30,18 @@ function getDownloadInfo() {
     let platforms = JSON.parse(`{{ site.data.downloads.stable.platforms | jsonify }}`);
     let p = platforms.filter((p) => p.name === os)[0] || null;
     if (p !== null) {
+      // macOS 0.14+ ships both Apple Silicon and Intel. The first listed
+      // .dmg is not the right download for every Mac, so send those users
+      // to the downloads page instead of guessing the architecture.
+      if (os === "macOS") {
+        const dmgs = p.assets.filter((a) => a.title === ".dmg");
+        if (dmgs.length > 1) {
+          return {
+            title: `${p.name}, pick architecture, ${version}`,
+            url: "/downloads/#macos",
+          };
+        }
+      }
       return {
         title: `${p.name}, ${p.assets[0].title}, ${version}`,
         url: p.assets[0].url,
