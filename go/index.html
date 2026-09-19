@@ -122,6 +122,22 @@
 
     var destUrl = DESTINATIONS[destKey] || DESTINATIONS[SAFE_DEFAULT];
 
+    // ---- carry the originating surface to Stripe ------------------------
+    // The funnel is two hops (nudge -> /go/ -> /subscribe -> /go/ -> Stripe),
+    // so by the Stripe hop `src` is always `web-subscribe`. `from` carries the
+    // FIRST hop's src through the subscribe page. Both are allowlisted tags,
+    // never free text, so nothing user-specific can reach Stripe.
+    var rawFrom = (params.get("from") || "").toLowerCase().replace(/[^a-z0-9-]/g, "");
+    var origin = KNOWN_SRC.indexOf(rawFrom) !== -1 ? rawFrom : src;
+    if (destKey === "subscribe") {
+      // Hop 1: hand the nudge src to the subscribe page (which forwards it back).
+      destUrl += "?from=" + encodeURIComponent(src);
+    } else if (destKey.indexOf("stripe-") === 0) {
+      // Hop 2: Stripe records it on the Checkout Session (client_reference_id;
+      // alphanumeric/dash/underscore, invalid values are silently dropped).
+      destUrl += "?client_reference_id=" + encodeURIComponent(origin);
+    }
+
     // Keep the fallback link in sync with the resolved destination.
     var fb = document.getElementById("fallback");
     if (fb) { fb.setAttribute("href", destUrl); }
