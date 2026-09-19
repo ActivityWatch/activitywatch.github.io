@@ -10,6 +10,20 @@ permalink: /subscribe/
   privacy-clean click instrumentation. Buttons link /go/?src=web-subscribe&to=<key>.
 -->
 
+<script>
+  // Forward the originating nudge (?from=<src>, set by /go/) to the checkout
+  // hop so Stripe can attribute the subscription. /go/ allowlists the value.
+  // Wait for DOMContentLoaded: the checkout links live further down the page
+  // and do not exist yet while this script is being parsed.
+  document.addEventListener("DOMContentLoaded", function () {
+    var from = (new URLSearchParams(window.location.search).get("from") || "").replace(/[^a-zA-Z0-9-]/g, "");
+    if (!from) { return; }
+    document.querySelectorAll('a[href^="/go/"]').forEach(function (a) {
+      a.href += "&from=" + encodeURIComponent(from);
+    });
+  });
+</script>
+
 ActivityWatch is free, open source, and runs entirely on your own machine — no account, no cloud, no tracking. Your data never leaves your computer, and it never will.
 
 That independence has a cost. ActivityWatch is built by a tiny team, with no venture funding and no ads. Subscriptions from the people who rely on it are what keep it actively maintained, keep the releases coming, and keep it independent.
