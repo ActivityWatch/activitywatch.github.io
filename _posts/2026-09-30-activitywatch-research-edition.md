@@ -28,13 +28,13 @@ The Research Edition is a separate build of ActivityWatch with a privacy filter 
 
 The [Research Edition docs page](https://docs.activitywatch.net/en/latest/research/research-edition.html) has the complete list of what is and is not stored.
 
-Two honest caveats. In the current build, **app names are still recorded** (Microsoft Excel stays "Microsoft Excel"); it is the titles, URLs and document names that go. The filter can also replace app names with categories through a config option, so a variant that needs that is a configuration choice, not new code. And the filter is only as good as the category map, which is why the map belongs to the study.
+Two honest caveats. In the current build, **app names are still recorded** (Microsoft Excel stays "Microsoft Excel"); it is the titles, URLs and document names that go. The filter can also replace app names with categories through a config option, so a variant that needs that is a configuration choice, not new code. The filter is only as good as the category map, which is why the map belongs to the study. And it covers the bundled window watcher: if a participant connects other watchers to the Research Edition, their data ends up in the same export, so studies should tell participants not to.
 
 It also keeps participants' own data separate from the study's. The Research Edition has its own app identity, its own data folder and its own port (5667 instead of 5600), so a participant who already uses ActivityWatch can run both side by side without mixing the two. That lets an ethics approval say "study data is kept apart from the participant's own", and it can be checked, not just promised.
 
 ## How much data
 
-Small: roughly 1-5 MB per participant per week of collection, as an estimate. It is one JSON file, exported by the participant.
+Small: for a default install, roughly 1-5 MB per participant per week of collection, as an estimate. It is one JSON file, exported by the participant. Extra watchers add more, so if you need a firm number for a data-protection review, measure a pilot week.
 
 ## Making a variant for your study
 
@@ -44,7 +44,7 @@ The design is meant to be picked up by the next researcher without starting from
 2. **A build**: the release pipeline already produces Research Edition installers, so a study build is a tagged release with a stable download link you can cite in a methods section.
 3. **A participant guide and export step** to match your protocol. The docs have [participant instructions](https://docs.activitywatch.net/en/latest/research/participant-instructions.html) you can link to or adapt. An Android version exists for the Android build, which is not released yet.
 
-New studies tend to want what the previous one wanted: categorized time, no raw titles or URLs, an easy export, and eventually mobile. The design is aimed at passing ethics review, but your committee decides that for your study, so bring its requirements and we can adjust the build.
+New studies tend to want what the previous one wanted: categorized time, no raw titles or URLs, an easy export, and eventually mobile. Ethics committees decide for themselves, but the design is built around data minimisation: titles and URLs never reach storage, nothing is sent live, and the participant exports a single file they can inspect. Bring your committee's requirements and we can adjust the build to them.
 
 ## Mobile
 
