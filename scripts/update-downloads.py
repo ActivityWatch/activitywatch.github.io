@@ -46,7 +46,7 @@ PACKAGE_LINKS = {
 ANDROID = {
     "name": "Android",
     "assets": [
-        {"title": "Play Store", "description": " (beta)",
+        {"title": "Play Store",
          "url": "https://play.google.com/store/apps/details?id=net.activitywatch.android"},
     ],
 }

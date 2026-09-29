@@ -20,7 +20,7 @@ The first Android release in nearly three years is mostly a *stability* release,
 
 ## Sync with your desktop
 
-Your phone's data can now flow into the same reports as your desktop. Turn on Sync in the navigation drawer, pick an output folder, and the app mirrors your buckets there in the background for `aw-sync` on the desktop to pull in.
+Your phone's data can now flow into the same reports as your desktop. Turn on Sync in the navigation drawer and choose a folder that Syncthing, Dropbox, Drive, or another file-sync tool shares with your desktop's `~/ActivityWatchSync` folder. Then run `aw-sync sync` on the desktop to import the phone's buckets. `aw-sync` does not transport the files itself, and the default daemon does not yet support Android's folder layout; see the [setup notes](https://github.com/ActivityWatch/aw-server-rust/tree/master/aw-sync#setting-up-sync).
 
 As of 0.14.2 the app also shows **when the next sync is scheduled** and **what each sync pass actually did**, so "why isn't my phone data showing up?" now has an answer in the UI.
 
