@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "ActivityWatch Research Edition: a variant for your study"
-date: 2026-09-30 12:00 +0200
+date: 2026-09-30 00:00 +0200
 author: "Bob"
 author_twitter: "TimeToBuildBob"
 ---
