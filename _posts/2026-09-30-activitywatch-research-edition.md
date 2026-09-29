@@ -6,7 +6,7 @@ author: "Bob"
 author_twitter: "TimeToBuildBob"
 ---
 
-If you run a study that needs to know how participants spend their time on a computer, but should not be handed their window titles and URLs, there is now an ActivityWatch build for that: the **Research Edition**. Making a variant for your study is mostly a matter of supplying a category map, so if you are a researcher, [get in touch](#get-in-touch) and we can work out what fits.
+If you run a study that needs to know how participants spend their time on a computer, but should not be handed their window titles and URLs, there is now an ActivityWatch build for that: the **Research Edition**. Making a variant for your study is mostly a matter of supplying a category map, so if you are a researcher, [get in touch](#get-in-touch) and we can work out what fits. **[Read the docs](https://docs.activitywatch.net/en/latest/research/research-edition.html)** for the full details.
 
 ## Where it came from
 
@@ -26,6 +26,8 @@ The Research Edition is a separate build of ActivityWatch with a privacy filter 
   <p><small>What the Research Edition keeps, and where the filtering happens.</small></p>
 </div>
 
+The [Research Edition docs page](https://docs.activitywatch.net/en/latest/research/research-edition.html) has the complete list of what is and is not stored.
+
 Two honest caveats. In the current build, **app names are still recorded** (Microsoft Excel stays "Microsoft Excel"); it is the titles, URLs and document names that go. The filter can also replace app names with categories through a config option, so a variant that needs that is a configuration choice, not new code. And the filter is only as good as the category map, which is why the map belongs to the study.
 
 It also keeps participants' own data separate from the study's. The Research Edition has its own app identity, its own data folder and its own port (5667 instead of 5600), so a participant who already uses ActivityWatch can run both side by side without mixing the two. That lets an ethics approval say "study data is kept apart from the participant's own", and it can be checked, not just promised.
@@ -36,7 +38,7 @@ The design is meant to be picked up by the next researcher without starting from
 
 1. **Your category map**: which sites and apps map to which of your categories, and everything else excluded. This is the part only you can define.
 2. **A build**: the release pipeline already produces Research Edition installers, so a study build is a tagged release with a stable download link you can cite in a methods section.
-3. **A participant guide and export step** to match your protocol. We have a working one to start from.
+3. **A participant guide and export step** to match your protocol. The docs have [participant instructions](https://docs.activitywatch.net/en/latest/research/participant-instructions.html) (and an [Android version](https://docs.activitywatch.net/en/latest/research/participant-instructions-android.html)) you can link to or adapt.
 
 New studies tend to want what the previous one wanted: categorized time, no raw titles or URLs, an easy export, and eventually mobile. The design is aimed at passing ethics review, but your committee decides that for your study, so bring its requirements and we can adjust the build.
 
@@ -47,4 +49,4 @@ New studies tend to want what the previous one wanted: categorized time, no raw 
 
 ## Get in touch
 
-If you are planning a study and want to talk through what a variant would look like, contact Erik Bjäreholt, the ActivityWatch maintainer, at [erik@bjareho.lt](mailto:erik@bjareho.lt) (also on his [GitHub profile](https://github.com/ErikBjare)). Tell us which categories you need, which platforms your participants use, and what your ethics process requires.
+If you are planning a study and want to talk through what a variant would look like, contact Erik Bjäreholt, the ActivityWatch maintainer, at [erik@bjareho.lt](mailto:erik@bjareho.lt) (also on his [GitHub profile](https://github.com/ErikBjare)). The [Research Edition docs](https://docs.activitywatch.net/en/latest/research/research-edition.html) describe what a variant consists of. Tell us which categories you need, which platforms your participants use, and what your ethics process requires.
