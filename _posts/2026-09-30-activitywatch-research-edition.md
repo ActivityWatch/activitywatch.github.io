@@ -32,13 +32,17 @@ Two honest caveats. In the current build, **app names are still recorded** (Micr
 
 It also keeps participants' own data separate from the study's. The Research Edition has its own app identity, its own data folder and its own port (5667 instead of 5600), so a participant who already uses ActivityWatch can run both side by side without mixing the two. That lets an ethics approval say "study data is kept apart from the participant's own", and it can be checked, not just promised.
 
+## How much data
+
+Small: roughly 1-5 MB per participant per week of collection, as an estimate. It is one JSON file, exported by the participant.
+
 ## Making a variant for your study
 
 The design is meant to be picked up by the next researcher without starting from scratch. A variant is mostly:
 
 1. **Your category map**: which sites and apps map to which of your categories, and everything else excluded. This is the part only you can define.
 2. **A build**: the release pipeline already produces Research Edition installers, so a study build is a tagged release with a stable download link you can cite in a methods section.
-3. **A participant guide and export step** to match your protocol. The docs have [participant instructions](https://docs.activitywatch.net/en/latest/research/participant-instructions.html) (and an [Android version](https://docs.activitywatch.net/en/latest/research/participant-instructions-android.html)) you can link to or adapt.
+3. **A participant guide and export step** to match your protocol. The docs have [participant instructions](https://docs.activitywatch.net/en/latest/research/participant-instructions.html) you can link to or adapt. An Android version exists for the Android build, which is not released yet.
 
 New studies tend to want what the previous one wanted: categorized time, no raw titles or URLs, an easy export, and eventually mobile. The design is aimed at passing ethics review, but your committee decides that for your study, so bring its requirements and we can adjust the build.
 
