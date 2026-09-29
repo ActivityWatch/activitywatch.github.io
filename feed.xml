@@ -6,13 +6,20 @@
 </description>
     <link>https://activitywatch.net/</link>
     <atom:link href="https://activitywatch.net/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Tue, 29 Sep 2026 13:14:34 +0000</pubDate>
-    <lastBuildDate>Tue, 29 Sep 2026 13:14:34 +0000</lastBuildDate>
+    <pubDate>Tue, 29 Sep 2026 16:00:27 +0000</pubDate>
+    <lastBuildDate>Tue, 29 Sep 2026 16:00:27 +0000</lastBuildDate>
     <generator>Jekyll v4.3.2</generator>
     
       <item>
         <title>ActivityWatch has passed 1 million downloads</title>
         <description>&lt;p&gt;ActivityWatch has passed &lt;strong&gt;1 million downloads&lt;/strong&gt;. The desktop app’s GitHub Releases alone now count over 1.18 million, and that doesn’t include package managers, distro repositories, Google Play, or F-Droid. We didn’t mark the moment when it happened, so this is us catching up.&lt;/p&gt;
+
+&lt;div class=&quot;text-center my-3&quot;&gt;
+  &lt;img src=&quot;/img/stats/downloads.png&quot; alt=&quot;Cumulative ActivityWatch downloads passing 1 million, and weekly downloads rising to over 10,000&quot; style=&quot;max-width: 100%;&quot; /&gt;
+  &lt;p&gt;&lt;small&gt;Cumulative and weekly desktop downloads from GitHub Releases. Live chart on the &lt;a href=&quot;/stats/&quot;&gt;stats page&lt;/a&gt;, along with users, stars, and Android numbers.&lt;/small&gt;&lt;/p&gt;
+&lt;/div&gt;
+
+&lt;p&gt;The weekly rate has roughly quadrupled since 2023 and is now over 10,000 downloads a week.&lt;/p&gt;
 
 &lt;p&gt;ActivityWatch is free, open source, and stores your data on your own machine. It has been built mostly by volunteers, so a number like this means a lot to us. Thank you to every user, and to every contributor who has written code, watchers, translations, docs, or bug reports.&lt;/p&gt;
 
@@ -43,6 +50,15 @@
 
 &lt;h2 id=&quot;crashes-and-performance&quot;&gt;Crashes and performance&lt;/h2&gt;
 
+&lt;p&gt;The numbers from Google Play show it. User-perceived crash rate averaged about &lt;strong&gt;7.8%&lt;/strong&gt; from January to late August 2026 and has been about &lt;strong&gt;0.9%&lt;/strong&gt; in September, as the 0.14 builds reached Google Play.&lt;/p&gt;
+
+&lt;div class=&quot;text-center my-3&quot;&gt;
+  &lt;img src=&quot;/img/stats/android-crash-rate.png&quot; alt=&quot;ActivityWatch Android user-perceived crash rate over time, dropping from roughly 5-10% to about 1% in late August 2026&quot; style=&quot;max-width: 100%;&quot; /&gt;
+  &lt;p&gt;&lt;small&gt;Android user-perceived crash rate, from Google Play vitals. Live chart on the &lt;a href=&quot;/stats/&quot;&gt;stats page&lt;/a&gt;.&lt;/small&gt;&lt;/p&gt;
+&lt;/div&gt;
+
+&lt;p&gt;What changed:&lt;/p&gt;
+
 &lt;ul&gt;
   &lt;li&gt;&lt;strong&gt;Startup hangs.&lt;/strong&gt; A slow datastore used to turn app start into a hang. Startup paths are now hardened (#262).&lt;/li&gt;
   &lt;li&gt;&lt;strong&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;StackOverflowError&lt;/code&gt; in the watcher.&lt;/strong&gt; Accessibility tree traversal is now bounded, so devices with deep view hierarchies no longer blow the stack (#269).&lt;/li&gt;
@@ -71,6 +87,7 @@
 
 &lt;ul&gt;
   &lt;li&gt;Update via Google Play, or grab the APK from the &lt;a href=&quot;https://github.com/ActivityWatch/aw-android/releases/tag/v0.14.2&quot;&gt;GitHub release&lt;/a&gt;.&lt;/li&gt;
+  &lt;li&gt;Live Android stats (installs, rating, crash rate): &lt;a href=&quot;/stats/&quot;&gt;activitywatch.net/stats&lt;/a&gt;&lt;/li&gt;
   &lt;li&gt;Full changelog: &lt;a href=&quot;https://github.com/ActivityWatch/aw-android/releases/tag/v0.14.0&quot;&gt;v0.14.0&lt;/a&gt;, &lt;a href=&quot;https://github.com/ActivityWatch/aw-android/releases/tag/v0.14.1&quot;&gt;v0.14.1&lt;/a&gt;, &lt;a href=&quot;https://github.com/ActivityWatch/aw-android/releases/tag/v0.14.2&quot;&gt;v0.14.2&lt;/a&gt;.&lt;/li&gt;
 &lt;/ul&gt;
 
