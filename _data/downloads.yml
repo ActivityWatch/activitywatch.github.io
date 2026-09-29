@@ -38,7 +38,6 @@ stable:
   - name: Android
     assets:
     - title: Play Store
-      description: ' (beta)'
       url: https://play.google.com/store/apps/details?id=net.activitywatch.android
 prerelease:
   version: v0.14.0b1
