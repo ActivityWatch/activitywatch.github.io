@@ -12,6 +12,15 @@ The first Android release in nearly three years is mostly a *stability* release,
 
 ## Crashes and performance
 
+The numbers from Google Play show it. User-perceived crash rate averaged about **7.8%** from January to late August 2026 and has been about **0.9%** in September, as the 0.14 builds reached Google Play.
+
+<div class="text-center my-3">
+  <img src="/img/stats/android-crash-rate.png" alt="ActivityWatch Android user-perceived crash rate over time, dropping from roughly 5-10% to about 1% in late August 2026" style="max-width: 100%;">
+  <p><small>Android user-perceived crash rate, from Google Play vitals. Live chart on the <a href="/stats/">stats page</a>.</small></p>
+</div>
+
+What changed:
+
 - **Startup hangs.** A slow datastore used to turn app start into a hang. Startup paths are now hardened (#262).
 - **`StackOverflowError` in the watcher.** Accessibility tree traversal is now bounded, so devices with deep view hierarchies no longer blow the stack (#269).
 - **Off-thread initialization.** The Rust interface is constructed off the calling thread instead of blocking it (#277).
@@ -35,6 +44,7 @@ As of 0.14.2 the app also shows **when the next sync is scheduled** and **what e
 ## Get it
 
 - Update via Google Play, or grab the APK from the [GitHub release](https://github.com/ActivityWatch/aw-android/releases/tag/v0.14.2).
+- Live Android stats (installs, rating, crash rate): [activitywatch.net/stats](/stats/)
 - Full changelog: [v0.14.0](https://github.com/ActivityWatch/aw-android/releases/tag/v0.14.0), [v0.14.1](https://github.com/ActivityWatch/aw-android/releases/tag/v0.14.1), [v0.14.2](https://github.com/ActivityWatch/aw-android/releases/tag/v0.14.2).
 
 If something still breaks, [open an issue](https://github.com/ActivityWatch/aw-android/issues). Thanks to everyone who reported problems during the beta, and to the contributors who fixed them.
