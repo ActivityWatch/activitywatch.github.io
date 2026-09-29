@@ -42,7 +42,7 @@ The design is meant to be picked up by the next researcher without starting from
 
 1. **Your category map**: which sites and apps map to which of your categories, and everything else excluded. This is the part only you can define.
 2. **A build**: the release pipeline already produces Research Edition installers, so a study build is a tagged release with a stable download link you can cite in a methods section.
-3. **A participant guide and export step** to match your protocol. The docs have [participant instructions](https://docs.activitywatch.net/en/latest/research/participant-instructions.html) you can link to or adapt. An Android version exists for the Android build, which is not released yet.
+3. **A participant guide and export step** to match your protocol. The docs have [participant instructions](https://docs.activitywatch.net/en/latest/research/participant-instructions.html) you can link to or adapt. They cover Windows and macOS; a Linux version can be written if a study needs one. An Android version exists for the Android build, which is not released yet.
 
 New studies tend to want what the previous one wanted: categorized time, no raw titles or URLs, an easy export, and eventually mobile. Ethics committees decide for themselves, but the design is built around data minimisation: titles and URLs never reach storage, nothing is sent live, and the participant exports a single file they can inspect. Bring your committee's requirements and we can adjust the build to them.
 
