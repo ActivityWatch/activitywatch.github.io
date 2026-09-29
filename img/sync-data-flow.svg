@@ -1,0 +1,82 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 470" width="960" height="470" font-family="Helvetica, Arial, sans-serif" role="img" aria-labelledby="t d">
+  <title id="t">ActivityWatch sync data flow</title>
+  <desc id="d">Each device pushes its own buckets into a staging database it owns inside a shared sync folder. A file-sync tool copies the folder between devices: Syncthing, rsync, or a self-hosted share stay on machines you control; Dropbox or Google Drive copy through that provider. A desktop's aw-sync then reads the other devices' databases read-only and imports their events as synced-from buckets into its local aw-server. The combined web UI view for those buckets is merged but not in the current beta. The Android app only pushes in version 0.14.</desc>
+  <defs>
+    <marker id="a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#333"/></marker>
+    <marker id="g" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#888"/></marker>
+  </defs>
+  <rect width="960" height="470" fill="#ffffff"/>
+
+  <!-- column headers -->
+  <g font-size="13" font-weight="bold" fill="#555" text-anchor="middle">
+    <text x="150" y="28">1. Each device writes only its own files</text>
+    <text x="480" y="28">2. A file-sync tool copies the folder</text>
+    <text x="810" y="28">3. A desktop imports the others</text>
+  </g>
+
+  <!-- Desktop A -->
+  <rect x="20" y="46" width="260" height="120" rx="8" fill="#eaf4e8" stroke="#4a8a3c" stroke-width="1.5"/>
+  <text x="150" y="70" font-size="15" font-weight="bold" text-anchor="middle" fill="#222">Desktop A (host: laptop)</text>
+  <text x="150" y="92" font-size="12" text-anchor="middle" fill="#333">aw-server + local buckets</text>
+  <text x="150" y="110" font-size="11" text-anchor="middle" fill="#444" font-family="monospace">aw-watcher-window_laptop</text>
+  <text x="150" y="126" font-size="11" text-anchor="middle" fill="#444" font-family="monospace">aw-watcher-afk_laptop</text>
+  <text x="150" y="152" font-size="12" text-anchor="middle" fill="#333">aw-sync: push (and pull)</text>
+
+  <!-- Phone -->
+  <rect x="20" y="300" width="260" height="120" rx="8" fill="#eaf4e8" stroke="#4a8a3c" stroke-width="1.5"/>
+  <text x="150" y="324" font-size="15" font-weight="bold" text-anchor="middle" fill="#222">Phone (Android app 0.14)</text>
+  <text x="150" y="346" font-size="12" text-anchor="middle" fill="#333">local buckets in the app</text>
+  <text x="150" y="364" font-size="11" text-anchor="middle" fill="#444" font-family="monospace">aw-watcher-android_phone</text>
+  <text x="150" y="392" font-size="12" text-anchor="middle" fill="#333">push only (no pull yet)</text>
+  <text x="150" y="408" font-size="11" text-anchor="middle" fill="#555">copies into the folder you picked</text>
+
+  <!-- Sync folder -->
+  <rect x="350" y="70" width="260" height="330" rx="8" fill="#fff6dc" stroke="#b58900" stroke-width="1.5"/>
+  <text x="480" y="94" font-size="15" font-weight="bold" text-anchor="middle" fill="#222">Sync folder</text>
+  <text x="480" y="112" font-size="11" text-anchor="middle" fill="#444" font-family="monospace">~/ActivityWatchSync</text>
+  <rect x="368" y="130" width="224" height="52" rx="5" fill="#ffffff" stroke="#b58900"/>
+  <text x="480" y="150" font-size="11" text-anchor="middle" fill="#333" font-family="monospace">laptop/&lt;device_id&gt;/test.db</text>
+  <text x="480" y="168" font-size="11" text-anchor="middle" fill="#555">staging copy, owned by Desktop A</text>
+  <rect x="368" y="196" width="224" height="52" rx="5" fill="#ffffff" stroke="#b58900"/>
+  <text x="480" y="216" font-size="11" text-anchor="middle" fill="#333" font-family="monospace">phone/&lt;device_id&gt;/test.db</text>
+  <text x="480" y="234" font-size="11" text-anchor="middle" fill="#555">staging copy, owned by the phone</text>
+  <rect x="368" y="262" width="224" height="52" rx="5" fill="#ffffff" stroke="#b58900"/>
+  <text x="480" y="282" font-size="11" text-anchor="middle" fill="#333" font-family="monospace">desktop-b/&lt;device_id&gt;/test.db</text>
+  <text x="480" y="300" font-size="11" text-anchor="middle" fill="#555">staging copy, owned by Desktop B</text>
+  <text x="480" y="342" font-size="12" text-anchor="middle" fill="#333">Syncthing, Dropbox, Drive, rsync ...</text>
+  <text x="480" y="360" font-size="12" text-anchor="middle" fill="#333">replicate this folder between devices.</text>
+  <text x="480" y="382" font-size="11" text-anchor="middle" fill="#555">aw-sync does not move the files itself.</text>
+
+  <!-- Desktop B -->
+  <rect x="680" y="46" width="260" height="250" rx="8" fill="#e6eef9" stroke="#3a65a8" stroke-width="1.5"/>
+  <text x="810" y="70" font-size="15" font-weight="bold" text-anchor="middle" fill="#222">Desktop B (host: desktop-b)</text>
+  <text x="810" y="92" font-size="12" text-anchor="middle" fill="#333">aw-sync pull, read-only on peer files</text>
+  <text x="810" y="114" font-size="12" text-anchor="middle" fill="#333">aw-server buckets after import:</text>
+  <rect x="696" y="124" width="228" height="96" rx="5" fill="#ffffff" stroke="#3a65a8"/>
+  <text x="810" y="144" font-size="11" text-anchor="middle" fill="#333" font-family="monospace">aw-watcher-window_desktop-b</text>
+  <text x="810" y="164" font-size="11" text-anchor="middle" fill="#333" font-family="monospace">aw-watcher-window-synced-from-laptop</text>
+  <text x="810" y="184" font-size="11" text-anchor="middle" fill="#333" font-family="monospace">aw-watcher-android-synced-from-phone</text>
+  <text x="810" y="208" font-size="10" text-anchor="middle" fill="#555">(local first, then one copy per peer)</text>
+  <text x="810" y="244" font-size="12" text-anchor="middle" fill="#333">Web UI: imported buckets visible</text>
+  <text x="810" y="262" font-size="12" text-anchor="middle" fill="#333">combined Activity view not in beta 8</text>
+  <text x="810" y="282" font-size="11" text-anchor="middle" fill="#555">ActivityWatch has no sync server</text>
+
+  <!-- arrows: push -->
+  <path d="M280,106 L350,150" stroke="#333" stroke-width="2" fill="none" marker-end="url(#a)"/>
+  <path d="M280,360 L350,228" stroke="#333" stroke-width="2" fill="none" marker-end="url(#a)"/>
+  <text x="322" y="122" font-size="11" text-anchor="middle" fill="#333">push</text>
+  <text x="322" y="300" font-size="11" text-anchor="middle" fill="#333">push</text>
+  <!-- arrow: pull to desktop B -->
+  <path d="M610,200 L680,200" stroke="#333" stroke-width="2" fill="none" marker-end="url(#a)"/>
+  <text x="645" y="190" font-size="11" text-anchor="middle" fill="#333">pull</text>
+  <!-- desktop B push (into folder) -->
+  <path d="M680,270 L610,288" stroke="#333" stroke-width="2" fill="none" marker-end="url(#a)"/>
+  <text x="645" y="268" font-size="11" text-anchor="middle" fill="#333">push</text>
+
+  <!-- no-pull on phone -->
+  <path d="M350,350 L282,382" stroke="#888" stroke-width="2" stroke-dasharray="5,4" fill="none" marker-end="url(#g)"/>
+  <text x="316" y="402" font-size="11" text-anchor="middle" fill="#777">no pull</text>
+
+  <!-- footer note -->
+  <text x="480" y="452" font-size="11" text-anchor="middle" fill="#555">Desktop A also pulls, exactly like Desktop B. Layout and names as of aw-sync in v0.14.0 betas; the v2 redesign will change the folder format.</text>
+</svg>
