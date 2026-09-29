@@ -1,6 +1,6 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 470" width="960" height="470" font-family="Helvetica, Arial, sans-serif" role="img" aria-labelledby="t d">
   <title id="t">ActivityWatch sync data flow</title>
-  <desc id="d">Each device pushes its own buckets into a staging database it owns inside a shared sync folder. A file-sync tool such as Syncthing or Dropbox copies the folder between devices. A desktop's aw-sync then reads the other devices' databases read-only and imports their events as synced-from buckets into its local aw-server, which the web UI shows as a merged view. The Android app only pushes in version 0.14.</desc>
+  <desc id="d">Each device pushes its own buckets into a staging database it owns inside a shared sync folder. A file-sync tool copies the folder between devices: Syncthing, rsync, or a self-hosted share stay on machines you control; Dropbox or Google Drive copy through that provider. A desktop's aw-sync then reads the other devices' databases read-only and imports their events as synced-from buckets into its local aw-server. The combined web UI view for those buckets is merged but not in the current beta. The Android app only pushes in version 0.14.</desc>
   <defs>
     <marker id="a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#333"/></marker>
     <marker id="g" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#888"/></marker>
@@ -57,9 +57,9 @@
   <text x="810" y="164" font-size="11" text-anchor="middle" fill="#333" font-family="monospace">aw-watcher-window-synced-from-laptop</text>
   <text x="810" y="184" font-size="11" text-anchor="middle" fill="#333" font-family="monospace">aw-watcher-android-synced-from-phone</text>
   <text x="810" y="208" font-size="10" text-anchor="middle" fill="#555">(local first, then one copy per peer)</text>
-  <text x="810" y="244" font-size="12" text-anchor="middle" fill="#333">Web UI: multi-device Activity view</text>
-  <text x="810" y="262" font-size="12" text-anchor="middle" fill="#333">combines these buckets in one query</text>
-  <text x="810" y="282" font-size="11" text-anchor="middle" fill="#555">Data never leaves your own devices</text>
+  <text x="810" y="244" font-size="12" text-anchor="middle" fill="#333">Web UI: imported buckets visible</text>
+  <text x="810" y="262" font-size="12" text-anchor="middle" fill="#333">combined Activity view not in beta 8</text>
+  <text x="810" y="282" font-size="11" text-anchor="middle" fill="#555">ActivityWatch has no sync server</text>
 
   <!-- arrows: push -->
   <path d="M280,106 L350,150" stroke="#333" stroke-width="2" fill="none" marker-end="url(#a)"/>
