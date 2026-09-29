@@ -93,6 +93,16 @@ class PickPerArchTests(unittest.TestCase):
             [".dmg (recommended) (Intel)", ".zip (Intel)"],
         )
 
+    def test_stable_block_lists_android_without_beta_label(self):
+        block = ud.build_block(
+            {"tag_name": "v0.13.2", "assets": STABLE_INTEL_ONLY},
+            include_packages=True,
+            with_android=True,
+        )
+        android = next(p for p in block["platforms"] if p["name"] == "Android")
+        self.assertEqual(android["assets"], [ud.ANDROID["assets"][0]])
+        self.assertNotIn("description", android["assets"][0])
+
 
 if __name__ == "__main__":
     unittest.main()

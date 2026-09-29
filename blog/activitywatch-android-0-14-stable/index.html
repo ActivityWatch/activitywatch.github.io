@@ -3,12 +3,11 @@
   <meta charset="utf-8"/>
   <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
   <meta name="viewport" content="width=device-width,initial-scale=1"/>
-  <title>Downloads | ActivityWatch - Open-source time tracker</title>
-  <meta name="description" content="The best free and open-source automated time tracker. Cross-platform, extensible, local/privacy-first. Tracks app and website usage on Windows, macOS, Linux & Android. All data stays on your device.
-"/>
+  <title>ActivityWatch for Android 0.14 is stable: sync, alerts, and a lot fewer crashes | ActivityWatch - Open-source time tracker</title>
+  <meta name="description" content="ActivityWatch for Android 0.14 is out of beta. It’s the first stable Android release since v0.12.1 in 2023, and the biggest one the app has had: 30 new featu..."/>
   <link rel="icon" type="image/png" href="/img/logo.png"/>
   <link rel="stylesheet" href="/css/main.css"/>
-  <link rel="canonical" href="https://activitywatch.net/downloads/"/>
+  <link rel="canonical" href="https://activitywatch.net/blog/activitywatch-android-0-14-stable/"/>
   <link rel="alternate" type="application/rss+xml" title="ActivityWatch - Open-source time tracker" href="https://activitywatch.net/feed.xml"/>
   <!-- Bootstrap CSS and JS-->
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous"/>
@@ -97,10 +96,9 @@
   <!-- Mailchimp-->
   <script id="mcjs">!function(c,h,i,m,p){m=c.createElement(h),p=c.getElementsByTagName(h)[0],m.async=1,m.src=i,p.parentNode.insertBefore(m,p)}(document,"script","https://chimpstatic.com/mcjs-connected/js/users/0c8e8132be874f0e23d3a9e74/8c84f7d9d83455b08e020d552.js");</script>
   <!-- Open Graph-->
-  <meta property="og:title" content="Downloads"/>
-  <meta property="og:description" content="The best free and open-source automated time tracker. Cross-platform, extensible, local/privacy-first. Tracks app and website usage on Windows, macOS, Linux & Android. All data stays on your device.
-"/>
-  <meta property="og:url" content="https://activitywatch.net/downloads/"/>
+  <meta property="og:title" content="ActivityWatch for Android 0.14 is stable: sync, alerts, and a lot fewer crashes"/>
+  <meta property="og:description" content="ActivityWatch for Android 0.14 is out of beta. It’s the first stable Android release since v0.12.1 in 2023, and the biggest one the app has had: 30 new features, 100 bug fixes, and contributions fr..."/>
+  <meta property="og:url" content="https://activitywatch.net/blog/activitywatch-android-0-14-stable/"/>
   <meta property="og:site_name" content="ActivityWatch - Open-source time tracker"/>
   <meta property="og:type" content="website"/>
   <meta property="og:image" content="https://activitywatch.net/img/media/banners/banner-social.png"/>
@@ -108,7 +106,9 @@
 <!-- From: https://brianbunke.com/blog/2017/09/06/twitter-cards-on-jekyll/#tweak-to-fit-your-needs -->
 <meta name="twitter:site"    content="@ActivityWatchIt">
 
-<meta name="twitter:title"   content="Downloads">
+<meta name="twitter:creator" content="@TimeToBuildBob">
+
+<meta name="twitter:title"   content="ActivityWatch for Android 0.14 is stable: sync, alerts, and a lot fewer crashes">
 
 
 <meta name="twitter:description" content="The best free and open-source automated time tracker. Cross-platform, extensible, local/privacy-first. Tracks app and website usage on Windows, macOS, Linux & Android. All data stays on your device.
@@ -148,85 +148,81 @@
     </nav>
   </body>
 </html>
-    <div class="page-content "><!-- Inspired by: https://syncthing.net/downloads/-->
-<article class="container">
-  <header>
-    <h1>Downloads</h1>
-  </header>
-  <h3 class="mt-4 mb-2">ActivityWatch v0.13.2</h3>
-  <div class="row mt-4">
-    <div class="col-md-6" id="Windows"><b>Windows</b>
-      <ul>
-        <li><a href="https://github.com/ActivityWatch/activitywatch/releases/download/v0.13.2/activitywatch-v0.13.2-windows-x86_64-setup.exe" style=" font-weight: bold ">Installer</a> (recommended)</li>
-        <li><a href="https://github.com/ActivityWatch/activitywatch/releases/download/v0.13.2/activitywatch-v0.13.2-windows-x86_64.zip" style="">.zip</a></li>
-        <li><a href="https://chocolatey.org/packages/activitywatch" style="">Chocolatey</a></li>
-      </ul>
+    <div class="page-content "><div class="wrapper">
+  <article class="post card" itemscope itemtype="http://schema.org/BlogPosting">
+<div class="card-body">
+    <header class="post-header">
+        <h1 class="card-title"><a href="/blog/activitywatch-android-0-14-stable/">ActivityWatch for Android 0.14 is stable: sync, alerts, and a lot fewer crashes</a></h1>
+
+        <div class="post-meta">
+            <span class="meta-box" itemscope itemtype="http://schema.org/Person">
+                <span class="fa fa-user meta-icon"></span>
+                <span itemprop="name">Bob</span>
+            </span>
+            <span class="ml-2">
+                <span class="fa fa-calendar meta-icon"></span>
+                <time datetime="2026-09-29T10:00:00+00:00" itemprop="datePublished">
+                    2026-09-29 10:00 UTC
+                </time>
+            </span>
+        </div>
+    </header>
+
+    
+
+    <div class="post-content" itemprop="articleBody">
+        <p>ActivityWatch for Android 0.14 is out of beta. It’s the first stable Android release since v0.12.1 in 2023, and the biggest one the app has had: 30 new features, 100 bug fixes, and contributions from 32 people. Since v0.14.0 (Sept 13), two follow-ups, v0.14.1 and v0.14.2, have gone out to tighten things up.</p>
+
+<p>The first Android release in nearly three years is mostly a <em>stability</em> release, so we’ll start there.</p>
+
+<h2 id="crashes-and-performance">Crashes and performance</h2>
+
+<ul>
+  <li><strong>Startup hangs.</strong> A slow datastore used to turn app start into a hang. Startup paths are now hardened (#262).</li>
+  <li><strong><code class="language-plaintext highlighter-rouge">StackOverflowError</code> in the watcher.</strong> Accessibility tree traversal is now bounded, so devices with deep view hierarchies no longer blow the stack (#269).</li>
+  <li><strong>Off-thread initialization.</strong> The Rust interface is constructed off the calling thread instead of blocking it (#277).</li>
+  <li><strong>Rotation.</strong> Rotating your phone no longer reloads the WebView and throws away the view you were on (#271).</li>
+  <li><strong>Onboarding.</strong> MainActivity now relaunches correctly once onboarding finishes (#298).</li>
+</ul>
+
+<h2 id="sync-with-your-desktop">Sync with your desktop</h2>
+
+<p>Your phone’s data can now flow into the same reports as your desktop. Turn on Sync in the navigation drawer and choose a folder that Syncthing, Dropbox, Drive, or another file-sync tool shares with your desktop’s <code class="language-plaintext highlighter-rouge">~/ActivityWatchSync</code> folder. Then run <code class="language-plaintext highlighter-rouge">aw-sync sync</code> on the desktop to import the phone’s buckets. <code class="language-plaintext highlighter-rouge">aw-sync</code> does not transport the files itself, and the default daemon does not yet support Android’s folder layout; see the <a href="https://github.com/ActivityWatch/aw-server-rust/tree/master/aw-sync#setting-up-sync">setup notes</a>.</p>
+
+<p>As of 0.14.2 the app also shows <strong>when the next sync is scheduled</strong> and <strong>what each sync pass actually did</strong>, so “why isn’t my phone data showing up?” now has an answer in the UI.</p>
+
+<h2 id="alerts-widget-browser-tracking">Alerts, widget, browser tracking</h2>
+
+<ul>
+  <li><strong>Activity alerts</strong> (via aw-notify): get notified when you’ve spent too long in a category.</li>
+  <li><strong>Home screen widget</strong> with category time, refreshed every five minutes.</li>
+  <li><strong>Firefox and Chrome</strong> browser tracking.</li>
+  <li><strong>Export</strong> to CSV/JSON through the share sheet now works reliably.</li>
+  <li>A <strong>Material You monochrome icon</strong> for Android 12+.</li>
+</ul>
+
+<h2 id="get-it">Get it</h2>
+
+<ul>
+  <li>Update via Google Play, or grab the APK from the <a href="https://github.com/ActivityWatch/aw-android/releases/tag/v0.14.2">GitHub release</a>.</li>
+  <li>Full changelog: <a href="https://github.com/ActivityWatch/aw-android/releases/tag/v0.14.0">v0.14.0</a>, <a href="https://github.com/ActivityWatch/aw-android/releases/tag/v0.14.1">v0.14.1</a>, <a href="https://github.com/ActivityWatch/aw-android/releases/tag/v0.14.2">v0.14.2</a>.</li>
+</ul>
+
+<p>If something still breaks, <a href="https://github.com/ActivityWatch/aw-android/issues">open an issue</a>. Thanks to everyone who reported problems during the beta, and to the contributors who fixed them.</p>
+
     </div>
-    <div class="col-md-6" id="Linux"><b>Linux</b>
-      <ul>
-        <li><a href="https://github.com/ActivityWatch/activitywatch/releases/download/v0.13.2/activitywatch-v0.13.2-linux-x86_64.zip" style=" font-weight: bold ">.zip</a></li>
-        <li><a href="https://github.com/ActivityWatch/activitywatch/releases/download/v0.13.2/activitywatch-linux-x86_64.AppImage" style="">.AppImage</a></li>
-        <li><a href="https://github.com/ActivityWatch/activitywatch/releases/download/v0.13.2/activitywatch-v0.13.2-linux-x86_64.deb" style="">.deb</a></li>
-        <li><a href="https://aur.archlinux.org/packages/activitywatch-bin/" style="">AUR</a>, for Arch Linux and Manjaro</li>
-        <li><a href="https://search.nixos.org/packages?query=activitywatch&show=activitywatch" style="">nixpkgs</a>, for NixOS</li>
-      </ul>
+
+    <div class="footer">
+        <div >
+            <span class="fa fa-link"></span>
+            <a href="/blog/activitywatch-android-0-14-stable/">Permalink</a>
+        </div>
     </div>
-    <div class="col-md-6" id="macOS"><b>macOS</b>
-      <ul>
-        <li><a href="https://github.com/ActivityWatch/activitywatch/releases/download/v0.13.2/activitywatch-v0.13.2-macos-x86_64.dmg" style=" font-weight: bold ">.dmg</a> (recommended) (Intel)</li>
-        <li><a href="https://github.com/ActivityWatch/activitywatch/releases/download/v0.13.2/activitywatch-v0.13.2-macos-x86_64.zip" style="">.zip</a> (Intel)</li>
-        <li><a href="https://formulae.brew.sh/cask/activitywatch" style="">Homebrew</a></li>
-      </ul>
-    </div>
-    <div class="col-md-6" id="Android"><b>Android</b>
-      <ul>
-        <li><a href="https://play.google.com/store/apps/details?id=net.activitywatch.android" style=" font-weight: bold ">Play Store</a></li>
-      </ul>
-    </div>
-  </div>
-  <p class="small dim mt-3">ActivityWatch is free and community-funded. If it's useful to you, consider <a href="/go/?src=download">supporting the project</a> — it keeps development going and the tool independent.</p>
-  <h3 class="mt-5 mb-2">Pre-release: ActivityWatch v0.14.0b8</h3>
-  <p class="small dim">A newer pre-release is available for testing new features and fixes. It may be unstable — for everyday use, prefer the stable release above.</p>
-  <div class="row mt-2">
-    <div class="col-md-6" id="prerelease-Windows"><b>Windows</b>
-      <ul>
-        <li><a href="https://github.com/ActivityWatch/activitywatch/releases/download/v0.14.0b8/activitywatch-v0.14.0b8-windows-x86_64-setup.exe" style=" font-weight: bold ">Installer</a> (recommended)</li>
-        <li><a href="https://github.com/ActivityWatch/activitywatch/releases/download/v0.14.0b8/activitywatch-v0.14.0b8-windows-x86_64.zip" style="">.zip</a></li>
-      </ul>
-    </div>
-    <div class="col-md-6" id="prerelease-Linux"><b>Linux</b>
-      <ul>
-        <li><a href="https://github.com/ActivityWatch/activitywatch/releases/download/v0.14.0b8/activitywatch-v0.14.0b8-linux-x86_64.zip" style=" font-weight: bold ">.zip</a></li>
-        <li><a href="https://github.com/ActivityWatch/activitywatch/releases/download/v0.14.0b8/activitywatch-linux-x86_64.AppImage" style="">.AppImage</a></li>
-        <li><a href="https://github.com/ActivityWatch/activitywatch/releases/download/v0.14.0b8/activitywatch-v0.14.0b8-linux-x86_64.deb" style="">.deb</a></li>
-      </ul>
-    </div>
-    <div class="col-md-6" id="prerelease-macOS"><b>macOS</b>
-      <ul>
-        <li><a href="https://github.com/ActivityWatch/activitywatch/releases/download/v0.14.0b8/activitywatch-v0.14.0b8-macos-arm64.dmg" style=" font-weight: bold ">.dmg</a> (recommended) (Apple Silicon)</li>
-        <li><a href="https://github.com/ActivityWatch/activitywatch/releases/download/v0.14.0b8/activitywatch-v0.14.0b8-macos-x86_64.dmg" style="">.dmg</a> (recommended) (Intel)</li>
-        <li><a href="https://github.com/ActivityWatch/activitywatch/releases/download/v0.14.0b8/activitywatch-v0.14.0b8-macos-arm64.zip" style="">.zip</a> (Apple Silicon)</li>
-        <li><a href="https://github.com/ActivityWatch/activitywatch/releases/download/v0.14.0b8/activitywatch-v0.14.0b8-macos-x86_64.zip" style="">.zip</a> (Intel)</li>
-      </ul>
-    </div>
-  </div>
-  <div>For help on how to get started, see the <a href="https://docs.activitywatch.net/en/latest/getting-started.html">Getting Started guide</a> in the documentation.</div>
-  <div>Looking for an older or pre-release version? You can find all <a href="https://github.com/ActivityWatch/activitywatch/releases">releases on GitHub</a>.</div>
-  <p class="mt-2">macOS support varies by release. If you need a specific macOS version or Intel/Apple Silicon build, check the GitHub release assets before installing. The latest stable download on this page may differ from current prerelease or nightly macOS builds.</p>
-  <h3 class="mt-3">Nightly builds</h3>
-  <p>Unstable "nightly" builds are automated by our CI setup. These contain yet-unreleased features and bug fixes. See <a href="https://github.com/ActivityWatch/activitywatch/issues/507">issue #507</a> for where to get them.</p>
-  <h3 class="mt-4">Watchers</h3>
-  <p><b>What is a watcher?</b> A watcher is a program or plugin that watches for activity of different kinds and reports it to ActivityWatch.</p>
-  <p>ActivityWatch comes with two watchers preinstalled:
-    <ul>
-      <li>Window watcher: tracks the active application/window</li>
-      <li>AFK watcher: tracks if you're using your mouse and keyboard to determine if you are AFK.</li>
-    </ul><a href="https://docs.activitywatch.net/en/latest/watchers.html">The documentation</a> contains a list of all available watchers (editor plugins, for example).
-  </p>
-  <h5 class="mt-3">Web browser watchers</h5>
-  <p>Use these web extensions to get more detailed tracking about the websites you visit (such as the URL, or if a tab is playing sound).</p>
-  <div><a class="mr-2" href="https://addons.mozilla.org/en-US/firefox/addon/aw-watcher-web/"><img src="/img/AMO-get-the-addon-178x60px.png"/></a><a href="https://chromewebstore.google.com/detail/activitywatch-web-watcher/nglaklhklhcoonedhgnpgddginnjdadi"><img src="/img/ChromeWebStore_BadgeWBorder_v2_206x58.png" height="58"/></a></div>
-</article></div><html>
+</div>
+</article>
+
+</div>
+</div><html>
   <head></head>
   <body>
     <footer class="site-footer">

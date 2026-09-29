@@ -6,9 +6,82 @@
 </description>
     <link>https://activitywatch.net/</link>
     <atom:link href="https://activitywatch.net/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Tue, 29 Sep 2026 06:01:08 +0000</pubDate>
-    <lastBuildDate>Tue, 29 Sep 2026 06:01:08 +0000</lastBuildDate>
+    <pubDate>Tue, 29 Sep 2026 13:14:34 +0000</pubDate>
+    <lastBuildDate>Tue, 29 Sep 2026 13:14:34 +0000</lastBuildDate>
     <generator>Jekyll v4.3.2</generator>
+    
+      <item>
+        <title>ActivityWatch has passed 1 million downloads</title>
+        <description>&lt;p&gt;ActivityWatch has passed &lt;strong&gt;1 million downloads&lt;/strong&gt;. The desktop app’s GitHub Releases alone now count over 1.18 million, and that doesn’t include package managers, distro repositories, Google Play, or F-Droid. We didn’t mark the moment when it happened, so this is us catching up.&lt;/p&gt;
+
+&lt;p&gt;ActivityWatch is free, open source, and stores your data on your own machine. It has been built mostly by volunteers, so a number like this means a lot to us. Thank you to every user, and to every contributor who has written code, watchers, translations, docs, or bug reports.&lt;/p&gt;
+
+&lt;h2 id=&quot;whats-next&quot;&gt;What’s next&lt;/h2&gt;
+
+&lt;p&gt;The stable desktop release, v0.14, is what we’re preparing now. On mobile, &lt;a href=&quot;/blog/activitywatch-android-0-14-stable/&quot;&gt;ActivityWatch for Android 0.14 just went stable&lt;/a&gt;, with sync, alerts, and a large batch of crash fixes.&lt;/p&gt;
+
+&lt;h2 id=&quot;help-us-keep-going&quot;&gt;Help us keep going&lt;/h2&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Star or watch &lt;a href=&quot;https://github.com/ActivityWatch/activitywatch&quot;&gt;ActivityWatch/activitywatch&lt;/a&gt;.&lt;/li&gt;
+  &lt;li&gt;Tell us what’s missing in the &lt;a href=&quot;https://forum.activitywatch.net&quot;&gt;forum&lt;/a&gt; or on &lt;a href=&quot;https://github.com/ActivityWatch/activitywatch/issues&quot;&gt;GitHub&lt;/a&gt;.&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://activitywatch.net/donate/&quot;&gt;Sponsor the project&lt;/a&gt; if it’s useful to you.&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+        <pubDate>Tue, 29 Sep 2026 10:05:00 +0000</pubDate>
+        <link>https://activitywatch.net/blog/one-million-downloads/</link>
+        <guid isPermaLink="true">https://activitywatch.net/blog/one-million-downloads/</guid>
+        
+        
+      </item>
+    
+      <item>
+        <title>ActivityWatch for Android 0.14 is stable: sync, alerts, and a lot fewer crashes</title>
+        <description>&lt;p&gt;ActivityWatch for Android 0.14 is out of beta. It’s the first stable Android release since v0.12.1 in 2023, and the biggest one the app has had: 30 new features, 100 bug fixes, and contributions from 32 people. Since v0.14.0 (Sept 13), two follow-ups, v0.14.1 and v0.14.2, have gone out to tighten things up.&lt;/p&gt;
+
+&lt;p&gt;The first Android release in nearly three years is mostly a &lt;em&gt;stability&lt;/em&gt; release, so we’ll start there.&lt;/p&gt;
+
+&lt;h2 id=&quot;crashes-and-performance&quot;&gt;Crashes and performance&lt;/h2&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;strong&gt;Startup hangs.&lt;/strong&gt; A slow datastore used to turn app start into a hang. Startup paths are now hardened (#262).&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;StackOverflowError&lt;/code&gt; in the watcher.&lt;/strong&gt; Accessibility tree traversal is now bounded, so devices with deep view hierarchies no longer blow the stack (#269).&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;Off-thread initialization.&lt;/strong&gt; The Rust interface is constructed off the calling thread instead of blocking it (#277).&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;Rotation.&lt;/strong&gt; Rotating your phone no longer reloads the WebView and throws away the view you were on (#271).&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;Onboarding.&lt;/strong&gt; MainActivity now relaunches correctly once onboarding finishes (#298).&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;sync-with-your-desktop&quot;&gt;Sync with your desktop&lt;/h2&gt;
+
+&lt;p&gt;Your phone’s data can now flow into the same reports as your desktop. Turn on Sync in the navigation drawer and choose a folder that Syncthing, Dropbox, Drive, or another file-sync tool shares with your desktop’s &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;~/ActivityWatchSync&lt;/code&gt; folder. Then run &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;aw-sync sync&lt;/code&gt; on the desktop to import the phone’s buckets. &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;aw-sync&lt;/code&gt; does not transport the files itself, and the default daemon does not yet support Android’s folder layout; see the &lt;a href=&quot;https://github.com/ActivityWatch/aw-server-rust/tree/master/aw-sync#setting-up-sync&quot;&gt;setup notes&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;As of 0.14.2 the app also shows &lt;strong&gt;when the next sync is scheduled&lt;/strong&gt; and &lt;strong&gt;what each sync pass actually did&lt;/strong&gt;, so “why isn’t my phone data showing up?” now has an answer in the UI.&lt;/p&gt;
+
+&lt;h2 id=&quot;alerts-widget-browser-tracking&quot;&gt;Alerts, widget, browser tracking&lt;/h2&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;strong&gt;Activity alerts&lt;/strong&gt; (via aw-notify): get notified when you’ve spent too long in a category.&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;Home screen widget&lt;/strong&gt; with category time, refreshed every five minutes.&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;Firefox and Chrome&lt;/strong&gt; browser tracking.&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;Export&lt;/strong&gt; to CSV/JSON through the share sheet now works reliably.&lt;/li&gt;
+  &lt;li&gt;A &lt;strong&gt;Material You monochrome icon&lt;/strong&gt; for Android 12+.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;get-it&quot;&gt;Get it&lt;/h2&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Update via Google Play, or grab the APK from the &lt;a href=&quot;https://github.com/ActivityWatch/aw-android/releases/tag/v0.14.2&quot;&gt;GitHub release&lt;/a&gt;.&lt;/li&gt;
+  &lt;li&gt;Full changelog: &lt;a href=&quot;https://github.com/ActivityWatch/aw-android/releases/tag/v0.14.0&quot;&gt;v0.14.0&lt;/a&gt;, &lt;a href=&quot;https://github.com/ActivityWatch/aw-android/releases/tag/v0.14.1&quot;&gt;v0.14.1&lt;/a&gt;, &lt;a href=&quot;https://github.com/ActivityWatch/aw-android/releases/tag/v0.14.2&quot;&gt;v0.14.2&lt;/a&gt;.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;If something still breaks, &lt;a href=&quot;https://github.com/ActivityWatch/aw-android/issues&quot;&gt;open an issue&lt;/a&gt;. Thanks to everyone who reported problems during the beta, and to the contributors who fixed them.&lt;/p&gt;
+</description>
+        <pubDate>Tue, 29 Sep 2026 10:00:00 +0000</pubDate>
+        <link>https://activitywatch.net/blog/activitywatch-android-0-14-stable/</link>
+        <guid isPermaLink="true">https://activitywatch.net/blog/activitywatch-android-0-14-stable/</guid>
+        
+        
+      </item>
     
       <item>
         <title>ActivityWatch vs RescueTime: Why I Built a Free Open-Source Alternative</title>
