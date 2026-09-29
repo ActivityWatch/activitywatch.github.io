@@ -8,8 +8,8 @@ head
 
   link(rel='icon', type='image/png', href='/img/logo.png')
   link(rel='stylesheet', href="{{ '/css/main.css' | prepend: site.baseurl }}")
-  link(rel='canonical', href='{{ page.url | replace:"index.html","" | prepend: site.baseurl | prepend: site.url }}')
-  link(rel='alternate', type='application/rss+xml', title='{{ site.title }}', href='{{ "/feed.xml" | prepend: site.baseurl | prepend: site.url }}')
+  link(rel='canonical', href="{{ page.url | replace:'index.html','' | prepend: site.baseurl | prepend: site.url }}")
+  link(rel='alternate', type='application/rss+xml', title='{{ site.title }}', href="{{ '/feed.xml' | prepend: site.baseurl | prepend: site.url }}")
 
   // Bootstrap CSS and JS
   link(rel='stylesheet', href='https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css', integrity='sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm', crossorigin='anonymous')
@@ -35,5 +35,19 @@ head
   script#mcjs
     | !function(c,h,i,m,p){m=c.createElement(h),p=c.getElementsByTagName(h)[0],m.async=1,m.src=i,p.parentNode.insertBefore(m,p)}(document,"script","https://chimpstatic.com/mcjs-connected/js/users/0c8e8132be874f0e23d3a9e74/8c84f7d9d83455b08e020d552.js");
 
+  // Open Graph
+  meta(property='og:title', content='{% if page.title %}{{ page.title | escape }}{% else %}{{ site.title | escape }}{% endif %}')
+  meta(property='og:description', content='{% if page.excerpt %}{{ page.excerpt | strip_html | strip_newlines | truncate: 200 }}{% else %}{{ site.description }}{% endif %}')
+  meta(property='og:url', content='{{ page.url | replace:"index.html","" | prepend: site.baseurl | prepend: site.url }}')
+  meta(property='og:site_name', content='{{ site.title | escape }}')
+  meta(property='og:type', content='{% if page.layout == "post" %}article{% else %}website{% endif %}')
+  meta(property='og:image', content='{% if page.image %}{{ site.url }}{{ page.image }}{% else %}{{ site.url }}{{ site.title_image }}{% endif %}')
+
   // Twitter cards
   | {% include twitter_cards.html %}
+
+  // Schema.org
+  | {% if page.url == "/" %}
+  | {% include schema-index.html %}
+  | {% include schema-faq.html %}
+  | {% endif %}

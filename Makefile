@@ -31,7 +31,6 @@ clean:
 	-rm -r _site
 	-rm -r _build
 	-rm -r _includes/tables
-	-git restore _includes/tables/github-stats.html
 	-make --directory=contributor-stats clean
 
 
@@ -42,18 +41,32 @@ clean:
 stats:
 	git clone --recurse-submodules https://github.com/ActivityWatch/stats.git || true
 
+# Shallow clone: contributor-stats commits regenerated stats every few hours,
+# so its history grows ~10MB/year; only the latest checkout is needed here
+# (gitstats analyzes the AW repos it clones itself, not this repo's history).
 contributor-stats:
-	git clone --recurse-submodules https://github.com/ActivityWatch/contributor-stats.git || true
+	git clone --depth 1 --recurse-submodules https://github.com/ActivityWatch/contributor-stats.git || true
 
 _includes/tables: contributor-stats
 	make --directory=contributor-stats build-aw
 	cp -r contributor-stats/tables _includes/
+	# contributor-stats commits only its sync-state JSON, not the rendered
+	# table, so generate the GitHub stats table from that state here.
+	cd contributor-stats && poetry install --no-interaction
+	make --directory=contributor-stats render
+	cp contributor-stats/github-activity-table.html _includes/tables/github-stats.html
+	# The contributors avatar list (_data/contributors.yml) is likewise
+	# generated from the sync state, not hand-maintained.
+	cp contributor-stats/contributors.yml _data/contributors.yml
 
 img/stats: stats
 	cd stats && poetry install
 	mkdir -p img/stats
 	mkdir -p stats/out
-	cd stats && poetry run python analyze_stats.py --since 2017-07-01 --column downloads --per-day --save ../img/stats/downloads.png
+	cd stats && poetry run python analyze_stats.py --since 2017-07-01 --column downloads --per-week --save ../img/stats/downloads.png
+	cd stats && poetry run python analyze_stats.py --since 2017-07-01 --column stars --title 'GitHub Stargazers' --save ../img/stats/stars.png
 	cd stats && poetry run python analyze_stats.py --since 2017-07-01 --column 'Chrome WAU' --title 'Chrome Weekly Active Users' --save ../img/stats/chrome-wau.png
 	cd stats && poetry run python analyze_stats.py --since 2017-07-01 --column 'Firefox DAU' --resample 7D --title 'Firefox Daily Active Users (7D mean)' --save ../img/stats/firefox-dau-7d.png
 	cd stats && poetry run python analyze_stats.py --since 2017-07-01 --column 'Android installed devices' --title 'Android Installed Devices' --save ../img/stats/android-devices.png
+	cd stats && poetry run python analyze_stats.py --since 2019-01-01 --column 'Android Play Store rating' --title 'Android Play Store Rating' --save ../img/stats/android-rating.png
+	cd stats && poetry run python analyze_stats.py --since 2025-06-01 --column 'Android crash rate (%)' --title 'Android Crash Rate (user-perceived, %)' --save ../img/stats/android-crash-rate.png

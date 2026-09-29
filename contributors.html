@@ -16,6 +16,22 @@ permalink: /contributors/
   The list is updated every 24 hours.
 </p>
 
+
+<style>
+.avatar {
+  width: 64px;
+  height: 64px;
+  margin: 5px;
+  border-radius: 50%;
+  border: 1px solid #ddd;
+}
+</style>
+{% for contributor in site.data.contributors %}
+<a href="https://github.com/{{contributor}}">
+  <img src="https://github.com/{{contributor}}.png?size=64" class="avatar" width=64>
+</a>
+{% endfor %}
+
 <br>
 <h3>Visualization</h3>
 <p>
@@ -37,10 +53,6 @@ permalink: /contributors/
 </p>
 
 <p>
-  GitGitLog also provides a view of the stats <a href="https://gitgitlog.com/ActivityWatch">here</a>.
-</p>
-
-<p>
   <small>
     <b>Note:</b>
     <i>
@@ -49,7 +61,7 @@ permalink: /contributors/
   </small>
 </p>
 
-{% assign modules = "total,aw-core,aw-server,aw-server-rust,aw-webui,aw-qt,aw-tauri,aw-android,aw-client,aw-client-js,aw-client-rust,aw-watcher-window,aw-watcher-afk,aw-watcher-web,aw-watcher-vim,aw-watcher-vscode,aw-notify,docs,activitywatch.github.io,activitywatch" | split: ',' %}
+{% assign modules = site.data.modules.modules %}
 
 <b>Table of contents</b>
 <ul>
@@ -94,12 +106,12 @@ permalink: /contributors/
     <h3>GitHub Stats</h3>
   </summary>
   <p class="pt-2 px-2">
-    Below are some stats of contributor activity on GitHub. The table is manually updated every now and then.
+    Below are some stats of contributor activity on GitHub. The table is regenerated automatically by the <a href="https://github.com/ActivityWatch/contributor-stats">contributor-stats</a> repository.
   </p>
   <p class="px-2">
     Bots and users with total less than 10 have been removed.
   </p>
   {% include tables/github-stats.html %}
   <p class="px-2 small">
-    <i>Last updated: 2023-7-7</i>
+    <i>Last updated: {{ site.time }}</i>
 </details>

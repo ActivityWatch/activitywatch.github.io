@@ -16,16 +16,16 @@ jobs:
     strategy:
       matrix:
         ruby_version: ['3.1']
-        python_version: ['3.10']
+        python_version: ['3.12']
     steps:
       - name: Checkout 🛎️
-        uses: actions/checkout@v2 # If you're using actions/checkout@v2 you must set persist-credentials to false in most cases for the deployment to work correctly.
+        uses: actions/checkout@v5 # persist-credentials must be false so the deploy step below uses its own token, not the checkout credentials.
         with:
           submodules: 'recursive'
           persist-credentials: false
 
       - name: Setup Python
-        uses: actions/setup-python@v1
+        uses: actions/setup-python@v6
         with:
           python-version: ${{ matrix.python_version }}
 
@@ -50,6 +50,7 @@ jobs:
         run: |
           source venv/bin/activate || source venv/Scripts/activate
           pip install -r requirements.txt
+          python3 scripts/test_update_downloads.py
           make update-downloads
 
       - name: Build 🔧 # This example project is built using npm and outputs the result to the 'build' folder. Replace with the commands required to build your project, or remove this step entirely if your site is pre-built.
@@ -69,6 +70,15 @@ jobs:
           git-config-name: GitHub Actions
           git-config-email: noreply@github.com
 
-      # Needed to prevent GitHub from disabling the cronjob after 60 days of repo inactivity
-      # https://dev.to/gautamkrishnar/how-to-prevent-github-from-suspending-your-cronjob-based-triggers-knf
-      - uses: gautamkrishnar/keepalive-workflow@master # using the workflow with default settings
+  # Needed to prevent GitHub from disabling the cronjob after 60 days of repo inactivity
+  # https://github.com/marketplace/actions/keepalive-workflow
+  # https://dev.to/gautamkrishnar/how-to-prevent-github-from-suspending-your-cronjob-based-triggers-knf
+  # Repo Disabled by GitHub due to breaking ToS!
+  #keepalive-job:
+  #  name: Keepalive Workflow
+  #  runs-on: ubuntu-latest
+  #  permissions:
+  #    actions: write
+  #  steps:
+  #    - uses: actions/checkout@v4
+  #    - uses: gautamkrishnar/keepalive-workflow@v2

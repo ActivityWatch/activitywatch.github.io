@@ -9,10 +9,10 @@ article.container
   header
     h1 Downloads
 
-  h3.mt-4.mb-2 ActivityWatch {{ site.data.downloads.version }}
+  h3.mt-4.mb-2 ActivityWatch {{ site.data.downloads.stable.version }}
 
   div.row.mt-4
-    | {% for platform in site.data.downloads.platforms %}
+    | {% for platform in site.data.downloads.stable.platforms %}
     div.col-md-6(id="{{ platform.name }}")
       b {{ platform.name }}
       ul
@@ -23,9 +23,31 @@ article.container
         | {% endfor %}
     | {% endfor %}
 
+  p.small.dim.mt-3
+    | ActivityWatch is free and community-funded. If it's useful to you, consider #[a(href="/go/?src=download") supporting the project] — it keeps development going and the tool independent.
+
+  | {% if site.data.downloads.prerelease %}
+  h3.mt-5.mb-2 Pre-release: ActivityWatch {{ site.data.downloads.prerelease.version }}
+  p.small.dim
+    | A newer pre-release is available for testing new features and fixes. It may be unstable — for everyday use, prefer the stable release above.
+  div.row.mt-2
+    | {% for platform in site.data.downloads.prerelease.platforms %}
+    div.col-md-6(id="prerelease-{{ platform.name }}")
+      b {{ platform.name }}
+      ul
+        | {% for asset in platform.assets %}
+        li
+          a(href="{{asset.url}}" style="{% if forloop.first %} font-weight: bold {% endif %}") {{ asset.title }}
+          | {{ asset.description }}
+        | {% endfor %}
+    | {% endfor %}
+  | {% endif %}
+
   div For help on how to get started, see the #[a(href="https://docs.activitywatch.net/en/latest/getting-started.html") Getting Started guide] in the documentation.
 
   div Looking for an older or pre-release version? You can find all #[a(href="https://github.com/ActivityWatch/activitywatch/releases") releases on GitHub].
+  p.mt-2
+    | macOS support varies by release. If you need a specific macOS version or Intel/Apple Silicon build, check the GitHub release assets before installing. The latest stable download on this page may differ from current prerelease or nightly macOS builds.
 
   h3.mt-3 Nightly builds
   p
@@ -49,5 +71,5 @@ article.container
     a(href="https://addons.mozilla.org/en-US/firefox/addon/aw-watcher-web/").mr-2
       img(src="/img/AMO-get-the-addon-178x60px.png")
 
-    a(href="https://chrome.google.com/webstore/detail/nglaklhklhcoonedhgnpgddginnjdadi/")
+    a(href="https://chromewebstore.google.com/detail/activitywatch-web-watcher/nglaklhklhcoonedhgnpgddginnjdadi")
       img(src="/img/ChromeWebStore_BadgeWBorder_v2_206x58.png", height="58")

@@ -1,0 +1,27 @@
+modules:
+- total
+- aw-core
+- aw-server
+- aw-server-rust
+- aw-webui
+- aw-qt
+- aw-tauri
+- aw-android
+- aw-client
+- aw-client-js
+- aw-client-rust
+- aw-watcher-afk
+- aw-watcher-window
+- aw-watcher-window-wayland
+- aw-watcher-input
+- aw-watcher-web
+- aw-watcher-vscode
+- aw-watcher-vim
+- awatcher
+- aw-notify
+- aw-supabase
+- aw-leaderboard-firebase
+- aw-leaderboard-rust
+- docs
+- activitywatch.github.io
+- activitywatch

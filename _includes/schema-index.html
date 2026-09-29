@@ -1,0 +1,118 @@
+<!-- Schema Start-->
+<script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    "name": "{{ site.title_short }}",
+    "url": "{{ site.url }}",
+    "description": "{{ site.description }}",
+    "disambiguatingDescription": "{{ site.abstract }}",
+    "keywords": ["time tracker", "time tracking", "free time tracker", "open source time tracker", "productivity tracker", "screen time tracker", "automated time tracker", "time tracker windows", "time tracker linux", "time tracker mac", "RescueTime alternative", "ManicTime alternative", "activity tracker PC", "work hours tracker"],
+    "abstract": "{{ site.abstract }}",
+    "about": "ActivityWatch is a bundle of software that tracks your computer activity and respects your privacy. It offers an ecosystem of software to work around it, including ways to collect more data and do different kinds of analysis. We created ActivityWatch completely free and open source so anyone can use, improve and extend it.",
+    "applicationCategory": "https://en.wikipedia.org/wiki/Time-tracking_software",
+    "applicationSubCategory": ["DesktopApplication", "MobileApplication", "WebApplication"],
+    "aggregateRating": {
+        "@type": "AggregateRating",
+        "ratingValue": "{{ site.data.ratings.alternativeto.average }}",
+        "reviewCount": "{{ site.data.ratings.alternativeto.count }}"
+    },
+    "softwareVersion": "{{ site.data.downloads.stable.version }}",
+    "datePublished": "2024-06-12",
+    "dateCreated": "2016-06-10",
+    "downloadUrl": "https://activitywatch.net/downloads/",
+    "softwareHelp": "https://docs.activitywatch.net/en/latest/getting-started.html#installation",
+    "screenshot": "https://activitywatch.net/img/screenshots/screenshot-v0.9.3-activity.png",
+    "inLanguage": "en",
+    "featureList": [
+        "Application and window tracking",
+        "Usage categories",
+        "Browser extensions",
+        "Editor plugins (IDE)",
+        "Local and privacy first",
+        "Cross-platform",
+        "Synchronization"
+    ],
+    "audience": {
+        "@type": "Audience",
+        "audienceType": [
+          "Students",
+          "Professionals",
+          "Software Developers",
+          "Freelancers",
+          "Small Business",
+          "ADHD individuals",
+          "Researchers"
+        ]
+    },
+    "typicalAgeRange": "all ages",
+    "operatingSystem": ["Windows", "macOS", "Linux", "Android"],
+    "availableOnDevice": ["Desktop", "Mobile", "Tablet"],
+    "potentialAction": {
+        "@type": "ViewAction",
+        "target": [
+          "https://activitywatch.net/downloads/",
+          "android-app:https://play.google.com/store/apps/details?id=net.activitywatch.android",
+          {% for platform in site.data.downloads.stable.platforms %}
+            {% for asset in platform.assets %}
+          {
+            "@type": "EntryPoint",
+            "urlTemplate": "{{ asset.url }}",
+            "actionApplication": {
+              "@type": "SoftwareApplication",
+              "@id": "activitywatch-{{ site.data.downloads.stable.version }}-{{ platform.name | downcase }}-{{ asset.title | replace: ".", "" | downcase }}",
+              "name": "ActivityWatch {{ site.data.downloads.stable.version }} {{ platform.name }} {{ asset.title }}",
+              "operatingSystem": "{{ platform.name }}"
+            }
+          },
+            {% endfor %}
+          {% endfor %}
+          {
+            "@type": "EntryPoint",
+            "urlTemplate": "https://chrome.google.com/webstore/detail/nglaklhklhcoonedhgnpgddginnjdadi/",
+            "actionApplication": {
+              "@type": "SoftwareApplication",
+              "@id": "activitywatch-chrome",
+              "name": "ActivityWatch Chrome Extension",
+              "operatingSystem": "Chrome"
+            }
+          },
+          {
+            "@type": "EntryPoint",
+            "urlTemplate": "https://addons.mozilla.org/en-US/firefox/addon/aw-watcher-web/",
+            "actionApplication": {
+              "@type": "SoftwareApplication",
+              "@id": "activitywatch-firefox",
+              "name": "ActivityWatch Firefox Extension",
+              "operatingSystem": "Firefox"
+            }
+          }
+        ]
+      },
+    "softwareRequirements": "Requires Windows 10 or later, Linux kernel 5.4 or later, or Android 7.0 or later. macOS version and architecture support varies by release; see the downloads page for current macOS builds.",
+    "creator": {
+        "@type": "Person",
+        "name": "Erik Bjäreholt",
+        "url": "https://erik.bjareholt.com/",
+        "sameAs": "https://www.linkedin.com/in/erikbjareholt/"
+    },
+    "maintainer": [
+        {
+            "@type": "Person",
+            "name": "Erik Bjäreholt",
+            "url": "https://erik.bjareholt.com/",
+            "sameAs": "https://www.linkedin.com/in/erikbjareholt/"
+        },
+        {
+            "@type": "Person",
+            "name": "Johan Bjäreholt",
+            "url": "https://www.linkedin.com/in/johanbjareholt/"
+        }
+    ],
+    "usageInfo": "https://docs.activitywatch.net/en/latest/getting-started.html#usage",
+    "discussionUrl": "https://forum.activitywatch.net/",
+    "releaseNotes": "https://activitywatch.net/timeline/",
+    "license": "https://www.mozilla.org/en-US/MPL/2.0/"
+}
+</script>
+<!-- Schema End-->

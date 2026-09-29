@@ -1,5 +1,12 @@
 # _data/features.yml
 
+#- title: "Server-side settings"
+#  url: "https://github.com/ActivityWatch/aw-webui/pull/493"
+
+#- title: "Notifications (aw-notify)"
+#- title: "Sync (aw-sync)"
+#- title: "Input watcher (aw-watcher-input)"
+
 - title: "Always-count-as-active"
   date: "2022-10-11"
   url: "https://github.com/ActivityWatch/aw-webui/pull/375"
