@@ -8,13 +8,13 @@ author: "Brian Vuku"
 author_twitter: "subrupt"
 ---
 
-The upcoming ActivityWatch v0.14.0 ships a new desktop app: [`aw-tauri`](https://github.com/ActivityWatch/aw-tauri), a lighter, faster cross-platform repackaging of ActivityWatch. As the name implies the project is built with [Tauri](https://tauri.app), a relatively new Rust-based toolkit that enables easy development of small, fast, and secure applications with a great developer experience.
+The ActivityWatch v0.14.0 release ships a new desktop app: [`aw-tauri`](https://github.com/ActivityWatch/aw-tauri), a lighter, faster cross-platform repackaging of ActivityWatch. As the name implies the project is built with [Tauri](https://tauri.app), a relatively new Rust-based toolkit that enables easy development of small, fast, and secure applications with a great developer experience.
 
 We first announced this work in 2024, when it was little more than a prototype. Since then it has grown into something you can install on Windows, macOS (Apple Silicon and Intel) and Linux, and the v0.14.0 betas include it for every one of those platforms. This post is the story so far: why we did it, what you get, and how you can try it today.
 
 <div class="text-center my-3">
-  <img src="/img/screenshots/screenshot-v0.14.0b8-aw-tauri-welcome.png" alt="The ActivityWatch dashboard (Welcome page, with Activity, Timeline and Stopwatch in the top bar) running inside the aw-tauri application window" style="max-width: 100%;" class="border">
-  <p><small>The ActivityWatch dashboard inside aw-tauri's own window (v0.14.0b8, Linux; window decorations not shown). No browser tab needed.</small></p>
+  <img src="/img/screenshots/screenshot-v0.14.0b8-aw-tauri-activity.png" alt="The ActivityWatch Activity view (7-day aggregate with top applications and categories) running inside the aw-tauri application window" style="max-width: 100%;" class="border">
+  <p><small>The Activity view inside aw-tauri's own window (v0.14.0b8, Linux; demo data). No browser tab needed.</small></p>
 </div>
 
 ## Why Tauri
@@ -63,7 +63,7 @@ These are download sizes read from the release assets, not a measurement of runt
 
 ## Try it today
 
-The v0.14.0 betas include `aw-tauri` builds for all platforms. Find them under "Tauri distribution" in the [release notes](https://github.com/ActivityWatch/activitywatch/releases), or on the [downloads page](https://activitywatch.net/downloads/) (once v0.14.0 is out, look for the Tauri builds next to the classic ones).
+The v0.14.0 betas include `aw-tauri` builds for all platforms. Find them under "Tauri distribution" in the [release notes and release assets](https://github.com/ActivityWatch/activitywatch/releases). (The [downloads page](https://activitywatch.net/downloads/) links the classic `aw-qt` build by default.)
 
 - **Windows:** the `.exe` installer.
 - **macOS:** the `.dmg`, for either Apple Silicon or Intel.
