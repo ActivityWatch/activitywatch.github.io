@@ -8,9 +8,9 @@ ActivityWatch is built on a simple promise: **privacy-first time tracking that s
 
 But open-source software doesn't build itself. Every feature, every bug fix, every platform we support takes real human hours. Right now, the project is sustained by donations from a small group of supporters. We want to grow that base so we can do more.
 
-**We are preparing a recurring subscription option** starting at $5/month. Preview the plan and its principles on the **[Support ActivityWatch page →](/subscribe/)**.
+**Recurring subscriptions are live**, starting at $5/month. Nothing is locked behind them: it is how people who rely on ActivityWatch keep it maintained. See the plans on the **[Support ActivityWatch page →](/subscribe/)**.
 
-Want to contribute today? The established donation methods below are available now. Supporters using GitHub Sponsors, Open Collective, or Patreon can be recognised on our [sponsors page](/sponsors/).
+Prefer a one-time contribution? The established donation methods below are available. Supporters using GitHub Sponsors, Open Collective, or Patreon can be recognised on our [sponsors page](/sponsors/).
 
 ---
 
