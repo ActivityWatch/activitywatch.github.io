@@ -183,6 +183,20 @@
             border: 1px solid $grey-color-light;
             padding: calc($spacing-unit / 4);
         }
+
+        // Wide tables (feature comparisons, contributor stats) scroll inside
+        // themselves on phones instead of panning the whole page sideways.
+        @include media-query($on-palm) {
+            display: block;
+            overflow-x: auto;
+        }
+    }
+
+    // Crypto addresses are one unbreakable token; let them wrap on phones.
+    a[href^="bitcoin:"],
+    a[href^="ethereum:"] {
+        overflow-wrap: anywhere;
+        word-break: break-all;
     }
 }
 
