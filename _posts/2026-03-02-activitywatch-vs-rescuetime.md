@@ -13,7 +13,7 @@ I started building ActivityWatch because I was frustrated with RescueTime. As so
 
 - **My data wasn't mine.** RescueTime stores everything on their servers. I had no way to self-host or keep my data local. For something as personal as a complete log of everything I do on my computer, that felt wrong.
 - **It wasn't open source.** When I found bugs — like Xbox controller input being tracked incorrectly — I couldn't fix them myself. I filed reports, but they went nowhere.
-- **Linux support was an afterthought.** As a Linux user, I was a second-class citizen. The Linux client was always behind, and eventually RescueTime [dropped Linux support entirely](https://blog.rescuetime.com/linux-update-2024/).
+- **Linux support was an afterthought.** As a Linux user, I was a second-class citizen. The Linux client was always behind, and eventually RescueTime [dropped Linux support entirely](https://community.rescuetime.com/t/rescuetime-on-linux/179).
 - **"Pay or lose your history."** The free tier only showed the last 3 months. Want to see your all-time data? Pay up. It felt like they were holding my own data hostage.
 - **No extensibility.** I couldn't add custom watchers, build integrations, or extend the tracking in any meaningful way. What you got was what you got.
 
