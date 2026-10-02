@@ -85,8 +85,9 @@ permalink: /contributors/
     {% include {{ table_filename }}.html %}
 
     {% if module != "total" %}
+      {% assign owner = site.data.modules.owners[module] | default: "activitywatch" %}
       <div class="small px-2 pb-2" >
-        You can also see these stats <a href="https://github.com/activitywatch/{{ module }}/graphs/contributors">on GitHub</a>.
+        You can also see these stats <a href="https://github.com/{{ owner }}/{{ module }}/graphs/contributors">on GitHub</a>.
       </div>
     </details>
     {% endif %}

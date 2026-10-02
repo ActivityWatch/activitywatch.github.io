@@ -128,7 +128,7 @@ ActivityWatch is currently being utilized in a 5-year project funded by the Euro
 
 ### WARN-D Research Project: The Broader Context
 
-While not directly using ActivityWatch, the WARN-D research project aims to build a personalized early warning system for mental health by tracking stressors among students. This project highlights the broader societal value of time-tracking data and sets a precedent for how ActivityWatch could be employed in similar research endeavors. [Learn more about the WARN-D project here](https://warn-d.eiko-fried.com/).
+While not directly using ActivityWatch, the WARN-D research project aims to build a personalized early warning system for mental health by tracking stressors among students. This project highlights the broader societal value of time-tracking data and sets a precedent for how ActivityWatch could be employed in similar research endeavors. [Learn more about the WARN-D project here](https://eiko-fried.com/warn-d/).
 
 By offering a robust, customizable, and privacy-focused platform, ActivityWatch is poised to become an invaluable asset in the toolkit of modern researchers.
 
@@ -148,4 +148,4 @@ The future of time tracking is intricately tied to AI, privacy, and personalizat
 
 If you are excited about this like we are, consider joining the [Discord server](https://discord.gg/vDskV9q). We're always looking for new contributors and ideas!
 
-And if you aren't using ActivityWatch already, now is the perfect time to [start collecting your screentime data!](https://activitywatch.net/download/)
+And if you aren't using ActivityWatch already, now is the perfect time to [start collecting your screentime data!](https://activitywatch.net/downloads/)
