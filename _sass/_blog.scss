@@ -1,0 +1,316 @@
+/**
+ * Blog: post pages and the /blog/ index.
+ *
+ * Everything is scoped under `.blog` so other pages that share the
+ * `page`/`.post-*` classes (donate, subscribe, stats, ...) are unaffected.
+ */
+$blog-measure:      42rem;   // ~70ch at the body size below
+$blog-text-color:   #222;
+$blog-muted-color:  #6c757d;
+$blog-border-color: #e5e7eb;
+$blog-subtle-bg:    #f6f8fa;
+
+.blog {
+    max-width: calc(#{$blog-measure} + #{$spacing-unit} * 2);
+    color: $blog-text-color;
+
+    @include media-query($on-laptop) {
+        max-width: calc(#{$blog-measure} + #{$spacing-unit});
+    }
+
+    h1, h2, h3, h4, h5, h6 {
+        color: $blog-text-color;
+        font-weight: 400;
+        line-height: 1.3;
+    }
+
+    .post-title {
+        font-size: 2.25rem;
+        line-height: 1.2;
+        letter-spacing: -0.01em;
+        margin-bottom: 0.5rem;
+
+        @include media-query($on-palm) {
+            font-size: 1.75rem;
+        }
+    }
+
+    .post-header {
+        margin-bottom: 2rem;
+    }
+
+    .post-meta {
+        font-size: 0.9375rem;
+        color: $blog-muted-color;
+    }
+
+    .meta-sep {
+        margin: 0 0.35em;
+    }
+
+    /* Post body */
+    .post-content {
+        font-size: 1.0625rem;
+        line-height: 1.7;
+        margin-bottom: 2.5rem;
+        overflow-wrap: break-word;
+
+        p, ul, ol, dl, blockquote, pre, table, figure {
+            margin-top: 0;
+            margin-bottom: 1.25rem;
+        }
+
+        h1, h2, h3, h4 {
+            padding-top: 0;
+            scroll-margin-top: 1rem;
+        }
+
+        // A few older posts use `#` for section headings inside the body;
+        // keep those below the post title in the hierarchy.
+        h1 {
+            font-size: 1.75rem;
+            margin: 2.75rem 0 1rem;
+        }
+
+        h2 {
+            font-size: 1.625rem;
+            margin: 2.5rem 0 0.75rem;
+        }
+
+        h3 {
+            font-size: 1.3125rem;
+            margin: 2rem 0 0.5rem;
+        }
+
+        h4 {
+            font-size: 1.0625rem;
+            font-weight: 700;
+            margin: 1.5rem 0 0.5rem;
+        }
+
+        // No extra gap when a heading directly follows another heading
+        h1 + h2, h2 + h3, h3 + h4 {
+            margin-top: 1rem;
+        }
+
+        > :first-child {
+            margin-top: 0;
+        }
+
+        @include media-query($on-palm) {
+            font-size: 1rem;
+
+            h1 { font-size: 1.5rem; }
+            h2 { font-size: 1.375rem; }
+            h3 { font-size: 1.1875rem; }
+        }
+
+        ul, ol {
+            margin-left: 0;
+            padding-left: 1.5em;
+        }
+
+        li {
+            margin-bottom: 0.35em;
+
+            // "Loose" Markdown lists wrap items in <p>; don't double the gap
+            > p {
+                margin-bottom: 0.35em;
+            }
+
+            > ul, > ol {
+                margin-top: 0.35em;
+                margin-bottom: 0;
+            }
+        }
+
+        a {
+            text-decoration: none;
+
+            &:hover {
+                color: inherit;
+                text-decoration: underline;
+            }
+        }
+
+        strong {
+            font-weight: 600;
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+        }
+
+        // Image + caption blocks (`<div class="text-center"><img><p><small>...`)
+        .text-center {
+            margin: 2rem 0;
+
+            img {
+                margin-bottom: 0.5rem;
+            }
+
+            small {
+                display: block;
+                font-size: 0.875rem;
+                line-height: 1.5;
+                color: $blog-muted-color;
+            }
+        }
+
+        figcaption {
+            font-size: 0.875rem;
+            color: $blog-muted-color;
+            margin-top: 0.5rem;
+        }
+
+        blockquote {
+            font-size: inherit;
+            font-style: normal;
+            letter-spacing: normal;
+            color: #555;
+            border-left: 3px solid $blog-border-color;
+            padding-left: 1rem;
+        }
+
+        hr {
+            border: 0;
+            border-top: 1px solid $blog-border-color;
+            margin: 2.5rem 0;
+        }
+
+        code {
+            font-size: 0.875em;
+            color: inherit;
+            background-color: $blog-subtle-bg;
+            border: 1px solid $blog-border-color;
+            border-radius: 4px;
+            padding: 0.1em 0.35em;
+        }
+
+        pre {
+            font-size: 0.875rem;
+            line-height: 1.5;
+            background-color: $blog-subtle-bg;
+            border: 1px solid $blog-border-color;
+            border-radius: 6px;
+            padding: 0.75rem 1rem;
+
+            > code {
+                font-size: inherit;
+                background: none;
+                border: 0;
+                padding: 0;
+            }
+        }
+
+        table {
+            display: block;      // lets wide tables scroll instead of overflowing
+            overflow-x: auto;
+            width: 100%;
+            margin: 1.5rem 0 2rem;
+            border: 0;
+            border-collapse: collapse;
+            font-size: 0.875rem;
+            line-height: 1.5;
+
+            th, td {
+                border: 0;
+                border-bottom: 1px solid $blog-border-color;
+                padding: 0.5rem 0.6rem;
+                text-align: left;
+                vertical-align: top;
+                min-width: 7rem;
+            }
+
+            th {
+                font-weight: 600;
+                border-bottom-width: 2px;
+            }
+
+            th:first-child, td:first-child {
+                padding-left: 0;
+            }
+        }
+    }
+
+    /* Collapsible table of contents */
+    .toc {
+        border: 1px solid $blog-border-color;
+        border-radius: 6px;
+        margin: 0 0 2rem;
+        font-size: 0.9375rem;
+
+        > summary {
+            background: none;
+            padding: 0.6rem 1rem;
+            font-weight: 600;
+            color: $blog-muted-color;
+        }
+
+        > ul {
+            margin: 0 1rem 0.75rem;
+            padding-left: 1.25em;
+
+            ul {
+                margin: 0;
+                padding-left: 1.25em;
+            }
+        }
+    }
+
+    .post-nav {
+        border-top: 1px solid $blog-border-color;
+        padding-top: 1.25rem;
+        margin-bottom: 1rem;
+    }
+
+    /* Blog index */
+    .blog-header {
+        margin-bottom: 1rem;
+    }
+
+    .post-list {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+    }
+
+    .post-list-item {
+        padding: 1.75rem 0;
+        border-bottom: 1px solid $blog-border-color;
+        margin: 0;
+
+        &:last-child {
+            border-bottom: 0;
+        }
+    }
+
+    .post-list-title {
+        font-size: 1.5rem;
+        line-height: 1.3;
+        margin-bottom: 0.35rem;
+
+        a {
+            color: inherit;
+
+            &:hover {
+                color: inherit;
+                text-decoration: underline;
+            }
+        }
+
+        @include media-query($on-palm) {
+            font-size: 1.3125rem;
+        }
+    }
+
+    .post-excerpt {
+        line-height: 1.65;
+        margin: 0.75rem 0 0.5rem;
+    }
+
+    .post-readmore {
+        font-size: 0.9375rem;
+    }
+}

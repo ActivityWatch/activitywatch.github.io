@@ -1,40 +1,22 @@
-<article class="post card" itemscope itemtype="http://schema.org/BlogPosting">
-<div class="card-body">
+<article class="post blog-post" itemscope itemtype="http://schema.org/BlogPosting">
     <header class="post-header">
-        <h1 class="card-title"><a href="{{ page.url }}">{{ page.title }}</a></h1>
+        <h1 class="post-title" itemprop="headline">{{ page.title }}</h1>
 
         <div class="post-meta">
-            <span class="meta-box" itemscope itemtype="http://schema.org/Person">
-                <span class="fa fa-user meta-icon"></span>
-                <span itemprop="name">{{ page.author }}</span>
-            </span>
-            <span class="ml-2">
-                <span class="fa fa-calendar meta-icon"></span>
-                <time datetime="{{ page.date | date_to_xmlschema }}" itemprop="datePublished">
-                    {{ page.date | date: "%F %R %Z" }}
-                </time>
-            </span>
+            {% if page.author %}<span itemprop="author" itemscope itemtype="http://schema.org/Person"><span itemprop="name">{{ page.author }}</span></span>
+            <span class="meta-sep" aria-hidden="true">&middot;</span>{% endif %}
+            <time datetime="{{ page.date | date_to_xmlschema }}" itemprop="datePublished">{{ page.date | date: "%B %-d, %Y" }}</time>
         </div>
     </header>
 
     {% if page.toc %}
-    <details class="toc small">
-        <summary class="py-2 font-weight-bold">Table of Contents</summary>
-        <div class="mt-2">
-            {{ include.content | toc_only }}
-        </div>
+    <details class="toc">
+        <summary>Table of contents</summary>
+        {{ include.content | toc_only }}
     </details>
     {% endif %}
 
     <div class="post-content" itemprop="articleBody">
         {{ include.content | inject_anchors }}
     </div>
-
-    <div class="footer">
-        <div {% if include.fullpage %}style="border: solid rgba(255,255,255,0.2); border-width: 0 0 1px 0; padding-bottom: 10px;"{% endif %}>
-            <span class="fa fa-link"></span>
-            <a href="{{ page.url }}">Permalink</a>
-        </div>
-    </div>
-</div>
 </article>
