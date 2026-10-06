@@ -53,4 +53,6 @@ New studies tend to want what the previous one wanted: categorized time, no raw 
 
 ## Get in touch
 
+Everything for researchers (the Research Edition, participant instructions for desktop and Android, and how to cite ActivityWatch) is collected in the [ActivityWatch in research](https://docs.activitywatch.net/en/latest/research/index.html) section of the docs.
+
 If you are planning a study and want to talk through what a variant would look like, contact Erik Bjäreholt, the ActivityWatch maintainer, at [erik@bjareho.lt](mailto:erik@bjareho.lt) (also on his [GitHub profile](https://github.com/ErikBjare)). The [Research Edition docs](https://docs.activitywatch.net/en/latest/research/research-edition.html) describe what a variant consists of. Tell us which categories you need, which platforms your participants use, and what your ethics process requires.
