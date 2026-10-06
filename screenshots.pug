@@ -3,127 +3,121 @@ title: Screenshots
 layout: page
 permalink: /screenshots/
 toc: true
-excerpt: "Some screenshots of ActivityWatch, listed in reverse chronological order (recent first)."
+excerpt: "Screenshots of the latest ActivityWatch, how it has changed over the years, and community favourites."
 container_class: container
 ---
 
 style
-  | .row img {
-  |    margin-bottom: 1rem;
-  |    border-radius: 0.25rem;
-  |    box-shadow: 0 0 0.5rem rgba(0, 0, 0, 0.15);
-  |    border: 1px solid rgba(0, 0, 0, 0.1);
+  | .shots img {
+  |   margin-bottom: 0.5rem;
+  |   border-radius: 0.25rem;
+  |   box-shadow: 0 0 0.5rem rgba(0, 0, 0, 0.15);
+  |   border: 1px solid rgba(0, 0, 0, 0.1);
+  |   max-width: 100%;
+  |   height: auto;
   | }
-  | h4 {
-  |   padding-top: 1rem !important;
+  | .shots h4 { padding-top: 1rem; }
+  | .shots .small { font-style: italic; margin-bottom: 1rem; }
+  | .evo { margin-bottom: 2.5rem; }
+  | .evo-frame { aspect-ratio: 4 / 3; background: rgba(0, 0, 0, 0.03); border-radius: 0.25rem; }
+  | .evo-frame a, .evo-frame img { display: block; width: 100%; height: 100%; }
+  | .evo-frame img { object-fit: contain; object-position: top center; box-shadow: none; border: 0; }
+  | .evo input[type=range] { width: 100%; margin: 0.75rem 0 0.25rem; }
+  | .evo-versions { display: flex; flex-wrap: wrap; gap: 0.25rem; }
+  | .evo-versions button {
+  |   border: 1px solid rgba(0, 0, 0, 0.15);
+  |   background: transparent;
+  |   border-radius: 1rem;
+  |   padding: 0.1rem 0.6rem;
+  |   font-size: 0.85rem;
+  |   cursor: pointer;
+  |   color: inherit;
   | }
-  | .small {
-  |   font-style: italic;
-  | }
+  | .evo-versions button[aria-pressed=true] { background: #2c3e50; border-color: #2c3e50; color: #fff; }
+  | .evo-caption { min-height: 1.5rem; margin-top: 0.5rem; }
 
 p
   | {{ page.excerpt }}
 
-p
-  | Your screenshots could be here too. Join our #[a(href="https://github.com/ActivityWatch/activitywatch/discussions/741") screenshot competition]!
-
-p.py-2
-  h3 v0.12.0
-
+.shots
+  | {% assign latest = site.data.screenshots.latest %}
+  | {% if latest.shots.size > 0 %}
+  h3#latest Latest ({{ latest.version }})
   .row
+    | {% for s in latest.shots %}
     .col-md-6
-      h4 Activity
-      a(href="/img/screenshots/thelifeimliving/activity.png")
-        img(src="/img/screenshots/thelifeimliving/activity.png" alt="Screenshot of the ActivityWatch Web App Dashboard showing the activity feature." width="100%")
-      .small By @thelifeimliving
+      h4 {{ s.title | escape }}
+      a(href!="/img/screenshots/{{ s.src }}")
+        img(src!="/img/screenshots/web/{{ s.src | replace: '/', '_' | replace: '.png', '.webp' }}" alt!="ActivityWatch {{ latest.version }}: {{ s.title | escape }}" loading="lazy" width="100%")
+      .small
+        | {% if s.note %}{{ s.note | escape }}{% endif %}
+        | {% if s.dark %}{% if s.note %} · {% endif %}#[a(href!="/img/screenshots/{{ s.dark }}") dark mode]{% endif %}
+    | {% endfor %}
+  | {% endif %}
 
-    .col-md-6
-      h4 Activity with productivity categories
-      a(href="/img/screenshots/realhyperchango/activity-productivity.png")
-        img(src="/img/screenshots/realhyperchango/activity-productivity.png" alt="Screenshot of the ActivityWatch Web App Dashboard showing the productivity categories feature." width="100%")
-      .small By @realhyperchango
+  h3#evolution.pt-4 How it has evolved
+  p Drag the slider to see each view across versions, from the first releases to today.
 
-    .col-md-6
-      h4 Activity (dark)
-      a(href="/img/screenshots/BelKed/screenshot-v0.12.0b2-activity.png")
-        img(src="/img/screenshots/BelKed/screenshot-v0.12.0b2-activity.png" alt="Screenshot of the ActivityWatch Web App Dashboard showing the Dark mode feature." width="100%")
-      .small By @BelKed
+  | {% for e in site.data.screenshots.evolution %}
+  | {% assign last = e.shots.size | minus: 1 %}
+  | {% assign cur = e.shots | last %}
+  .evo(data-evo)
+    h4 {{ e.view }}
+    .evo-frame
+      a(href!="/img/screenshots/{{ cur.src }}" data-evo-link)
+        img(src!="/img/screenshots/web/{{ cur.src | replace: '/', '_' | replace: '.png', '.webp' }}" alt!="The {{ e.view }} view in ActivityWatch {{ cur.version }}" data-evo-img)
+    input(type="range" min="0" max!="{{ last }}" value!="{{ last }}" step="1" aria-label!="Version of the {{ e.view }} view" aria-valuetext!="{{ cur.version }} ({{ cur.year }})" data-evo-range)
+    .evo-versions
+      | {% for s in e.shots %}
+      button(type="button" aria-pressed!="{% if forloop.last %}true{% else %}false{% endif %}" data-i!="{{ forloop.index0 }}" data-src!="{{ s.src }}" data-web!="/img/screenshots/web/{{ s.src | replace: '/', '_' | replace: '.png', '.webp' }}" data-version!="{{ s.version }}" data-year!="{{ s.year }}" data-caption!="{{ s.version }} ({{ s.year }}){% if s.note %} · {{ s.note | escape }}{% endif %}{% if s.by %} · by @{{ s.by }}{% endif %}") {{ s.version }}
+      | {% endfor %}
+    .evo-caption.small(data-evo-caption) {{ cur.version }} ({{ cur.year }}){% if cur.note %} · {{ cur.note | escape }}{% endif %}{% if cur.by %} · by @{{ cur.by }}{% endif %}
+  | {% endfor %}
 
-    .col-md-6
-      h4 Timeline (dark)
-      a(href="/img/screenshots/thelifeimliving/timeline-dark.png")
-        img(src="/img/screenshots/thelifeimliving/timeline-dark.png" alt="Screenshot of the ActivityWatch Web App Dashboard showing the timeline feature." width="100%")
-      .small By @thelifeimliving
-
-    .col-md-6
-      h4 Month view
-      a(href="/img/screenshots/maholli/month.png")
-        img(src="/img/screenshots/maholli/month.png" alt="Screenshot of the ActivityWatch Web App Dashboard showing the monthly timeline feature." width="100%")
-      .small By @maholli
-
-    .col-md-6
-      h4 Search
-      a(href="/img/screenshots/thelifeimliving/search.png")
-        img(src="/img/screenshots/thelifeimliving/search.png" alt="Screenshot of the ActivityWatch Web App Dashboard showing the search feature." width="100%")
-      .small By @thelifeimliving
-
+  | {% assign community = site.data.screenshots.community %}
+  h3#community.pt-4 From the community ({{ community.version }})
+  p
+    | Winners of our #[a(href="https://github.com/ActivityWatch/activitywatch/discussions/741") screenshot competition]. Thank you!
   .row
+    | {% for s in community.shots %}
+    | {% if s.src.size > 1 %}
     .col-md-12
-      h4 Stopwatch
+      h4 {{ s.title | escape }}
+    | {% for src in s.src %}
     .col-md-6
-      a(href="/img/screenshots/thelifeimliving/stopwatch.png")
-        img(src="/img/screenshots/thelifeimliving/stopwatch.png" alt="Screenshot of the ActivityWatch Web App Dashboard showing the Stopwatch feature." width="100%")
-    .col-md-6
-      a(href="/img/screenshots/thelifeimliving/stopwatch-dark.png")
-        img(src="/img/screenshots/thelifeimliving/stopwatch-dark.png" alt="Screenshot of the ActivityWatch Web App Dashboard showing the Stopwatch(dark mode) feature." width="100%")
+      a(href!="/img/screenshots/{{ src }}")
+        img(src!="/img/screenshots/web/{{ src | replace: '/', '_' | replace: '.png', '.webp' }}" alt!="ActivityWatch {{ community.version }}: {{ s.title | escape }}" loading="lazy" width="100%")
+    | {% endfor %}
     .col-md-12
-      .small By @thelifeimliving
-
-  .row
-    .col-md-12
-      h4 Query explorer
+      .small By @{{ s.by }}
+    | {% else %}
     .col-md-6
-      a(href="/img/screenshots/thelifeimliving/query-explorer.png")
-        img(src="/img/screenshots/thelifeimliving/query-explorer.png" alt="Screenshot of the ActivityWatch Web App Dashboard showing the Query explorer feature." width="100%")
-    .col-md-6
-      a(href="/img/screenshots/thelifeimliving/query-explorer-dark.png")
-        img(src="/img/screenshots/thelifeimliving/query-explorer-dark.png" alt="Screenshot of the ActivityWatch Web App Dashboard showing the Query explorer(dark mode) feature." width="100%")
-    .col-md-12
-      .small By @thelifeimliving
+      h4 {{ s.title | escape }}
+      a(href!="/img/screenshots/{{ s.src[0] }}")
+        img(src!="/img/screenshots/web/{{ s.src[0] | replace: '/', '_' | replace: '.png', '.webp' }}" alt!="ActivityWatch {{ community.version }}: {{ s.title | escape }}" loading="lazy" width="100%")
+      .small By @{{ s.by }}
+    | {% endif %}
+    | {% endfor %}
 
-  .row
-    .col-md-12
-      h4 Settings
-    .col-md-6
-      a(href="/img/screenshots/thelifeimliving/settings.png")
-        img(src="/img/screenshots/thelifeimliving/settings.png" alt="Screenshot of the ActivityWatch Web App Dashboard showing the settings." width="100%")
-    .col-md-6
-      a(href="/img/screenshots/thelifeimliving/settings-dark.png")
-        img(src="/img/screenshots/thelifeimliving/settings-dark.png" alt="Screenshot of the ActivityWatch Web App Dashboard showing the settings(dark mode)." width="100%")
-    .col-md-12
-      .small By @thelifeimliving
-
-
-p.py-2
-  h3 v0.9.3
-
-  .row
-    .col-md-6
-      h4 Activity
-      a(href="/img/screenshots/screenshot-v0.9.3-activity.png")
-        img(src="/img/screenshots/screenshot-v0.9.3-activity.png" alt="Screenshot of the ActivityWatch Web App Dashboard of version 0.9.3." width="100%")
-
-p.py-2
-  h3 v0.8.0
-  Released
-
-  .row
-    .col-md-6
-      h4 Today (old Activity view)
-      a(href="/img/screenshots/screenshot-v0.8.0b9-today.png")
-        img(src="/img/screenshots/screenshot-v0.8.0b9-today.png" alt="Screenshot of the ActivityWatch Web App Dashboard of version 0.8.0(older version)." width="100%")
-
-    .col-md-6
-      h4 Timeline
-      a(href="/img/screenshots/screenshot-v0.8.0b9-timeline.png")
-        img(src="/img/screenshots/screenshot-v0.8.0b9-timeline.png" alt="Screenshot of the ActivityWatch Web App Dashboard of version 0.8.0(older version)." width="100%")
+script.
+  document.querySelectorAll('[data-evo]').forEach(function (evo) {
+    var range = evo.querySelector('[data-evo-range]');
+    var img = evo.querySelector('[data-evo-img]');
+    var link = evo.querySelector('[data-evo-link]');
+    var caption = evo.querySelector('[data-evo-caption]');
+    var buttons = evo.querySelectorAll('.evo-versions button');
+    // Preload so dragging the slider doesn't flash.
+    buttons.forEach(function (b) { new Image().src = b.dataset.web; });
+    function show(i) {
+      var b = buttons[i];
+      img.src = b.dataset.web;
+      img.alt = img.alt.replace(/ActivityWatch \S+$/, 'ActivityWatch ' + b.dataset.version);
+      link.href = '/img/screenshots/' + b.dataset.src;
+      caption.textContent = b.dataset.caption;
+      range.value = i;
+      range.setAttribute('aria-valuetext', b.dataset.version + ' (' + b.dataset.year + ')');
+      buttons.forEach(function (o, j) { o.setAttribute('aria-pressed', j === i ? 'true' : 'false'); });
+    }
+    range.addEventListener('input', function () { show(Number(range.value)); });
+    buttons.forEach(function (b) { b.addEventListener('click', function () { show(Number(b.dataset.i)); }); });
+  });
