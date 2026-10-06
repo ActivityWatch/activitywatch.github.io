@@ -100,8 +100,12 @@ class PickPerArchTests(unittest.TestCase):
             with_android=True,
         )
         android = next(p for p in block["platforms"] if p["name"] == "Android")
-        self.assertEqual(android["assets"], [ud.ANDROID["assets"][0]])
-        self.assertNotIn("description", android["assets"][0])
+        self.assertEqual(android["assets"], ud.ANDROID["assets"])
+        self.assertEqual(
+            [a["title"] for a in android["assets"]], ["Play Store", "F-Droid"]
+        )
+        for asset in android["assets"]:
+            self.assertNotIn("description", asset)
 
 
 if __name__ == "__main__":
