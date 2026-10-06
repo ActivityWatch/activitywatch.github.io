@@ -66,10 +66,10 @@ p
     .evo-frame
       a(href!="/img/screenshots/{{ cur.src }}" data-evo-link)
         img(src!="/img/screenshots/web/{{ cur.src | replace: '/', '_' | replace: '.png', '.webp' }}" alt!="The {{ e.view }} view in ActivityWatch {{ cur.version }}" data-evo-img)
-    input(type="range" min="0" max!="{{ last }}" value!="{{ last }}" step="1" aria-label!="Version of the {{ e.view }} view" data-evo-range)
+    input(type="range" min="0" max!="{{ last }}" value!="{{ last }}" step="1" aria-label!="Version of the {{ e.view }} view" aria-valuetext!="{{ cur.version }} ({{ cur.year }})" data-evo-range)
     .evo-versions
       | {% for s in e.shots %}
-      button(type="button" aria-pressed!="{% if forloop.last %}true{% else %}false{% endif %}" data-i!="{{ forloop.index0 }}" data-src!="{{ s.src }}" data-web!="/img/screenshots/web/{{ s.src | replace: '/', '_' | replace: '.png', '.webp' }}" data-version!="{{ s.version }}" data-caption!="{{ s.version }} ({{ s.year }}){% if s.note %} · {{ s.note | escape }}{% endif %}{% if s.by %} · by @{{ s.by }}{% endif %}") {{ s.version }}
+      button(type="button" aria-pressed!="{% if forloop.last %}true{% else %}false{% endif %}" data-i!="{{ forloop.index0 }}" data-src!="{{ s.src }}" data-web!="/img/screenshots/web/{{ s.src | replace: '/', '_' | replace: '.png', '.webp' }}" data-version!="{{ s.version }}" data-year!="{{ s.year }}" data-caption!="{{ s.version }} ({{ s.year }}){% if s.note %} · {{ s.note | escape }}{% endif %}{% if s.by %} · by @{{ s.by }}{% endif %}") {{ s.version }}
       | {% endfor %}
     .evo-caption.small(data-evo-caption) {{ cur.version }} ({{ cur.year }}){% if cur.note %} · {{ cur.note | escape }}{% endif %}{% if cur.by %} · by @{{ cur.by }}{% endif %}
   | {% endfor %}
@@ -115,6 +115,7 @@ script.
       link.href = '/img/screenshots/' + b.dataset.src;
       caption.textContent = b.dataset.caption;
       range.value = i;
+      range.setAttribute('aria-valuetext', b.dataset.version + ' (' + b.dataset.year + ')');
       buttons.forEach(function (o, j) { o.setAttribute('aria-pressed', j === i ? 'true' : 'false'); });
     }
     range.addEventListener('input', function () { show(Number(range.value)); });
