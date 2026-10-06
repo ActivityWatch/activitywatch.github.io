@@ -27,7 +27,6 @@ permalink: /subscribe/
       a.href += "&from=" + encodeURIComponent(from);
     });
   });
-
   function referrerTag(referrer) {
     if (!referrer) { return ""; }
     var url;
