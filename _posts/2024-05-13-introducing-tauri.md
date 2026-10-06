@@ -65,7 +65,7 @@ v0.14.0 includes `aw-tauri` builds for all platforms. Find them under "Tauri dis
 
 - **Windows:** the `.exe` installer.
 - **macOS:** the `.dmg`, for either Apple Silicon or Intel.
-- **Linux:** the `.zip` has everything (`aw-tauri` as `.AppImage`, `.deb` and `.rpm`, plus the watchers): run `move-to-aw-modules.sh` from it to copy the modules to `~/aw-modules/`, which is where `aw-tauri` looks for them. The standalone `.AppImage`, `.deb` and `.rpm` on the release page contain only the `aw-tauri` app itself.
+- **Linux:** the standalone `.AppImage`, `.deb` and `.rpm` are self-contained with `awatcher` (window and AFK tracking on X11 and Wayland) plus `aw-sync`. The `.zip` includes those modules too, along with the Python watchers and `move-to-aw-modules.sh` for installing optional modules in `~/aw-modules/`.
 
 A few caveats, since this is still testing:
 
