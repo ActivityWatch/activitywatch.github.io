@@ -55,6 +55,19 @@ p
     | {% endfor %}
   | {% endif %}
 
+  | {% if latest.android %}
+  h4#android.pt-3 Android ({{ latest.android_version }})
+  .row
+    | {% for s in latest.android %}
+    .col-6.col-md-4.col-lg
+      a(href!="/img/screenshots/{{ s.src }}")
+        img(src!="/img/screenshots/web/{{ s.src | replace: '/', '_' | replace: '.png', '.webp' }}" alt!="ActivityWatch for Android {{ latest.android_version }}: {{ s.title | escape }}" loading="lazy" width="100%")
+      .small
+        | {{ s.title | escape }}
+        | {% if s.dark %} · #[a(href!="/img/screenshots/{{ s.dark }}") dark mode]{% endif %}
+    | {% endfor %}
+  | {% endif %}
+
   h3#evolution.pt-4 How it has evolved
   p Drag the slider to see each view across versions, from the first releases to today.
 
