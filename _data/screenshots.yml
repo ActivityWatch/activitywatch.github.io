@@ -1,0 +1,83 @@
+# Screenshots page data (rendered by screenshots.pug).
+#
+# `src` is relative to /img/screenshots/; a downscaled copy for display lives at
+# /img/screenshots/web/<src with / replaced by _>.webp, and the full PNG is linked.
+#
+# latest: regenerate with `scripts/screenshots.py` in ActivityWatch/activitywatch
+# (demo data, isolated server), then move the previous `latest` shots into
+# `evolution` so the history keeps growing.
+
+latest:
+  version: v0.14.0
+  shots: []
+
+# One entry per view, oldest first. Each shot is that view as it looked in a version.
+evolution:
+  - view: Activity
+    shots:
+      - version: v0.8.0dev
+        year: 2018
+        src: screenshot-v0.8.0dev-activity.png
+      - version: v0.8.0b9
+        year: 2019
+        src: screenshot-v0.8.0b9-today.png
+        note: The “Today” view, before it became Activity
+      - version: v0.9.3
+        year: 2020
+        src: screenshot-v0.9.3-activity.png
+      - version: v0.12.0b2
+        year: 2022
+        src: BelKed/screenshot-v0.12.0b2-activity.png
+        by: BelKed
+        note: Dark mode
+      - version: v0.12
+        year: 2023
+        src: realhyperchango/activity-productivity.png
+        by: realhyperchango
+        note: Productivity categories
+      - version: v0.14.0b8
+        year: 2026
+        src: screenshot-v0.14.0b8-aw-tauri-activity.png
+        note: The new Tauri app
+  - view: Timeline
+    shots:
+      - version: v0.8.0b9
+        year: 2019
+        src: screenshot-v0.8.0b9-timeline.png
+      - version: v0.12
+        year: 2023
+        src: thelifeimliving/timeline-dark.png
+        by: thelifeimliving
+        note: Dark mode
+
+# Screenshot competition entries (github.com/ActivityWatch/activitywatch/discussions/741).
+community:
+  version: v0.12
+  shots:
+    - title: Activity
+      src: [thelifeimliving/activity.png]
+      by: thelifeimliving
+    - title: Activity with productivity categories
+      src: [realhyperchango/activity-productivity.png]
+      by: realhyperchango
+    - title: Activity (dark)
+      src: [BelKed/screenshot-v0.12.0b2-activity.png]
+      by: BelKed
+    - title: Timeline (dark)
+      src: [thelifeimliving/timeline-dark.png]
+      by: thelifeimliving
+    - title: Month view
+      src: [maholli/month.png]
+      by: maholli
+    - title: Search
+      src: [thelifeimliving/search.png]
+      by: thelifeimliving
+    - title: Stopwatch
+      src: [thelifeimliving/stopwatch.png, thelifeimliving/stopwatch-dark.png]
+      by: thelifeimliving
+    - title: Query explorer
+      src: [thelifeimliving/query-explorer.png, thelifeimliving/query-explorer-dark.png]
+      by: thelifeimliving
+    - title: Settings
+      src: [thelifeimliving/settings.png, thelifeimliving/settings-dark.png]
+      by: thelifeimliving
