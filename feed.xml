@@ -6,9 +6,131 @@
 </description>
     <link>https://activitywatch.net/</link>
     <atom:link href="https://activitywatch.net/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Tue, 06 Oct 2026 13:43:11 +0000</pubDate>
-    <lastBuildDate>Tue, 06 Oct 2026 13:43:11 +0000</lastBuildDate>
+    <pubDate>Tue, 06 Oct 2026 13:45:48 +0000</pubDate>
+    <lastBuildDate>Tue, 06 Oct 2026 13:45:48 +0000</lastBuildDate>
     <generator>Jekyll v4.3.2</generator>
+    
+      <item>
+        <title>A lighter faster ActivityWatch with Tauri: now available for testing</title>
+        <description>&lt;p&gt;The ActivityWatch v0.14.0 release ships a new desktop app: &lt;a href=&quot;https://github.com/ActivityWatch/aw-tauri&quot;&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;aw-tauri&lt;/code&gt;&lt;/a&gt;, a lighter, faster cross-platform repackaging of ActivityWatch. As the name implies the project is built with &lt;a href=&quot;https://tauri.app&quot;&gt;Tauri&lt;/a&gt;, a relatively new Rust-based toolkit that enables easy development of small, fast, and secure applications with a great developer experience.&lt;/p&gt;
+
+&lt;p&gt;We first announced this work in 2024, when it was little more than a prototype. Since then it has grown into something you can install on Windows, macOS (Apple Silicon and Intel) and Linux, and v0.14.0 includes it for every one of those platforms. This post is the story so far: why we did it, what you get, and how you can try it today.&lt;/p&gt;
+
+&lt;div class=&quot;text-center my-3&quot;&gt;
+  &lt;img src=&quot;/img/screenshots/screenshot-v0.14.0b8-aw-tauri-activity.png&quot; alt=&quot;The ActivityWatch Activity view (7-day aggregate with top applications and categories) running inside the aw-tauri application window&quot; style=&quot;max-width: 100%;&quot; class=&quot;border&quot; /&gt;
+  &lt;p&gt;&lt;small&gt;The Activity view inside aw-tauri&apos;s own window (v0.14.0b8, Linux; demo data). No browser tab needed.&lt;/small&gt;&lt;/p&gt;
+&lt;/div&gt;
+
+&lt;h2 id=&quot;why-tauri&quot;&gt;Why Tauri&lt;/h2&gt;
+
+&lt;p&gt;Tauri apps are lightweight, memory efficient and secure by design. Tauri does not ship a renderer but uses the platform native renderer via WebViews. This simple design choice makes the app size compact and memory efficient during runtime, as compared to electron apps. Tauri apps are secure, only interacting with the host systems through Tauri APIs.&lt;/p&gt;
+
+&lt;p&gt;That last part holds if you build an app the “Tauri way”. ActivityWatch also runs an HTTP server (&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;aw-server-rust&lt;/code&gt;, on &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;localhost:5600&lt;/code&gt;), so we still have to take precautions to not expose sensitive information to other devices on the network or to websites, just like before.&lt;/p&gt;
+
+&lt;h2 id=&quot;what-you-get&quot;&gt;What you get&lt;/h2&gt;
+
+&lt;p&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;aw-tauri&lt;/code&gt; aims to replace the functionality that is currently implemented in &lt;a href=&quot;https://github.com/ActivityWatch/aw-qt&quot;&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;aw-qt&lt;/code&gt;&lt;/a&gt; and &lt;a href=&quot;https://github.com/ActivityWatch/aw-notify&quot;&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;aw-notify&lt;/code&gt;&lt;/a&gt;. Creating a new Rust-powered entrypoint for running ActivityWatch and its modules. With &lt;a href=&quot;https://github.com/ActivityWatch/aw-server-rust&quot;&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;aw-server-rust&lt;/code&gt;&lt;/a&gt; as the default server, it leads to a reliable and highly performant application. Reliability and performance is very important for apps like ActivityWatch, which always run in the background and collect data that is otherwise lost.&lt;/p&gt;
+
+&lt;p&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;aw-tauri&lt;/code&gt; is designed to be a drop-in replacement for &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;aw-qt&lt;/code&gt;, and the main application that appears as a tray icon and manages the server and the watchers:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;It houses its own webview, no need to visit &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;http://localhost:5600&lt;/code&gt; in your browser anymore.&lt;/li&gt;
+  &lt;li&gt;Watchers can be started and stopped right from the tray icon, just like in &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;aw-qt&lt;/code&gt;. Crashed modules are restarted automatically, with a backoff and a limit on retries.&lt;/li&gt;
+  &lt;li&gt;The server runs inside the app (&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;aw-server-rust&lt;/code&gt;), so there is no separate server process to manage.&lt;/li&gt;
+  &lt;li&gt;Autostart on login is built into the app and can be toggled from the tray menu, no need to set up systemd services for Linux users.&lt;/li&gt;
+  &lt;li&gt;Notifications: &lt;a href=&quot;https://github.com/ActivityWatch/aw-notify-rs&quot;&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;aw-notify&lt;/code&gt;&lt;/a&gt; has since been rewritten in Rust, and &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;aw-tauri&lt;/code&gt; runs it and shows its output as native desktop notifications, enabling configurable usage notifications (such as goals or alerts).&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://github.com/ActivityWatch/aw-server-rust/tree/master/aw-sync&quot;&gt;aw-sync&lt;/a&gt; is included in the bundles, but sync is still in preview: it is opt-in and not switched on by default.&lt;/li&gt;
+  &lt;li&gt;It can update itself: from v0.14.0 the built-in updater (wired up to GitHub Releases) updates the app on macOS and Linux. On Windows, install new versions manually for now.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;The watchers themselves are still mostly the same ones as before: the Python &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;aw-watcher-afk&lt;/code&gt; and &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;aw-watcher-window&lt;/code&gt; for cross-platform compatibility. There is no cross-platform Rust watcher, yet. On Linux the bundle also includes &lt;a href=&quot;https://github.com/2e3s/awatcher&quot;&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;awatcher&lt;/code&gt;&lt;/a&gt;, a Rust watcher that covers window and AFK tracking on both X11 and Wayland, which is why the v0.14.0 release notes list native Wayland support for the Tauri build.&lt;/p&gt;
+
+&lt;p&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;aw-tauri&lt;/code&gt; does not replace the classic &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;aw-qt&lt;/code&gt; build in v0.14.0: both are published side by side, and the release notes still label the Tauri distribution as experimental. We would like to hear how it works for you before that changes.&lt;/p&gt;
+
+&lt;h2 id=&quot;developer-experience&quot;&gt;Developer Experience&lt;/h2&gt;
+
+&lt;p&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;aw-tauri&lt;/code&gt; is built with &lt;a href=&quot;https://github.com/ActivityWatch/aw-server-rust&quot;&gt;aw-server-rust&lt;/a&gt; serving the backend together with &lt;a href=&quot;https://github.com/ActivityWatch/aw-webui&quot;&gt;aw-webui&lt;/a&gt;. We have taken care to keep the codebase lean and clean, such that it takes very little time to get acquainted with the codebase.&lt;/p&gt;
+
+&lt;p&gt;In our current build process for Python modules like &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;aw-qt&lt;/code&gt;, we rely heavily on PyInstaller for building into binaries. This has been an enduring source of problems, and many developer weeks (if not months) have been spent trying to work out all the issues over the years (especially macOS support, because of the need to codesign a very messy &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;.app&lt;/code&gt; bundle).&lt;/p&gt;
+
+&lt;p&gt;With Tauri, they have handled most of the heavy lifting, and make it easy to produce working binaries for all target platforms. Much of this is simply due to Rust (avoids PyInstaller and its complexity), but also the added tooling for codesigning, and producing suitable bundles for each platform: on Linux you get a lightweight &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;.AppImage&lt;/code&gt;, on Windows an installer, and &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;.app&lt;/code&gt; on macOS.&lt;/p&gt;
+
+&lt;p&gt;In v0.14.0, the Windows installer is an &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;.exe&lt;/code&gt; setup, macOS gets a &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;.dmg&lt;/code&gt; for both Apple Silicon and Intel, and Linux gets &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;.AppImage&lt;/code&gt;, &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;.deb&lt;/code&gt;, &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;.rpm&lt;/code&gt; and &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;.zip&lt;/code&gt; for x86_64 and arm64.&lt;/p&gt;
+
+&lt;p&gt;The Tauri bundles are also smaller to download. Here is the size of the installers attached to the v0.14.0b8 release, for the classic build and the Tauri build:&lt;/p&gt;
+
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th&gt;Installer&lt;/th&gt;
+      &lt;th style=&quot;text-align: right&quot;&gt;Classic (&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;aw-qt&lt;/code&gt;)&lt;/th&gt;
+      &lt;th style=&quot;text-align: right&quot;&gt;Tauri&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Windows &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;.exe&lt;/code&gt;&lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;81 MB&lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;43 MB&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;macOS Apple Silicon &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;.dmg&lt;/code&gt;&lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;64 MB&lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;53 MB&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;macOS Intel &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;.dmg&lt;/code&gt;&lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;70 MB&lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;56 MB&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;p&gt;These are download sizes read from the release assets, not a measurement of runtime memory use. We have not benchmarked memory yet.&lt;/p&gt;
+
+&lt;h2 id=&quot;try-it-today&quot;&gt;Try it today&lt;/h2&gt;
+
+&lt;p&gt;v0.14.0 includes &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;aw-tauri&lt;/code&gt; builds for all platforms. Find them under “Tauri distribution” in the &lt;a href=&quot;https://github.com/ActivityWatch/activitywatch/releases/tag/v0.14.0&quot;&gt;v0.14.0 release notes and assets&lt;/a&gt;. (The &lt;a href=&quot;https://activitywatch.net/downloads/&quot;&gt;downloads page&lt;/a&gt; links the classic &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;aw-qt&lt;/code&gt; build by default.)&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;strong&gt;Windows:&lt;/strong&gt; the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;.exe&lt;/code&gt; installer.&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;macOS:&lt;/strong&gt; the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;.dmg&lt;/code&gt;, for either Apple Silicon or Intel.&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;Linux:&lt;/strong&gt; the standalone &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;.AppImage&lt;/code&gt;, &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;.deb&lt;/code&gt; and &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;.rpm&lt;/code&gt; are self-contained with &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;awatcher&lt;/code&gt; (window and AFK tracking on X11 and Wayland) plus &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;aw-sync&lt;/code&gt;. The &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;.zip&lt;/code&gt; includes those modules too, along with the Python watchers and &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;move-to-aw-modules.sh&lt;/code&gt; for installing optional modules in &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;~/aw-modules/&lt;/code&gt;.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;A few caveats, since this is still testing:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;strong&gt;Back up your data before upgrading.&lt;/strong&gt; The v0.14 server performs a one-time database index migration on first start. It does not intentionally change or delete events, but on a large database it can take a while, so leave ActivityWatch running until the dashboard shows up.&lt;/li&gt;
+  &lt;li&gt;Don’t run &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;aw-qt&lt;/code&gt; and &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;aw-tauri&lt;/code&gt; at the same time: they both want port 5600.&lt;/li&gt;
+  &lt;li&gt;Found a bug? Please &lt;a href=&quot;https://github.com/ActivityWatch/aw-tauri/issues&quot;&gt;open an issue&lt;/a&gt; or tell us in the &lt;a href=&quot;https://github.com/ActivityWatch/activitywatch/discussions&quot;&gt;release discussion&lt;/a&gt;.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;who-this-is-for&quot;&gt;Who this is for&lt;/h2&gt;
+
+&lt;p&gt;ActivityWatch &lt;a href=&quot;/blog/one-million-downloads/&quot;&gt;has passed 1 million downloads&lt;/a&gt;, and the desktop app is where most of our users start. Making it simpler to build, sign and ship is how we get fixes and improvements out to them faster.&lt;/p&gt;
+
+&lt;div class=&quot;text-center my-3&quot;&gt;
+  &lt;img src=&quot;/img/stats/downloads.png&quot; alt=&quot;Cumulative ActivityWatch downloads passing 1 million, and weekly downloads rising to over 10,000&quot; style=&quot;max-width: 100%;&quot; /&gt;
+  &lt;p&gt;&lt;small&gt;Cumulative and weekly desktop downloads from GitHub Releases. Live chart on the &lt;a href=&quot;/stats/&quot;&gt;stats page&lt;/a&gt;.&lt;/small&gt;&lt;/p&gt;
+&lt;/div&gt;
+
+&lt;h2 id=&quot;help-us-finish-it&quot;&gt;Help us finish it&lt;/h2&gt;
+
+&lt;p&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;aw-tauri&lt;/code&gt; is still in active development and contributions are welcome and encouraged! More eyes on the code will be beneficial to the project.&lt;/p&gt;
+
+&lt;p&gt;Check out the &lt;a href=&quot;https://github.com/ActivityWatch/aw-tauri/blob/master/README.md&quot;&gt;README&lt;/a&gt; to see the status of development, and where you can help out. Open items include a settings UI, downloading watchers on demand, the updater, and code signing (&lt;a href=&quot;https://github.com/ActivityWatch/aw-tauri/issues&quot;&gt;see the issues&lt;/a&gt;).&lt;/p&gt;
+
+&lt;p&gt;We are hopeful that it will help solve many of our remaining challenges, and are excited to see it help shape the future of ActivityWatch.&lt;/p&gt;
+
+&lt;p&gt;Thanks to &lt;a href=&quot;https://github.com/0xbrayo&quot;&gt;Brian Vuku (0xbrayo)&lt;/a&gt;, the main author of &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;aw-tauri&lt;/code&gt;, who wrote the original version of this post.&lt;/p&gt;
+</description>
+        <pubDate>Tue, 06 Oct 2026 12:00:00 +0000</pubDate>
+        <link>https://activitywatch.net/blog/introducing-tauri/</link>
+        <guid isPermaLink="true">https://activitywatch.net/blog/introducing-tauri/</guid>
+        
+        
+      </item>
     
       <item>
         <title>ActivityWatch Research Edition: a variant for your study</title>
@@ -980,54 +1102,6 @@ All donation methods are listed on our &lt;a href=&quot;https://activitywatch.ne
         <pubDate>Tue, 28 Aug 2018 17:06:00 +0000</pubDate>
         <link>https://activitywatch.net/blog/development-update-aug-2018/</link>
         <guid isPermaLink="true">https://activitywatch.net/blog/development-update-aug-2018/</guid>
-        
-        
-      </item>
-    
-      <item>
-        <title>Development Update May 2018</title>
-        <description>&lt;p&gt;&lt;a href=&quot;https://www.patreon.com/posts/17206179&quot;&gt;On request&lt;/a&gt; we’ve decided to start doing these bimonthly development updates in order to keep you all updated about how development is progressing. It might take a few updates for us to get this going, but we’ll get there!&lt;/p&gt;
-
-&lt;h2 id=&quot;milestones&quot;&gt;Milestones&lt;/h2&gt;
-
-&lt;p&gt;May 7th: We finally released &lt;a href=&quot;https://github.com/ActivityWatch/activitywatch/releases/tag/v0.8.0b1&quot;&gt;v0.8.0b1&lt;/a&gt;. It’s been our first release since November 2017 and is the first beta release of the upcoming (and amazing) new v0.8 release.&lt;/p&gt;
-
-&lt;p&gt;May 15th: We hit 4000 downloads 🌟&lt;/p&gt;
-
-&lt;h2 id=&quot;improvements&quot;&gt;Improvements&lt;/h2&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;Implemented our query2 querying language and rewrote much of the visualization code to use it. This is a huge step forward for future visualization work. (&lt;a href=&quot;https://github.com/ActivityWatch/aw-core/pull/46&quot;&gt;aw-core#46&lt;/a&gt;, &lt;a href=&quot;https://github.com/ActivityWatch/aw-server/pull/35&quot;&gt;aw-server#35&lt;/a&gt;, &lt;a href=&quot;https://github.com/ActivityWatch/aw-webui/pull/48&quot;&gt;aw-webui#48&lt;/a&gt;)&lt;/li&gt;
-  &lt;li&gt;Added a query explorer in the web UI to help with testing queries. (&lt;a href=&quot;https://github.com/ActivityWatch/aw-webui/pull/64&quot;&gt;aw-webui#64&lt;/a&gt;)&lt;/li&gt;
-  &lt;li&gt;Made watchers more resilient by switching to a new type of request queue. (&lt;a href=&quot;https://github.com/ActivityWatch/aw-client/pull/28&quot;&gt;aw-client#28&lt;/a&gt;)&lt;/li&gt;
-  &lt;li&gt;Started developing &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;aw-client-js&lt;/code&gt; (&lt;a href=&quot;https://github.com/ActivityWatch/aw-client-js/pull/2&quot;&gt;aw-client-js#2&lt;/a&gt;) and switched to using it in &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;aw-webui&lt;/code&gt; (&lt;a href=&quot;https://github.com/ActivityWatch/aw-webui/pull/62&quot;&gt;aw-webui#62&lt;/a&gt;).&lt;/li&gt;
-  &lt;li&gt;The web UI now has a view for the most-visited domains. (&lt;a href=&quot;https://github.com/ActivityWatch/aw-webui/commit/8f443bc1e258c54f1838994e0f1f79e254d86d6a&quot;&gt;this commit&lt;/a&gt;)&lt;/li&gt;
-  &lt;li&gt;The web UI now has a button for removing buckets. (&lt;a href=&quot;https://github.com/ActivityWatch/aw-webui/commit/6410170d3192c9e73bb7957ea7e7b9ce606e25ac#diff-32c6cbf8ae7a966f7e41ec78a6d775cb&quot;&gt;this commit&lt;/a&gt;)&lt;/li&gt;
-  &lt;li&gt;We now have &lt;a href=&quot;https://aur.archlinux.org/packages/activitywatch-bin/&quot;&gt;a package on the AUR&lt;/a&gt; for easy installation on Arch Linux!&lt;/li&gt;
-  &lt;li&gt;And a bunch of smaller bugfixes and reliability improvements.&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h2 id=&quot;going-forward&quot;&gt;Going forward&lt;/h2&gt;
-
-&lt;p&gt;We’ve been hard at work trying to improve the performance of ActivityWatch (&lt;a href=&quot;https://github.com/ActivityWatch/activitywatch/issues/98&quot;&gt;activitywatch#98&lt;/a&gt;) using several approaches:&lt;/p&gt;
-&lt;ul&gt;
-  &lt;li&gt;Switching to a pure-SQL implementation of the SQLite datastore. (&lt;a href=&quot;https://github.com/ActivityWatch/aw-core/pull/57&quot;&gt;aw-core#57&lt;/a&gt;)&lt;/li&gt;
-  &lt;li&gt;Pre-merging of heartbeat events. (&lt;a href=&quot;https://github.com/ActivityWatch/aw-client/pull/33&quot;&gt;aw-client#33&lt;/a&gt;)&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;We’ll also spend a considerate amount of time developing ActivityWatch this coming summer as we’re a team of five people who will be working on our related project &lt;a href=&quot;https://github.com/ActivityWatch/thankful&quot;&gt;Thankful&lt;/a&gt;. Certainly something to look forward to!&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;Do you like ActivityWatch and hope to see many updates like this in the future? &lt;a href=&quot;https://www.patreon.com/erikbjare&quot;&gt;Support us on Patreon!&lt;/a&gt;&lt;/strong&gt;&lt;/p&gt;
-
-&lt;hr /&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;This post was originally published on &lt;a href=&quot;https://forum.activitywatch.net/t/development-update-may-2018/108&quot;&gt;the forum&lt;/a&gt;. It has been reposted here on the blog for archival purposes.&lt;/p&gt;
-&lt;/blockquote&gt;
-</description>
-        <pubDate>Wed, 16 May 2018 09:36:00 +0000</pubDate>
-        <link>https://activitywatch.net/blog/development-update-may-2018/</link>
-        <guid isPermaLink="true">https://activitywatch.net/blog/development-update-may-2018/</guid>
         
         
       </item>
