@@ -49,9 +49,9 @@ p
       h4 {{ s.title | escape }}
       a(href!="/img/screenshots/{{ s.src }}")
         img(src!="/img/screenshots/web/{{ s.src | replace: '/', '_' | replace: '.png', '.webp' }}" alt!="ActivityWatch {{ latest.version }}: {{ s.title | escape }}" loading="lazy" width="100%")
-      | {% if s.note %}
-      .small {{ s.note | escape }}
-      | {% endif %}
+      .small
+        | {% if s.note %}{{ s.note | escape }}{% endif %}
+        | {% if s.dark %}{% if s.note %} · {% endif %}#[a(href!="/img/screenshots/{{ s.dark }}") dark mode]{% endif %}
     | {% endfor %}
   | {% endif %}
 

@@ -9,7 +9,19 @@
 
 latest:
   version: v0.14.0
-  shots: []
+  shots:
+    - {title: Activity, src: v0.14.0/activity-day.png, dark: v0.14.0/activity-day-dark.png, note: One day across all your devices}
+    - {title: Activity (year), src: v0.14.0/activity-year.png, dark: v0.14.0/activity-year-dark.png, note: "A whole year, back in under a second once cached"}
+    - {title: Activity (week), src: v0.14.0/activity-week.png, dark: v0.14.0/activity-week-dark.png}
+    - {title: Activity (month), src: v0.14.0/activity-month.png, dark: v0.14.0/activity-month-dark.png}
+    - {title: Browser activity, src: v0.14.0/activity-browser.png, dark: v0.14.0/activity-browser-dark.png}
+    - {title: Timeline, src: v0.14.0/timeline.png, dark: v0.14.0/timeline-dark.png, note: Every device on one timeline}
+    - {title: Search, src: v0.14.0/search.png, dark: v0.14.0/search-dark.png}
+    - {title: Query explorer, src: v0.14.0/query.png, dark: v0.14.0/query-dark.png}
+    - {title: Stopwatch, src: v0.14.0/stopwatch.png, dark: v0.14.0/stopwatch-dark.png}
+    - {title: Categorization, src: v0.14.0/categorization.png, dark: v0.14.0/categorization-dark.png, note: Rules that sort your time into categories}
+    - {title: Settings, src: v0.14.0/settings.png, dark: v0.14.0/settings-dark.png}
+    - {title: Buckets, src: v0.14.0/buckets.png, dark: v0.14.0/buckets-dark.png, note: Raw data from each watcher and device}
 
 # One entry per view, oldest first. Each shot is that view as it looked in a version.
 evolution:
@@ -39,6 +51,10 @@ evolution:
         year: 2026
         src: screenshot-v0.14.0b8-aw-tauri-activity.png
         note: The new Tauri app
+      - version: v0.14.0
+        year: 2026
+        src: v0.14.0/activity-day.png
+        note: Multi-device, with demo data
   - view: Timeline
     shots:
       - version: v0.8.0b9
@@ -49,6 +65,10 @@ evolution:
         src: thelifeimliving/timeline-dark.png
         by: thelifeimliving
         note: Dark mode
+      - version: v0.14.0
+        year: 2026
+        src: v0.14.0/timeline.png
+        note: Multi-device, with demo data
 
 # Screenshot competition entries (github.com/ActivityWatch/activitywatch/discussions/741).
 community:
