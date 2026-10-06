@@ -42,12 +42,14 @@ PACKAGE_LINKS = {
     ],
 }
 
-# Android has no GitHub release assets; it's always just the Play Store link.
+# Android has no GitHub release assets; it's always just the store links.
 ANDROID = {
     "name": "Android",
     "assets": [
         {"title": "Play Store",
          "url": "https://play.google.com/store/apps/details?id=net.activitywatch.android"},
+        {"title": "F-Droid",
+         "url": "https://f-droid.org/en/packages/net.activitywatch.android/"},
     ],
 }
 
