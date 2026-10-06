@@ -6,8 +6,8 @@
 </description>
     <link>https://activitywatch.net/</link>
     <atom:link href="https://activitywatch.net/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Tue, 06 Oct 2026 13:57:29 +0000</pubDate>
-    <lastBuildDate>Tue, 06 Oct 2026 13:57:29 +0000</lastBuildDate>
+    <pubDate>Tue, 06 Oct 2026 13:57:52 +0000</pubDate>
+    <lastBuildDate>Tue, 06 Oct 2026 13:57:52 +0000</lastBuildDate>
     <generator>Jekyll v4.3.2</generator>
     
       <item>
@@ -128,6 +128,81 @@
         <pubDate>Tue, 06 Oct 2026 12:00:00 +0000</pubDate>
         <link>https://activitywatch.net/blog/introducing-tauri/</link>
         <guid isPermaLink="true">https://activitywatch.net/blog/introducing-tauri/</guid>
+        
+        
+      </item>
+    
+      <item>
+        <title>Syncing your ActivityWatch devices: what works today, what&apos;s next</title>
+        <description>&lt;p&gt;You can now copy activity data between your phone and your computers without an ActivityWatch account. ActivityWatch has no sync server of its own; whether the copies stay on machines you control depends on the folder tool you pick. Sync and multi-device queries have reached the point where the basics work and Erik uses them on his own devices. They are not yet click-and-play: some setup is manual, and a few pieces — including the combined Activity view — are merged but not yet in a release. This post covers what works, what needs care, and what is still ahead.&lt;/p&gt;
+
+&lt;h2 id=&quot;how-it-works&quot;&gt;How it works&lt;/h2&gt;
+
+&lt;p&gt;ActivityWatch has no sync server. Each device keeps its own data locally, as it always has. &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;aw-sync&lt;/code&gt; adds one step: it copies a device’s buckets into a &lt;em&gt;sync folder&lt;/em&gt;, and it reads the other devices’ copies out of that folder.&lt;/p&gt;
+
+&lt;div class=&quot;text-center my-3&quot; style=&quot;overflow-x: auto;&quot;&gt;
+  &lt;a href=&quot;/img/sync-data-flow.svg&quot; title=&quot;Open full-size diagram&quot;&gt;
+    &lt;img src=&quot;/img/sync-data-flow.svg&quot; alt=&quot;Diagram: a desktop, a second desktop and an Android phone each push their own buckets into their own staging database inside a shared sync folder. A file-sync tool copies the folder between devices: Syncthing, rsync, or a self-hosted share stay on machines you control; Dropbox or Google Drive copy through that provider. A desktop then pulls the other devices&apos; databases read-only into its own aw-server as synced-from buckets. The Activity view can show those buckets merged with the local ones. The phone only pushes in 0.14.&quot; style=&quot;min-width: 640px; max-width: 100%; height: auto;&quot; /&gt;
+  &lt;/a&gt;
+  &lt;p&gt;&lt;small&gt;The sync data flow as it works in v0.14.0. Names and layout will change with the v2 redesign below. On a small screen, scroll sideways or open the diagram full-size.&lt;/small&gt;&lt;/p&gt;
+&lt;/div&gt;
+
+&lt;p&gt;The moving parts:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;strong&gt;Push.&lt;/strong&gt; Every device writes only into files it owns: a staging database at &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;{hostname}/{device_id}/test.db&lt;/code&gt; inside the sync folder (default &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;~/ActivityWatchSync&lt;/code&gt; on desktop). Nothing else writes to it.&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;Transport is your choice.&lt;/strong&gt; Share the folder with a tool you already use. Syncthing, rsync, or a self-hosted share keep copies on machines you control. Dropbox or Google Drive also work, but then the folder copies go through that provider’s servers. &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;aw-sync&lt;/code&gt; does not move files between machines; that is deliberate, so you pick where your data travels.&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;Pull.&lt;/strong&gt; A desktop opens the other devices’ databases read-only and imports their events into its own &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;aw-server&lt;/code&gt; as buckets named like &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;aw-watcher-android-synced-from-&amp;lt;host&amp;gt;&lt;/code&gt;.&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;View.&lt;/strong&gt; Once imported, the web UI can query local and imported buckets together. In v0.14.0 the Activity view can merge any set of devices: pick them in its device selector.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;what-works-today&quot;&gt;What works today&lt;/h2&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;strong&gt;Android pushes.&lt;/strong&gt; In &lt;a href=&quot;/blog/activitywatch-android-0-14-stable/&quot;&gt;Android 0.14&lt;/a&gt;, Sync Settings lets you switch sync on (it is off by default) and pick a folder through Android’s storage picker. Since 0.14.2 it also shows when the next sync is scheduled and what each pass did.&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;Desktop pulls.&lt;/strong&gt; &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;aw-sync sync&lt;/code&gt; does one pull and push pass. &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;aw-sync status&lt;/code&gt; shows which peers it found in the folder and what the last pass did.&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;Multi-device queries.&lt;/strong&gt; They exist in the web UI and have been fixed several times in the last few weeks, including for phones that have no AFK data. v0.14.0 ships an All devices / pick-devices selector in the Activity view (&lt;a href=&quot;https://github.com/ActivityWatch/aw-webui/pull/1004&quot;&gt;aw-webui#1004&lt;/a&gt;).&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;what-needs-care-today&quot;&gt;What needs care today&lt;/h2&gt;
+
+&lt;p&gt;We would rather tell you than have you find out.&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;strong&gt;It’s early.&lt;/strong&gt; Sync is opt-in and not started by default, and setup is manual.&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;Android does not pull yet.&lt;/strong&gt; The phone sends its data out but does not import your desktops’ data (&lt;a href=&quot;https://github.com/ActivityWatch/aw-android/issues/291&quot;&gt;aw-android#291&lt;/a&gt;). The app’s own web UI therefore shows only the phone’s data.&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;You trigger the desktop pull.&lt;/strong&gt; The background daemon only pushes by default in v0.14.0; set &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;pull = true&lt;/code&gt; under &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;[daemon]&lt;/code&gt; in &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;aw-sync&lt;/code&gt;’s &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;config.toml&lt;/code&gt; to have it pull too. Running &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;aw-sync sync&lt;/code&gt; yourself or from a timer always does both. The &lt;a href=&quot;https://docs.activitywatch.net/en/latest/syncing.html&quot;&gt;sync docs&lt;/a&gt; cover setup.&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;The multi-device view covers apps and categories.&lt;/strong&gt; Browser and stopwatch data stay single-device in that view.&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;Some limits are built in.&lt;/strong&gt; Settings are not synced, deleting an event does not propagate, and every device mirrors events from every other, so many devices means many copies and more disk. Early versions could import duplicate events; &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;aw-sync dedupe --dry-run&lt;/code&gt; reports them.&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;Imports are not read-only.&lt;/strong&gt; Local edits to an imported bucket are silently lost (&lt;a href=&quot;https://github.com/ActivityWatch/aw-server-rust/issues/694&quot;&gt;aw-server-rust#694&lt;/a&gt;). Edit on the device that owns the data.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;whats-next&quot;&gt;What’s next&lt;/h2&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;strong&gt;A leaner staging area (sync v2).&lt;/strong&gt; The staging database is the wrong shape for sync. Version 2 is designed to replace it with immutable, compressed segment files plus a manifest, with the goal of more predictable imports and less space used. The first piece, a segment writer, has merged behind a feature flag and is not used by any command yet. Design and progress are tracked in &lt;a href=&quot;https://github.com/ActivityWatch/activitywatch/issues/1445&quot;&gt;activitywatch#1445&lt;/a&gt;.&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;Android pull.&lt;/strong&gt; It is waiting on v2, so that mirroring every device’s data does not fill up phone storage.&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;Finishing multi-device queries.&lt;/strong&gt; Getting the web UI selector released, and making sure the clients, phone included, actually get multi-device data.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;We are not putting dates on these.&lt;/p&gt;
+
+&lt;h2 id=&quot;try-it-and-tell-us-what-breaks&quot;&gt;Try it, and tell us what breaks&lt;/h2&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;Pick a folder and share it between your devices with a tool you trust. If you want copies to stay off third-party servers, use Syncthing, rsync, or a share you host.&lt;/li&gt;
+  &lt;li&gt;On the phone, turn on Sync in the navigation drawer and choose that folder.&lt;/li&gt;
+  &lt;li&gt;On the desktop, install &lt;a href=&quot;https://github.com/ActivityWatch/activitywatch/releases/tag/v0.14.0&quot;&gt;v0.14.0&lt;/a&gt; and run &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;aw-sync sync&lt;/code&gt;, then check &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;aw-sync status&lt;/code&gt;.&lt;/li&gt;
+  &lt;li&gt;Confirm the import from &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;aw-sync status&lt;/code&gt; (it lists discovered peers) and from the raw buckets list or Timeline, which should show &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;...-synced-from-&amp;lt;host&amp;gt;&lt;/code&gt; buckets. Then pick your devices in the Activity view’s device selector to see them together.&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;Expect the first pull to import everything already in the folder, which can take a while for a phone with months of history.&lt;/p&gt;
+
+&lt;p&gt;If something goes wrong, &lt;a href=&quot;https://github.com/ActivityWatch/aw-server-rust/issues&quot;&gt;open an issue&lt;/a&gt; and include the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;aw-sync status&lt;/code&gt; output after redacting identifying peer names and paths, or ask on the &lt;a href=&quot;https://forum.activitywatch.net&quot;&gt;forum&lt;/a&gt;. Reports from real setups are what makes this better.&lt;/p&gt;
+</description>
+        <pubDate>Tue, 06 Oct 2026 10:00:00 +0000</pubDate>
+        <link>https://activitywatch.net/blog/syncing-your-activitywatch-devices/</link>
+        <guid isPermaLink="true">https://activitywatch.net/blog/syncing-your-activitywatch-devices/</guid>
         
         
       </item>
@@ -982,142 +1057,6 @@
         <pubDate>Wed, 30 Aug 2023 13:55:00 +0000</pubDate>
         <link>https://activitywatch.net/blog/comparing-time-trackers/</link>
         <guid isPermaLink="true">https://activitywatch.net/blog/comparing-time-trackers/</guid>
-        
-        
-      </item>
-    
-      <item>
-        <title>Development Update March 2019</title>
-        <description>&lt;p&gt;It’s time for another development update!&lt;/p&gt;
-
-&lt;p&gt;We are sorry for the long delay in our development updates, but infrequent updates also mean &lt;strong&gt;&lt;em&gt;larger&lt;/em&gt;&lt;/strong&gt; updates. &lt;a href=&quot;https://forum.activitywatch.net/t/development-update-august-2018/136&quot;&gt;The last development update&lt;/a&gt; was written about half a year ago, so we have a lot of things to share!&lt;/p&gt;
-
-&lt;p&gt;If you don’t want to read all these notes and just want to experience the new beta of ActivityWatch right away, &lt;a href=&quot;https://github.com/ActivityWatch/activitywatch/releases/tag/v0.8.0b8&quot;&gt;you can download it here&lt;/a&gt;!&lt;/p&gt;
-
-&lt;h1 id=&quot;-milestones&quot;&gt;🏁 Milestones&lt;/h1&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;
-    &lt;p&gt;&lt;strong&gt;2019-03-09:&lt;/strong&gt; 🚢 &lt;a href=&quot;https://github.com/ActivityWatch/activitywatch/releases/tag/v0.8.0b8&quot;&gt;0.8.0 beta 8&lt;/a&gt; was released&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;&lt;strong&gt;2019-01-14:&lt;/strong&gt; 🤖 First &lt;a href=&quot;https://github.com/ActivityWatch/aw-android/&quot;&gt;aw-android&lt;/a&gt; release&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;&lt;strong&gt;2019-01-05:&lt;/strong&gt; ⬇️ We passed 10,000 downloads!&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;&lt;strong&gt;2018-12-08:&lt;/strong&gt; ⚙️ &lt;a href=&quot;https://github.com/ActivityWatch/aw-server-rust/&quot;&gt;aw-server-rust&lt;/a&gt; reached feature parity&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;&lt;strong&gt;2018-11-03:&lt;/strong&gt; 🚢 &lt;a href=&quot;https://github.com/ActivityWatch/activitywatch/releases/tag/v0.8.0b7&quot;&gt;0.8.0 beta 7&lt;/a&gt; was released&lt;/p&gt;
-  &lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;&lt;a href=&quot;https://activitywatch.readthedocs.io/en/latest/changelog.html#v0-8-0b8&quot;&gt;Changelog can be found here&lt;/a&gt;&lt;/p&gt;
-
-&lt;h1 id=&quot;-major-news&quot;&gt;📯 Major News&lt;/h1&gt;
-
-&lt;h2 id=&quot;-activitywatch-is-now-in-early-beta-on-android&quot;&gt;🤖 ActivityWatch is now in early beta on Android!&lt;/h2&gt;
-
-&lt;p&gt;We have been working on getting ActivityWatch to Android for a long time (see &lt;a href=&quot;https://github.com/ActivityWatch/activitywatch/issues/6&quot;&gt;this issue&lt;/a&gt;). There’s a good reason why we think it’s important: in my own analysis, it accounts for almost half of my screen time!&lt;/p&gt;
-
-&lt;p&gt;So now we finally have something that you can try out! While not great (yet) there’s a lot to be excited about.&lt;/p&gt;
-
-&lt;p&gt;By being backed by our new high-performance implementation of the aw-server written in Rust (see below) it will have the same underlying features and APIs of the desktop version of ActivityWatch, making it a great foundation that will make development easy going forward. The web UI is currently available in the app (but is notably broken in a lot of ways), but we hope to be able to build some native UI elements in the future!&lt;/p&gt;
-
-&lt;p&gt;Now we just need to find the time to keep building, but we hope we might be able to find some contributors to help us out with doing so now that we have a solid foundation built on the same APIs already available in ActivityWatch elsewhere!&lt;/p&gt;
-
-&lt;p&gt;Get it on the &lt;a href=&quot;https://play.google.com/store/apps/details?id=net.activitywatch.android&quot;&gt;Play Store&lt;/a&gt;, or &lt;a href=&quot;https://github.com/ActivityWatch/aw-android&quot;&gt;check out the code on GitHub&lt;/a&gt;!&lt;/p&gt;
-
-&lt;h2 id=&quot;️-new-high-performance-implementation-of-aw-server-written-in-rust&quot;&gt;⚙️ New high-performance implementation of aw-server written in Rust&lt;/h2&gt;
-
-&lt;p&gt;While Python is a great language to quickly build new features in, it’s not great for performance or deploying to multiple platforms (especially Android). So @johan-bjareholt took on the tremendous task of reimplementing aw-server in the highly performant and secure programming language Rust.&lt;/p&gt;
-
-&lt;p&gt;This is big news for several reasons:&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;Since Rust compiles to Android we have built a library for use on Android, letting us avoid reimplement all of ActivityWatch to Android devices specifically (and vastly decreases the time to port future features like sync to Android).&lt;/li&gt;
-  &lt;li&gt;The high-performance improves battery life on devices like laptops, phones, and tablets.&lt;/li&gt;
-  &lt;li&gt;The high-performance will make it easier for us to implement weekly summaries&lt;/li&gt;
-  &lt;li&gt;Having two implementations gives us better testing and encourages work towards common specifications and standards.&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;The Python implementation will still be used for experimenting with new features, but expect the Rust implementation to be shipped with the normal desktop releases sometime in the future!&lt;/p&gt;
-
-&lt;h2 id=&quot;️-more-editor-watchers&quot;&gt;✏️ More editor watchers&lt;/h2&gt;
-
-&lt;p&gt;The community has contributed with many new editor watchers the past few months which we appreciate a lot! They have done some awesome work and most of them are even in a better state than the vim watcher we have written ourselves. Thanks everyone for the awesome work!&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;&lt;a href=&quot;https://github.com/ActivityWatch/aw-watcher-vscode&quot;&gt;aw-watcher-vscode&lt;/a&gt; - Visual Studio Code extension, by &lt;a href=&quot;https://github.com/Otto-AA&quot;&gt;@Otto-AA&lt;/a&gt;.&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;https://github.com/pauldub/activity-watch-mode&quot;&gt;activity-watch-mode&lt;/a&gt; - emacs mode forked from wakatime-mode, by &lt;a href=&quot;https://github.com/pauldub&quot;&gt;@pauldub&lt;/a&gt;.&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;https://github.com/OlivierMary/aw-watcher-jetbrains&quot;&gt;aw-watcher-jetbrains&lt;/a&gt; - JetBrains IntelliJ plugin, by &lt;a href=&quot;https://github.com/OlivierMary&quot;&gt;@OlivierMary&lt;/a&gt;.&lt;/li&gt;
-  &lt;li&gt;(Alpha) &lt;a href=&quot;https://github.com/LaggAt/ActivityWatchVS&quot;&gt;ActivityWatchVS&lt;/a&gt; - Visual Studio plugin, by &lt;a href=&quot;https://github.com/LaggAt&quot;&gt;@LaggAt&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h2 id=&quot;--windows-and-macos-builds-now-work-again&quot;&gt;🔧  Windows and macOS builds now work again&lt;/h2&gt;
-&lt;p&gt;In v0.8 beta 7 we had issues with the windows bundle due to breaking updates of our dependencies PyInstaller and jsonschema. This is now fixed and our windows builds should now work properly again in v0.8 beta 8.&lt;/p&gt;
-
-&lt;p&gt;Back in 0.8 beta 6 macOS support was also broken, but that has been working for a while now since beta 7 which has been around for a few months already.&lt;/p&gt;
-
-&lt;p&gt;## 📦 Import and export
-The import and export APIs now work consistently (&lt;a href=&quot;https://github.com/ActivityWatch/aw-server/pull/41&quot;&gt;aw-server#41&lt;/a&gt;). We have added a UI to export all buckets and to import buckets. Migrating your activitywatch data to another computer is now as easy as using one export button on one computer, moving the file to your new computer and upload it in with the import button! Import and export can also be used if you want to try out the new aw-server-rust and want to move over all your previously logged aw-server data.&lt;/p&gt;
-
-&lt;h1 id=&quot;️-going-forward&quot;&gt;🏃‍♀️ Going forward&lt;/h1&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;🛰️ Raw SQL datastore
-    &lt;ul&gt;
-      &lt;li&gt;@johan-bjareholt has merged a raw SQLite implementation of the datastore that has performance improvements compared to the current Peewee SQLite datastore. Automatic migration from the old datastore to the new one is supported. The new datastore is however not the default yet, we need more user-testing before doing that. (&lt;a href=&quot;https://github.com/ActivityWatch/aw-core/pull/57&quot;&gt;aw-core#57&lt;/a&gt;)&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-  &lt;li&gt;🔄 Decentralized sync
-    &lt;ul&gt;
-      &lt;li&gt;Still being worked on, see last developer update for more info and the &lt;a href=&quot;&quot;&gt;latest comments in the issue&lt;/a&gt;.&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-  &lt;li&gt;⏱️ Stopwatch beta
-    &lt;ul&gt;
-      &lt;li&gt;The web-ui now has a stopwatch watcher where you can manually set timers with different tags to track for example how long you have been at work, how long you have been working on a specific project or whatever else you can come up with it being useful for.&lt;/li&gt;
-      &lt;li&gt;It’s is very limited and lacks some important features, such as manually editing start/stop times. There is also a lack of visualization, it currently only shows a list of the individual entries.&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-  &lt;li&gt;🖥️ Wayland support
-    &lt;ul&gt;
-      &lt;li&gt;@johan-bjareholt has had discussions with a few wayland compositor devs and have tried to convince the xdg-desktop-portal API bundle to add a protocol for exposing focused windows appname and title, &lt;a href=&quot;https://github.com/flatpak/xdg-desktop-portal/issues/304&quot;&gt;but it’s a hard sell unfortunately…&lt;/a&gt;&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-  &lt;li&gt;🗓️ Weekly summary view
-    &lt;ul&gt;
-      &lt;li&gt;Weekly/monthly/yearly summaries is a highly requested feature and a high priority for us. We have acceptable performance in aw-server to support weekly summaries, and when we switch over to aw-server-rust we hope to be able to support monthly summaries without issues. Summaries longer than a month will need more work though and won’t be supported in the near future.&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-  &lt;li&gt;🤖 Better Android version
-    &lt;ul&gt;
-      &lt;li&gt;The Android app, while technically released, isn’t “production ready” yet. We would ❤️ contributions from people with some Android development experience!&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h1 id=&quot;support-us-️-&quot;&gt;Support us! ❤️ 💸&lt;/h1&gt;
-
-&lt;p&gt;Last month we &lt;strong&gt;only received &lt;em&gt;$26&lt;/em&gt; in donations&lt;/strong&gt;, that means your donation could be extra important to us. &lt;strong&gt;Do you use ActivityWatch and want to see many updates like this in the future?  Please support us with donations, it really does make a difference!&lt;/strong&gt;
-All donation methods are listed on our &lt;a href=&quot;https://activitywatch.net/donate/&quot;&gt;donations page&lt;/a&gt;.&lt;/p&gt;
-
-&lt;h1 id=&quot;-stay-up-to-date&quot;&gt;📧 Stay up to date&lt;/h1&gt;
-
-&lt;p&gt;Want to get notified when we have more amazing news to share? Sign up on the forum, &lt;a href=&quot;http://eepurl.com/cTU6QX&quot;&gt;subscribe to the newsletter&lt;/a&gt;, and &lt;a href=&quot;https://twitter.com/ActivityWatchIt&quot;&gt;follow us on Twitter&lt;/a&gt;!&lt;/p&gt;
-
-&lt;hr /&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;This post was originally published on &lt;a href=&quot;https://forum.activitywatch.net/t/development-update-march-2019/189&quot;&gt;the forum&lt;/a&gt;. It has been reposted here on the blog for archival purposes.&lt;/p&gt;
-&lt;/blockquote&gt;
-</description>
-        <pubDate>Tue, 12 Mar 2019 11:06:00 +0000</pubDate>
-        <link>https://activitywatch.net/blog/development-update-mar-2019/</link>
-        <guid isPermaLink="true">https://activitywatch.net/blog/development-update-mar-2019/</guid>
         
         
       </item>
