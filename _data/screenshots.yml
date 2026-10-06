@@ -23,6 +23,15 @@ latest:
     - {title: Settings, src: v0.14.0/settings.png, dark: v0.14.0/settings-dark.png}
     - {title: Buckets, src: v0.14.0/buckets.png, dark: v0.14.0/buckets-dark.png, note: Raw data from each watcher and device}
 
+  # Android app (aw-android v0.14.2), shown as a row of phone screens.
+  android_version: v0.14.2
+  android:
+    - {title: Today, src: v0.14.0/android/activity-day.png, dark: v0.14.0/android/activity-day-dark.png}
+    - {title: Last 30 days, src: v0.14.0/android/activity-30d-categories.png, dark: v0.14.0/android/activity-30d-categories-dark.png}
+    - {title: Week, src: v0.14.0/android/activity-week.png}
+    - {title: Categories, src: v0.14.0/android/activity-day-sunburst.png}
+    - {title: Timeline, src: v0.14.0/android/timeline.png}
+
 # One entry per view, oldest first. Each shot is that view as it looked in a version.
 evolution:
   - view: Activity
