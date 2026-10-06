@@ -1,13 +1,43 @@
 ---
-layout: page
+layout: default
 title: Blog
 permalink: /blog/
 ---
 
-{% assign posts = site.posts | sort: "date" | reverse %}
-{% for page in posts %}
-    {% include post.html content=page.content %}
-    <div style="margin: 6em 0;">
-{% endfor %}
+<div class="wrapper blog">
+  <header class="blog-header">
+    <h1 class="post-title">Blog</h1>
+  </header>
 
-<!-- next page button/link goes here later -->
+  {% assign posts = site.posts | sort: "date" | reverse %}
+  <ul class="post-list">
+  {% for post in posts %}
+    <li class="post-list-item">
+      <h2 class="post-list-title"><a href="{{ post.url }}">{{ post.title }}</a></h2>
+      <div class="post-meta">
+        {% if post.author %}{{ post.author }} <span class="meta-sep" aria-hidden="true">&middot;</span>{% endif %}
+        <time datetime="{{ post.date | date_to_xmlschema }}">{{ post.date | date: "%B %-d, %Y" }}</time>
+      </div>
+      {% comment %}
+        Use the first real paragraph as the excerpt: some posts open with a
+        heading or a one-liner, which makes for a poor summary.
+      {% endcomment %}
+      {% assign excerpt = post.excerpt | strip_html | strip_newlines | strip %}
+      {% assign excerpt_words = excerpt | number_of_words %}
+      {% if excerpt_words < 15 %}
+        {% assign paragraphs = post.content | split: "<p>" %}
+        {% for para in paragraphs offset: 1 %}
+          {% assign candidate = para | split: "</p>" | first | strip_html | strip_newlines | strip %}
+          {% assign candidate_words = candidate | number_of_words %}
+          {% if candidate_words >= 15 %}
+            {% assign excerpt = candidate %}
+            {% break %}
+          {% endif %}
+        {% endfor %}
+      {% endif %}
+      <p class="post-excerpt">{{ excerpt | truncatewords: 50 }}</p>
+      <a class="post-readmore" href="{{ post.url }}">Read more &rarr;</a>
+    </li>
+  {% endfor %}
+  </ul>
+</div>
