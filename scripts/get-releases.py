@@ -58,12 +58,17 @@ def format_releases(releases):
     ]
 
 
-data_folder = Path(__file__).parent.parent / "_data"
-for repo, filename in [
-    ("activitywatch", "releases.yml"),
-    ("aw-android", "releases_android.yml"),
-]:
-    formatted_releases = format_releases(fetch_all_releases(owner, repo))
-    with open(data_folder / filename, "w") as f:
-        yaml.dump(formatted_releases, f, sort_keys=False)
-    print(f"Saved {len(formatted_releases)} {repo} releases to {filename}")
+def main():
+    data_folder = Path(__file__).parent.parent / "_data"
+    for repo, filename in [
+        ("activitywatch", "releases.yml"),
+        ("aw-android", "releases_android.yml"),
+    ]:
+        formatted_releases = format_releases(fetch_all_releases(owner, repo))
+        with open(data_folder / filename, "w") as f:
+            yaml.dump(formatted_releases, f, sort_keys=False)
+        print(f"Saved {len(formatted_releases)} {repo} releases to {filename}")
+
+
+if __name__ == "__main__":
+    main()
