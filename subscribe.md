@@ -17,11 +17,30 @@ permalink: /subscribe/
   // and do not exist yet while this script is being parsed.
   document.addEventListener("DOMContentLoaded", function () {
     var from = (new URLSearchParams(window.location.search).get("from") || "").replace(/[^a-zA-Z0-9-]/g, "");
+    // No ?from= means the visitor came through a plain /subscribe/ link (the
+    // "Support" nav item on every page, in-text links) or from outside the
+    // site. Tag it by referring page so those checkouts are not all
+    // `web-subscribe`. Only fixed tags leave this page, never the referrer.
+    if (!from) { from = referrerTag(document.referrer); }
     if (!from) { return; }
     document.querySelectorAll('a[href^="/go/"]').forEach(function (a) {
       a.href += "&from=" + encodeURIComponent(from);
     });
   });
+  function referrerTag(referrer) {
+    if (!referrer) { return ""; }
+    var url;
+    try { url = new URL(referrer); } catch (e) { return ""; }
+    if (url.origin !== window.location.origin) { return "external"; }
+    var path = url.pathname;
+    if (path === "/" || path === "/index.html") { return "site-home"; }
+    if (path.indexOf("/downloads") === 0) { return "site-download"; }
+    if (path.indexOf("/blog") === 0) { return "site-blog"; }
+    if (path.indexOf("/pricing") === 0) { return "site-pricing"; }
+    if (path.indexOf("/donate") === 0) { return "site-donate"; }
+    if (path.indexOf("/subscribe") === 0) { return ""; }
+    return "site-other";
+  }
 </script>
 
 ActivityWatch is free, open source, and runs entirely on your own machine — no account, no cloud, no tracking. Your data never leaves your computer, and it never will.
