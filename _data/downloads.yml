@@ -39,6 +39,8 @@ stable:
     assets:
     - title: Play Store
       url: https://play.google.com/store/apps/details?id=net.activitywatch.android
+    - title: F-Droid
+      url: https://f-droid.org/en/packages/net.activitywatch.android/
 prerelease:
   version: v0.14.0b1
   platforms:
