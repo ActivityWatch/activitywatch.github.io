@@ -6,8 +6,8 @@
 </description>
     <link>https://activitywatch.net/</link>
     <atom:link href="https://activitywatch.net/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Tue, 06 Oct 2026 12:49:02 +0000</pubDate>
-    <lastBuildDate>Tue, 06 Oct 2026 12:49:02 +0000</lastBuildDate>
+    <pubDate>Tue, 06 Oct 2026 12:49:14 +0000</pubDate>
+    <lastBuildDate>Tue, 06 Oct 2026 12:49:14 +0000</lastBuildDate>
     <generator>Jekyll v4.3.2</generator>
     
       <item>
@@ -173,7 +173,7 @@
 &lt;ul&gt;
   &lt;li&gt;&lt;strong&gt;My data wasn’t mine.&lt;/strong&gt; RescueTime stores everything on their servers. I had no way to self-host or keep my data local. For something as personal as a complete log of everything I do on my computer, that felt wrong.&lt;/li&gt;
   &lt;li&gt;&lt;strong&gt;It wasn’t open source.&lt;/strong&gt; When I found bugs — like Xbox controller input being tracked incorrectly — I couldn’t fix them myself. I filed reports, but they went nowhere.&lt;/li&gt;
-  &lt;li&gt;&lt;strong&gt;Linux support was an afterthought.&lt;/strong&gt; As a Linux user, I was a second-class citizen. The Linux client was always behind, and eventually RescueTime &lt;a href=&quot;https://blog.rescuetime.com/linux-update-2024/&quot;&gt;dropped Linux support entirely&lt;/a&gt;.&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;Linux support was an afterthought.&lt;/strong&gt; As a Linux user, I was a second-class citizen. The Linux client was always behind, and eventually RescueTime &lt;a href=&quot;https://community.rescuetime.com/t/rescuetime-on-linux/179&quot;&gt;dropped Linux support entirely&lt;/a&gt;.&lt;/li&gt;
   &lt;li&gt;&lt;strong&gt;“Pay or lose your history.”&lt;/strong&gt; The free tier only showed the last 3 months. Want to see your all-time data? Pay up. It felt like they were holding my own data hostage.&lt;/li&gt;
   &lt;li&gt;&lt;strong&gt;No extensibility.&lt;/strong&gt; I couldn’t add custom watchers, build integrations, or extend the tracking in any meaningful way. What you got was what you got.&lt;/li&gt;
 &lt;/ul&gt;
@@ -568,7 +568,7 @@
 
 &lt;h3 id=&quot;warn-d-research-project-the-broader-context&quot;&gt;WARN-D Research Project: The Broader Context&lt;/h3&gt;
 
-&lt;p&gt;While not directly using ActivityWatch, the WARN-D research project aims to build a personalized early warning system for mental health by tracking stressors among students. This project highlights the broader societal value of time-tracking data and sets a precedent for how ActivityWatch could be employed in similar research endeavors. &lt;a href=&quot;https://warn-d.eiko-fried.com/&quot;&gt;Learn more about the WARN-D project here&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;While not directly using ActivityWatch, the WARN-D research project aims to build a personalized early warning system for mental health by tracking stressors among students. This project highlights the broader societal value of time-tracking data and sets a precedent for how ActivityWatch could be employed in similar research endeavors. &lt;a href=&quot;https://eiko-fried.com/warn-d/&quot;&gt;Learn more about the WARN-D project here&lt;/a&gt;.&lt;/p&gt;
 
 &lt;p&gt;By offering a robust, customizable, and privacy-focused platform, ActivityWatch is poised to become an invaluable asset in the toolkit of modern researchers.&lt;/p&gt;
 
@@ -588,7 +588,7 @@
 
 &lt;p&gt;If you are excited about this like we are, consider joining the &lt;a href=&quot;https://discord.gg/vDskV9q&quot;&gt;Discord server&lt;/a&gt;. We’re always looking for new contributors and ideas!&lt;/p&gt;
 
-&lt;p&gt;And if you aren’t using ActivityWatch already, now is the perfect time to &lt;a href=&quot;https://activitywatch.net/download/&quot;&gt;start collecting your screentime data!&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;And if you aren’t using ActivityWatch already, now is the perfect time to &lt;a href=&quot;https://activitywatch.net/downloads/&quot;&gt;start collecting your screentime data!&lt;/a&gt;&lt;/p&gt;
 </description>
         <pubDate>Wed, 30 Aug 2023 13:57:00 +0000</pubDate>
         <link>https://activitywatch.net/blog/future-of-time-tracking/</link>
