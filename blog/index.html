@@ -148,1877 +148,239 @@
     </nav>
   </body>
 </html>
-    <div class="page-content "><div class="wrapper">
-  <article class="post">
-    <header class="post-header">
-      <h1 class="post-title">Blog</h1>
-    </header>
+    <div class="page-content "><div class="wrapper blog">
+  <header class="blog-header">
+    <h1 class="post-title">Blog</h1>
+  </header>
 
-    
-
-    <div class="post-content">
-      <p>
-        
-      </p>
-
+  
+  <ul class="post-list">
+  
+    <li class="post-list-item">
+      <h2 class="post-list-title"><a href="/blog/activitywatch-research-edition/">ActivityWatch Research Edition: a variant for your study</a></h2>
+      <div class="post-meta">
+        Bob <span class="meta-sep" aria-hidden="true">&middot;</span>
+        <time datetime="2026-09-29T22:00:00+00:00">September 29, 2026</time>
+      </div>
       
       
-      <article class="post card" itemscope itemtype="http://schema.org/BlogPosting">
-<div class="card-body"><header class="post-header">
-      <h1 class="card-title"  id="activitywatch-research-edition-a-variant-for-your-study">
-        
-        
-          <a href="/blog/activitywatch-research-edition/">ActivityWatch Research Edition: a variant for your study</a> <a href="#activitywatch-research-edition-a-variant-for-your-study"></a>
-        
-        
-      </h1>
-    
-
-        <div class="post-meta">
-            <span class="meta-box" itemscope itemtype="http://schema.org/Person">
-                <span class="fa fa-user meta-icon"></span>
-                <span itemprop="name">Bob</span>
-            </span>
-            <span class="ml-2">
-                <span class="fa fa-calendar meta-icon"></span>
-                <time datetime="2026-09-29T22:00:00+00:00" itemprop="datePublished">
-                    2026-09-29 22:00 UTC
-                </time>
-            </span>
-        </div>
-    </header>
-
-    
-
-    <div class="post-content" itemprop="articleBody">
-        <p>If you run a study that needs to know how participants spend their time on a computer, but should not be handed their window titles and URLs, there is now an ActivityWatch build for that: the <strong>Research Edition</strong>. Making a variant for your study is mostly a matter of supplying a category map, so if you are a researcher, <a href="#get-in-touch">get in touch</a> and we can work out what fits. <strong><a href="https://docs.activitywatch.net/en/latest/research/research-edition.html">Read the docs</a></strong> for the full details.</p>
-      <h2 id="where-it-came-from"  id="where-it-came-from">
-        
-        
-          Where it came from <a href="#where-it-came-from"></a>
-        
-        
-      </h2>
-    
-
-<p>Researchers want <em>categorized</em> time, not raw activity: “this much on communication, news and work tools”, without the research team ever seeing which page or document that was. The Research Edition grew out of academic studies that wanted exactly this, the current one at Lund University, and it follows an approach an earlier academic team had tried in a public fork of ActivityWatch.</p>
-      <h2 id="what-it-does"  id="what-it-does">
-        
-        
-          What it does <a href="#what-it-does"></a>
-        
-        
-      </h2>
-    
-
-<p>The Research Edition is a separate build of ActivityWatch with a privacy filter switched on. As of the latest build, <a href="https://github.com/ActivityWatch/activitywatch/releases/tag/v0.14.0b5-research">v0.14.0b5-research</a> (a prerelease, for Windows, macOS and Linux):</p>
-
-<ul>
-  <li>The window watcher classifies each browser window into a <strong>study category</strong>, using the URL where available and the window title otherwise, then <strong>discards the title and URL</strong> before anything is written to disk. Anything the map does not match becomes <code class="language-plaintext highlighter-rouge">excluded</code>.</li>
-  <li>Non-browser windows lose their titles too.</li>
-  <li>Time away from the computer is recorded, like in regular ActivityWatch.</li>
-  <li>Data stays on the participant’s computer. At the end of the study they export one JSON file from the dashboard and upload it to the study team. The export also strips the computer’s name. There is no live telemetry and no study server to run.</li>
-</ul>
-
-<div class="text-center my-3">
-  <img src="/img/research-edition-data-flow.svg" alt="Diagram: the window watcher sees app name, title and URL; the research filter maps them to a study category and discards titles and URLs; the local database keeps category, app name, time and duration; the participant exports a JSON file with the computer name removed and uploads it to the study team." style="max-width: 100%;" />
-  <p><small>What the Research Edition keeps, and where the filtering happens.</small></p>
-</div>
-
-<p>The <a href="https://docs.activitywatch.net/en/latest/research/research-edition.html">Research Edition docs page</a> has the complete list of what is and is not stored.</p>
-
-<p>Two honest caveats. In the current build, <strong>app names are still recorded</strong> (Microsoft Excel stays “Microsoft Excel”); it is the titles, URLs and document names that go. The filter can also replace app names with categories through a config option, so a variant that needs that is a configuration choice, not new code. The filter is only as good as the category map, which is why the map belongs to the study. And it covers the bundled window watcher: if a participant connects other watchers to the Research Edition, their data ends up in the same export, so studies should tell participants not to.</p>
-
-<p>It also keeps participants’ own data separate from the study’s. The Research Edition has its own app identity, its own data folder and its own port (5667 instead of 5600), so a participant who already uses ActivityWatch can run both side by side without mixing the two. That lets an ethics approval say “study data is kept apart from the participant’s own”, and it can be checked, not just promised.</p>
-      <h2 id="how-much-data"  id="how-much-data">
-        
-        
-          How much data <a href="#how-much-data"></a>
-        
-        
-      </h2>
-    
-
-<p>Small: for a default install, roughly 1-5 MB per participant per week of collection, as an estimate. It is one JSON file, exported by the participant. Extra watchers add more, so if you need a firm number for a data-protection review, measure a pilot week.</p>
-      <h2 id="making-a-variant-for-your-study"  id="making-a-variant-for-your-study">
-        
-        
-          Making a variant for your study <a href="#making-a-variant-for-your-study"></a>
-        
-        
-      </h2>
-    
-
-<p>The design is meant to be picked up by the next researcher without starting from scratch. A variant is mostly:</p>
-
-<ol>
-  <li><strong>Your category map</strong>: which sites and apps map to which of your categories, and everything else excluded. This is the part only you can define.</li>
-  <li><strong>A build</strong>: the release pipeline already produces Research Edition installers, so a study build is a tagged release with a stable download link you can cite in a methods section.</li>
-  <li><strong>A participant guide and export step</strong> to match your protocol. The docs have <a href="https://docs.activitywatch.net/en/latest/research/participant-instructions.html">participant instructions</a> you can link to or adapt. They cover Windows and macOS; a Linux version can be written if a study needs one. An Android version exists for the Android build, which is not released yet.</li>
-</ol>
-
-<p>New studies tend to want what the previous one wanted: categorized time, no raw titles or URLs, an easy export, and eventually mobile. Ethics committees decide for themselves, but the design is built around data minimisation: the bundled window watcher drops titles and URLs before storage, nothing is sent live, and the participant exports a single file they can inspect. Bring your committee’s requirements and we can adjust the build to them.</p>
-      <h2 id="mobile"  id="mobile">
-        
-        
-          Mobile <a href="#mobile"></a>
-        
-        
-      </h2>
-    
-
-<ul>
-  <li><strong>Android</strong>: the Android app has a <code class="language-plaintext highlighter-rouge">research</code> build flavor with its own app id and port, so it can be installed next to the regular app without touching its data. This covers the separation only. The category filter you get on desktop is not on Android yet, so an Android Research Edition is in progress, not shipped.</li>
-  <li><strong>iPhone and iPad</strong>: there is no iOS app. Instead, <a href="https://github.com/ActivityWatch/aw-import-screentime">aw-import-screentime</a> imports Apple’s Screen Time data into ActivityWatch. It works for any participant who also uses a Mac, with “Share Across Devices” turned on for both devices under the same Apple account, because Screen Time syncs between them. It needs Full Disk Access on the Mac. It is a standalone tool today, and the study filter does not apply to that data path yet.</li>
-</ul>
-      <h2 id="get-in-touch"  id="get-in-touch">
-        
-        
-          Get in touch <a href="#get-in-touch"></a>
-        
-        
-      </h2>
-    
-
-<p>If you are planning a study and want to talk through what a variant would look like, contact Erik Bjäreholt, the ActivityWatch maintainer, at <a href="mailto:erik@bjareho.lt">erik@bjareho.lt</a> (also on his <a href="https://github.com/ErikBjare">GitHub profile</a>). The <a href="https://docs.activitywatch.net/en/latest/research/research-edition.html">Research Edition docs</a> describe what a variant consists of. Tell us which categories you need, which platforms your participants use, and what your ethics process requires.</p>
-
-    </div>
-
-    <div class="footer">
-        <div >
-            <span class="fa fa-link"></span>
-            <a href="/blog/activitywatch-research-edition/">Permalink</a>
-        </div>
-    </div>
-</div>
-</article>
-
-    <div style="margin: 6em 0;">
-
-    <article class="post card" itemscope itemtype="http://schema.org/BlogPosting">
-<div class="card-body"><header class="post-header">
-      <h1 class="card-title"  id="activitywatch-has-passed-1-million-downloads" id="activitywatch-has-passed-1-million-downloads">
-        
-        
-          <a href="/blog/one-million-downloads/">ActivityWatch has passed 1 million downloads</a> <a href="#activitywatch-has-passed-1-million-downloads"></a>
-        
-        
-      </h1>
-    
-
-        <div class="post-meta">
-            <span class="meta-box" itemscope itemtype="http://schema.org/Person">
-                <span class="fa fa-user meta-icon"></span>
-                <span itemprop="name">Bob</span>
-            </span>
-            <span class="ml-2">
-                <span class="fa fa-calendar meta-icon"></span>
-                <time datetime="2026-09-29T10:05:00+00:00" itemprop="datePublished">
-                    2026-09-29 10:05 UTC
-                </time>
-            </span>
-        </div>
-    </header>
-
-    
-
-    <div class="post-content" itemprop="articleBody">
-        <p>ActivityWatch has passed <strong>1 million downloads</strong>. The desktop app’s GitHub Releases alone now count over 1.18 million, and that doesn’t include package managers, distro repositories, Google Play, or F-Droid. We didn’t mark the moment when it happened, so this is us catching up.</p>
-
-<div class="text-center my-3">
-  <img src="/img/stats/downloads.png" alt="Cumulative ActivityWatch downloads passing 1 million, and weekly downloads rising to over 10,000" style="max-width: 100%;" />
-  <p><small>Cumulative and weekly desktop downloads from GitHub Releases. Live chart on the <a href="/stats/">stats page</a>, along with users, stars, and Android numbers.</small></p>
-</div>
-
-<p>The weekly rate has roughly quadrupled since 2023 and is now over 10,000 downloads a week.</p>
-
-<p>ActivityWatch is free, open source, and stores your data on your own machine. It has been built mostly by volunteers, so a number like this means a lot to us. Thank you to every user, and to every contributor who has written code, watchers, translations, docs, or bug reports.</p>
-      <h2 id="whats-next"  id="whats-next" id="whats-next">
-        
-        
-          What’s next <a href="#whats-next"></a>
-        
-        
-      </h2>
-    
-
-<p>The stable desktop release, v0.14, is what we’re preparing now. On mobile, <a href="/blog/activitywatch-android-0-14-stable/">ActivityWatch for Android 0.14 just went stable</a>, with sync, alerts, and a large batch of crash fixes.</p>
-      <h2 id="help-us-keep-going"  id="help-us-keep-going" id="help-us-keep-going">
-        
-        
-          Help us keep going <a href="#help-us-keep-going"></a>
-        
-        
-      </h2>
-    
-
-<ul>
-  <li>Star or watch <a href="https://github.com/ActivityWatch/activitywatch">ActivityWatch/activitywatch</a>.</li>
-  <li>Tell us what’s missing in the <a href="https://forum.activitywatch.net">forum</a> or on <a href="https://github.com/ActivityWatch/activitywatch/issues">GitHub</a>.</li>
-  <li><a href="https://activitywatch.net/donate/">Sponsor the project</a> if it’s useful to you.</li>
-</ul>
-
-    </div>
-
-    <div class="footer">
-        <div >
-            <span class="fa fa-link"></span>
-            <a href="/blog/one-million-downloads/">Permalink</a>
-        </div>
-    </div>
-</div>
-</article>
-
-    <div style="margin: 6em 0;">
-
-    <article class="post card" itemscope itemtype="http://schema.org/BlogPosting">
-<div class="card-body"><header class="post-header">
-      <h1 class="card-title"  id="activitywatch-for-android-0-14-is-stable-sync-alerts-and-a-lot-fewer-crashes" id="activitywatch-for-android-0-14-is-stable-sync-alerts-and-a-lot-fewer-crashes" id="activitywatch-for-android-0-14-is-stable-sync-alerts-and-a-lot-fewer-crashes">
-        
-        
-          <a href="/blog/activitywatch-android-0-14-stable/">ActivityWatch for Android 0.14 is stable: sync, alerts, and a lot fewer crashes</a> <a href="#activitywatch-for-android-0-14-is-stable-sync-alerts-and-a-lot-fewer-crashes"></a>
-        
-        
-      </h1>
-    
-
-        <div class="post-meta">
-            <span class="meta-box" itemscope itemtype="http://schema.org/Person">
-                <span class="fa fa-user meta-icon"></span>
-                <span itemprop="name">Bob</span>
-            </span>
-            <span class="ml-2">
-                <span class="fa fa-calendar meta-icon"></span>
-                <time datetime="2026-09-29T10:00:00+00:00" itemprop="datePublished">
-                    2026-09-29 10:00 UTC
-                </time>
-            </span>
-        </div>
-    </header>
-
-    
-
-    <div class="post-content" itemprop="articleBody">
-        <p>ActivityWatch for Android 0.14 is out of beta. It’s the first stable Android release since v0.12.1 in 2023, and the biggest one the app has had: 30 new features, 100 bug fixes, and contributions from 32 people. Since v0.14.0 (Sept 13), two follow-ups, v0.14.1 and v0.14.2, have gone out to tighten things up.</p>
-
-<p>The first Android release in nearly three years is mostly a <em>stability</em> release, so we’ll start there.</p>
-      <h2 id="crashes-and-performance"  id="crashes-and-performance" id="crashes-and-performance" id="crashes-and-performance">
-        
-        
-          Crashes and performance <a href="#crashes-and-performance"></a>
-        
-        
-      </h2>
-    
-
-<p>The numbers from Google Play show it. User-perceived crash rate averaged about <strong>7.8%</strong> from January to late August 2026 and has been about <strong>0.9%</strong> in September, as the 0.14 builds reached Google Play.</p>
-
-<div class="text-center my-3">
-  <img src="/img/stats/android-crash-rate.png" alt="ActivityWatch Android user-perceived crash rate over time, dropping from roughly 5-10% to about 1% in late August 2026" style="max-width: 100%;" />
-  <p><small>Android user-perceived crash rate, from Google Play vitals. Live chart on the <a href="/stats/">stats page</a>.</small></p>
-</div>
-
-<p>What changed:</p>
-
-<ul>
-  <li><strong>Startup hangs.</strong> A slow datastore used to turn app start into a hang. Startup paths are now hardened (#262).</li>
-  <li><strong><code class="language-plaintext highlighter-rouge">StackOverflowError</code> in the watcher.</strong> Accessibility tree traversal is now bounded, so devices with deep view hierarchies no longer blow the stack (#269).</li>
-  <li><strong>Off-thread initialization.</strong> The Rust interface is constructed off the calling thread instead of blocking it (#277).</li>
-  <li><strong>Rotation.</strong> Rotating your phone no longer reloads the WebView and throws away the view you were on (#271).</li>
-  <li><strong>Onboarding.</strong> MainActivity now relaunches correctly once onboarding finishes (#298).</li>
-</ul>
-      <h2 id="sync-with-your-desktop"  id="sync-with-your-desktop" id="sync-with-your-desktop" id="sync-with-your-desktop">
-        
-        
-          Sync with your desktop <a href="#sync-with-your-desktop"></a>
-        
-        
-      </h2>
-    
-
-<p>Your phone’s data can now flow into the same reports as your desktop. Turn on Sync in the navigation drawer and choose a folder that Syncthing, Dropbox, Drive, or another file-sync tool shares with your desktop’s <code class="language-plaintext highlighter-rouge">~/ActivityWatchSync</code> folder. Then run <code class="language-plaintext highlighter-rouge">aw-sync sync</code> on the desktop to import the phone’s buckets. <code class="language-plaintext highlighter-rouge">aw-sync</code> does not transport the files itself, and the default daemon does not yet support Android’s folder layout; see the <a href="https://github.com/ActivityWatch/aw-server-rust/tree/master/aw-sync#setting-up-sync">setup notes</a>.</p>
-
-<p>As of 0.14.2 the app also shows <strong>when the next sync is scheduled</strong> and <strong>what each sync pass actually did</strong>, so “why isn’t my phone data showing up?” now has an answer in the UI.</p>
-      <h2 id="alerts-widget-browser-tracking"  id="alerts-widget-browser-tracking" id="alerts-widget-browser-tracking" id="alerts-widget-browser-tracking">
-        
-        
-          Alerts, widget, browser tracking <a href="#alerts-widget-browser-tracking"></a>
-        
-        
-      </h2>
-    
-
-<ul>
-  <li><strong>Activity alerts</strong> (via aw-notify): get notified when you’ve spent too long in a category.</li>
-  <li><strong>Home screen widget</strong> with category time, refreshed every five minutes.</li>
-  <li><strong>Firefox and Chrome</strong> browser tracking.</li>
-  <li><strong>Export</strong> to CSV/JSON through the share sheet now works reliably.</li>
-  <li>A <strong>Material You monochrome icon</strong> for Android 12+.</li>
-</ul>
-      <h2 id="get-it"  id="get-it" id="get-it" id="get-it">
-        
-        
-          Get it <a href="#get-it"></a>
-        
-        
-      </h2>
-    
-
-<ul>
-  <li>Update via Google Play, or grab the APK from the <a href="https://github.com/ActivityWatch/aw-android/releases/tag/v0.14.2">GitHub release</a>.</li>
-  <li>Live Android stats (installs, rating, crash rate): <a href="/stats/">activitywatch.net/stats</a></li>
-  <li>Full changelog: <a href="https://github.com/ActivityWatch/aw-android/releases/tag/v0.14.0">v0.14.0</a>, <a href="https://github.com/ActivityWatch/aw-android/releases/tag/v0.14.1">v0.14.1</a>, <a href="https://github.com/ActivityWatch/aw-android/releases/tag/v0.14.2">v0.14.2</a>.</li>
-</ul>
-
-<p>If something still breaks, <a href="https://github.com/ActivityWatch/aw-android/issues">open an issue</a>. Thanks to everyone who reported problems during the beta, and to the contributors who fixed them.</p>
-
-    </div>
-
-    <div class="footer">
-        <div >
-            <span class="fa fa-link"></span>
-            <a href="/blog/activitywatch-android-0-14-stable/">Permalink</a>
-        </div>
-    </div>
-</div>
-</article>
-
-    <div style="margin: 6em 0;">
-
-    <article class="post card" itemscope itemtype="http://schema.org/BlogPosting">
-<div class="card-body"><header class="post-header">
-      <h1 class="card-title"  id="activitywatch-vs-rescuetime-why-i-built-a-free-open-source-alternative" id="activitywatch-vs-rescuetime-why-i-built-a-free-open-source-alternative" id="activitywatch-vs-rescuetime-why-i-built-a-free-open-source-alternative" id="activitywatch-vs-rescuetime-why-i-built-a-free-open-source-alternative">
-        
-        
-          <a href="/blog/activitywatch-vs-rescuetime/">ActivityWatch vs RescueTime: Why I Built a Free Open-Source Alternative</a> <a href="#activitywatch-vs-rescuetime-why-i-built-a-free-open-source-alternative"></a>
-        
-        
-      </h1>
-    
-
-        <div class="post-meta">
-            <span class="meta-box" itemscope itemtype="http://schema.org/Person">
-                <span class="fa fa-user meta-icon"></span>
-                <span itemprop="name">Erik Bjäreholt</span>
-            </span>
-            <span class="ml-2">
-                <span class="fa fa-calendar meta-icon"></span>
-                <time datetime="2026-03-02T08:37:00+00:00" itemprop="datePublished">
-                    2026-03-02 08:37 UTC
-                </time>
-            </span>
-        </div>
-    </header>
-
-    
-    <details class="toc small">
-        <summary class="py-2 font-weight-bold">Table of Contents</summary>
-        <div class="mt-2">
+      
+      
+      <p class="post-excerpt">If you run a study that needs to know how participants spend their time on a computer, but should not be handed their window titles and URLs, there is now an ActivityWatch build for that: the Research Edition. Making a variant for your study is mostly a matter of supplying...</p>
+      <a class="post-readmore" href="/blog/activitywatch-research-edition/">Read more &rarr;</a>
+    </li>
+  
+    <li class="post-list-item">
+      <h2 class="post-list-title"><a href="/blog/one-million-downloads/">ActivityWatch has passed 1 million downloads</a></h2>
+      <div class="post-meta">
+        Bob <span class="meta-sep" aria-hidden="true">&middot;</span>
+        <time datetime="2026-09-29T10:05:00+00:00">September 29, 2026</time>
+      </div>
+      
+      
+      
+      
+      <p class="post-excerpt">ActivityWatch has passed 1 million downloads. The desktop app’s GitHub Releases alone now count over 1.18 million, and that doesn’t include package managers, distro repositories, Google Play, or F-Droid. We didn’t mark the moment when it happened, so this is us catching up.</p>
+      <a class="post-readmore" href="/blog/one-million-downloads/">Read more &rarr;</a>
+    </li>
+  
+    <li class="post-list-item">
+      <h2 class="post-list-title"><a href="/blog/activitywatch-android-0-14-stable/">ActivityWatch for Android 0.14 is stable: sync, alerts, and a lot fewer crashes</a></h2>
+      <div class="post-meta">
+        Bob <span class="meta-sep" aria-hidden="true">&middot;</span>
+        <time datetime="2026-09-29T10:00:00+00:00">September 29, 2026</time>
+      </div>
+      
+      
+      
+      
+      <p class="post-excerpt">ActivityWatch for Android 0.14 is out of beta. It’s the first stable Android release since v0.12.1 in 2023, and the biggest one the app has had: 30 new features, 100 bug fixes, and contributions from 32 people. Since v0.14.0 (Sept 13), two follow-ups, v0.14.1 and v0.14.2, have gone out to...</p>
+      <a class="post-readmore" href="/blog/activitywatch-android-0-14-stable/">Read more &rarr;</a>
+    </li>
+  
+    <li class="post-list-item">
+      <h2 class="post-list-title"><a href="/blog/activitywatch-vs-rescuetime/">ActivityWatch vs RescueTime: Why I Built a Free Open-Source Alternative</a></h2>
+      <div class="post-meta">
+        Erik Bjäreholt <span class="meta-sep" aria-hidden="true">&middot;</span>
+        <time datetime="2026-03-02T08:37:00+00:00">March 2, 2026</time>
+      </div>
+      
+      
+      
+      
+        
+        
+          
+          
+          
             
-        </div>
-    </details>
-    
-
-    <div class="post-content" itemprop="articleBody">
-      <h2 id="the-story-behind-activitywatch"  id="the-story-behind-activitywatch" id="the-story-behind-activitywatch" id="the-story-behind-activitywatch" id="the-story-behind-activitywatch">
-        
-        
-          The Story Behind ActivityWatch <a href="#the-story-behind-activitywatch"></a>
-        
-        
-      </h2>
-    
-
-<p>I started building ActivityWatch because I was frustrated with RescueTime. As someone who wanted to understand how I spent my time on the computer, I had been a RescueTime user for years. But over time, the problems kept piling up:</p>
-
-<ul>
-  <li><strong>My data wasn’t mine.</strong> RescueTime stores everything on their servers. I had no way to self-host or keep my data local. For something as personal as a complete log of everything I do on my computer, that felt wrong.</li>
-  <li><strong>It wasn’t open source.</strong> When I found bugs — like Xbox controller input being tracked incorrectly — I couldn’t fix them myself. I filed reports, but they went nowhere.</li>
-  <li><strong>Linux support was an afterthought.</strong> As a Linux user, I was a second-class citizen. The Linux client was always behind, and eventually RescueTime <a href="https://community.rescuetime.com/t/rescuetime-on-linux/179">dropped Linux support entirely</a>.</li>
-  <li><strong>“Pay or lose your history.”</strong> The free tier only showed the last 3 months. Want to see your all-time data? Pay up. It felt like they were holding my own data hostage.</li>
-  <li><strong>No extensibility.</strong> I couldn’t add custom watchers, build integrations, or extend the tracking in any meaningful way. What you got was what you got.</li>
-</ul>
-
-<p>So I built ActivityWatch — a free, open-source, privacy-first time tracker that keeps your data on your device and lets you extend it however you want.</p>
-      <h2 id="feature-comparison"  id="feature-comparison" id="feature-comparison" id="feature-comparison" id="feature-comparison">
-        
-        
-          Feature Comparison <a href="#feature-comparison"></a>
-        
-        
-      </h2>
-    
-
-<p>Here’s how ActivityWatch compares to RescueTime in 2026:</p>
-
-<table>
-  <thead>
-    <tr>
-      <th>Feature</th>
-      <th>ActivityWatch</th>
-      <th>RescueTime</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td><strong>Price</strong></td>
-      <td>Free and open-source</td>
-      <td>$12/month (Premium)</td>
-    </tr>
-    <tr>
-      <td><strong>Data storage</strong></td>
-      <td>Local (your device)</td>
-      <td>Cloud (their servers)</td>
-    </tr>
-    <tr>
-      <td><strong>Linux support</strong></td>
-      <td>Full support</td>
-      <td>Discontinued</td>
-    </tr>
-    <tr>
-      <td><strong>Open source</strong></td>
-      <td>Yes (MPL-2.0)</td>
-      <td>No</td>
-    </tr>
-    <tr>
-      <td><strong>Custom watchers</strong></td>
-      <td>Yes — write your own</td>
-      <td>No</td>
-    </tr>
-    <tr>
-      <td><strong>Browser tracking</strong></td>
-      <td>Chrome, Firefox, Edge, Opera</td>
-      <td>Chrome, Firefox, Edge</td>
-    </tr>
-    <tr>
-      <td><strong>Offline tracking</strong></td>
-      <td>Yes</td>
-      <td>Limited</td>
-    </tr>
-    <tr>
-      <td><strong>API access</strong></td>
-      <td>Full local REST API</td>
-      <td>Limited API</td>
-    </tr>
-    <tr>
-      <td><strong>Self-hosting</strong></td>
-      <td>Built-in (it’s local-first)</td>
-      <td>Not available</td>
-    </tr>
-    <tr>
-      <td><strong>Data export</strong></td>
-      <td>Full export anytime</td>
-      <td>Limited in free tier</td>
-    </tr>
-    <tr>
-      <td><strong>Distraction blocking</strong></td>
-      <td>Via third-party tools</td>
-      <td>Built-in (Premium)</td>
-    </tr>
-    <tr>
-      <td><strong>Team features</strong></td>
-      <td>Coming soon</td>
-      <td>Available (Premium)</td>
-    </tr>
-    <tr>
-      <td><strong>Mobile tracking</strong></td>
-      <td>Android</td>
-      <td>Android, iOS</td>
-    </tr>
-  </tbody>
-</table>
-      <h2 id="where-activitywatch-wins"  id="where-activitywatch-wins" id="where-activitywatch-wins" id="where-activitywatch-wins" id="where-activitywatch-wins">
-        
-        
-          Where ActivityWatch Wins <a href="#where-activitywatch-wins"></a>
-        
-        
-      </h2>
-    
-      <h3 id="privacy-and-data-ownership"  id="privacy-and-data-ownership" id="privacy-and-data-ownership" id="privacy-and-data-ownership" id="privacy-and-data-ownership">
-        
-        
-          Privacy and Data Ownership <a href="#privacy-and-data-ownership"></a>
-        
-        
-      </h3>
-    
-
-<p>This is the fundamental difference. ActivityWatch stores all your data locally on your device. No cloud accounts, no data uploads, no risk of a company going under and taking your data with it. You own your data, period.</p>
-      <h3 id="extensibility"  id="extensibility" id="extensibility" id="extensibility" id="extensibility">
-        
-        
-          Extensibility <a href="#extensibility"></a>
-        
-        
-      </h3>
-    
-
-<p>ActivityWatch has a modular architecture. The core is a local server that stores events from “watchers” — small programs that observe different things. You can write your own watchers for anything: IDE activity, music listening, exercise, or whatever you want to track.</p>
-
-<p>The community has built watchers for:</p>
-<ul>
-  <li>VS Code and JetBrains IDEs</li>
-  <li>Spotify and media players</li>
-  <li>VR headsets</li>
-  <li>Custom hardware</li>
-</ul>
-      <h3 id="cross-platform-including-linux"  id="cross-platform-including-linux" id="cross-platform-including-linux" id="cross-platform-including-linux" id="cross-platform-including-linux">
-        
-        
-          Cross-Platform (Including Linux) <a href="#cross-platform-including-linux"></a>
-        
-        
-      </h3>
-    
-
-<p>ActivityWatch runs on Windows, macOS, and Linux. When RescueTime dropped Linux in 2024, many users switched to ActivityWatch. We’re committed to supporting all major platforms — it’s a core part of who we are.</p>
-      <h3 id="no-paywalls-on-your-own-data"  id="no-paywalls-on-your-own-data" id="no-paywalls-on-your-own-data" id="no-paywalls-on-your-own-data" id="no-paywalls-on-your-own-data">
-        
-        
-          No Paywalls on Your Own Data <a href="#no-paywalls-on-your-own-data"></a>
-        
-        
-      </h3>
-    
-
-<p>All your data is always accessible. There’s no “upgrade to see your history” or “pay to unlock analytics.” Every feature is available to every user.</p>
-      <h2 id="where-rescuetime-still-has-an-edge"  id="where-rescuetime-still-has-an-edge" id="where-rescuetime-still-has-an-edge" id="where-rescuetime-still-has-an-edge" id="where-rescuetime-still-has-an-edge">
-        
-        
-          Where RescueTime Still Has an Edge <a href="#where-rescuetime-still-has-an-edge"></a>
-        
-        
-      </h2>
-    
-
-<p>To be fair, RescueTime does some things well:</p>
-
-<ul>
-  <li><strong>Built-in distraction blocking</strong> — FocusTime lets you block distracting websites. ActivityWatch focuses on tracking; for blocking, you can use tools like <a href="https://getcoldturkey.com/">Cold Turkey</a> or <a href="https://addons.mozilla.org/en-US/firefox/addon/leechblock-ng/">LeechBlock</a>.</li>
-  <li><strong>Team management</strong> — RescueTime has built-in team dashboards and management features. ActivityWatch is primarily designed for individuals (though team features are on our roadmap).</li>
-  <li><strong>iOS support</strong> — RescueTime has an iOS app. ActivityWatch currently only supports Android for mobile.</li>
-  <li><strong>Polished onboarding</strong> — RescueTime has a smoother out-of-box experience for non-technical users. We’re actively working on improving our onboarding.</li>
-</ul>
-      <h2 id="migrating-from-rescuetime"  id="migrating-from-rescuetime" id="migrating-from-rescuetime" id="migrating-from-rescuetime" id="migrating-from-rescuetime">
-        
-        
-          Migrating from RescueTime <a href="#migrating-from-rescuetime"></a>
-        
-        
-      </h2>
-    
-
-<p>Switching to ActivityWatch is straightforward:</p>
-
-<ol>
-  <li><strong>Download ActivityWatch</strong> from <a href="https://activitywatch.net/downloads/">activitywatch.net/downloads</a></li>
-  <li><strong>Install and run</strong> — it starts tracking immediately</li>
-  <li><strong>Install the browser extension</strong> for <a href="https://chrome.google.com/webstore/detail/activitywatch-web-watcher/nglaklhklhcoonedhgnpgddginnjdadi">Chrome</a>, <a href="https://addons.mozilla.org/en-US/firefox/addon/aw-watcher-web/">Firefox</a>, or <a href="https://microsoftedge.microsoft.com/addons/detail/activitywatch-web-watcher/nfabjmiphddfnpmmilgjkfnaakceocog">Edge</a></li>
-  <li><strong>Check the dashboard</strong> at <a href="http://localhost:5600">localhost:5600</a> to see your data</li>
-</ol>
-
-<p>Your RescueTime data can be exported and potentially imported — check our <a href="https://docs.activitywatch.net">documentation</a> for details on data import options.</p>
-      <h2 id="what-users-say"  id="what-users-say" id="what-users-say" id="what-users-say" id="what-users-say">
-        
-        
-          What Users Say <a href="#what-users-say"></a>
-        
-        
-      </h2>
-    
-
-<p>People who switched from RescueTime consistently highlight:
-<!-- TODO: link to real such testimonials? they are abundant --></p>
-
-<blockquote>
-  <p>“I switched when RescueTime dropped Linux. ActivityWatch is better in every way — I can actually see all my data without paying.”</p>
-</blockquote>
-
-<blockquote>
-  <p>“As a developer, the extensibility is what sold me. I wrote a custom watcher for my terminal in an afternoon.”</p>
-</blockquote>
-
-<blockquote>
-  <p>“The privacy aspect is huge. I don’t want a company having a complete log of everything I do on my computer.”</p>
-</blockquote>
-      <h2 id="try-activitywatch"  id="try-activitywatch" id="try-activitywatch" id="try-activitywatch" id="try-activitywatch">
-        
-        
-          Try ActivityWatch <a href="#try-activitywatch"></a>
-        
-        
-      </h2>
-    
-
-<p>ActivityWatch is free, open-source, and takes about two minutes to set up. Download it at <a href="https://activitywatch.net/downloads/">activitywatch.net/downloads</a> and see for yourself.</p>
-
-<p>If you’re coming from RescueTime, you’ll find that ActivityWatch tracks everything RescueTime did — and more — while keeping your data private and giving you full control.</p>
-
-<p><strong>Links:</strong></p>
-<ul>
-  <li><a href="https://activitywatch.net/downloads/">Download ActivityWatch</a></li>
-  <li><a href="https://docs.activitywatch.net">Documentation</a></li>
-  <li><a href="https://github.com/ActivityWatch/activitywatch">GitHub</a></li>
-  <li><a href="/blog/comparing-time-trackers/">General comparison of time trackers</a></li>
-</ul>
-
-    </div>
-
-    <div class="footer">
-        <div >
-            <span class="fa fa-link"></span>
-            <a href="/blog/activitywatch-vs-rescuetime/">Permalink</a>
-        </div>
-    </div>
-</div>
-</article>
-
-    <div style="margin: 6em 0;">
-
-    <article class="post card" itemscope itemtype="http://schema.org/BlogPosting">
-<div class="card-body"><header class="post-header">
-      <h1 class="card-title"  id="announcing-winners-of-screenshot-competition" id="announcing-winners-of-screenshot-competition" id="announcing-winners-of-screenshot-competition" id="announcing-winners-of-screenshot-competition" id="announcing-winners-of-screenshot-competition">
-        
-        
-          <a href="/blog/announcing-winners-of-screenshot-competition/">Announcing Winners of Screenshot Competition!</a> <a href="#announcing-winners-of-screenshot-competition"></a>
-        
-        
-      </h1>
-    
-
-        <div class="post-meta">
-            <span class="meta-box" itemscope itemtype="http://schema.org/Person">
-                <span class="fa fa-user meta-icon"></span>
-                <span itemprop="name">Erik Bjäreholt</span>
-            </span>
-            <span class="ml-2">
-                <span class="fa fa-calendar meta-icon"></span>
-                <time datetime="2023-10-30T09:56:00+00:00" itemprop="datePublished">
-                    2023-10-30 09:56 UTC
-                </time>
-            </span>
-        </div>
-    </header>
-
-    
-
-    <div class="post-content" itemprop="articleBody">
-        <p>We’re excited to announce the winners of the <a href="https://github.com/orgs/ActivityWatch/discussions/741">ActivityWatch Screenshot Competition</a>! We received some great submissions, and we’d like to thank everyone who participated. Your contributions will help us showcase ActivityWatch to the world!</p>
-
-<p>Submissions were accepted in the <a href="https://github.com/orgs/ActivityWatch/discussions/741">GitHub discussion</a> announcing the competition, and the <code class="language-plaintext highlighter-rouge">#screenshots</code> channel on our Discord.</p>
-
-<p>We’d like to apologize for the delay in announcing the winners. We are grateful for everyone’s patience and enthusiastic participation in this competition.</p>
-
-<p>You can find selected screenshots from the winners on our <a href="https://activitywatch.net/screenshots/">screenshots page</a>.</p>
-      <h2 id="the-winners"  id="the-winners" id="the-winners" id="the-winners" id="the-winners" id="the-winners">
-        
-        
-          The Winners <a href="#the-winners"></a>
-        
-        
-      </h2>
-    
-      <h3 id="-1st-place-erik-thelifeimliving"  id="-1st-place-erik-thelifeimliving" id="-1st-place-erik-thelifeimliving" id="-1st-place-erik-thelifeimliving" id="-1st-place-erik-thelifeimliving" id="-1st-place-erik-thelifeimliving">
-        
-        
-          🥇 1st place: Erik (@thelifeimliving) <a href="#-1st-place-erik-thelifeimliving"></a>
-        
-        
-      </h3>
-    
-
-<p>For the sheer number of screenshots submitted, and of very high resolution, Erik takes the top spot. Your contribution will greatly help us in showcasing the versatility of ActivityWatch!</p>
-
-<div class="row">
-  <div class="col-md-6">
-    <img class="border" src="/img/screenshots/thelifeimliving/activity.png" width="400" alt="Erik's Submission" />
-  </div>
-  <div class="col-md-6">
-    <div>
-      <img class="border" src="/img/screenshots/thelifeimliving/search.png" width="400" alt="Erik's Submission" />
-    </div>
-    <div>
-      <img class="border mt-4" src="/img/screenshots/thelifeimliving/timeline-dark.png" width="400" alt="Erik's Submission" />
-    </div>
-  </div>
-</div>
-      <h3 id="-2nd-place-hernan-realhyperchango"  id="-2nd-place-hernan-realhyperchango" id="-2nd-place-hernan-realhyperchango" id="-2nd-place-hernan-realhyperchango" id="-2nd-place-hernan-realhyperchango" id="-2nd-place-hernan-realhyperchango">
-        
-        
-          🥈 2nd place: Hernan (@realhyperchango) <a href="#-2nd-place-hernan-realhyperchango"></a>
-        
-        
-      </h3>
-    
-
-<p>Hernan showed us how category rules can be set up to get productivity classification instead of just activity classification. This is incredibly useful for users focused on time management.</p>
-
-<p><img class="border d-block mx-auto" src="/img/screenshots/realhyperchango/activity-productivity.png" width="400" alt="Hernan's Submission" /></p>
-      <h3 id="-3rd-place-belked-and-maholli"  id="-3rd-place-belked-and-maholli" id="-3rd-place-belked-and-maholli" id="-3rd-place-belked-and-maholli" id="-3rd-place-belked-and-maholli" id="-3rd-place-belked-and-maholli">
-        
-        
-          🥉 3rd place: @BelKed and @maholli <a href="#-3rd-place-belked-and-maholli"></a>
-        
-        
-      </h3>
-    
-
-<p>For third place we have a tie between @BelKed and @maholli.</p>
-
-<p>@BelKed showed us an excellent dark mode screenshot. It shows how elegant ActivityWatch can look in different themes.</p>
-
-<p><img class="border d-block mx-auto" src="/img/screenshots/BelKed/screenshot-v0.12.0b2-activity.png" width="400" alt="BelKed's Submission" /></p>
-
-<p>@maholli showed us a whole month of activity! Good luck with your thesis!</p>
-
-<p><img class="border d-block mx-auto" src="/img/screenshots/maholli/month.png" width="400" alt="Hernan's Submission" /></p>
-      <h2 id="prizes"  id="prizes" id="prizes" id="prizes" id="prizes" id="prizes">
-        
-        
-          Prizes <a href="#prizes"></a>
-        
-        
-      </h2>
-    
-
-<p>All winners will have their screenshots featured on the <a href="https://activitywatch.net/screenshots/">ActivityWatch website</a>.</p>
-
-<p>We were supposed to have additional prizes, which we still aim to give out, but we have yet to order the swag we planned to ship. However, winners can expect to get swag for free as soon as we order it!</p>
-
-<p>We promise the winners will one day get ActivityWatch swag, including:</p>
-
-<ul>
-  <li>mug</li>
-  <li>T-shirt</li>
-  <li>stickers</li>
-</ul>
-
-<p>We’ll reach out to the winners to distribute the prizes once we have them. (sorry if it takes a while!)</p>
-      <h2 id="next-steps"  id="next-steps" id="next-steps" id="next-steps" id="next-steps" id="next-steps">
-        
-        
-          Next Steps <a href="#next-steps"></a>
-        
-        
-      </h2>
-    
-
-<ul>
-  <li>A big thank you to everyone who participated! Your contributions are invaluable.</li>
-  <li>The selected screenshots will be showcased on our <a href="https://activitywatch.net/screenshots/">website</a>.</li>
-</ul>
-      <h2 id="further-discussion"  id="further-discussion" id="further-discussion" id="further-discussion" id="further-discussion" id="further-discussion">
-        
-        
-          Further Discussion <a href="#further-discussion"></a>
-        
-        
-      </h2>
-    
-
-<p>For further discussion, a GitHub thread has been set up. Feel free to share your thoughts <a href="https://github.com/orgs/ActivityWatch/discussions/978">here</a>.</p>
-
-    </div>
-
-    <div class="footer">
-        <div >
-            <span class="fa fa-link"></span>
-            <a href="/blog/announcing-winners-of-screenshot-competition/">Permalink</a>
-        </div>
-    </div>
-</div>
-</article>
-
-    <div style="margin: 6em 0;">
-
-    <article class="post card" itemscope itemtype="http://schema.org/BlogPosting">
-<div class="card-body"><header class="post-header">
-      <h1 class="card-title"  id="the-future-of-time-tracking-ai-privacy-and-personalization" id="the-future-of-time-tracking-ai-privacy-and-personalization" id="the-future-of-time-tracking-ai-privacy-and-personalization" id="the-future-of-time-tracking-ai-privacy-and-personalization" id="the-future-of-time-tracking-ai-privacy-and-personalization" id="the-future-of-time-tracking-ai-privacy-and-personalization">
-        
-        
-          <a href="/blog/future-of-time-tracking/">The Future of Time Tracking: AI, Privacy, and Personalization</a> <a href="#the-future-of-time-tracking-ai-privacy-and-personalization"></a>
-        
-        
-      </h1>
-    
-
-        <div class="post-meta">
-            <span class="meta-box" itemscope itemtype="http://schema.org/Person">
-                <span class="fa fa-user meta-icon"></span>
-                <span itemprop="name">Erik Bjäreholt</span>
-            </span>
-            <span class="ml-2">
-                <span class="fa fa-calendar meta-icon"></span>
-                <time datetime="2023-08-30T13:57:00+00:00" itemprop="datePublished">
-                    2023-08-30 13:57 UTC
-                </time>
-            </span>
-        </div>
-    </header>
-
-    
-    <details class="toc small">
-        <summary class="py-2 font-weight-bold">Table of Contents</summary>
-        <div class="mt-2">
             
-        </div>
-    </details>
-    
-
-    <div class="post-content" itemprop="articleBody">
-      <h2 id="introduction"  id="introduction" id="introduction" id="introduction" id="introduction" id="introduction" id="introduction">
-        
-        
-          Introduction <a href="#introduction"></a>
-        
-        
-      </h2>
-    
-
-<p>In an increasingly digital world, time-tracking software like ActivityWatch plays a pivotal role in enhancing productivity and self-awareness. As we look to the future, three key elements stand out: Artificial Intelligence (AI), privacy, and personalization.</p>
-      <h2 id="the-role-of-ai-in-time-tracking"  id="the-role-of-ai-in-time-tracking" id="the-role-of-ai-in-time-tracking" id="the-role-of-ai-in-time-tracking" id="the-role-of-ai-in-time-tracking" id="the-role-of-ai-in-time-tracking" id="the-role-of-ai-in-time-tracking">
-        
-        
-          The Role of AI in Time Tracking <a href="#the-role-of-ai-in-time-tracking"></a>
-        
-        
-      </h2>
-    
-      <h3 id="the-power-of-data"  id="the-power-of-data" id="the-power-of-data" id="the-power-of-data" id="the-power-of-data" id="the-power-of-data" id="the-power-of-data">
-        
-        
-          The Power of Data <a href="#the-power-of-data"></a>
-        
-        
-      </h3>
-    
-
-<p>While ActivityWatch itself doesn’t currently utilize AI, the data it collects serves as a fertile ground for AI-driven applications. The software logs a comprehensive array of your digital activities, from the websites you visit to the applications you use. This data can be transformed into actionable insights through machine learning algorithms. For example, natural language processing (NLP) could analyze your text-based activities to gauge your focus levels, while clustering algorithms could categorize your activities into productivity zones.</p>
-      <h3 id="long-term-behavioral-trends"  id="long-term-behavioral-trends" id="long-term-behavioral-trends" id="long-term-behavioral-trends" id="long-term-behavioral-trends" id="long-term-behavioral-trends" id="long-term-behavioral-trends">
-        
-        
-          Long-Term Behavioral Trends <a href="#long-term-behavioral-trends"></a>
-        
-        
-      </h3>
-    
-
-<p>AI’s capability to sift through large datasets makes it invaluable for identifying long-term behavioral changes or trends. By applying time-series analysis on your ActivityWatch logs, you can gain insights into how your work habits, focus periods, and even leisure activities evolve over time. This can be particularly useful for self-improvement and for tailoring your work schedule to your natural rhythms.</p>
-      <h3 id="day-summaries-and-note-taking"  id="day-summaries-and-note-taking" id="day-summaries-and-note-taking" id="day-summaries-and-note-taking" id="day-summaries-and-note-taking" id="day-summaries-and-note-taking" id="day-summaries-and-note-taking">
-        
-        
-          Day Summaries and Note-Taking <a href="#day-summaries-and-note-taking"></a>
-        
-        
-      </h3>
-    
-
-<p>Imagine an AI assistant integrated into ActivityWatch that can not only summarize your day but also take context-aware notes for you. Utilizing speech-to-text algorithms during meetings, it could generate summaries and action items automatically. When you’re working on a project, it could log your key milestones based on your activity data, thereby creating a daily journal without any manual input.</p>
-
-<p><strong>How It Could Work:</strong></p>
-<ul>
-  <li><strong>Speech-to-Text</strong>: During meetings, the AI assistant could transcribe and summarize key points.</li>
-  <li><strong>Text Summarization Algorithms</strong>: At the end of the day, a summary of your activities could be generated, highlighting your most productive periods and areas for improvement.</li>
-</ul>
-      <h3 id="in-context-suggestions"  id="in-context-suggestions" id="in-context-suggestions" id="in-context-suggestions" id="in-context-suggestions" id="in-context-suggestions" id="in-context-suggestions">
-        
-        
-          In-Context Suggestions <a href="#in-context-suggestions"></a>
-        
-        
-      </h3>
-    
-
-<p>Think of this feature as a modern, less intrusive version of Clippy. By leveraging real-time analytics and historical data, ActivityWatch could offer spontaneous, in-context suggestions. For instance, if the software detects that you’ve been working on a coding project for an extended period, it could suggest taking a break or even recommend a relevant Stack Overflow thread based on your recent queries.</p>
-
-<p><strong>Technical Details:</strong></p>
-<ul>
-  <li><strong>Contextual Bandit Algorithms</strong>: These could be used to offer suggestions that are most likely to be useful to you at any given moment.</li>
-  <li><strong>Collaborative Filtering</strong>: By analyzing data from multiple users, the system could offer suggestions that have been beneficial to people with similar work patterns.</li>
-</ul>
-      <h3 id="integrating-brain-computer-interfaces-with-screentime-data-the-next-frontier-in-time-tracking"  id="integrating-brain-computer-interfaces-with-screentime-data-the-next-frontier-in-time-tracking" id="integrating-brain-computer-interfaces-with-screentime-data-the-next-frontier-in-time-tracking" id="integrating-brain-computer-interfaces-with-screentime-data-the-next-frontier-in-time-tracking" id="integrating-brain-computer-interfaces-with-screentime-data-the-next-frontier-in-time-tracking" id="integrating-brain-computer-interfaces-with-screentime-data-the-next-frontier-in-time-tracking" id="integrating-brain-computer-interfaces-with-screentime-data-the-next-frontier-in-time-tracking">
-        
-        
-          Integrating Brain-Computer Interfaces with Screentime Data: The Next Frontier in Time Tracking <a href="#integrating-brain-computer-interfaces-with-screentime-data-the-next-frontier-in-time-tracking"></a>
-        
-        
-      </h3>
-    
-
-<p>The future of time tracking isn’t just about what you’re doing on your computer; it’s about understanding the cognitive processes that accompany those activities. Building on the pioneering research in my <a href="https://github.com/ErikBjare/thesis">MSc thesis</a>, which explored the classification of brain activity using electroencephalography (EEG) and automated time tracking, we see a new frontier emerging.</p>
-      <h4 id="the-synergy-of-eeg-and-activitywatch"  id="the-synergy-of-eeg-and-activitywatch" id="the-synergy-of-eeg-and-activitywatch" id="the-synergy-of-eeg-and-activitywatch" id="the-synergy-of-eeg-and-activitywatch" id="the-synergy-of-eeg-and-activitywatch" id="the-synergy-of-eeg-and-activitywatch">
-        
-        
-          The Synergy of EEG and ActivityWatch <a href="#the-synergy-of-eeg-and-activitywatch"></a>
-        
-        
-      </h4>
-    
-
-<p>ActivityWatch provides a robust framework for tracking digital activities, while EEG devices offer a window into the cognitive state of the user. When combined, these two technologies can provide unprecedented insights into not just what you are doing, but how you are mentally engaging with those activities.</p>
-
-<p><strong>Technical Insights:</strong></p>
-<ul>
-  <li><strong>Data Fusion</strong>: By synchronizing EEG data with ActivityWatch logs, we can create a multi-modal dataset that captures both behavioral and cognitive aspects.</li>
-  <li><strong>Machine Learning</strong>: Advanced classifiers based on Riemannian geometry, as demonstrated in my MSc thesis, can be employed to analyze this rich dataset.</li>
-</ul>
-      <h4 id="real-world-applications"  id="real-world-applications" id="real-world-applications" id="real-world-applications" id="real-world-applications" id="real-world-applications" id="real-world-applications">
-        
-        
-          Real-World Applications <a href="#real-world-applications"></a>
-        
-        
-      </h4>
-    
-
-<p>The practical implications of this integration are vast:</p>
-<ul>
-  <li><strong>Personalized Productivity</strong>: Imagine a system that knows when you’re most focused and automatically blocks distracting websites during those periods.</li>
-  <li><strong>Mental Health Monitoring</strong>: By tracking cognitive states alongside digital activities, we can identify stressors and recommend timely interventions.</li>
-  <li><strong>Enhanced Learning</strong>: For educational software, understanding the cognitive load during different tasks can help adapt the material in real-time to optimize learning.</li>
-</ul>
-      <h4 id="ethical-and-privacy-considerations"  id="ethical-and-privacy-considerations" id="ethical-and-privacy-considerations" id="ethical-and-privacy-considerations" id="ethical-and-privacy-considerations" id="ethical-and-privacy-considerations" id="ethical-and-privacy-considerations">
-        
-        
-          Ethical and Privacy Considerations <a href="#ethical-and-privacy-considerations"></a>
-        
-        
-      </h4>
-    
-
-<p>While the potential is exciting, ethical considerations, particularly around privacy and consent, are paramount. All EEG data would be encrypted and stored locally, in line with ActivityWatch’s privacy-first philosophy.</p>
-      <h4 id="future-research-and-development"  id="future-research-and-development" id="future-research-and-development" id="future-research-and-development" id="future-research-and-development" id="future-research-and-development" id="future-research-and-development">
-        
-        
-          Future Research and Development <a href="#future-research-and-development"></a>
-        
-        
-      </h4>
-    
-
-<p>As we look to the future, the integration of EEG devices and ActivityWatch opens up new avenues for research, particularly in the realms of cognitive science, human-computer interaction, and even preventive healthcare.</p>
-
-<p>By marrying the behavioral data from ActivityWatch with the cognitive insights from EEG, we’re not just tracking time; we’re understanding it on a whole new level.</p>
-      <h3 id="full-context-tracking-a-double-edged-sword"  id="full-context-tracking-a-double-edged-sword" id="full-context-tracking-a-double-edged-sword" id="full-context-tracking-a-double-edged-sword" id="full-context-tracking-a-double-edged-sword" id="full-context-tracking-a-double-edged-sword" id="full-context-tracking-a-double-edged-sword">
-        
-        
-          Full-Context Tracking: A Double-Edged Sword <a href="#full-context-tracking-a-double-edged-sword"></a>
-        
-        
-      </h3>
-    
-
-<p>Rewind.ai takes time tracking to the next level by offering full-context tracking, capturing not just screen data but also audio and microphone inputs. While this provides a rich dataset that can fuel advanced AI applications, it also introduces a set of challenges and ethical considerations. (Disclosure: I am an investor in Rewind.ai)</p>
-      <h4 id="opportunities-for-ai-applications"  id="opportunities-for-ai-applications" id="opportunities-for-ai-applications" id="opportunities-for-ai-applications" id="opportunities-for-ai-applications" id="opportunities-for-ai-applications" id="opportunities-for-ai-applications">
-        
-        
-          Opportunities for AI Applications <a href="#opportunities-for-ai-applications"></a>
-        
-        
-      </h4>
-    
-
-<p>The depth of data collected by full-context tracking opens the door to a multitude of AI-driven applications:</p>
-<ul>
-  <li><strong>Voice Analytics</strong>: By analyzing audio data, AI can gauge the sentiment and tone of meetings, providing insights into team dynamics.</li>
-  <li><strong>Content Classification</strong>: Advanced machine learning models can automatically categorize screen content, offering a more nuanced understanding of user behavior.</li>
-  <li><strong>Real-Time Feedback</strong>: With access to both screen and audio data, AI can offer real-time suggestions or alerts, such as flagging potential security risks or recommending breaks based on detected stress levels.</li>
-</ul>
-      <h4 id="privacy-concerns"  id="privacy-concerns" id="privacy-concerns" id="privacy-concerns" id="privacy-concerns" id="privacy-concerns" id="privacy-concerns">
-        
-        
-          Privacy Concerns <a href="#privacy-concerns"></a>
-        
-        
-      </h4>
-    
-
-<p>While the wealth of data offers numerous possibilities, it also raises significant privacy concerns:</p>
-<ul>
-  <li><strong>Data Encryption</strong>: Storing audio and screen data necessitates robust encryption methods to prevent unauthorized access.</li>
-  <li><strong>User Consent</strong>: It’s crucial to obtain explicit user consent for capturing and analyzing such sensitive data.</li>
-  <li><strong>Data Minimization</strong>: The principle of collecting only the data that is strictly necessary should be adhered to, in line with GDPR and other privacy regulations.</li>
-</ul>
-      <h4 id="resource-consumption"  id="resource-consumption" id="resource-consumption" id="resource-consumption" id="resource-consumption" id="resource-consumption" id="resource-consumption">
-        
-        
-          Resource Consumption <a href="#resource-consumption"></a>
-        
-        
-      </h4>
-    
-
-<p>Full-context tracking is not just data-intensive but also resource-intensive:</p>
-<ul>
-  <li><strong>Storage</strong>: The sheer volume of audio and screen data can quickly consume local storage, requiring efficient data compression algorithms.</li>
-  <li><strong>Processing Power</strong>: Real-time analysis of such data can be CPU-intensive, potentially affecting system performance.</li>
-</ul>
-
-<p>Rewind.ai has addressed this by leveraging it’s macOS-only nature to utilize Apple’s CoreML framework for on-device AI processing, allowing efficient data compression and real-time analysis with relatively low impact on overall system performance.</p>
-      <h4 id="balancing-act-ai-privacy-and-resources"  id="balancing-act-ai-privacy-and-resources" id="balancing-act-ai-privacy-and-resources" id="balancing-act-ai-privacy-and-resources" id="balancing-act-ai-privacy-and-resources" id="balancing-act-ai-privacy-and-resources" id="balancing-act-ai-privacy-and-resources">
-        
-        
-          Balancing Act: AI, Privacy, and Resources <a href="#balancing-act-ai-privacy-and-resources"></a>
-        
-        
-      </h4>
-    
-
-<p>The challenge lies in striking a balance between leveraging AI’s capabilities and maintaining user privacy and system performance. One potential solution could be edge computing, where data is processed locally on the user’s device, minimizing data transfer and storage while still enabling real-time AI analytics.</p>
-      <h2 id="the-importance-of-privacy"  id="the-importance-of-privacy" id="the-importance-of-privacy" id="the-importance-of-privacy" id="the-importance-of-privacy" id="the-importance-of-privacy" id="the-importance-of-privacy">
-        
-        
-          The Importance of Privacy <a href="#the-importance-of-privacy"></a>
-        
-        
-      </h2>
-    
-      <h3 id="the-privacy-imperative"  id="the-privacy-imperative" id="the-privacy-imperative" id="the-privacy-imperative" id="the-privacy-imperative" id="the-privacy-imperative" id="the-privacy-imperative">
-        
-        
-          The Privacy Imperative <a href="#the-privacy-imperative"></a>
-        
-        
-      </h3>
-    
-
-<p>In a world where data breaches are increasingly common, privacy is paramount. ActivityWatch addresses this by storing all your data locally, ensuring that you have complete control over your information.</p>
-      <h3 id="the-resource-trade-off"  id="the-resource-trade-off" id="the-resource-trade-off" id="the-resource-trade-off" id="the-resource-trade-off" id="the-resource-trade-off" id="the-resource-trade-off">
-        
-        
-          The Resource Trade-Off <a href="#the-resource-trade-off"></a>
-        
-        
-      </h3>
-    
-
-<p>While full-context tracking offers richer data, it is much more resource-intensive and poses greater privacy risks compared to ActivityWatch’s local storage approach.</p>
-      <h2 id="the-need-for-personalization"  id="the-need-for-personalization" id="the-need-for-personalization" id="the-need-for-personalization" id="the-need-for-personalization" id="the-need-for-personalization" id="the-need-for-personalization">
-        
-        
-          The Need for Personalization <a href="#the-need-for-personalization"></a>
-        
-        
-      </h2>
-    
-      <h3 id="beyond-one-size-fits-all"  id="beyond-one-size-fits-all" id="beyond-one-size-fits-all" id="beyond-one-size-fits-all" id="beyond-one-size-fits-all" id="beyond-one-size-fits-all" id="beyond-one-size-fits-all">
-        
-        
-          Beyond One-Size-Fits-All <a href="#beyond-one-size-fits-all"></a>
-        
-        
-      </h3>
-    
-
-<p>ActivityWatch allows for custom plugins and scripts, enabling you to tailor the software to your specific needs. This is crucial in a world where no two users are the same.</p>
-      <h2 id="the-need-for-researcher-tools"  id="the-need-for-researcher-tools" id="the-need-for-researcher-tools" id="the-need-for-researcher-tools" id="the-need-for-researcher-tools" id="the-need-for-researcher-tools" id="the-need-for-researcher-tools">
-        
-        
-          The Need for Researcher Tools <a href="#the-need-for-researcher-tools"></a>
-        
-        
-      </h2>
-    
-      <h3 id="the-value-of-data-in-research"  id="the-value-of-data-in-research" id="the-value-of-data-in-research" id="the-value-of-data-in-research" id="the-value-of-data-in-research" id="the-value-of-data-in-research" id="the-value-of-data-in-research">
-        
-        
-          The Value of Data in Research <a href="#the-value-of-data-in-research"></a>
-        
-        
-      </h3>
-    
-
-<p>In the realm of behavioral and social sciences, the availability of accurate and comprehensive data is often the cornerstone of impactful research. Traditional methods of data collection, such as surveys and interviews, have their limitations in terms of scale and objectivity. This is where time-tracking tools like ActivityWatch can fill a significant gap.</p>
-      <h3 id="addressing-the-lack-of-data-collection-tooling"  id="addressing-the-lack-of-data-collection-tooling" id="addressing-the-lack-of-data-collection-tooling" id="addressing-the-lack-of-data-collection-tooling" id="addressing-the-lack-of-data-collection-tooling" id="addressing-the-lack-of-data-collection-tooling" id="addressing-the-lack-of-data-collection-tooling">
-        
-        
-          Addressing the Lack of Data Collection Tooling <a href="#addressing-the-lack-of-data-collection-tooling"></a>
-        
-        
-      </h3>
-    
-
-<p>One of the challenges researchers face is the lack of specialized tooling for data collection that is both ethical and efficient. ActivityWatch addresses this void by offering a platform that is not only privacy-centric but also highly customizable. Researchers can use custom plugins and scripts to tailor data collection to the specific needs of their study, thereby enhancing the quality and relevance of the data collected.</p>
-      <h3 id="erc-funded-project-a-case-study"  id="erc-funded-project-a-case-study" id="erc-funded-project-a-case-study" id="erc-funded-project-a-case-study" id="erc-funded-project-a-case-study" id="erc-funded-project-a-case-study" id="erc-funded-project-a-case-study">
-        
-        
-          ERC-Funded Project: A Case Study <a href="#erc-funded-project-a-case-study"></a>
-        
-        
-      </h3>
-    
-
-<p>ActivityWatch is currently being utilized in a 5-year project funded by the European Research Council. The project aims to delve into the intricacies of human behavior and time management. The use of ActivityWatch in such a high-profile research initiative underscores its value as a reliable tool for academic and scientific inquiry. <a href="https://cordis.europa.eu/project/id/950635">Learn more about the ERC-funded project here</a>.</p>
-      <h3 id="warn-d-research-project-the-broader-context"  id="warn-d-research-project-the-broader-context" id="warn-d-research-project-the-broader-context" id="warn-d-research-project-the-broader-context" id="warn-d-research-project-the-broader-context" id="warn-d-research-project-the-broader-context" id="warn-d-research-project-the-broader-context">
-        
-        
-          WARN-D Research Project: The Broader Context <a href="#warn-d-research-project-the-broader-context"></a>
-        
-        
-      </h3>
-    
-
-<p>While not directly using ActivityWatch, the WARN-D research project aims to build a personalized early warning system for mental health by tracking stressors among students. This project highlights the broader societal value of time-tracking data and sets a precedent for how ActivityWatch could be employed in similar research endeavors. <a href="https://eiko-fried.com/warn-d/">Learn more about the WARN-D project here</a>.</p>
-
-<p>By offering a robust, customizable, and privacy-focused platform, ActivityWatch is poised to become an invaluable asset in the toolkit of modern researchers.</p>
-      <h2 id="leading-the-charge-activitywatchs-role-in-shaping-the-future-of-time-tracking"  id="leading-the-charge-activitywatchs-role-in-shaping-the-future-of-time-tracking" id="leading-the-charge-activitywatchs-role-in-shaping-the-future-of-time-tracking" id="leading-the-charge-activitywatchs-role-in-shaping-the-future-of-time-tracking" id="leading-the-charge-activitywatchs-role-in-shaping-the-future-of-time-tracking" id="leading-the-charge-activitywatchs-role-in-shaping-the-future-of-time-tracking" id="leading-the-charge-activitywatchs-role-in-shaping-the-future-of-time-tracking">
-        
-        
-          Leading the Charge: ActivityWatch’s Role in Shaping the Future of Time Tracking <a href="#leading-the-charge-activitywatchs-role-in-shaping-the-future-of-time-tracking"></a>
-        
-        
-      </h2>
-    
-
-<p>ActivityWatch is not just another time-tracking tool; it’s a platform that embodies the future of this technology. Situated at the crossroads of data-driven AI applications, stringent privacy measures, and extensive personalization capabilities, ActivityWatch is setting the standard for what time-tracking software can and should be.</p>
-
-<p>By offering a platform that is both customizable and privacy-centric, ActivityWatch provides a unique solution that caters to a diverse user base—from individuals seeking to improve their productivity to researchers aiming to collect valuable data for scientific inquiry.</p>
-
-<p>As we look to the future, ActivityWatch is committed to further enhancing its platform to meet the evolving needs of its users. Whether it’s integrating more advanced data analytics or expanding the range of custom plugins, the roadmap for ActivityWatch is geared towards innovation and user empowerment.</p>
-
-<p>In a world where time is our most valuable resource, ActivityWatch offers a way to make the most of it. By focusing on the key pillars of AI, privacy, and personalization, ActivityWatch is not just keeping pace with the future of time tracking—it’s leading the way.</p>
-      <h2 id="conclusion"  id="conclusion" id="conclusion" id="conclusion" id="conclusion" id="conclusion" id="conclusion">
-        
-        
-          Conclusion <a href="#conclusion"></a>
-        
-        
-      </h2>
-    
-
-<p>The future of time tracking is intricately tied to AI, privacy, and personalization. With its focus on these areas, ActivityWatch is well-positioned to lead the way.</p>
-
-<p>If you are excited about this like we are, consider joining the <a href="https://discord.gg/vDskV9q">Discord server</a>. We’re always looking for new contributors and ideas!</p>
-
-<p>And if you aren’t using ActivityWatch already, now is the perfect time to <a href="https://activitywatch.net/downloads/">start collecting your screentime data!</a></p>
-
-    </div>
-
-    <div class="footer">
-        <div >
-            <span class="fa fa-link"></span>
-            <a href="/blog/future-of-time-tracking/">Permalink</a>
-        </div>
-    </div>
-</div>
-</article>
-
-    <div style="margin: 6em 0;">
-
-    <article class="post card" itemscope itemtype="http://schema.org/BlogPosting">
-<div class="card-body"><header class="post-header">
-      <h1 class="card-title"  id="comparing-activitywatch-with-rescuetime-manictime-and-apple-screentime" id="comparing-activitywatch-with-rescuetime-manictime-and-apple-screentime" id="comparing-activitywatch-with-rescuetime-manictime-and-apple-screentime" id="comparing-activitywatch-with-rescuetime-manictime-and-apple-screentime" id="comparing-activitywatch-with-rescuetime-manictime-and-apple-screentime" id="comparing-activitywatch-with-rescuetime-manictime-and-apple-screentime" id="comparing-activitywatch-with-rescuetime-manictime-and-apple-screentime">
-        
-        
-          <a href="/blog/comparing-time-trackers/">Comparing ActivityWatch with RescueTime, ManicTime, and Apple ScreenTime</a> <a href="#comparing-activitywatch-with-rescuetime-manictime-and-apple-screentime"></a>
-        
-        
-      </h1>
-    
-
-        <div class="post-meta">
-            <span class="meta-box" itemscope itemtype="http://schema.org/Person">
-                <span class="fa fa-user meta-icon"></span>
-                <span itemprop="name">Erik Bjäreholt</span>
-            </span>
-            <span class="ml-2">
-                <span class="fa fa-calendar meta-icon"></span>
-                <time datetime="2023-08-30T13:55:00+00:00" itemprop="datePublished">
-                    2023-08-30 13:55 UTC
-                </time>
-            </span>
-        </div>
-    </header>
-
-    
-
-    <div class="post-content" itemprop="articleBody">
-      <h2 id="introduction"  id="introduction" id="introduction" id="introduction" id="introduction" id="introduction" id="introduction" id="introduction">
-        
-        
-          Introduction <a href="#introduction"></a>
-        
-        
-      </h2>
-    
-
-<p>In today’s digital landscape, effective time management is more critical than ever. While everyone has 24 hours in a day, how we utilize those hours significantly impacts our productivity and well-being. Time-tracking software has thus become a fundamental tool for individuals and organizations aiming to optimize their time use. This article will conduct a side-by-side comparison of four popular time-tracking applications: ActivityWatch, RescueTime, ManicTime, and Apple ScreenTime.</p>
-      <h2 id="feature-comparison"  id="feature-comparison" id="feature-comparison" id="feature-comparison" id="feature-comparison" id="feature-comparison" id="feature-comparison" id="feature-comparison">
-        
-        
-          Feature Comparison <a href="#feature-comparison"></a>
-        
-        
-      </h2>
-    
-
-<p>Here’s a table outlining the features of each software:</p>
-
-<table>
-  <thead>
-    <tr>
-      <th>Feature Category</th>
-      <th>ActivityWatch</th>
-      <th>RescueTime</th>
-      <th>ManicTime</th>
-      <th>Apple ScreenTime</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td><strong>Tracking Capabilities</strong></td>
-      <td>Granular tracking of applications, browser activity, custom event tracking. Extensible architecture.</td>
-      <td>Application and website tracking, limited offline tracking, distraction-blocking features.</td>
-      <td>Comprehensive computer usage tracking, supports offline activity tagging.</td>
-      <td>Limited to Apple ecosystem; tracks applications and website usage. No custom event tracking.</td>
-    </tr>
-    <tr>
-      <td><strong>Reporting &amp; Analytics</strong></td>
-      <td>Rich dashboard with real-time and historical data. Custom reports possible due to open-source nature.</td>
-      <td>Detailed reports, limited customization.</td>
-      <td>Highly detailed reports, manual tagging and categorization.</td>
-      <td>Basic reporting on screen time and app categories, little customization.</td>
-    </tr>
-    <tr>
-      <td><strong>Privacy</strong></td>
-      <td>Local data storage by default. Robust privacy controls.</td>
-      <td>Data stored on their servers.</td>
-      <td>Local and cloud storage options.</td>
-      <td>Encrypted, on-device storage. Tightly integrated with Apple ecosystem.</td>
-    </tr>
-    <tr>
-      <td><strong>Customizability</strong></td>
-      <td>High levels due to open-source nature, from UI to tracking and reporting.</td>
-      <td>Limited to predefined settings and features.</td>
-      <td>Some customization like tagging and categorization.</td>
-      <td>Minimal customization, focused on app limits and downtime.</td>
-    </tr>
-    <tr>
-      <td><strong>Pricing</strong></td>
-      <td>Free and open-source.</td>
-      <td>Freemium model, premium version offers additional features.</td>
-      <td>Free version available, paid license for advanced features.</td>
-      <td>Free but limited to Apple devices.</td>
-    </tr>
-  </tbody>
-</table>
-      <h2 id="decision-matrix-for-use-cases"  id="decision-matrix-for-use-cases" id="decision-matrix-for-use-cases" id="decision-matrix-for-use-cases" id="decision-matrix-for-use-cases" id="decision-matrix-for-use-cases" id="decision-matrix-for-use-cases" id="decision-matrix-for-use-cases">
-        
-        
-          Decision Matrix for Use-Cases <a href="#decision-matrix-for-use-cases"></a>
-        
-        
-      </h2>
-    
-
-<p>Choosing a time-tracking software often depends on specific needs. The following matrix offers suggestions based on different use-cases:</p>
-
-<table>
-  <thead>
-    <tr>
-      <th>Use-Case</th>
-      <th>Recommended Software</th>
-      <th>Reasons</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td><strong>Highly Customizable Solution</strong></td>
-      <td>ActivityWatch</td>
-      <td>Open-source nature allows for extensive customization, from UI to tracking metrics.</td>
-    </tr>
-    <tr>
-      <td><strong>Privacy-Conscious Users</strong></td>
-      <td>ActivityWatch</td>
-      <td>Local data storage by default, with robust privacy controls.</td>
-    </tr>
-    <tr>
-      <td><strong>Multi-platform Support</strong></td>
-      <td>ActivityWatch,<br />ManicTime,<br />RescueTime</td>
-      <td>All three support multiple platforms (ActivityWatch and ManicTime support Linux too). Apple ScreenTime is limited to Apple devices.</td>
-    </tr>
-    <tr>
-      <td><strong>Enterprise Use</strong></td>
-      <td>RescueTime</td>
-      <td>Offers team features, data storage on cloud, and centralized reporting.</td>
-    </tr>
-    <tr>
-      <td><strong>Blocking Distractions</strong></td>
-      <td>RescueTime</td>
-      <td>Provides distraction-blocking features in the premium version. Note that there are other free and open-source tools for blocking distractions, which is why ActivityWatch doesn’t offer this feature.</td>
-    </tr>
-    <tr>
-      <td><strong>In-depth Reporting</strong></td>
-      <td>ActivityWatch,<br />ManicTime,<br />RescueTime</td>
-      <td>All offer robust reporting capabilities, with ActivityWatch and ManicTime allowing for greater customization.</td>
-    </tr>
-    <tr>
-      <td><strong>Apple Ecosystem</strong></td>
-      <td>Apple ScreenTime</td>
-      <td>Seamlessly integrates with Apple devices, from iPhones to Macs.</td>
-    </tr>
-    <tr>
-      <td><strong>Freelancers on Budget</strong></td>
-      <td>ActivityWatch</td>
-      <td>Free and open-source with an extensive set of features for individual tracking.</td>
-    </tr>
-    <tr>
-      <td><strong>Offline Activity Tracking</strong></td>
-      <td>ActivityWatch,<br />ManicTime</td>
-      <td>Both support offline activity tagging, making it suitable for tracking non-digital tasks.</td>
-    </tr>
-  </tbody>
-</table>
-      <h2 id="conclusion"  id="conclusion" id="conclusion" id="conclusion" id="conclusion" id="conclusion" id="conclusion" id="conclusion">
-        
-        
-          Conclusion <a href="#conclusion"></a>
-        
-        
-      </h2>
-    
-
-<p>Time-tracking software options abound, each with its unique set of features, advantages, and limitations. While the final choice will ultimately depend on your specific needs, ActivityWatch emerges as a strong contender in multiple categories.</p>
-      <h3 id="strengths-of-activitywatch"  id="strengths-of-activitywatch" id="strengths-of-activitywatch" id="strengths-of-activitywatch" id="strengths-of-activitywatch" id="strengths-of-activitywatch" id="strengths-of-activitywatch" id="strengths-of-activitywatch">
-        
-        
-          Strengths of ActivityWatch: <a href="#strengths-of-activitywatch"></a>
-        
-        
-      </h3>
-    
-<ul>
-  <li>High level of customization thanks to its open-source nature</li>
-  <li>Strong commitment to user privacy with local data storage</li>
-  <li>Extensive tracking capabilities, including custom event tracking</li>
-  <li>Free and open-source, providing a comprehensive feature set without a financial barrier</li>
-</ul>
-      <h3 id="competitors-strengths"  id="competitors-strengths" id="competitors-strengths" id="competitors-strengths" id="competitors-strengths" id="competitors-strengths" id="competitors-strengths" id="competitors-strengths">
-        
-        
-          Competitors’ Strengths: <a href="#competitors-strengths"></a>
-        
-        
-      </h3>
-    
-<ul>
-  <li>RescueTime offers distraction-blocking and enterprise features</li>
-  <li>ManicTime provides a versatile tracking environment, including offline tagging</li>
-  <li>Apple ScreenTime integrates seamlessly within the Apple ecosystem</li>
-</ul>
-
-<p>In summary, ActivityWatch excels in customizability, privacy, and its free pricing model. It is an ideal choice for users ranging from freelancers to those who prioritize data privacy, all without compromising on tracking capabilities and analytics. If you’re looking for a comprehensive, customizable, and cost-effective time-tracking solution, ActivityWatch may well be the ideal choice for you.</p>
-
-<p>For more alternatives, you can check out <a href="https://alternativeto.net/software/activitywatch/">alternativeto.net</a>.</p>
-
-    </div>
-
-    <div class="footer">
-        <div >
-            <span class="fa fa-link"></span>
-            <a href="/blog/comparing-time-trackers/">Permalink</a>
-        </div>
-    </div>
-</div>
-</article>
-
-    <div style="margin: 6em 0;">
-
-    <article class="post card" itemscope itemtype="http://schema.org/BlogPosting">
-<div class="card-body"><header class="post-header">
-      <h1 class="card-title"  id="development-update-march-2019" id="development-update-march-2019" id="development-update-march-2019" id="development-update-march-2019" id="development-update-march-2019" id="development-update-march-2019" id="development-update-march-2019" id="development-update-march-2019">
-        
-        
-          <a href="/blog/development-update-mar-2019/">Development Update March 2019</a> <a href="#development-update-march-2019"></a>
-        
-        
-      </h1>
-    
-
-        <div class="post-meta">
-            <span class="meta-box" itemscope itemtype="http://schema.org/Person">
-                <span class="fa fa-user meta-icon"></span>
-                <span itemprop="name">Erik Bjäreholt</span>
-            </span>
-            <span class="ml-2">
-                <span class="fa fa-calendar meta-icon"></span>
-                <time datetime="2019-03-12T11:06:00+00:00" itemprop="datePublished">
-                    2019-03-12 11:06 UTC
-                </time>
-            </span>
-        </div>
-    </header>
-
-    
-    <details class="toc small">
-        <summary class="py-2 font-weight-bold">Table of Contents</summary>
-        <div class="mt-2">
+      
+      <p class="post-excerpt">I started building ActivityWatch because I was frustrated with RescueTime. As someone who wanted to understand how I spent my time on the computer, I had been a RescueTime user for years. But over time, the problems kept piling up:</p>
+      <a class="post-readmore" href="/blog/activitywatch-vs-rescuetime/">Read more &rarr;</a>
+    </li>
+  
+    <li class="post-list-item">
+      <h2 class="post-list-title"><a href="/blog/announcing-winners-of-screenshot-competition/">Announcing Winners of Screenshot Competition!</a></h2>
+      <div class="post-meta">
+        Erik Bjäreholt <span class="meta-sep" aria-hidden="true">&middot;</span>
+        <time datetime="2023-10-30T09:56:00+00:00">October 30, 2023</time>
+      </div>
+      
+      
+      
+      
+      <p class="post-excerpt">We’re excited to announce the winners of the ActivityWatch Screenshot Competition! We received some great submissions, and we’d like to thank everyone who participated. Your contributions will help us showcase ActivityWatch to the world!</p>
+      <a class="post-readmore" href="/blog/announcing-winners-of-screenshot-competition/">Read more &rarr;</a>
+    </li>
+  
+    <li class="post-list-item">
+      <h2 class="post-list-title"><a href="/blog/future-of-time-tracking/">The Future of Time Tracking: AI, Privacy, and Personalization</a></h2>
+      <div class="post-meta">
+        Erik Bjäreholt <span class="meta-sep" aria-hidden="true">&middot;</span>
+        <time datetime="2023-08-30T13:57:00+00:00">August 30, 2023</time>
+      </div>
+      
+      
+      
+      
+        
+        
+          
+          
+          
             
-        </div>
-    </details>
-    
-
-    <div class="post-content" itemprop="articleBody">
-        <p>It’s time for another development update!</p>
-
-<p>We are sorry for the long delay in our development updates, but infrequent updates also mean <strong><em>larger</em></strong> updates. <a href="https://forum.activitywatch.net/t/development-update-august-2018/136">The last development update</a> was written about half a year ago, so we have a lot of things to share!</p>
-
-<p>If you don’t want to read all these notes and just want to experience the new beta of ActivityWatch right away, <a href="https://github.com/ActivityWatch/activitywatch/releases/tag/v0.8.0b8">you can download it here</a>!</p>
-      <h1 id="-milestones"  id="-milestones" id="-milestones" id="-milestones" id="-milestones" id="-milestones" id="-milestones" id="-milestones" id="-milestones">
-        
-        
-          🏁 Milestones <a href="#-milestones"></a>
-        
-        
-      </h1>
-    
-
-<ul>
-  <li>
-    <p><strong>2019-03-09:</strong> 🚢 <a href="https://github.com/ActivityWatch/activitywatch/releases/tag/v0.8.0b8">0.8.0 beta 8</a> was released</p>
-  </li>
-  <li>
-    <p><strong>2019-01-14:</strong> 🤖 First <a href="https://github.com/ActivityWatch/aw-android/">aw-android</a> release</p>
-  </li>
-  <li>
-    <p><strong>2019-01-05:</strong> ⬇️ We passed 10,000 downloads!</p>
-  </li>
-  <li>
-    <p><strong>2018-12-08:</strong> ⚙️ <a href="https://github.com/ActivityWatch/aw-server-rust/">aw-server-rust</a> reached feature parity</p>
-  </li>
-  <li>
-    <p><strong>2018-11-03:</strong> 🚢 <a href="https://github.com/ActivityWatch/activitywatch/releases/tag/v0.8.0b7">0.8.0 beta 7</a> was released</p>
-  </li>
-</ul>
-
-<p><a href="https://activitywatch.readthedocs.io/en/latest/changelog.html#v0-8-0b8">Changelog can be found here</a></p>
-      <h1 id="-major-news"  id="-major-news" id="-major-news" id="-major-news" id="-major-news" id="-major-news" id="-major-news" id="-major-news" id="-major-news">
-        
-        
-          📯 Major News <a href="#-major-news"></a>
-        
-        
-      </h1>
-    
-      <h2 id="-activitywatch-is-now-in-early-beta-on-android"  id="-activitywatch-is-now-in-early-beta-on-android" id="-activitywatch-is-now-in-early-beta-on-android" id="-activitywatch-is-now-in-early-beta-on-android" id="-activitywatch-is-now-in-early-beta-on-android" id="-activitywatch-is-now-in-early-beta-on-android" id="-activitywatch-is-now-in-early-beta-on-android" id="-activitywatch-is-now-in-early-beta-on-android" id="-activitywatch-is-now-in-early-beta-on-android">
-        
-        
-          🤖 ActivityWatch is now in early beta on Android! <a href="#-activitywatch-is-now-in-early-beta-on-android"></a>
-        
-        
-      </h2>
-    
-
-<p>We have been working on getting ActivityWatch to Android for a long time (see <a href="https://github.com/ActivityWatch/activitywatch/issues/6">this issue</a>). There’s a good reason why we think it’s important: in my own analysis, it accounts for almost half of my screen time!</p>
-
-<p>So now we finally have something that you can try out! While not great (yet) there’s a lot to be excited about.</p>
-
-<p>By being backed by our new high-performance implementation of the aw-server written in Rust (see below) it will have the same underlying features and APIs of the desktop version of ActivityWatch, making it a great foundation that will make development easy going forward. The web UI is currently available in the app (but is notably broken in a lot of ways), but we hope to be able to build some native UI elements in the future!</p>
-
-<p>Now we just need to find the time to keep building, but we hope we might be able to find some contributors to help us out with doing so now that we have a solid foundation built on the same APIs already available in ActivityWatch elsewhere!</p>
-
-<p>Get it on the <a href="https://play.google.com/store/apps/details?id=net.activitywatch.android">Play Store</a>, or <a href="https://github.com/ActivityWatch/aw-android">check out the code on GitHub</a>!</p>
-      <h2 id="️-new-high-performance-implementation-of-aw-server-written-in-rust"  id="️-new-high-performance-implementation-of-aw-server-written-in-rust" id="️-new-high-performance-implementation-of-aw-server-written-in-rust" id="️-new-high-performance-implementation-of-aw-server-written-in-rust" id="️-new-high-performance-implementation-of-aw-server-written-in-rust" id="️-new-high-performance-implementation-of-aw-server-written-in-rust" id="️-new-high-performance-implementation-of-aw-server-written-in-rust" id="️-new-high-performance-implementation-of-aw-server-written-in-rust" id="️-new-high-performance-implementation-of-aw-server-written-in-rust">
-        
-        
-          ⚙️ New high-performance implementation of aw-server written in Rust <a href="#️-new-high-performance-implementation-of-aw-server-written-in-rust"></a>
-        
-        
-      </h2>
-    
-
-<p>While Python is a great language to quickly build new features in, it’s not great for performance or deploying to multiple platforms (especially Android). So @johan-bjareholt took on the tremendous task of reimplementing aw-server in the highly performant and secure programming language Rust.</p>
-
-<p>This is big news for several reasons:</p>
-
-<ul>
-  <li>Since Rust compiles to Android we have built a library for use on Android, letting us avoid reimplement all of ActivityWatch to Android devices specifically (and vastly decreases the time to port future features like sync to Android).</li>
-  <li>The high-performance improves battery life on devices like laptops, phones, and tablets.</li>
-  <li>The high-performance will make it easier for us to implement weekly summaries</li>
-  <li>Having two implementations gives us better testing and encourages work towards common specifications and standards.</li>
-</ul>
-
-<p>The Python implementation will still be used for experimenting with new features, but expect the Rust implementation to be shipped with the normal desktop releases sometime in the future!</p>
-      <h2 id="️-more-editor-watchers"  id="️-more-editor-watchers" id="️-more-editor-watchers" id="️-more-editor-watchers" id="️-more-editor-watchers" id="️-more-editor-watchers" id="️-more-editor-watchers" id="️-more-editor-watchers" id="️-more-editor-watchers">
-        
-        
-          ✏️ More editor watchers <a href="#️-more-editor-watchers"></a>
-        
-        
-      </h2>
-    
-
-<p>The community has contributed with many new editor watchers the past few months which we appreciate a lot! They have done some awesome work and most of them are even in a better state than the vim watcher we have written ourselves. Thanks everyone for the awesome work!</p>
-
-<ul>
-  <li><a href="https://github.com/ActivityWatch/aw-watcher-vscode">aw-watcher-vscode</a> - Visual Studio Code extension, by <a href="https://github.com/Otto-AA">@Otto-AA</a>.</li>
-  <li><a href="https://github.com/pauldub/activity-watch-mode">activity-watch-mode</a> - emacs mode forked from wakatime-mode, by <a href="https://github.com/pauldub">@pauldub</a>.</li>
-  <li><a href="https://github.com/OlivierMary/aw-watcher-jetbrains">aw-watcher-jetbrains</a> - JetBrains IntelliJ plugin, by <a href="https://github.com/OlivierMary">@OlivierMary</a>.</li>
-  <li>(Alpha) <a href="https://github.com/LaggAt/ActivityWatchVS">ActivityWatchVS</a> - Visual Studio plugin, by <a href="https://github.com/LaggAt">@LaggAt</a></li>
-</ul>
-      <h2 id="--windows-and-macos-builds-now-work-again"  id="--windows-and-macos-builds-now-work-again" id="--windows-and-macos-builds-now-work-again" id="--windows-and-macos-builds-now-work-again" id="--windows-and-macos-builds-now-work-again" id="--windows-and-macos-builds-now-work-again" id="--windows-and-macos-builds-now-work-again" id="--windows-and-macos-builds-now-work-again" id="--windows-and-macos-builds-now-work-again">
-        
-        
-          🔧  Windows and macOS builds now work again <a href="#--windows-and-macos-builds-now-work-again"></a>
-        
-        
-      </h2>
-    
-<p>In v0.8 beta 7 we had issues with the windows bundle due to breaking updates of our dependencies PyInstaller and jsonschema. This is now fixed and our windows builds should now work properly again in v0.8 beta 8.</p>
-
-<p>Back in 0.8 beta 6 macOS support was also broken, but that has been working for a while now since beta 7 which has been around for a few months already.</p>
-
-<p>## 📦 Import and export
-The import and export APIs now work consistently (<a href="https://github.com/ActivityWatch/aw-server/pull/41">aw-server#41</a>). We have added a UI to export all buckets and to import buckets. Migrating your activitywatch data to another computer is now as easy as using one export button on one computer, moving the file to your new computer and upload it in with the import button! Import and export can also be used if you want to try out the new aw-server-rust and want to move over all your previously logged aw-server data.</p>
-      <h1 id="️-going-forward"  id="️-going-forward" id="️-going-forward" id="️-going-forward" id="️-going-forward" id="️-going-forward" id="️-going-forward" id="️-going-forward" id="️-going-forward">
-        
-        
-          🏃‍♀️ Going forward <a href="#️-going-forward"></a>
-        
-        
-      </h1>
-    
-
-<ul>
-  <li>🛰️ Raw SQL datastore
-    <ul>
-      <li>@johan-bjareholt has merged a raw SQLite implementation of the datastore that has performance improvements compared to the current Peewee SQLite datastore. Automatic migration from the old datastore to the new one is supported. The new datastore is however not the default yet, we need more user-testing before doing that. (<a href="https://github.com/ActivityWatch/aw-core/pull/57">aw-core#57</a>)</li>
-    </ul>
-  </li>
-  <li>🔄 Decentralized sync
-    <ul>
-      <li>Still being worked on, see last developer update for more info and the <a href="">latest comments in the issue</a>.</li>
-    </ul>
-  </li>
-  <li>⏱️ Stopwatch beta
-    <ul>
-      <li>The web-ui now has a stopwatch watcher where you can manually set timers with different tags to track for example how long you have been at work, how long you have been working on a specific project or whatever else you can come up with it being useful for.</li>
-      <li>It’s is very limited and lacks some important features, such as manually editing start/stop times. There is also a lack of visualization, it currently only shows a list of the individual entries.</li>
-    </ul>
-  </li>
-  <li>🖥️ Wayland support
-    <ul>
-      <li>@johan-bjareholt has had discussions with a few wayland compositor devs and have tried to convince the xdg-desktop-portal API bundle to add a protocol for exposing focused windows appname and title, <a href="https://github.com/flatpak/xdg-desktop-portal/issues/304">but it’s a hard sell unfortunately…</a></li>
-    </ul>
-  </li>
-  <li>🗓️ Weekly summary view
-    <ul>
-      <li>Weekly/monthly/yearly summaries is a highly requested feature and a high priority for us. We have acceptable performance in aw-server to support weekly summaries, and when we switch over to aw-server-rust we hope to be able to support monthly summaries without issues. Summaries longer than a month will need more work though and won’t be supported in the near future.</li>
-    </ul>
-  </li>
-  <li>🤖 Better Android version
-    <ul>
-      <li>The Android app, while technically released, isn’t “production ready” yet. We would ❤️ contributions from people with some Android development experience!</li>
-    </ul>
-  </li>
-</ul>
-      <h1 id="support-us-️-"  id="support-us-️-" id="support-us-️-" id="support-us-️-" id="support-us-️-" id="support-us-️-" id="support-us-️-" id="support-us-️-" id="support-us-️-">
-        
-        
-          Support us! ❤️ 💸 <a href="#support-us-️-"></a>
-        
-        
-      </h1>
-    
-
-<p>Last month we <strong>only received <em>$26</em> in donations</strong>, that means your donation could be extra important to us. <strong>Do you use ActivityWatch and want to see many updates like this in the future?  Please support us with donations, it really does make a difference!</strong>
-All donation methods are listed on our <a href="https://activitywatch.net/donate/">donations page</a>.</p>
-      <h1 id="-stay-up-to-date"  id="-stay-up-to-date" id="-stay-up-to-date" id="-stay-up-to-date" id="-stay-up-to-date" id="-stay-up-to-date" id="-stay-up-to-date" id="-stay-up-to-date" id="-stay-up-to-date">
-        
-        
-          📧 Stay up to date <a href="#-stay-up-to-date"></a>
-        
-        
-      </h1>
-    
-
-<p>Want to get notified when we have more amazing news to share? Sign up on the forum, <a href="http://eepurl.com/cTU6QX">subscribe to the newsletter</a>, and <a href="https://twitter.com/ActivityWatchIt">follow us on Twitter</a>!</p><hr />
-
-<blockquote>
-  <p>This post was originally published on <a href="https://forum.activitywatch.net/t/development-update-march-2019/189">the forum</a>. It has been reposted here on the blog for archival purposes.</p>
-</blockquote>
-
-    </div>
-
-    <div class="footer">
-        <div >
-            <span class="fa fa-link"></span>
-            <a href="/blog/development-update-mar-2019/">Permalink</a>
-        </div>
-    </div>
-</div>
-</article>
-
-    <div style="margin: 6em 0;">
-
-    <article class="post card" itemscope itemtype="http://schema.org/BlogPosting">
-<div class="card-body"><header class="post-header">
-      <h1 class="card-title"  id="development-update-august-2018" id="development-update-august-2018" id="development-update-august-2018" id="development-update-august-2018" id="development-update-august-2018" id="development-update-august-2018" id="development-update-august-2018" id="development-update-august-2018" id="development-update-august-2018">
-        
-        
-          <a href="/blog/development-update-aug-2018/">Development Update August 2018</a> <a href="#development-update-august-2018"></a>
-        
-        
-      </h1>
-    
-
-        <div class="post-meta">
-            <span class="meta-box" itemscope itemtype="http://schema.org/Person">
-                <span class="fa fa-user meta-icon"></span>
-                <span itemprop="name">Erik Bjäreholt</span>
-            </span>
-            <span class="ml-2">
-                <span class="fa fa-calendar meta-icon"></span>
-                <time datetime="2018-08-28T17:06:00+00:00" itemprop="datePublished">
-                    2018-08-28 17:06 UTC
-                </time>
-            </span>
-        </div>
-    </header>
-
-    
-    <details class="toc small">
-        <summary class="py-2 font-weight-bold">Table of Contents</summary>
-        <div class="mt-2">
             
-        </div>
-    </details>
-    
-
-    <div class="post-content" itemprop="articleBody">
-        <p>It’s now been 104 days since the last “bimonthly” development update, this means:</p>
-
-<ol>
-  <li>It’s time for a new one, and this is a unusually good “bimonthly” update. :ok_hand:</li>
-  <li>Development updates will now be quarterly.</li>
-</ol>
-      <h2 id="milestones-"  id="milestones-" id="milestones-" id="milestones-" id="milestones-" id="milestones-" id="milestones-" id="milestones-" id="milestones-" id="milestones-">
+      
+      <p class="post-excerpt">In an increasingly digital world, time-tracking software like ActivityWatch plays a pivotal role in enhancing productivity and self-awareness. As we look to the future, three key elements stand out: Artificial Intelligence (AI), privacy, and personalization.</p>
+      <a class="post-readmore" href="/blog/future-of-time-tracking/">Read more &rarr;</a>
+    </li>
+  
+    <li class="post-list-item">
+      <h2 class="post-list-title"><a href="/blog/comparing-time-trackers/">Comparing ActivityWatch with RescueTime, ManicTime, and Apple ScreenTime</a></h2>
+      <div class="post-meta">
+        Erik Bjäreholt <span class="meta-sep" aria-hidden="true">&middot;</span>
+        <time datetime="2023-08-30T13:55:00+00:00">August 30, 2023</time>
+      </div>
+      
+      
+      
+      
         
         
-          Milestones 🏁 <a href="#milestones-"></a>
-        
-        
-      </h2>
-    
-
-<p>2018-05-28: We released <a href="https://github.com/ActivityWatch/activitywatch/releases/tag/v0.8.0b2">v0.8.0b2</a>.  🚢</p>
-<ul>
-  <li>Major performance improvement: pre-merging of heartbeats. (<a href="https://github.com/ActivityWatch/aw-client/pull/33">aw-client#33</a>)</li>
-  <li>Query2 now supports a syntax for creating lists, allowing queries to return multiple things. (<a href="https://github.com/ActivityWatch/aw-core/pull/50">aw-core#50</a>)</li>
-  <li>View full diff <a href="https://github.com/ActivityWatch/activitywatch/compare/v0.8.0b1...v0.8.0b2">on GitHub</a>.</li>
-</ul>
-
-<p>2018-05-30: We released <a href="https://github.com/ActivityWatch/activitywatch/releases/tag/v0.8.0b3">v0.8.0b3</a>.  🚢</p>
-<ul>
-  <li>Major performance improvements by pre-merging heartbeats on the server and client-side</li>
-  <li>Improved design of the web UI</li>
-  <li>Implemented flooding (<a href="https://github.com/ActivityWatch/aw-core/pull/58">aw-core#58</a>) which significantly improving the accuracy some types of events (notably window events, <a href="https://github.com/ActivityWatch/activitywatch/issues/124">see this issue for numbers</a>).</li>
-  <li>View full diff <a href="https://github.com/ActivityWatch/activitywatch/compare/v0.8.0b2...v0.8.0b3">on GitHub</a>.</li>
-</ul>
-
-<p>2018-06-22: We hit 1000 stars on GitHub 🌟</p>
-
-<p>2018-07-03: We hit 5000 downloads ⬇️ <strong>and</strong> we released <a href="https://github.com/ActivityWatch/activitywatch/releases/tag/v0.8.0b4">v0.8.0b4</a>!  🚢</p>
-<ul>
-  <li>View full diff <a href="https://github.com/ActivityWatch/activitywatch/compare/v0.8.0b3...v0.8.0b4">on GitHub</a>.</li>
-</ul>
-
-<p>2018-07-09: We released <a href="https://github.com/ActivityWatch/activitywatch/releases/tag/v0.8.0b5">v0.8.0b5</a>. 🚢</p>
-<ul>
-  <li>View full diff <a href="https://github.com/ActivityWatch/activitywatch/compare/v0.8.0b4...v0.8.0b5">on GitHub</a>.</li>
-</ul>
-
-<p>2018-07-17: We hit over 200 daily active users for the web watcher. :chart_with_upwards_trend:</p>
-
-<p>2018-08-14: We hit 6000 downloads ⬇️</p>
-
-<p>2018-08-27: We released <a href="https://github.com/ActivityWatch/activitywatch/releases/tag/v0.8.0b6">v0.8.0b6</a>. 🚢</p>
-<ul>
-  <li>Added a new timeline visualization to better visualize event history. (<a href="https://github.com/ActivityWatch/aw-webui/pull/97">aw-webui#97</a>)</li>
-  <li>Fixed the highly popular Windows-specific issue where all modules started by aw-qt also opened a terminal window which they ran in. (<a href="https://github.com/ActivityWatch/activitywatch/issues/212">activitywatch#212</a>)</li>
-  <li>View full diff <a href="https://github.com/ActivityWatch/activitywatch/compare/v0.8.0b5...v0.8.0b6">on GitHub</a>.</li>
-</ul>
-
-<p>Unknown date:</p>
-
-<ul>
-  <li>At some point we implemented support for the text editors Vim and VSCode, probably in v0.8.0b4. This included a visualization in the web UI where you can see the most edited files, most edited languages, and most edited projects!</li>
-</ul>
-      <h2 id="going-forward-️"  id="going-forward-️" id="going-forward-️" id="going-forward-️" id="going-forward-️" id="going-forward-️" id="going-forward-️" id="going-forward-️" id="going-forward-️" id="going-forward-️">
-        
-        
-          Going forward 🏃‍♀️ <a href="#going-forward-️"></a>
-        
-        
-      </h2>
-    
-
-<ul>
-  <li>Raw SQL datastore
-    <ul>
-      <li>@johan-bjareholt is still working on a raw SQL implementation of the Peewee datastore that is expected to give further performance improvements, among other things. (<a href="https://github.com/ActivityWatch/aw-core/pull/57">aw-core#57</a>)</li>
-    </ul>
-  </li>
-  <li>Import bucket API (<a href="https://github.com/ActivityWatch/aw-server/pull/41">aw-server#41</a>)
-    <ul>
-      <li>And later web UI button to make export/import cycle possible, enabling the ability to manually move data between instances with a simple export file.</li>
-    </ul>
-  </li>
-  <li>Decentralized sync
-    <ul>
-      <li>We’ve started researching the possibility for a very simple type of sync where you choose a folder that is being synced by Syncthing/Dropbox/Google Drive which is then used to exchange data between hosts.  (<a href="https://github.com/ActivityWatch/aw-server/pull/50">aw-server#50</a>)</li>
-      <li>A huge step towards finally implementing a decentralized sync MVP (thanks to Syncthing ❤️).</li>
-    </ul>
-  </li>
-</ul>
-      <h2 id="what-else"  id="what-else" id="what-else" id="what-else" id="what-else" id="what-else" id="what-else" id="what-else" id="what-else" id="what-else">
-        
-        
-          What else? <a href="#what-else"></a>
-        
-        
-      </h2>
-    
-
-<p>During the summer @ErikBjare, @johan-bjareholt, @Powersource, and three other wonderful people have been developing <a href="https://github.com/ActivityWatch/thankful">Thankful</a> under the group name <a href="https://superuserlabs.github.io/">Superuser Labs</a>. We think we’re onto something kinda amazing, but we have a bit to go before it’s an improvement over existing donation methods.</p>
-      <h2 id="support-us-️-"  id="support-us-️-" id="support-us-️-" id="support-us-️-" id="support-us-️-" id="support-us-️-" id="support-us-️-" id="support-us-️-" id="support-us-️-" id="support-us-️-">
-        
-        
-          Support us! ❤️ 💸 <a href="#support-us-️-"></a>
-        
-        
-      </h2>
-    
-
-<p>Last month we <strong>only received <em>$13</em> in donations</strong> (after fees), that means your donation could be extra important to us. <strong>Do you use ActivityWatch and want to see many updates like this in the future? Support us on <a href="https://www.patreon.com/erikbjare">Patreon</a> or <a href="https://opencollective.com/activitywatch">OpenCollective</a>!</strong></p><hr />
-
-<blockquote>
-  <p>This post was originally published on <a href="https://forum.activitywatch.net/t/development-update-august-2018/136">the forum</a>. It has been reposted here on the blog for archival purposes.</p>
-</blockquote>
-
-    </div>
-
-    <div class="footer">
-        <div >
-            <span class="fa fa-link"></span>
-            <a href="/blog/development-update-aug-2018/">Permalink</a>
-        </div>
-    </div>
-</div>
-</article>
-
-    <div style="margin: 6em 0;">
-
-    <article class="post card" itemscope itemtype="http://schema.org/BlogPosting">
-<div class="card-body"><header class="post-header">
-      <h1 class="card-title"  id="development-update-may-2018" id="development-update-may-2018" id="development-update-may-2018" id="development-update-may-2018" id="development-update-may-2018" id="development-update-may-2018" id="development-update-may-2018" id="development-update-may-2018" id="development-update-may-2018" id="development-update-may-2018">
-        
-        
-          <a href="/blog/development-update-may-2018/">Development Update May 2018</a> <a href="#development-update-may-2018"></a>
-        
-        
-      </h1>
-    
-
-        <div class="post-meta">
-            <span class="meta-box" itemscope itemtype="http://schema.org/Person">
-                <span class="fa fa-user meta-icon"></span>
-                <span itemprop="name">Erik Bjäreholt</span>
-            </span>
-            <span class="ml-2">
-                <span class="fa fa-calendar meta-icon"></span>
-                <time datetime="2018-05-16T09:36:00+00:00" itemprop="datePublished">
-                    2018-05-16 09:36 UTC
-                </time>
-            </span>
-        </div>
-    </header>
-
-    
-    <details class="toc small">
-        <summary class="py-2 font-weight-bold">Table of Contents</summary>
-        <div class="mt-2">
+          
+          
+          
             
-        </div>
-    </details>
-    
-
-    <div class="post-content" itemprop="articleBody">
-        <p><a href="https://www.patreon.com/posts/17206179">On request</a> we’ve decided to start doing these bimonthly development updates in order to keep you all updated about how development is progressing. It might take a few updates for us to get this going, but we’ll get there!</p>
-      <h2 id="milestones"  id="milestones" id="milestones" id="milestones" id="milestones" id="milestones" id="milestones" id="milestones" id="milestones" id="milestones" id="milestones">
+            
+      
+      <p class="post-excerpt">In today’s digital landscape, effective time management is more critical than ever. While everyone has 24 hours in a day, how we utilize those hours significantly impacts our productivity and well-being. Time-tracking software has thus become a fundamental tool for individuals and organizations aiming to optimize their time use. This...</p>
+      <a class="post-readmore" href="/blog/comparing-time-trackers/">Read more &rarr;</a>
+    </li>
+  
+    <li class="post-list-item">
+      <h2 class="post-list-title"><a href="/blog/development-update-mar-2019/">Development Update March 2019</a></h2>
+      <div class="post-meta">
+        Erik Bjäreholt <span class="meta-sep" aria-hidden="true">&middot;</span>
+        <time datetime="2019-03-12T11:06:00+00:00">March 12, 2019</time>
+      </div>
+      
+      
+      
+      
         
         
-          Milestones <a href="#milestones"></a>
+          
+          
+          
+        
+          
+          
+          
+            
+            
+      
+      <p class="post-excerpt">We are sorry for the long delay in our development updates, but infrequent updates also mean larger updates. The last development update was written about half a year ago, so we have a lot of things to share!</p>
+      <a class="post-readmore" href="/blog/development-update-mar-2019/">Read more &rarr;</a>
+    </li>
+  
+    <li class="post-list-item">
+      <h2 class="post-list-title"><a href="/blog/development-update-aug-2018/">Development Update August 2018</a></h2>
+      <div class="post-meta">
+        Erik Bjäreholt <span class="meta-sep" aria-hidden="true">&middot;</span>
+        <time datetime="2018-08-28T17:06:00+00:00">August 28, 2018</time>
+      </div>
+      
+      
+      
+      
         
         
-      </h2>
-    
-
-<p>May 7th: We finally released <a href="https://github.com/ActivityWatch/activitywatch/releases/tag/v0.8.0b1">v0.8.0b1</a>. It’s been our first release since November 2017 and is the first beta release of the upcoming (and amazing) new v0.8 release.</p>
-
-<p>May 15th: We hit 4000 downloads 🌟</p>
-      <h2 id="improvements"  id="improvements" id="improvements" id="improvements" id="improvements" id="improvements" id="improvements" id="improvements" id="improvements" id="improvements" id="improvements">
+          
+          
+          
         
+          
+          
+          
         
-          Improvements <a href="#improvements"></a>
+          
+          
+          
         
+          
+          
+          
         
-      </h2>
-    
-
-<ul>
-  <li>Implemented our query2 querying language and rewrote much of the visualization code to use it. This is a huge step forward for future visualization work. (<a href="https://github.com/ActivityWatch/aw-core/pull/46">aw-core#46</a>, <a href="https://github.com/ActivityWatch/aw-server/pull/35">aw-server#35</a>, <a href="https://github.com/ActivityWatch/aw-webui/pull/48">aw-webui#48</a>)</li>
-  <li>Added a query explorer in the web UI to help with testing queries. (<a href="https://github.com/ActivityWatch/aw-webui/pull/64">aw-webui#64</a>)</li>
-  <li>Made watchers more resilient by switching to a new type of request queue. (<a href="https://github.com/ActivityWatch/aw-client/pull/28">aw-client#28</a>)</li>
-  <li>Started developing <code class="language-plaintext highlighter-rouge">aw-client-js</code> (<a href="https://github.com/ActivityWatch/aw-client-js/pull/2">aw-client-js#2</a>) and switched to using it in <code class="language-plaintext highlighter-rouge">aw-webui</code> (<a href="https://github.com/ActivityWatch/aw-webui/pull/62">aw-webui#62</a>).</li>
-  <li>The web UI now has a view for the most-visited domains. (<a href="https://github.com/ActivityWatch/aw-webui/commit/8f443bc1e258c54f1838994e0f1f79e254d86d6a">this commit</a>)</li>
-  <li>The web UI now has a button for removing buckets. (<a href="https://github.com/ActivityWatch/aw-webui/commit/6410170d3192c9e73bb7957ea7e7b9ce606e25ac#diff-32c6cbf8ae7a966f7e41ec78a6d775cb">this commit</a>)</li>
-  <li>We now have <a href="https://aur.archlinux.org/packages/activitywatch-bin/">a package on the AUR</a> for easy installation on Arch Linux!</li>
-  <li>And a bunch of smaller bugfixes and reliability improvements.</li>
-</ul>
-      <h2 id="going-forward"  id="going-forward" id="going-forward" id="going-forward" id="going-forward" id="going-forward" id="going-forward" id="going-forward" id="going-forward" id="going-forward" id="going-forward">
+          
+          
+          
         
+          
+          
+          
         
-          Going forward <a href="#going-forward"></a>
+          
+          
+          
         
+          
+          
+          
         
-      </h2>
-    
-
-<p>We’ve been hard at work trying to improve the performance of ActivityWatch (<a href="https://github.com/ActivityWatch/activitywatch/issues/98">activitywatch#98</a>) using several approaches:</p>
-<ul>
-  <li>Switching to a pure-SQL implementation of the SQLite datastore. (<a href="https://github.com/ActivityWatch/aw-core/pull/57">aw-core#57</a>)</li>
-  <li>Pre-merging of heartbeat events. (<a href="https://github.com/ActivityWatch/aw-client/pull/33">aw-client#33</a>)</li>
-</ul>
-
-<p>We’ll also spend a considerate amount of time developing ActivityWatch this coming summer as we’re a team of five people who will be working on our related project <a href="https://github.com/ActivityWatch/thankful">Thankful</a>. Certainly something to look forward to!</p>
-
-<p><strong>Do you like ActivityWatch and hope to see many updates like this in the future? <a href="https://www.patreon.com/erikbjare">Support us on Patreon!</a></strong></p><hr />
-
-<blockquote>
-  <p>This post was originally published on <a href="https://forum.activitywatch.net/t/development-update-may-2018/108">the forum</a>. It has been reposted here on the blog for archival purposes.</p>
-</blockquote>
-
-    </div>
-
-    <div class="footer">
-        <div >
-            <span class="fa fa-link"></span>
-            <a href="/blog/development-update-may-2018/">Permalink</a>
-        </div>
-    </div>
-</div>
-</article>
-
-    <div style="margin: 6em 0;">
-
-
-<!-- next page button/link goes here later -->
-
-    
-    </div>
-  </article>
+          
+          
+          
+        
+          
+          
+          
+        
+          
+          
+          
+            
+            
+      
+      <p class="post-excerpt">During the summer @ErikBjare, @johan-bjareholt, @Powersource, and three other wonderful people have been developing Thankful under the group name Superuser Labs. We think we’re onto something kinda amazing, but we have a bit to go before it’s an improvement over existing donation methods.</p>
+      <a class="post-readmore" href="/blog/development-update-aug-2018/">Read more &rarr;</a>
+    </li>
+  
+    <li class="post-list-item">
+      <h2 class="post-list-title"><a href="/blog/development-update-may-2018/">Development Update May 2018</a></h2>
+      <div class="post-meta">
+        Erik Bjäreholt <span class="meta-sep" aria-hidden="true">&middot;</span>
+        <time datetime="2018-05-16T09:36:00+00:00">May 16, 2018</time>
+      </div>
+      
+      
+      
+      
+      <p class="post-excerpt">On request we’ve decided to start doing these bimonthly development updates in order to keep you all updated about how development is progressing. It might take a few updates for us to get this going, but we’ll get there!</p>
+      <a class="post-readmore" href="/blog/development-update-may-2018/">Read more &rarr;</a>
+    </li>
+  
+  </ul>
 </div>
 </div><html>
   <head></head>

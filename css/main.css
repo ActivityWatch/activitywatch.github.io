@@ -633,5 +633,270 @@ details {
   }
 }
 */
+/**
+ * Blog: post pages and the /blog/ index.
+ *
+ * Everything is scoped under `.blog` so other pages that share the
+ * `page`/`.post-*` classes (donate, subscribe, stats, ...) are unaffected.
+ */
+.blog {
+  max-width: calc(42rem + 30px * 2);
+  color: #222;
+  /* Post body */
+  /* Collapsible table of contents */
+  /* Blog index */
+}
+@media screen and (max-width: 1000px) {
+  .blog {
+    max-width: calc(42rem + 30px);
+  }
+}
+.blog h1, .blog h2, .blog h3, .blog h4, .blog h5, .blog h6 {
+  color: #222;
+  font-weight: 400;
+  line-height: 1.3;
+}
+.blog .post-title {
+  font-size: 2.25rem;
+  line-height: 1.2;
+  letter-spacing: -0.01em;
+  margin-bottom: 0.5rem;
+}
+@media screen and (max-width: 600px) {
+  .blog .post-title {
+    font-size: 1.75rem;
+  }
+}
+.blog .post-header {
+  margin-bottom: 2rem;
+}
+.blog .post-meta {
+  font-size: 0.9375rem;
+  color: #6c757d;
+}
+.blog .meta-sep {
+  margin: 0 0.35em;
+}
+.blog .post-content {
+  font-size: 1.0625rem;
+  line-height: 1.7;
+  margin-bottom: 2.5rem;
+  overflow-wrap: break-word;
+}
+.blog .post-content p, .blog .post-content ul, .blog .post-content ol, .blog .post-content dl, .blog .post-content blockquote, .blog .post-content pre, .blog .post-content table, .blog .post-content figure {
+  margin-top: 0;
+  margin-bottom: 1.25rem;
+}
+.blog .post-content h1, .blog .post-content h2, .blog .post-content h3, .blog .post-content h4 {
+  padding-top: 0;
+  scroll-margin-top: 1rem;
+}
+.blog .post-content h1 {
+  font-size: 1.75rem;
+  margin: 2.75rem 0 1rem;
+}
+.blog .post-content h2 {
+  font-size: 1.625rem;
+  margin: 2.5rem 0 0.75rem;
+}
+.blog .post-content h3 {
+  font-size: 1.3125rem;
+  margin: 2rem 0 0.5rem;
+}
+.blog .post-content h4 {
+  font-size: 1.0625rem;
+  font-weight: 700;
+  margin: 1.5rem 0 0.5rem;
+}
+.blog .post-content h1 + h2, .blog .post-content h2 + h3, .blog .post-content h3 + h4 {
+  margin-top: 1rem;
+}
+.blog .post-content > :first-child {
+  margin-top: 0;
+}
+@media screen and (max-width: 600px) {
+  .blog .post-content {
+    font-size: 1rem;
+  }
+  .blog .post-content h1 {
+    font-size: 1.5rem;
+  }
+  .blog .post-content h2 {
+    font-size: 1.375rem;
+  }
+  .blog .post-content h3 {
+    font-size: 1.1875rem;
+  }
+}
+.blog .post-content ul, .blog .post-content ol {
+  margin-left: 0;
+  padding-left: 1.5em;
+}
+.blog .post-content li {
+  margin-bottom: 0.35em;
+}
+.blog .post-content li > p {
+  margin-bottom: 0.35em;
+}
+.blog .post-content li > ul, .blog .post-content li > ol {
+  margin-top: 0.35em;
+  margin-bottom: 0;
+}
+.blog .post-content a {
+  text-decoration: none;
+}
+.blog .post-content a:hover {
+  color: inherit;
+  text-decoration: underline;
+}
+.blog .post-content strong {
+  font-weight: 600;
+}
+.blog .post-content img {
+  max-width: 100%;
+  height: auto;
+}
+.blog .post-content .text-center {
+  margin: 2rem 0;
+}
+.blog .post-content .text-center img {
+  margin-bottom: 0.5rem;
+}
+.blog .post-content .text-center small {
+  display: block;
+  font-size: 0.875rem;
+  line-height: 1.5;
+  color: #6c757d;
+}
+.blog .post-content figcaption {
+  font-size: 0.875rem;
+  color: #6c757d;
+  margin-top: 0.5rem;
+}
+.blog .post-content blockquote {
+  font-size: inherit;
+  font-style: normal;
+  letter-spacing: normal;
+  color: #555;
+  border-left: 3px solid #e5e7eb;
+  padding-left: 1rem;
+}
+.blog .post-content hr {
+  border: 0;
+  border-top: 1px solid #e5e7eb;
+  margin: 2.5rem 0;
+}
+.blog .post-content code {
+  font-size: 0.875em;
+  color: inherit;
+  background-color: #f6f8fa;
+  border: 1px solid #e5e7eb;
+  border-radius: 4px;
+  padding: 0.1em 0.35em;
+}
+.blog .post-content pre {
+  font-size: 0.875rem;
+  line-height: 1.5;
+  background-color: #f6f8fa;
+  border: 1px solid #e5e7eb;
+  border-radius: 6px;
+  padding: 0.75rem 1rem;
+}
+.blog .post-content pre > code {
+  font-size: inherit;
+  background: none;
+  border: 0;
+  padding: 0;
+}
+.blog .post-content table {
+  display: block;
+  overflow-x: auto;
+  width: 100%;
+  margin: 1.5rem 0 2rem;
+  border: 0;
+  border-collapse: collapse;
+  font-size: 0.875rem;
+  line-height: 1.5;
+}
+.blog .post-content table th, .blog .post-content table td {
+  border: 0;
+  border-bottom: 1px solid #e5e7eb;
+  padding: 0.5rem 0.6rem;
+  text-align: left;
+  vertical-align: top;
+  min-width: 7rem;
+}
+.blog .post-content table th {
+  font-weight: 600;
+  border-bottom-width: 2px;
+}
+.blog .post-content table th:first-child, .blog .post-content table td:first-child {
+  padding-left: 0;
+}
+.blog .toc {
+  border: 1px solid #e5e7eb;
+  border-radius: 6px;
+  margin: 0 0 2rem;
+  font-size: 0.9375rem;
+}
+.blog .toc > summary {
+  background: none;
+  padding: 0.6rem 1rem;
+  font-weight: 600;
+  color: #6c757d;
+}
+.blog .toc > ul {
+  margin: 0 1rem 0.75rem;
+  padding-left: 1.25em;
+}
+.blog .toc > ul ul {
+  margin: 0;
+  padding-left: 1.25em;
+}
+.blog .post-nav {
+  border-top: 1px solid #e5e7eb;
+  padding-top: 1.25rem;
+  margin-bottom: 1rem;
+}
+.blog .blog-header {
+  margin-bottom: 1rem;
+}
+.blog .post-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.blog .post-list-item {
+  padding: 1.75rem 0;
+  border-bottom: 1px solid #e5e7eb;
+  margin: 0;
+}
+.blog .post-list-item:last-child {
+  border-bottom: 0;
+}
+.blog .post-list-title {
+  font-size: 1.5rem;
+  line-height: 1.3;
+  margin-bottom: 0.35rem;
+}
+.blog .post-list-title a {
+  color: inherit;
+}
+.blog .post-list-title a:hover {
+  color: inherit;
+  text-decoration: underline;
+}
+@media screen and (max-width: 600px) {
+  .blog .post-list-title {
+    font-size: 1.3125rem;
+  }
+}
+.blog .post-excerpt {
+  line-height: 1.65;
+  margin: 0.75rem 0 0.5rem;
+}
+.blog .post-readmore {
+  font-size: 0.9375rem;
+}
 
 /*# sourceMappingURL=main.css.map */
