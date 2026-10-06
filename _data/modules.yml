@@ -25,3 +25,7 @@ modules:
 - docs
 - activitywatch.github.io
 - activitywatch
+
+# GitHub owner for modules not hosted under the ActivityWatch org (default: activitywatch)
+owners:
+  awatcher: 2e3s
