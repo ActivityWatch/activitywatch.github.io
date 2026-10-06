@@ -6,9 +6,73 @@
 </description>
     <link>https://activitywatch.net/</link>
     <atom:link href="https://activitywatch.net/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Tue, 06 Oct 2026 10:41:38 +0000</pubDate>
-    <lastBuildDate>Tue, 06 Oct 2026 10:41:38 +0000</lastBuildDate>
+    <pubDate>Tue, 06 Oct 2026 12:48:56 +0000</pubDate>
+    <lastBuildDate>Tue, 06 Oct 2026 12:48:56 +0000</lastBuildDate>
     <generator>Jekyll v4.3.2</generator>
+    
+      <item>
+        <title>ActivityWatch Research Edition: a variant for your study</title>
+        <description>&lt;p&gt;If you run a study that needs to know how participants spend their time on a computer, but should not be handed their window titles and URLs, there is now an ActivityWatch build for that: the &lt;strong&gt;Research Edition&lt;/strong&gt;. Making a variant for your study is mostly a matter of supplying a category map, so if you are a researcher, &lt;a href=&quot;#get-in-touch&quot;&gt;get in touch&lt;/a&gt; and we can work out what fits. &lt;strong&gt;&lt;a href=&quot;https://docs.activitywatch.net/en/latest/research/research-edition.html&quot;&gt;Read the docs&lt;/a&gt;&lt;/strong&gt; for the full details.&lt;/p&gt;
+
+&lt;h2 id=&quot;where-it-came-from&quot;&gt;Where it came from&lt;/h2&gt;
+
+&lt;p&gt;Researchers want &lt;em&gt;categorized&lt;/em&gt; time, not raw activity: “this much on communication, news and work tools”, without the research team ever seeing which page or document that was. The Research Edition grew out of academic studies that wanted exactly this, the current one at Lund University, and it follows an approach an earlier academic team had tried in a public fork of ActivityWatch.&lt;/p&gt;
+
+&lt;h2 id=&quot;what-it-does&quot;&gt;What it does&lt;/h2&gt;
+
+&lt;p&gt;The Research Edition is a separate build of ActivityWatch with a privacy filter switched on. As of the latest build, &lt;a href=&quot;https://github.com/ActivityWatch/activitywatch/releases/tag/v0.14.0b5-research&quot;&gt;v0.14.0b5-research&lt;/a&gt; (a prerelease, for Windows, macOS and Linux):&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;The window watcher classifies each browser window into a &lt;strong&gt;study category&lt;/strong&gt;, using the URL where available and the window title otherwise, then &lt;strong&gt;discards the title and URL&lt;/strong&gt; before anything is written to disk. Anything the map does not match becomes &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;excluded&lt;/code&gt;.&lt;/li&gt;
+  &lt;li&gt;Non-browser windows lose their titles too.&lt;/li&gt;
+  &lt;li&gt;Time away from the computer is recorded, like in regular ActivityWatch.&lt;/li&gt;
+  &lt;li&gt;Data stays on the participant’s computer. At the end of the study they export one JSON file from the dashboard and upload it to the study team. The export also strips the computer’s name. There is no live telemetry and no study server to run.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;div class=&quot;text-center my-3&quot;&gt;
+  &lt;img src=&quot;/img/research-edition-data-flow.svg&quot; alt=&quot;Diagram: the window watcher sees app name, title and URL; the research filter maps them to a study category and discards titles and URLs; the local database keeps category, app name, time and duration; the participant exports a JSON file with the computer name removed and uploads it to the study team.&quot; style=&quot;max-width: 100%;&quot; /&gt;
+  &lt;p&gt;&lt;small&gt;What the Research Edition keeps, and where the filtering happens.&lt;/small&gt;&lt;/p&gt;
+&lt;/div&gt;
+
+&lt;p&gt;The &lt;a href=&quot;https://docs.activitywatch.net/en/latest/research/research-edition.html&quot;&gt;Research Edition docs page&lt;/a&gt; has the complete list of what is and is not stored.&lt;/p&gt;
+
+&lt;p&gt;Two honest caveats. In the current build, &lt;strong&gt;app names are still recorded&lt;/strong&gt; (Microsoft Excel stays “Microsoft Excel”); it is the titles, URLs and document names that go. The filter can also replace app names with categories through a config option, so a variant that needs that is a configuration choice, not new code. The filter is only as good as the category map, which is why the map belongs to the study. And it covers the bundled window watcher: if a participant connects other watchers to the Research Edition, their data ends up in the same export, so studies should tell participants not to.&lt;/p&gt;
+
+&lt;p&gt;It also keeps participants’ own data separate from the study’s. The Research Edition has its own app identity, its own data folder and its own port (5667 instead of 5600), so a participant who already uses ActivityWatch can run both side by side without mixing the two. That lets an ethics approval say “study data is kept apart from the participant’s own”, and it can be checked, not just promised.&lt;/p&gt;
+
+&lt;h2 id=&quot;how-much-data&quot;&gt;How much data&lt;/h2&gt;
+
+&lt;p&gt;Small: for a default install, roughly 1-5 MB per participant per week of collection, as an estimate. It is one JSON file, exported by the participant. Extra watchers add more, so if you need a firm number for a data-protection review, measure a pilot week.&lt;/p&gt;
+
+&lt;h2 id=&quot;making-a-variant-for-your-study&quot;&gt;Making a variant for your study&lt;/h2&gt;
+
+&lt;p&gt;The design is meant to be picked up by the next researcher without starting from scratch. A variant is mostly:&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;&lt;strong&gt;Your category map&lt;/strong&gt;: which sites and apps map to which of your categories, and everything else excluded. This is the part only you can define.&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;A build&lt;/strong&gt;: the release pipeline already produces Research Edition installers, so a study build is a tagged release with a stable download link you can cite in a methods section.&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;A participant guide and export step&lt;/strong&gt; to match your protocol. The docs have &lt;a href=&quot;https://docs.activitywatch.net/en/latest/research/participant-instructions.html&quot;&gt;participant instructions&lt;/a&gt; you can link to or adapt. They cover Windows and macOS; a Linux version can be written if a study needs one. An Android version exists for the Android build, which is not released yet.&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;New studies tend to want what the previous one wanted: categorized time, no raw titles or URLs, an easy export, and eventually mobile. Ethics committees decide for themselves, but the design is built around data minimisation: the bundled window watcher drops titles and URLs before storage, nothing is sent live, and the participant exports a single file they can inspect. Bring your committee’s requirements and we can adjust the build to them.&lt;/p&gt;
+
+&lt;h2 id=&quot;mobile&quot;&gt;Mobile&lt;/h2&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;strong&gt;Android&lt;/strong&gt;: the Android app has a &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;research&lt;/code&gt; build flavor with its own app id and port, so it can be installed next to the regular app without touching its data. This covers the separation only. The category filter you get on desktop is not on Android yet, so an Android Research Edition is in progress, not shipped.&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;iPhone and iPad&lt;/strong&gt;: there is no iOS app. Instead, &lt;a href=&quot;https://github.com/ActivityWatch/aw-import-screentime&quot;&gt;aw-import-screentime&lt;/a&gt; imports Apple’s Screen Time data into ActivityWatch. It works for any participant who also uses a Mac, with “Share Across Devices” turned on for both devices under the same Apple account, because Screen Time syncs between them. It needs Full Disk Access on the Mac. It is a standalone tool today, and the study filter does not apply to that data path yet.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;get-in-touch&quot;&gt;Get in touch&lt;/h2&gt;
+
+&lt;p&gt;If you are planning a study and want to talk through what a variant would look like, contact Erik Bjäreholt, the ActivityWatch maintainer, at &lt;a href=&quot;mailto:erik@bjareho.lt&quot;&gt;erik@bjareho.lt&lt;/a&gt; (also on his &lt;a href=&quot;https://github.com/ErikBjare&quot;&gt;GitHub profile&lt;/a&gt;). The &lt;a href=&quot;https://docs.activitywatch.net/en/latest/research/research-edition.html&quot;&gt;Research Edition docs&lt;/a&gt; describe what a variant consists of. Tell us which categories you need, which platforms your participants use, and what your ethics process requires.&lt;/p&gt;
+</description>
+        <pubDate>Tue, 29 Sep 2026 22:00:00 +0000</pubDate>
+        <link>https://activitywatch.net/blog/activitywatch-research-edition/</link>
+        <guid isPermaLink="true">https://activitywatch.net/blog/activitywatch-research-edition/</guid>
+        
+        
+      </item>
     
       <item>
         <title>ActivityWatch has passed 1 million downloads</title>

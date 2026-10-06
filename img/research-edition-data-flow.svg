@@ -1,0 +1,35 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 250" role="img" aria-labelledby="t d" font-family="system-ui, -apple-system, Segoe UI, Roboto, sans-serif">
+  <title id="t">How the ActivityWatch Research Edition handles data</title>
+  <desc id="d">On the participant's computer, the window watcher sees app names, window titles and URLs. A research filter classifies them into study categories and discards titles and URLs before anything is stored. The local database keeps app name, category, time and duration. The participant exports it as JSON with the computer name removed and uploads it to the study team.</desc>
+  <defs><marker id="a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0L10 5L0 10z" fill="#555"/></marker></defs>
+  <rect x="8" y="8" width="560" height="234" rx="10" fill="#f4f7fb" stroke="#9db3d1" stroke-dasharray="6 4"/>
+  <text x="24" y="30" font-size="13" fill="#3a5a86" font-weight="600">Participant's computer (nothing leaves it until export)</text>
+  <rect x="24" y="50" width="140" height="120" rx="8" fill="#fff" stroke="#888"/>
+  <text x="94" y="74" text-anchor="middle" font-size="14" font-weight="600" fill="#222">Window watcher</text>
+  <text x="94" y="98" text-anchor="middle" font-size="12" fill="#444">sees app name,</text>
+  <text x="94" y="114" text-anchor="middle" font-size="12" fill="#444">window title, URL</text>
+  <rect x="204" y="50" width="150" height="120" rx="8" fill="#fff3d6" stroke="#c69026"/>
+  <text x="279" y="74" text-anchor="middle" font-size="14" font-weight="600" fill="#222">Research filter</text>
+  <text x="279" y="98" text-anchor="middle" font-size="12" fill="#444">study-defined category</text>
+  <text x="279" y="114" text-anchor="middle" font-size="12" fill="#444">map picks a category;</text>
+  <text x="279" y="134" text-anchor="middle" font-size="12" font-weight="600" fill="#a33">titles and URLs</text>
+  <text x="279" y="150" text-anchor="middle" font-size="12" font-weight="600" fill="#a33">are discarded</text>
+  <rect x="394" y="50" width="150" height="120" rx="8" fill="#fff" stroke="#888"/>
+  <text x="469" y="74" text-anchor="middle" font-size="14" font-weight="600" fill="#222">Local database</text>
+  <text x="469" y="98" text-anchor="middle" font-size="12" fill="#444">category, app name,</text>
+  <text x="469" y="114" text-anchor="middle" font-size="12" fill="#444">start time, duration,</text>
+  <text x="469" y="130" text-anchor="middle" font-size="12" fill="#444">away-from-computer</text>
+  <text x="469" y="146" text-anchor="middle" font-size="12" fill="#444">(port 5667, own folder)</text>
+  <line x1="164" y1="110" x2="202" y2="110" stroke="#555" stroke-width="2" marker-end="url(#a)"/>
+  <line x1="354" y1="110" x2="392" y2="110" stroke="#555" stroke-width="2" marker-end="url(#a)"/>
+  <line x1="544" y1="110" x2="608" y2="110" stroke="#555" stroke-width="2" marker-end="url(#a)"/>
+  <text x="576" y="98" text-anchor="middle" font-size="11" fill="#555">export</text>
+  <rect x="610" y="50" width="140" height="120" rx="8" fill="#e6f4ea" stroke="#3b8f57"/>
+  <text x="680" y="74" text-anchor="middle" font-size="14" font-weight="600" fill="#222">Study team</text>
+  <text x="680" y="98" text-anchor="middle" font-size="12" fill="#444">JSON file uploaded</text>
+  <text x="680" y="114" text-anchor="middle" font-size="12" fill="#444">by the participant,</text>
+  <text x="680" y="130" text-anchor="middle" font-size="12" fill="#444">computer name</text>
+  <text x="680" y="146" text-anchor="middle" font-size="12" fill="#444">removed</text>
+  <text x="24" y="205" font-size="12" fill="#444">No live telemetry and no study server: the participant decides when to export and upload.</text>
+  <text x="24" y="224" font-size="12" fill="#444">The category map is the study's; a new study swaps in its own.</text>
+</svg>
