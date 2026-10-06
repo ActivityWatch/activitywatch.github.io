@@ -53,7 +53,7 @@ ActivityWatch runs in the background all day, and when it breaks you lose time y
 - On macOS, the window watcher no longer crashes on unusual window titles, and a leak of up to ~359 MB of memory a day on busy machines is fixed
 - Locking your screen now counts as AFK on macOS, gamepads count as activity on Linux, and a Windows bug after 49.7 days of uptime is gone
 - A damaged database recovers on startup, and imports merge into existing data instead of failing
-- The Python and Rust servers now give identical query results, checked by a new test suite
+- The Python and Rust servers now give the same query results, checked by a new test suite ([how the two servers compare](https://docs.activitywatch.net/en/latest/server-compare.html))
 
 ## A new app, built with Tauri
 
@@ -74,7 +74,7 @@ macOS builds of both apps are now signed and notarized for Apple Silicon and Int
 - ActivityWatch now speaks **Swedish, German, Ukrainian, Russian and Chinese**
 - Support for more browsers: Arc, Dia, Zen, Helium, Floorp and others
 
-And for the AI crowd: one canonical query returns clean, categorized events, so an assistant can answer questions about your time without a custom integration.
+And for the AI crowd: one canonical query returns clean, categorized events, so an assistant can answer questions about your time without a custom integration. See [ActivityWatch with agents and AI](https://docs.activitywatch.net/en/latest/examples/agents-and-ai.html).
 
 ## Upgrading
 
