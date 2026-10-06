@@ -6,8 +6,8 @@
 </description>
     <link>https://activitywatch.net/</link>
     <atom:link href="https://activitywatch.net/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Tue, 06 Oct 2026 13:45:48 +0000</pubDate>
-    <lastBuildDate>Tue, 06 Oct 2026 13:45:48 +0000</lastBuildDate>
+    <pubDate>Tue, 06 Oct 2026 13:50:04 +0000</pubDate>
+    <lastBuildDate>Tue, 06 Oct 2026 13:50:04 +0000</lastBuildDate>
     <generator>Jekyll v4.3.2</generator>
     
       <item>
@@ -128,6 +128,119 @@
         <pubDate>Tue, 06 Oct 2026 12:00:00 +0000</pubDate>
         <link>https://activitywatch.net/blog/introducing-tauri/</link>
         <guid isPermaLink="true">https://activitywatch.net/blog/introducing-tauri/</guid>
+        
+        
+      </item>
+    
+      <item>
+        <title>ActivityWatch v0.14.0: faster, steadier, synced, and a new app</title>
+        <description>&lt;p&gt;ActivityWatch v0.14.0 is out. It’s been almost two years since v0.13.2, and it’s the biggest release in a long time: about 1,000 changes across 13 repositories, from more than 30 contributors, tested over eight betas.&lt;/p&gt;
+
+&lt;p&gt;A lot has happened since the last stable release. ActivityWatch &lt;a href=&quot;/blog/one-million-downloads/&quot;&gt;passed 1 million downloads&lt;/a&gt; along the way, and it’s now downloaded over 10,000 times a week. Thank you!&lt;/p&gt;
+
+&lt;p&gt;The short version: it’s much faster once you have years of data, a lot steadier, your devices can finally share their data with each other, the Android app has caught up, and there’s a new desktop app built with Tauri. The longer version is below.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;&lt;a href=&quot;https://github.com/ActivityWatch/activitywatch/releases/tag/v0.14.0&quot;&gt;Download v0.14.0&lt;/a&gt;&lt;/strong&gt; · &lt;a href=&quot;https://docs.activitywatch.net/en/latest/changelog.html#v0-14-0&quot;&gt;Full changelog&lt;/a&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;your-devices-together&quot;&gt;Your devices, together&lt;/h2&gt;
+
+&lt;p&gt;Multi-device support is the most-requested feature in our user survey (1,714 responses). You use a laptop, a desktop and a phone, and you want one picture of your time, not three.&lt;/p&gt;
+
+&lt;p&gt;v0.14.0 is the release where that comes together. Sync is &lt;strong&gt;local-first&lt;/strong&gt;: there is no ActivityWatch server and no account. aw-sync copies each device’s data into a folder, and you move that folder between devices with whatever you already trust: Syncthing, Dropbox, a network drive. Your data never touches a server of ours. Each device only ever writes its own files and opens the others read-only, so one device can’t corrupt another’s data.&lt;/p&gt;
+
+&lt;p&gt;Once your devices are syncing, the Activity view can show any set of them merged into one view: your desktop and laptop together, or everything including your phone. Pick the devices in the device selector.&lt;/p&gt;
+
+&lt;p&gt;We spent the last weeks of this cycle running sync on our own machines and phones and fixing what broke: duplicate events after a resume, one bad device aborting a whole sync, phone data not being picked up, and an &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;aw-sync status&lt;/code&gt; command that now tells you what each device has synced.&lt;/p&gt;
+
+&lt;p&gt;It’s honest to say it’s still rough. Every device keeps a full copy of every other device’s data, so it uses more disk than it should. Settings and deletions don’t sync. Setup is manual, and sync isn’t started for you: turn it on in the app’s modules menu, or run &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;aw-sync&lt;/code&gt;. A much more compact format is already in the works, and making multi-device simple is the main goal for the next releases. If you run ActivityWatch on more than one device, &lt;a href=&quot;https://docs.activitywatch.net/en/latest/syncing.html&quot;&gt;try it&lt;/a&gt; and tell us what you hit.&lt;/p&gt;
+
+&lt;h2 id=&quot;android-caught-up&quot;&gt;Android caught up&lt;/h2&gt;
+
+&lt;p&gt;Last month we released &lt;a href=&quot;/blog/activitywatch-android-0-14-stable/&quot;&gt;ActivityWatch for Android 0.14&lt;/a&gt;, the first stable Android release since 2023. User-perceived crashes went from about 7.8% to under 1%, and it added alerts, a home-screen widget, Firefox and Chrome tracking, and CSV and JSON export.&lt;/p&gt;
+
+&lt;p&gt;It also ships the same sync as the desktop: pick a folder on your phone, sync it like any other, and your phone’s time shows up next to your desktop’s in the Activity view.&lt;/p&gt;
+
+&lt;h2 id=&quot;much-faster-on-large-databases&quot;&gt;Much faster on large databases&lt;/h2&gt;
+
+&lt;p&gt;If you have used ActivityWatch for a few years, you have probably watched the dashboard get slower. We measured v0.13.2 against v0.14 on a real 9-year database (9.2 million events, 1.8 GB), with each version’s own dashboard queries. The new dashboard loads long ranges one day at a time, so here are both servers on that same workload, a Year of daily queries:&lt;/p&gt;
+
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th&gt;Year view, 365 daily queries&lt;/th&gt;
+      &lt;th style=&quot;text-align: right&quot;&gt;v0.13.2&lt;/th&gt;
+      &lt;th style=&quot;text-align: right&quot;&gt;v0.14 first load&lt;/th&gt;
+      &lt;th style=&quot;text-align: right&quot;&gt;v0.14 repeat load&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Classic app (Python server)&lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;120 s&lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;41 s&lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;&lt;strong&gt;0.6 s&lt;/strong&gt;&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Tauri app (Rust server)&lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;139 s&lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;32 s&lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;&lt;strong&gt;0.2 s&lt;/strong&gt;&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;p&gt;Loading day by day is also what lets the dashboard show progress, draw per-day charts, and cache days that are over, which is why coming back to a view is near instant. (v0.13.2 asked for a whole Year in one request instead: on the Python server that took two minutes and hit the 30-second timeout, on the Rust server 19 seconds.)&lt;/p&gt;
+
+&lt;p&gt;Under the hood there are new database indexes, SQLite’s WAL mode, cached category rules (categorizing a year of window titles went from 53 seconds to 10) and exports that stream instead of loading everything into memory. Day, week and month views benefit too: they no longer time out on big databases.&lt;/p&gt;
+
+&lt;h2 id=&quot;steadier&quot;&gt;Steadier&lt;/h2&gt;
+
+&lt;p&gt;ActivityWatch runs in the background all day, and when it breaks you lose time you can’t get back. A lot of this release went into making that rarer:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Watchers that crash now restart on their own, in both apps, with crash logs&lt;/li&gt;
+  &lt;li&gt;On macOS, the window watcher no longer crashes on unusual window titles, and a leak of up to ~359 MB of memory a day on busy machines is fixed&lt;/li&gt;
+  &lt;li&gt;Locking your screen now counts as AFK on macOS, gamepads count as activity on Linux, and a Windows bug after 49.7 days of uptime is gone&lt;/li&gt;
+  &lt;li&gt;A damaged database recovers on startup, and imports merge into existing data instead of failing&lt;/li&gt;
+  &lt;li&gt;The Python and Rust servers now give the same query results, checked by a new test suite (&lt;a href=&quot;https://docs.activitywatch.net/en/latest/server-compare.html&quot;&gt;how the two servers compare&lt;/a&gt;)&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;a-new-app-built-with-tauri&quot;&gt;A new app, built with Tauri&lt;/h2&gt;
+
+&lt;p&gt;v0.14.0 ships a new desktop app, aw-tauri, alongside the classic one. It has the same features and is lighter: it has its own window, runs the Rust server inside the app, is smaller to download, supports Wayland on Linux out of the box, and updates itself on macOS and Linux. It’s less battle-tested so far, so the classic app ships too and stays the default.&lt;/p&gt;
+
+&lt;p&gt;Brian, who built most of it, wrote about why and how: &lt;strong&gt;&lt;a href=&quot;/blog/introducing-tauri/&quot;&gt;A lighter, faster ActivityWatch with Tauri&lt;/a&gt;&lt;/strong&gt;.&lt;/p&gt;
+
+&lt;p&gt;macOS builds of both apps are now signed and notarized for Apple Silicon and Intel, so they open without Gatekeeper workarounds, and browser URLs are tracked properly again.&lt;/p&gt;
+
+&lt;h2 id=&quot;a-refreshed-web-ui-and-more-control&quot;&gt;A refreshed web UI, and more control&lt;/h2&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;strong&gt;Timeline:&lt;/strong&gt; swimlanes, filters for AFK time, categories and duration, and “merge by app” to calm down busy days&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;Custom date ranges&lt;/strong&gt;, and a Year view that is always available&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;Category sets:&lt;/strong&gt; keep several sets of categorization rules and switch between them, plus rule priorities&lt;/li&gt;
+  &lt;li&gt;A &lt;strong&gt;Work Time report&lt;/strong&gt; and &lt;strong&gt;billable hours&lt;/strong&gt; export by category&lt;/li&gt;
+  &lt;li&gt;A &lt;strong&gt;privacy filter&lt;/strong&gt; that drops sensitive window titles before they ever reach the database&lt;/li&gt;
+  &lt;li&gt;An optional &lt;strong&gt;API key&lt;/strong&gt; for the server, if you expose it beyond your own machine&lt;/li&gt;
+  &lt;li&gt;ActivityWatch now speaks &lt;strong&gt;Swedish, German, Ukrainian, Russian and Chinese&lt;/strong&gt;&lt;/li&gt;
+  &lt;li&gt;Support for more browsers: Arc, Dia, Zen, Helium, Floorp and others&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;And for the AI crowd: one canonical query returns clean, categorized events, so an assistant can answer questions about your time without a custom integration. See &lt;a href=&quot;https://docs.activitywatch.net/en/latest/examples/agents-and-ai.html&quot;&gt;ActivityWatch with agents and AI&lt;/a&gt;.&lt;/p&gt;
+
+&lt;h2 id=&quot;upgrading&quot;&gt;Upgrading&lt;/h2&gt;
+
+&lt;p&gt;On the first start after upgrading, ActivityWatch updates its database indexes once. Your data isn’t changed. On a large database it takes up to a minute, and the dashboard may not connect until it’s done. Leave it running and reload. Notifications are now opt-in, so turn them back on in Settings if you used them.&lt;/p&gt;
+
+&lt;h2 id=&quot;thank-you&quot;&gt;Thank you&lt;/h2&gt;
+
+&lt;p&gt;More than 30 people contributed to this release, and over a million of you have downloaded ActivityWatch. Many of the features above came from the community: &lt;a href=&quot;https://github.com/0xbrayo&quot;&gt;@0xbrayo&lt;/a&gt; built aw-tauri; &lt;a href=&quot;https://github.com/BohdanRykush&quot;&gt;@BohdanRykush&lt;/a&gt;, &lt;a href=&quot;https://github.com/JhihJian&quot;&gt;@JhihJian&lt;/a&gt; and &lt;a href=&quot;https://github.com/NickWick13&quot;&gt;@NickWick13&lt;/a&gt; made ActivityWatch speak Ukrainian, German, Russian, Chinese and Swedish; &lt;a href=&quot;https://github.com/BelKed&quot;&gt;@BelKed&lt;/a&gt; rewrote the browser extension for Manifest V3; &lt;a href=&quot;https://github.com/2e3s&quot;&gt;@2e3s&lt;/a&gt;’s awatcher brings Wayland support; &lt;a href=&quot;https://github.com/nerumo&quot;&gt;@nerumo&lt;/a&gt; added timeline swimlanes; &lt;a href=&quot;https://github.com/rrogerc&quot;&gt;@rrogerc&lt;/a&gt; and &lt;a href=&quot;https://github.com/hawai-i&quot;&gt;@hawai-i&lt;/a&gt; got browser URLs working on macOS; and &lt;a href=&quot;https://github.com/FractalMachinist&quot;&gt;@FractalMachinist&lt;/a&gt; and &lt;a href=&quot;https://github.com/Lorite&quot;&gt;@Lorite&lt;/a&gt; improved browser tracking and sync on Android. The &lt;a href=&quot;https://github.com/ActivityWatch/activitywatch/releases/tag/v0.14.0&quot;&gt;release notes&lt;/a&gt; credit everyone else. Thank you all.&lt;/p&gt;
+
+&lt;p&gt;ActivityWatch has no ads, no venture funding and no data business. If it is useful to you, &lt;a href=&quot;/go/?src=blog&quot;&gt;ActivityWatch Pro&lt;/a&gt;, our patronage subscription, is the most direct way to keep releases like this coming. It starts at $5 a month and unlocks nothing: everything stays free.&lt;/p&gt;
+</description>
+        <pubDate>Tue, 06 Oct 2026 10:00:00 +0000</pubDate>
+        <link>https://activitywatch.net/blog/activitywatch-v0-14-0/</link>
+        <guid isPermaLink="true">https://activitywatch.net/blog/activitywatch-v0-14-0/</guid>
         
         
       </item>
@@ -1005,103 +1118,6 @@ All donation methods are listed on our &lt;a href=&quot;https://activitywatch.ne
         <pubDate>Tue, 12 Mar 2019 11:06:00 +0000</pubDate>
         <link>https://activitywatch.net/blog/development-update-mar-2019/</link>
         <guid isPermaLink="true">https://activitywatch.net/blog/development-update-mar-2019/</guid>
-        
-        
-      </item>
-    
-      <item>
-        <title>Development Update August 2018</title>
-        <description>&lt;p&gt;It’s now been 104 days since the last “bimonthly” development update, this means:&lt;/p&gt;
-
-&lt;ol&gt;
-  &lt;li&gt;It’s time for a new one, and this is a unusually good “bimonthly” update. :ok_hand:&lt;/li&gt;
-  &lt;li&gt;Development updates will now be quarterly.&lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;h2 id=&quot;milestones-&quot;&gt;Milestones 🏁&lt;/h2&gt;
-
-&lt;p&gt;2018-05-28: We released &lt;a href=&quot;https://github.com/ActivityWatch/activitywatch/releases/tag/v0.8.0b2&quot;&gt;v0.8.0b2&lt;/a&gt;.  🚢&lt;/p&gt;
-&lt;ul&gt;
-  &lt;li&gt;Major performance improvement: pre-merging of heartbeats. (&lt;a href=&quot;https://github.com/ActivityWatch/aw-client/pull/33&quot;&gt;aw-client#33&lt;/a&gt;)&lt;/li&gt;
-  &lt;li&gt;Query2 now supports a syntax for creating lists, allowing queries to return multiple things. (&lt;a href=&quot;https://github.com/ActivityWatch/aw-core/pull/50&quot;&gt;aw-core#50&lt;/a&gt;)&lt;/li&gt;
-  &lt;li&gt;View full diff &lt;a href=&quot;https://github.com/ActivityWatch/activitywatch/compare/v0.8.0b1...v0.8.0b2&quot;&gt;on GitHub&lt;/a&gt;.&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;2018-05-30: We released &lt;a href=&quot;https://github.com/ActivityWatch/activitywatch/releases/tag/v0.8.0b3&quot;&gt;v0.8.0b3&lt;/a&gt;.  🚢&lt;/p&gt;
-&lt;ul&gt;
-  &lt;li&gt;Major performance improvements by pre-merging heartbeats on the server and client-side&lt;/li&gt;
-  &lt;li&gt;Improved design of the web UI&lt;/li&gt;
-  &lt;li&gt;Implemented flooding (&lt;a href=&quot;https://github.com/ActivityWatch/aw-core/pull/58&quot;&gt;aw-core#58&lt;/a&gt;) which significantly improving the accuracy some types of events (notably window events, &lt;a href=&quot;https://github.com/ActivityWatch/activitywatch/issues/124&quot;&gt;see this issue for numbers&lt;/a&gt;).&lt;/li&gt;
-  &lt;li&gt;View full diff &lt;a href=&quot;https://github.com/ActivityWatch/activitywatch/compare/v0.8.0b2...v0.8.0b3&quot;&gt;on GitHub&lt;/a&gt;.&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;2018-06-22: We hit 1000 stars on GitHub 🌟&lt;/p&gt;
-
-&lt;p&gt;2018-07-03: We hit 5000 downloads ⬇️ &lt;strong&gt;and&lt;/strong&gt; we released &lt;a href=&quot;https://github.com/ActivityWatch/activitywatch/releases/tag/v0.8.0b4&quot;&gt;v0.8.0b4&lt;/a&gt;!  🚢&lt;/p&gt;
-&lt;ul&gt;
-  &lt;li&gt;View full diff &lt;a href=&quot;https://github.com/ActivityWatch/activitywatch/compare/v0.8.0b3...v0.8.0b4&quot;&gt;on GitHub&lt;/a&gt;.&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;2018-07-09: We released &lt;a href=&quot;https://github.com/ActivityWatch/activitywatch/releases/tag/v0.8.0b5&quot;&gt;v0.8.0b5&lt;/a&gt;. 🚢&lt;/p&gt;
-&lt;ul&gt;
-  &lt;li&gt;View full diff &lt;a href=&quot;https://github.com/ActivityWatch/activitywatch/compare/v0.8.0b4...v0.8.0b5&quot;&gt;on GitHub&lt;/a&gt;.&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;2018-07-17: We hit over 200 daily active users for the web watcher. :chart_with_upwards_trend:&lt;/p&gt;
-
-&lt;p&gt;2018-08-14: We hit 6000 downloads ⬇️&lt;/p&gt;
-
-&lt;p&gt;2018-08-27: We released &lt;a href=&quot;https://github.com/ActivityWatch/activitywatch/releases/tag/v0.8.0b6&quot;&gt;v0.8.0b6&lt;/a&gt;. 🚢&lt;/p&gt;
-&lt;ul&gt;
-  &lt;li&gt;Added a new timeline visualization to better visualize event history. (&lt;a href=&quot;https://github.com/ActivityWatch/aw-webui/pull/97&quot;&gt;aw-webui#97&lt;/a&gt;)&lt;/li&gt;
-  &lt;li&gt;Fixed the highly popular Windows-specific issue where all modules started by aw-qt also opened a terminal window which they ran in. (&lt;a href=&quot;https://github.com/ActivityWatch/activitywatch/issues/212&quot;&gt;activitywatch#212&lt;/a&gt;)&lt;/li&gt;
-  &lt;li&gt;View full diff &lt;a href=&quot;https://github.com/ActivityWatch/activitywatch/compare/v0.8.0b5...v0.8.0b6&quot;&gt;on GitHub&lt;/a&gt;.&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;Unknown date:&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;At some point we implemented support for the text editors Vim and VSCode, probably in v0.8.0b4. This included a visualization in the web UI where you can see the most edited files, most edited languages, and most edited projects!&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h2 id=&quot;going-forward-️&quot;&gt;Going forward 🏃‍♀️&lt;/h2&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;Raw SQL datastore
-    &lt;ul&gt;
-      &lt;li&gt;@johan-bjareholt is still working on a raw SQL implementation of the Peewee datastore that is expected to give further performance improvements, among other things. (&lt;a href=&quot;https://github.com/ActivityWatch/aw-core/pull/57&quot;&gt;aw-core#57&lt;/a&gt;)&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-  &lt;li&gt;Import bucket API (&lt;a href=&quot;https://github.com/ActivityWatch/aw-server/pull/41&quot;&gt;aw-server#41&lt;/a&gt;)
-    &lt;ul&gt;
-      &lt;li&gt;And later web UI button to make export/import cycle possible, enabling the ability to manually move data between instances with a simple export file.&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-  &lt;li&gt;Decentralized sync
-    &lt;ul&gt;
-      &lt;li&gt;We’ve started researching the possibility for a very simple type of sync where you choose a folder that is being synced by Syncthing/Dropbox/Google Drive which is then used to exchange data between hosts.  (&lt;a href=&quot;https://github.com/ActivityWatch/aw-server/pull/50&quot;&gt;aw-server#50&lt;/a&gt;)&lt;/li&gt;
-      &lt;li&gt;A huge step towards finally implementing a decentralized sync MVP (thanks to Syncthing ❤️).&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h2 id=&quot;what-else&quot;&gt;What else?&lt;/h2&gt;
-
-&lt;p&gt;During the summer @ErikBjare, @johan-bjareholt, @Powersource, and three other wonderful people have been developing &lt;a href=&quot;https://github.com/ActivityWatch/thankful&quot;&gt;Thankful&lt;/a&gt; under the group name &lt;a href=&quot;https://superuserlabs.github.io/&quot;&gt;Superuser Labs&lt;/a&gt;. We think we’re onto something kinda amazing, but we have a bit to go before it’s an improvement over existing donation methods.&lt;/p&gt;
-
-&lt;h2 id=&quot;support-us-️-&quot;&gt;Support us! ❤️ 💸&lt;/h2&gt;
-
-&lt;p&gt;Last month we &lt;strong&gt;only received &lt;em&gt;$13&lt;/em&gt; in donations&lt;/strong&gt; (after fees), that means your donation could be extra important to us. &lt;strong&gt;Do you use ActivityWatch and want to see many updates like this in the future? Support us on &lt;a href=&quot;https://www.patreon.com/erikbjare&quot;&gt;Patreon&lt;/a&gt; or &lt;a href=&quot;https://opencollective.com/activitywatch&quot;&gt;OpenCollective&lt;/a&gt;!&lt;/strong&gt;&lt;/p&gt;
-
-&lt;hr /&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;This post was originally published on &lt;a href=&quot;https://forum.activitywatch.net/t/development-update-august-2018/136&quot;&gt;the forum&lt;/a&gt;. It has been reposted here on the blog for archival purposes.&lt;/p&gt;
-&lt;/blockquote&gt;
-</description>
-        <pubDate>Tue, 28 Aug 2018 17:06:00 +0000</pubDate>
-        <link>https://activitywatch.net/blog/development-update-aug-2018/</link>
-        <guid isPermaLink="true">https://activitywatch.net/blog/development-update-aug-2018/</guid>
         
         
       </item>
