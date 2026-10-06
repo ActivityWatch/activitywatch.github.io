@@ -14,7 +14,7 @@ ActivityWatch has no sync server. Each device keeps its own data locally, as it 
 
 <div class="text-center my-3" style="overflow-x: auto;">
   <a href="/img/sync-data-flow.svg" title="Open full-size diagram">
-    <img src="/img/sync-data-flow.svg" alt="Diagram: a desktop, a second desktop and an Android phone each push their own buckets into their own staging database inside a shared sync folder. A file-sync tool copies the folder between devices: Syncthing, rsync, or a self-hosted share stay on machines you control; Dropbox or Google Drive copy through that provider. A desktop then pulls the other devices' databases read-only into its own aw-server as synced-from buckets. The combined Activity view for those buckets is merged but not in the current beta. The phone only pushes in 0.14." style="min-width: 640px; max-width: 100%; height: auto;">
+    <img src="/img/sync-data-flow.svg" alt="Diagram: a desktop, a second desktop and an Android phone each push their own buckets into their own staging database inside a shared sync folder. A file-sync tool copies the folder between devices: Syncthing, rsync, or a self-hosted share stay on machines you control; Dropbox or Google Drive copy through that provider. A desktop then pulls the other devices' databases read-only into its own aw-server as synced-from buckets. The Activity view can show those buckets merged with the local ones. The phone only pushes in 0.14." style="min-width: 640px; max-width: 100%; height: auto;">
   </a>
   <p><small>The sync data flow as it works in v0.14.0. Names and layout will change with the v2 redesign below. On a small screen, scroll sideways or open the diagram full-size.</small></p>
 </div>
