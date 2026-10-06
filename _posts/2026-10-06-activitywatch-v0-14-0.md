@@ -6,7 +6,7 @@ author: "Erik Bjäreholt"
 author_twitter: "ErikBjare"
 ---
 
-ActivityWatch v0.14.0 is out. It's been almost two years since v0.13.2, and it's the biggest release in a long time: about 1,000 changes across 13 repositories, from 32 contributors, tested over eight betas.
+ActivityWatch v0.14.0 is out. It's been almost two years since v0.13.2, and it's the biggest release in a long time: about 1,000 changes across 13 repositories, from more than 30 contributors, tested over eight betas.
 
 A lot has happened since the last stable release. ActivityWatch [passed 1 million downloads](/blog/one-million-downloads/) along the way, and it's now downloaded over 10,000 times a week. Thank you!
 
@@ -82,6 +82,6 @@ On the first start after upgrading, ActivityWatch updates its database indexes o
 
 ## Thank you
 
-32 people contributed to this release, and over a million of you have downloaded ActivityWatch. Special thanks to [@0xbrayo](https://github.com/0xbrayo) for aw-tauri, [@2e3s](https://github.com/2e3s) for awatcher and native Wayland support, [@hawai-i](https://github.com/hawai-i) for bringing macOS browser URLs back, and [@NickWick13](https://github.com/NickWick13) for the Swedish translation.
+More than 30 people contributed to this release, and over a million of you have downloaded ActivityWatch. Special thanks to [@0xbrayo](https://github.com/0xbrayo) for aw-tauri, [@2e3s](https://github.com/2e3s) for awatcher and native Wayland support, [@hawai-i](https://github.com/hawai-i) for bringing macOS browser URLs back, and [@NickWick13](https://github.com/NickWick13) for the Swedish translation.
 
 ActivityWatch has no ads, no venture funding and no data business. If it is useful to you, [ActivityWatch Pro](/go/?src=blog), our patronage subscription, is the most direct way to keep releases like this coming. It starts at $5 a month and unlocks nothing: everything stays free.
