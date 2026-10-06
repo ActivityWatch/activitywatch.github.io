@@ -394,6 +394,17 @@ details {
   border: 1px solid #e8e8e8;
   padding: 7.5px;
 }
+@media screen and (max-width: 600px) {
+  .post-content table {
+    display: block;
+    overflow-x: auto;
+  }
+}
+.post-content a[href^="bitcoin:"],
+.post-content a[href^="ethereum:"] {
+  overflow-wrap: anywhere;
+  word-break: break-all;
+}
 
 .toc {
   border: 1px solid #e8e8e8;
