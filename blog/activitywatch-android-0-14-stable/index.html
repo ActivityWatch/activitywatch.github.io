@@ -188,7 +188,9 @@
 
 <h2 id="sync-with-your-desktop">Sync with your desktop</h2>
 
-<p>Your phone’s data can now flow into the same reports as your desktop. Turn on Sync in the navigation drawer and choose a folder that Syncthing, Dropbox, Drive, or another file-sync tool shares with your desktop’s <code class="language-plaintext highlighter-rouge">~/ActivityWatchSync</code> folder. Then run <code class="language-plaintext highlighter-rouge">aw-sync sync</code> on the desktop to import the phone’s buckets. <code class="language-plaintext highlighter-rouge">aw-sync</code> does not transport the files itself, and the default daemon does not yet support Android’s folder layout; see the <a href="https://github.com/ActivityWatch/aw-server-rust/tree/master/aw-sync#setting-up-sync">setup notes</a>.</p>
+<p>Your phone’s data can now flow into the same reports as your desktop. Turn on Sync in the navigation drawer and choose a folder that Syncthing, Dropbox, Drive, or another file-sync tool shares with your desktop’s <code class="language-plaintext highlighter-rouge">~/ActivityWatchSync</code> folder. Then run <code class="language-plaintext highlighter-rouge">aw-sync sync</code> on the desktop to import the phone’s buckets. <code class="language-plaintext highlighter-rouge">aw-sync</code> does not transport the files itself. Since desktop <a href="/blog/activitywatch-v0-14-0/">v0.14.0</a>, the background sync daemon can also pull the phone’s data on every pass: set <code class="language-plaintext highlighter-rouge">pull = true</code> under <code class="language-plaintext highlighter-rouge">[daemon]</code> in aw-sync’s <code class="language-plaintext highlighter-rouge">config.toml</code>. See the <a href="https://docs.activitywatch.net/en/latest/syncing.html">sync docs</a> for setup.</p>
+
+<p><em>Updated 2026-10-06: this post originally said the desktop daemon couldn’t read the Android folder layout. That was fixed in desktop v0.14.0.</em></p>
 
 <p>As of 0.14.2 the app also shows <strong>when the next sync is scheduled</strong> and <strong>what each sync pass actually did</strong>, so “why isn’t my phone data showing up?” now has an answer in the UI.</p>
 

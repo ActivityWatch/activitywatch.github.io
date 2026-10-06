@@ -6,8 +6,8 @@
 </description>
     <link>https://activitywatch.net/</link>
     <atom:link href="https://activitywatch.net/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Tue, 06 Oct 2026 13:23:39 +0000</pubDate>
-    <lastBuildDate>Tue, 06 Oct 2026 13:23:39 +0000</lastBuildDate>
+    <pubDate>Tue, 06 Oct 2026 13:43:11 +0000</pubDate>
+    <lastBuildDate>Tue, 06 Oct 2026 13:43:11 +0000</lastBuildDate>
     <generator>Jekyll v4.3.2</generator>
     
       <item>
@@ -135,7 +135,9 @@
 
 &lt;h2 id=&quot;sync-with-your-desktop&quot;&gt;Sync with your desktop&lt;/h2&gt;
 
-&lt;p&gt;Your phone’s data can now flow into the same reports as your desktop. Turn on Sync in the navigation drawer and choose a folder that Syncthing, Dropbox, Drive, or another file-sync tool shares with your desktop’s &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;~/ActivityWatchSync&lt;/code&gt; folder. Then run &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;aw-sync sync&lt;/code&gt; on the desktop to import the phone’s buckets. &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;aw-sync&lt;/code&gt; does not transport the files itself, and the default daemon does not yet support Android’s folder layout; see the &lt;a href=&quot;https://github.com/ActivityWatch/aw-server-rust/tree/master/aw-sync#setting-up-sync&quot;&gt;setup notes&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;Your phone’s data can now flow into the same reports as your desktop. Turn on Sync in the navigation drawer and choose a folder that Syncthing, Dropbox, Drive, or another file-sync tool shares with your desktop’s &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;~/ActivityWatchSync&lt;/code&gt; folder. Then run &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;aw-sync sync&lt;/code&gt; on the desktop to import the phone’s buckets. &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;aw-sync&lt;/code&gt; does not transport the files itself. Since desktop &lt;a href=&quot;/blog/activitywatch-v0-14-0/&quot;&gt;v0.14.0&lt;/a&gt;, the background sync daemon can also pull the phone’s data on every pass: set &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;pull = true&lt;/code&gt; under &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;[daemon]&lt;/code&gt; in aw-sync’s &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;config.toml&lt;/code&gt;. See the &lt;a href=&quot;https://docs.activitywatch.net/en/latest/syncing.html&quot;&gt;sync docs&lt;/a&gt; for setup.&lt;/p&gt;
+
+&lt;p&gt;&lt;em&gt;Updated 2026-10-06: this post originally said the desktop daemon couldn’t read the Android folder layout. That was fixed in desktop v0.14.0.&lt;/em&gt;&lt;/p&gt;
 
 &lt;p&gt;As of 0.14.2 the app also shows &lt;strong&gt;when the next sync is scheduled&lt;/strong&gt; and &lt;strong&gt;what each sync pass actually did&lt;/strong&gt;, so “why isn’t my phone data showing up?” now has an answer in the UI.&lt;/p&gt;
 
