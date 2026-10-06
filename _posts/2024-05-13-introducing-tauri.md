@@ -1,16 +1,14 @@
 ---
 layout: post
 title: "A lighter faster ActivityWatch with Tauri: now available for testing" 
-# HOLD: placeholder date (far future so Jekyll will not publish it by accident).
-# Publish only after ActivityWatch v0.14.0 stable is released, then set this to the real publish date/time.
-date: 2099-12-31 12:00 +0200
+date: 2026-10-06 14:00 +0200
 author: "Brian Vuku"
 author_twitter: "subrupt"
 ---
 
 The ActivityWatch v0.14.0 release ships a new desktop app: [`aw-tauri`](https://github.com/ActivityWatch/aw-tauri), a lighter, faster cross-platform repackaging of ActivityWatch. As the name implies the project is built with [Tauri](https://tauri.app), a relatively new Rust-based toolkit that enables easy development of small, fast, and secure applications with a great developer experience.
 
-We first announced this work in 2024, when it was little more than a prototype. Since then it has grown into something you can install on Windows, macOS (Apple Silicon and Intel) and Linux, and the v0.14.0 betas include it for every one of those platforms. This post is the story so far: why we did it, what you get, and how you can try it today.
+We first announced this work in 2024, when it was little more than a prototype. Since then it has grown into something you can install on Windows, macOS (Apple Silicon and Intel) and Linux, and v0.14.0 includes it for every one of those platforms. This post is the story so far: why we did it, what you get, and how you can try it today.
 
 <div class="text-center my-3">
   <img src="/img/screenshots/screenshot-v0.14.0b8-aw-tauri-activity.png" alt="The ActivityWatch Activity view (7-day aggregate with top applications and categories) running inside the aw-tauri application window" style="max-width: 100%;" class="border">
@@ -35,7 +33,7 @@ That last part holds if you build an app the "Tauri way". ActivityWatch also run
 - Autostart on login is built into the app and can be toggled from the tray menu, no need to set up systemd services for Linux users.
 - Notifications: [`aw-notify`](https://github.com/ActivityWatch/aw-notify-rs) has since been rewritten in Rust, and `aw-tauri` runs it and shows its output as native desktop notifications, enabling configurable usage notifications (such as goals or alerts).
 - [aw-sync](https://github.com/ActivityWatch/aw-server-rust/tree/master/aw-sync) is included in the bundles, but sync is still in preview: it is opt-in and not switched on by default.
-- Tauri also offers an update system, which we are excited to use. It is wired up to GitHub Releases, but we are still verifying it, so for now you update by installing the new version.
+- It can update itself: from v0.14.0 the built-in updater (wired up to GitHub Releases) updates the app on macOS and Linux. On Windows, install new versions manually for now.
 
 The watchers themselves are still mostly the same ones as before: the Python `aw-watcher-afk` and `aw-watcher-window` for cross-platform compatibility. There is no cross-platform Rust watcher, yet. On Linux the bundle also includes [`awatcher`](https://github.com/2e3s/awatcher), a Rust watcher that covers window and AFK tracking on both X11 and Wayland, which is why the v0.14.0 release notes list native Wayland support for the Tauri build.
 
@@ -49,7 +47,7 @@ In our current build process for Python modules like `aw-qt`, we rely heavily on
 
 With Tauri, they have handled most of the heavy lifting, and make it easy to produce working binaries for all target platforms. Much of this is simply due to Rust (avoids PyInstaller and its complexity), but also the added tooling for codesigning, and producing suitable bundles for each platform: on Linux you get a lightweight `.AppImage`, on Windows an installer, and `.app` on macOS.
 
-In the v0.14.0 betas, the Windows installer is an `.exe` setup, macOS gets a `.dmg` for both Apple Silicon and Intel, and Linux gets `.AppImage`, `.deb`, `.rpm` and `.zip` for x86_64 and arm64.
+In v0.14.0, the Windows installer is an `.exe` setup, macOS gets a `.dmg` for both Apple Silicon and Intel, and Linux gets `.AppImage`, `.deb`, `.rpm` and `.zip` for x86_64 and arm64.
 
 The Tauri bundles are also smaller to download. Here is the size of the installers attached to the v0.14.0b8 release, for the classic build and the Tauri build:
 
@@ -63,7 +61,7 @@ These are download sizes read from the release assets, not a measurement of runt
 
 ## Try it today
 
-The v0.14.0 betas include `aw-tauri` builds for all platforms. Find them under "Tauri distribution" in the [release notes and release assets](https://github.com/ActivityWatch/activitywatch/releases). (The [downloads page](https://activitywatch.net/downloads/) links the classic `aw-qt` build by default.)
+v0.14.0 includes `aw-tauri` builds for all platforms. Find them under "Tauri distribution" in the [v0.14.0 release notes and assets](https://github.com/ActivityWatch/activitywatch/releases/tag/v0.14.0). (The [downloads page](https://activitywatch.net/downloads/) links the classic `aw-qt` build by default.)
 
 - **Windows:** the `.exe` installer.
 - **macOS:** the `.dmg`, for either Apple Silicon or Intel.
