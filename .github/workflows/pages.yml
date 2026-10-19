@@ -24,11 +24,6 @@ jobs:
           submodules: 'recursive'
           persist-credentials: false
 
-      - name: Setup Node
-        uses: actions/setup-node@v4
-        with:
-          node-version: '22'
-
       - name: Test source attribution offline
         run: node --test scripts/test_go_attribution.cjs
 
