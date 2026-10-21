@@ -15,6 +15,15 @@ article.container
     | {% for platform in site.data.downloads.stable.platforms %}
     div.col-md-6(id="{{ platform.name }}")
       b {{ platform.name }}
+      | {% if platform.name == 'Linux' %}
+      p.small.mb-2
+        | Choose #[b .zip] to extract and run manually, #[b .AppImage] for a standalone app (mark it executable first), or #[b .deb] for Debian/Ubuntu's package installer. AUR and nixpkgs are distribution packages and may update separately.
+      p.small.mb-2
+        | Match the download to your CPU: run #[code uname -m] in a terminal. #[code x86_64] means 64-bit Intel/AMD; #[code aarch64] or #[code arm64] means ARM64. Use a matching build only if listed.
+      | {% elsif platform.name == 'macOS' %}
+      p.small.mb-2
+        | Open #[b Apple menu → About This Mac]. A #[b Chip] entry naming Apple M-series means Apple Silicon; an Intel #[b Processor] means Intel. Choose the matching download below.
+      | {% endif %}
       ul
         | {% for asset in platform.assets %}
         li

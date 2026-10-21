@@ -61,9 +61,9 @@ PLATFORM_SPECS = {
         (r"windows.*\.zip$", ".zip", ""),
     ],
     "Linux": [
-        (r"linux.*x86_64\.zip$", ".zip", ""),
-        (r"\.AppImage$", ".AppImage", ""),
-        (r"\.deb$", ".deb", ""),
+        (r"linux.*x86_64\.zip$", ".zip", lambda a: _linux_arch(a)),
+        (r"\.AppImage$", ".AppImage", lambda a: _linux_arch(a)),
+        (r"\.deb$", ".deb", lambda a: _linux_arch(a)),
     ],
     "macOS": [
         (r"macos.*\.dmg$", ".dmg", lambda a: " (recommended)" + _arch(a)),
@@ -93,6 +93,11 @@ def _arch_key(name: str) -> str:
     if "x86_64" in n or "amd64" in n:
         return "x86_64"
     return "unknown"
+
+
+def _linux_arch(asset: dict) -> str:
+    labels = {"x86_64": " (x86_64)", "arm64": " (ARM64)"}
+    return labels.get(_arch_key(asset["name"]), "")
 
 
 def _matches(assets: list, pattern: str) -> list:

@@ -108,5 +108,42 @@ class PickPerArchTests(unittest.TestCase):
             self.assertNotIn("description", asset)
 
 
+class LinuxArchitectureTests(unittest.TestCase):
+    def test_linux_downloads_label_architecture_without_changing_urls(self):
+        platforms = ud.platforms_for(
+            {"tag_name": "v0.14.0b5", "assets": B5_ASSETS},
+            include_packages=True,
+        )
+        linux = next(p for p in platforms if p["name"] == "Linux")
+        self.assertEqual(
+            [(a["title"], a.get("description", "")) for a in linux["assets"][:3]],
+            [(".zip", " (x86_64)"), (".AppImage", " (x86_64)"),
+             (".deb", " (x86_64)")],
+        )
+        self.assertEqual(
+            [a["url"] for a in linux["assets"][:3]],
+            [a["browser_download_url"] for a in B5_ASSETS[-3:]],
+        )
+        self.assertEqual(linux["assets"][3:], ud.PACKAGE_LINKS["Linux"])
+
+    def test_arm64_label_is_not_apple_silicon_on_linux(self):
+        for arch in ("arm64", "aarch64"):
+            with self.subTest(arch=arch):
+                platforms = ud.platforms_for(
+                    {"assets": [_asset(f"activitywatch-linux-{arch}.AppImage")]},
+                    include_packages=False,
+                )
+                linux = next(p for p in platforms if p["name"] == "Linux")
+                self.assertEqual(linux["assets"][0]["description"], " (ARM64)")
+
+    def test_unknown_architecture_is_not_guessed(self):
+        platforms = ud.platforms_for(
+            {"assets": [_asset("activitywatch-linux.AppImage")]},
+            include_packages=False,
+        )
+        linux = next(p for p in platforms if p["name"] == "Linux")
+        self.assertNotIn("description", linux["assets"][0])
+
+
 if __name__ == "__main__":
     unittest.main()
