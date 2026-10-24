@@ -111,6 +111,11 @@
       // click counts as `webext` instead of collapsing into `other`, and so
       // the paid attribution reaches Stripe as client_reference_id=webext.
       "webext":        "subscribe",
+      // aw-tauri tray menu "Support ActivityWatch" item, the one surface every
+      // desktop user of the v0.14 default app opens. Registered so the click
+      // counts as `tray` instead of `other` and reaches Stripe as
+      // client_reference_id=tray.
+      "tray":          "subscribe",
       // Plain on-site links to /subscribe/ (nav "Support", in-text links) skip
       // /go/; the subscribe page tags them from the same-origin referrer page.
       "site-home":     "subscribe",
