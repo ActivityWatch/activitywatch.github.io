@@ -86,6 +86,10 @@
     // A nudge can point at /go/?src=<tag> with no `to=` and land correctly.
     var SRC_DEFAULT = {
       "inapp-home":    "subscribe",
+      // aw-android Home Support CTA. Shipped v0.14.3 still sends inapp-home;
+      // the companion aw-webui change will emit this tag when $isAndroid is set.
+      // Registered first so those clicks count as inapp-home-android, not other.
+      "inapp-home-android": "subscribe",
       "inapp-report":  "subscribe",
       "inapp-banner":  "subscribe",
       "inapp-about":   "donate",
