@@ -106,6 +106,10 @@
       "x":             "subscribe",
       "linkedin":      "subscribe",
       "discord":       "subscribe",
+      // ActivityWatch/activitywatch README support link. GitHub sends only an
+      // origin referrer, so the src tag is the only way to tell README clicks
+      // apart; it reaches Stripe as client_reference_id=github-readme.
+      "github-readme": "subscribe",
       // aw-watcher-web popup nudge (ActivityWatch/aw-watcher-web#247), the
       // ~40k weekly-active browser-extension surface. Registered here so the
       // click counts as `webext` instead of collapsing into `other`, and so
