@@ -24,6 +24,9 @@ jobs:
           submodules: 'recursive'
           persist-credentials: false
 
+      - name: Test source attribution offline
+        run: node --test scripts/test_go_attribution.cjs
+
       - name: Setup Python
         uses: actions/setup-python@v6
         with:
