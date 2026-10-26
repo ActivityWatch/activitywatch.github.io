@@ -6,9 +6,201 @@
 </description>
     <link>https://activitywatch.net/</link>
     <atom:link href="https://activitywatch.net/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Mon, 26 Oct 2026 18:50:16 +0000</pubDate>
-    <lastBuildDate>Mon, 26 Oct 2026 18:50:16 +0000</lastBuildDate>
+    <pubDate>Mon, 26 Oct 2026 18:53:08 +0000</pubDate>
+    <lastBuildDate>Mon, 26 Oct 2026 18:53:08 +0000</lastBuildDate>
     <generator>Jekyll v4.3.2</generator>
+    
+      <item>
+        <title>ActivityWatch reach: what public statistics can and cannot tell us</title>
+        <description>&lt;p&gt;How many people use ActivityWatch each month? &lt;strong&gt;We do not have a measured count
+of distinct monthly active people.&lt;/strong&gt; ActivityWatch does not send us your activity
+history or a usage census. Browser-store statistics and download counters give us
+useful evidence about distribution, but they do not answer that question directly.&lt;/p&gt;
+
+&lt;p&gt;This Q4 2026 snapshot documents those public signals, their limitations, and what
+would be needed for a defensible estimate. It does &lt;strong&gt;not&lt;/strong&gt; establish that
+ActivityWatch has reached any particular monthly-active-user threshold.&lt;/p&gt;
+
+&lt;h2 id=&quot;define-the-thing-we-want-to-estimate&quot;&gt;Define the thing we want to estimate&lt;/h2&gt;
+
+&lt;p&gt;Here, a monthly active user means a &lt;strong&gt;distinct person who used ActivityWatch at
+least once within a specified 30-day period&lt;/strong&gt;. Someone using a laptop, a desktop,
+and a phone counts once. Installing an extension or downloading an update does
+not, on its own, establish that someone used ActivityWatch during that period.&lt;/p&gt;
+
+&lt;p&gt;Keeping that definition separate from the available counters matters: changing a
+metric’s label does not change what it measures.&lt;/p&gt;
+
+&lt;h2 id=&quot;public-evidence-snapshot&quot;&gt;Public evidence snapshot&lt;/h2&gt;
+
+&lt;p&gt;Sources below were checked on &lt;strong&gt;2026-10-19 UTC&lt;/strong&gt;. The observation date is not
+necessarily the period measured by the source.&lt;/p&gt;
+
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th&gt;Source&lt;/th&gt;
+      &lt;th&gt;Observation&lt;/th&gt;
+      &lt;th&gt;What it supports — and what it does not&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;a href=&quot;https://chromewebstore.google.com/detail/activitywatch-web-watcher/nglaklhklhcoonedhgnpgddginnjdadi&quot;&gt;Chrome Web Store listing&lt;/a&gt;&lt;/td&gt;
+      &lt;td&gt;&lt;strong&gt;60,000 users&lt;/strong&gt;, as displayed&lt;/td&gt;
+      &lt;td&gt;A store-reported extension audience, at the displayed precision. The public listing does not state a 30-day ActivityWatch usage window or deduplication across devices and browsers.&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;a href=&quot;https://addons.mozilla.org/api/v5/addons/addon/aw-watcher-web/&quot;&gt;Firefox AMO API&lt;/a&gt;&lt;/td&gt;
+      &lt;td&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;average_daily_users&lt;/code&gt;: &lt;strong&gt;3,842&lt;/strong&gt;&lt;/td&gt;
+      &lt;td&gt;Mozilla’s average-daily-user metric for the extension, not weekly or monthly distinct ActivityWatch users. The response does not provide the underlying dates for this average.&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;a href=&quot;https://github.com/ActivityWatch/stats/blob/a7c7d0ad8cf20219d90f7af60b9ecdc51b602603/data/chrome-weekly-users.csv&quot;&gt;Published Chrome history&lt;/a&gt;&lt;/td&gt;
+      &lt;td&gt;Last row: &lt;strong&gt;40,199&lt;/strong&gt;, dated &lt;strong&gt;2026-07-09&lt;/strong&gt;&lt;/td&gt;
+      &lt;td&gt;The project’s series is labelled Chrome weekly users; the CSV column is &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Total Current Users&lt;/code&gt;. This is historical evidence, not a current October observation.&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;a href=&quot;https://github.com/ActivityWatch/stats/blob/a7c7d0ad8cf20219d90f7af60b9ecdc51b602603/data/firefox-daily-users.csv&quot;&gt;Published Firefox history&lt;/a&gt;&lt;/td&gt;
+      &lt;td&gt;Last row: &lt;strong&gt;3,312&lt;/strong&gt;, dated &lt;strong&gt;2026-07-07&lt;/strong&gt;&lt;/td&gt;
+      &lt;td&gt;A historical daily-user observation. It cannot be added to a Chrome weekly count as though they shared a window and unit.&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;a href=&quot;https://github.com/ActivityWatch/stats/blob/a7c7d0ad8cf20219d90f7af60b9ecdc51b602603/data/android/installed.csv&quot;&gt;Android installed-device history&lt;/a&gt;&lt;/td&gt;
+      &lt;td&gt;Last row: &lt;strong&gt;7,170 active device installs&lt;/strong&gt;, dated &lt;strong&gt;2026-10-13&lt;/strong&gt;&lt;/td&gt;
+      &lt;td&gt;A published Play Console installation-base metric, not distinct monthly people; it excludes other distribution channels and is not added to a user total.&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;a href=&quot;https://api.github.com/repos/ActivityWatch/activitywatch/releases/tags/v0.14.1&quot;&gt;Release asset API&lt;/a&gt;&lt;/td&gt;
+      &lt;td&gt;Cumulative &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;download_count&lt;/code&gt; per asset&lt;/td&gt;
+      &lt;td&gt;Distribution activity. Downloads include updates, repeat requests, and automated fetches; they are not distinct active people.&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;p&gt;Google’s &lt;a href=&quot;https://developer.chrome.com/docs/webstore/metrics#users&quot;&gt;dashboard documentation&lt;/a&gt; explicitly says its Users
+statistics capture installations, not whether users are active. That dashboard
+definition does not establish the public badge’s reporting window, so we retain
+its literal label rather than calling it WAU. Mozilla’s &lt;a href=&quot;https://addons-server.readthedocs.io/en/latest/topics/api/addons.html#addon-detail-object&quot;&gt;API documentation&lt;/a&gt;
+defines &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;average_daily_users&lt;/code&gt; as the average number of users, updated daily; it
+does not establish that those users connected to ActivityWatch.&lt;/p&gt;
+
+&lt;p&gt;The stats repository &lt;a href=&quot;https://github.com/ActivityWatch/stats/blob/a7c7d0ad8cf20219d90f7af60b9ecdc51b602603/README.md#data&quot;&gt;documents&lt;/a&gt; the Chrome and Firefox histories as
+manually updated. Both end in July; there is no continuous series here through
+October. The current Chrome badge and AMO response use different reporting paths
+from those historical exports, so we do not infer a growth rate between them.&lt;/p&gt;
+
+&lt;p&gt;The historical links pin the public stats repository to commit
+&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;a7c7d0ad8cf20219d90f7af60b9ecdc51b602603&lt;/code&gt;, so the observations remain
+checkable after the files change. The store listing and AMO response are live
+sources; the numbers above are the dated observations, not promises that the
+current pages will retain them. &lt;a href=&quot;/stats/&quot;&gt;Our statistics page&lt;/a&gt; shows the longer
+series and download charts.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Do not sum these counters.&lt;/strong&gt; A person may use both extensions, multiple browser
+profiles, several devices, or neither extension. An installed extension may not
+be connected to a running ActivityWatch server. Conversely, desktop and Android
+users can use ActivityWatch without either browser extension.&lt;/p&gt;
+
+&lt;p&gt;Package-channel downloads, cumulative installation counts, votes, and stars can
+help explain changes in distribution. They are not added as active users. We do
+not assign an Android MAU number without evidence of use and overlap with desktop.&lt;/p&gt;
+
+&lt;h2 id=&quot;an-explicit-model-not-an-observed-mau-count&quot;&gt;An explicit model, not an observed MAU count&lt;/h2&gt;
+
+&lt;p&gt;A possible desktop estimation model starts with a &lt;strong&gt;validated, same-period&lt;/strong&gt;
+extension-active count, then accounts for use, duplication, and coverage:&lt;/p&gt;
+
+&lt;div class=&quot;language-text highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;estimated desktop active people = B × q ÷ d ÷ a
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;B&lt;/code&gt;: monthly active extension profiles, with the same 30-day window across
+included browsers. The public observations above do not provide this input.&lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;q&lt;/code&gt;: fraction of those profiles actually used with ActivityWatch during that
+window, rather than merely having the extension installed.&lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;d&lt;/code&gt;: average counted extension profiles per represented active person,
+accounting for multiple devices and browsers.&lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;a&lt;/code&gt;: fraction of all active desktop people represented by at least one of those
+profiles — the extension attach rate.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;For illustration only, suppose &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;B = 50,000&lt;/code&gt;, &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;q = 1&lt;/code&gt;, and &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;d = 1&lt;/code&gt;. &lt;strong&gt;These are
+hypothetical inputs, not measurements from any of the sources above.&lt;/strong&gt; Changing
+only the attach rate gives:&lt;/p&gt;
+
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th&gt;Hypothetical attach rate (&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;a&lt;/code&gt;)&lt;/th&gt;
+      &lt;th&gt;Implied desktop active people&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td&gt;75%&lt;/td&gt;
+      &lt;td&gt;about 66,700&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;50%&lt;/td&gt;
+      &lt;td&gt;100,000&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;30%&lt;/td&gt;
+      &lt;td&gt;about 166,700&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;p&gt;If only half the profiles were used with ActivityWatch (&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;q = 0.5&lt;/code&gt;), each result
+would halve. If each represented person had two counted profiles (&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;d = 2&lt;/code&gt;), it
+would halve again. These scenarios are &lt;strong&gt;not a confidence interval&lt;/strong&gt;, and none is
+our preferred estimate. They show why a precise-looking total cannot be justified
+by choosing an attach rate alone.&lt;/p&gt;
+
+&lt;p&gt;A weekly-to-monthly conversion factor also needs evidence. Four weekly counts
+cannot simply be added: the same profiles may recur every week. A daily average
+has a similar overlap problem. Multiplying either by a guessed factor would add
+an assumption, not a measurement.&lt;/p&gt;
+
+&lt;h2 id=&quot;what-would-make-an-estimate-publishable&quot;&gt;What would make an estimate publishable?&lt;/h2&gt;
+
+&lt;p&gt;A future quarterly estimate should publish:&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;&lt;strong&gt;A named 30-day window&lt;/strong&gt; and timestamped source snapshots, with each source’s
+exact metric, reporting window, precision, and any collection gaps.&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;Evidence for the conversion assumptions&lt;/strong&gt;: extension use with ActivityWatch,
+extension coverage, and browser/device overlap. An optional aggregate survey
+could inform these, but self-selection and sampling bias must be disclosed;
+we have not collected such a calibration here.&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;A deduplication model&lt;/strong&gt; for desktop and Android, including uncertainty about
+people using both. An unsupported mobile increment is not a substitute.&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;A reproducible calculation and sensitivity analysis&lt;/strong&gt;, distinguishing observed
+inputs from assumptions and showing how uncertainty affects the result.&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;Until those inputs exist, the responsible output is a &lt;strong&gt;reach-proxy snapshot&lt;/strong&gt;,
+not a measured MAU total or a claim that a growth threshold has been crossed.
+We propose refreshing the snapshot quarterly, next in Q1 2027, and retaining
+unknowns explicitly rather than filling them with guesses. Any future estimate
+should remain distinguishable from these historical proxy observations.&lt;/p&gt;
+
+&lt;h2 id=&quot;preserve-the-privacy-boundary&quot;&gt;Preserve the privacy boundary&lt;/h2&gt;
+
+&lt;p&gt;This methodology uses published aggregate records. It does not require collecting
+window titles, browsing history, persistent user identifiers, or activity events
+from ActivityWatch installations. It does not introduce telemetry into
+ActivityWatch. Better documentation of existing evidence is useful even when the
+honest answer about distinct monthly users remains &lt;strong&gt;unknown&lt;/strong&gt;.&lt;/p&gt;
+
+</description>
+        <pubDate>Fri, 16 Oct 2026 18:00:00 +0000</pubDate>
+        <link>https://activitywatch.net/blog/activitywatch-reach-estimate/</link>
+        <guid isPermaLink="true">https://activitywatch.net/blog/activitywatch-reach-estimate/</guid>
+        
+        
+      </item>
     
       <item>
         <title>A lighter faster ActivityWatch with Tauri: now available for testing</title>
@@ -907,156 +1099,6 @@
         <pubDate>Wed, 30 Aug 2023 13:57:00 +0000</pubDate>
         <link>https://activitywatch.net/blog/future-of-time-tracking/</link>
         <guid isPermaLink="true">https://activitywatch.net/blog/future-of-time-tracking/</guid>
-        
-        
-      </item>
-    
-      <item>
-        <title>Comparing ActivityWatch with RescueTime, ManicTime, and Apple ScreenTime</title>
-        <description>&lt;h2 id=&quot;introduction&quot;&gt;Introduction&lt;/h2&gt;
-
-&lt;p&gt;In today’s digital landscape, effective time management is more critical than ever. While everyone has 24 hours in a day, how we utilize those hours significantly impacts our productivity and well-being. Time-tracking software has thus become a fundamental tool for individuals and organizations aiming to optimize their time use. This article will conduct a side-by-side comparison of four popular time-tracking applications: ActivityWatch, RescueTime, ManicTime, and Apple ScreenTime.&lt;/p&gt;
-
-&lt;h2 id=&quot;feature-comparison&quot;&gt;Feature Comparison&lt;/h2&gt;
-
-&lt;p&gt;Here’s a table outlining the features of each software:&lt;/p&gt;
-
-&lt;table&gt;
-  &lt;thead&gt;
-    &lt;tr&gt;
-      &lt;th&gt;Feature Category&lt;/th&gt;
-      &lt;th&gt;ActivityWatch&lt;/th&gt;
-      &lt;th&gt;RescueTime&lt;/th&gt;
-      &lt;th&gt;ManicTime&lt;/th&gt;
-      &lt;th&gt;Apple ScreenTime&lt;/th&gt;
-    &lt;/tr&gt;
-  &lt;/thead&gt;
-  &lt;tbody&gt;
-    &lt;tr&gt;
-      &lt;td&gt;&lt;strong&gt;Tracking Capabilities&lt;/strong&gt;&lt;/td&gt;
-      &lt;td&gt;Granular tracking of applications, browser activity, custom event tracking. Extensible architecture.&lt;/td&gt;
-      &lt;td&gt;Application and website tracking, limited offline tracking, distraction-blocking features.&lt;/td&gt;
-      &lt;td&gt;Comprehensive computer usage tracking, supports offline activity tagging.&lt;/td&gt;
-      &lt;td&gt;Limited to Apple ecosystem; tracks applications and website usage. No custom event tracking.&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;&lt;strong&gt;Reporting &amp;amp; Analytics&lt;/strong&gt;&lt;/td&gt;
-      &lt;td&gt;Rich dashboard with real-time and historical data. Custom reports possible due to open-source nature.&lt;/td&gt;
-      &lt;td&gt;Detailed reports, limited customization.&lt;/td&gt;
-      &lt;td&gt;Highly detailed reports, manual tagging and categorization.&lt;/td&gt;
-      &lt;td&gt;Basic reporting on screen time and app categories, little customization.&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;&lt;strong&gt;Privacy&lt;/strong&gt;&lt;/td&gt;
-      &lt;td&gt;Local data storage by default. Robust privacy controls.&lt;/td&gt;
-      &lt;td&gt;Data stored on their servers.&lt;/td&gt;
-      &lt;td&gt;Local and cloud storage options.&lt;/td&gt;
-      &lt;td&gt;Encrypted, on-device storage. Tightly integrated with Apple ecosystem.&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;&lt;strong&gt;Customizability&lt;/strong&gt;&lt;/td&gt;
-      &lt;td&gt;High levels due to open-source nature, from UI to tracking and reporting.&lt;/td&gt;
-      &lt;td&gt;Limited to predefined settings and features.&lt;/td&gt;
-      &lt;td&gt;Some customization like tagging and categorization.&lt;/td&gt;
-      &lt;td&gt;Minimal customization, focused on app limits and downtime.&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;&lt;strong&gt;Pricing&lt;/strong&gt;&lt;/td&gt;
-      &lt;td&gt;Free and open-source.&lt;/td&gt;
-      &lt;td&gt;Freemium model, premium version offers additional features.&lt;/td&gt;
-      &lt;td&gt;Free version available, paid license for advanced features.&lt;/td&gt;
-      &lt;td&gt;Free but limited to Apple devices.&lt;/td&gt;
-    &lt;/tr&gt;
-  &lt;/tbody&gt;
-&lt;/table&gt;
-
-&lt;h2 id=&quot;decision-matrix-for-use-cases&quot;&gt;Decision Matrix for Use-Cases&lt;/h2&gt;
-
-&lt;p&gt;Choosing a time-tracking software often depends on specific needs. The following matrix offers suggestions based on different use-cases:&lt;/p&gt;
-
-&lt;table&gt;
-  &lt;thead&gt;
-    &lt;tr&gt;
-      &lt;th&gt;Use-Case&lt;/th&gt;
-      &lt;th&gt;Recommended Software&lt;/th&gt;
-      &lt;th&gt;Reasons&lt;/th&gt;
-    &lt;/tr&gt;
-  &lt;/thead&gt;
-  &lt;tbody&gt;
-    &lt;tr&gt;
-      &lt;td&gt;&lt;strong&gt;Highly Customizable Solution&lt;/strong&gt;&lt;/td&gt;
-      &lt;td&gt;ActivityWatch&lt;/td&gt;
-      &lt;td&gt;Open-source nature allows for extensive customization, from UI to tracking metrics.&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;&lt;strong&gt;Privacy-Conscious Users&lt;/strong&gt;&lt;/td&gt;
-      &lt;td&gt;ActivityWatch&lt;/td&gt;
-      &lt;td&gt;Local data storage by default, with robust privacy controls.&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;&lt;strong&gt;Multi-platform Support&lt;/strong&gt;&lt;/td&gt;
-      &lt;td&gt;ActivityWatch,&lt;br /&gt;ManicTime,&lt;br /&gt;RescueTime&lt;/td&gt;
-      &lt;td&gt;All three support multiple platforms (ActivityWatch and ManicTime support Linux too). Apple ScreenTime is limited to Apple devices.&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;&lt;strong&gt;Enterprise Use&lt;/strong&gt;&lt;/td&gt;
-      &lt;td&gt;RescueTime&lt;/td&gt;
-      &lt;td&gt;Offers team features, data storage on cloud, and centralized reporting.&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;&lt;strong&gt;Blocking Distractions&lt;/strong&gt;&lt;/td&gt;
-      &lt;td&gt;RescueTime&lt;/td&gt;
-      &lt;td&gt;Provides distraction-blocking features in the premium version. Note that there are other free and open-source tools for blocking distractions, which is why ActivityWatch doesn’t offer this feature.&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;&lt;strong&gt;In-depth Reporting&lt;/strong&gt;&lt;/td&gt;
-      &lt;td&gt;ActivityWatch,&lt;br /&gt;ManicTime,&lt;br /&gt;RescueTime&lt;/td&gt;
-      &lt;td&gt;All offer robust reporting capabilities, with ActivityWatch and ManicTime allowing for greater customization.&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;&lt;strong&gt;Apple Ecosystem&lt;/strong&gt;&lt;/td&gt;
-      &lt;td&gt;Apple ScreenTime&lt;/td&gt;
-      &lt;td&gt;Seamlessly integrates with Apple devices, from iPhones to Macs.&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;&lt;strong&gt;Freelancers on Budget&lt;/strong&gt;&lt;/td&gt;
-      &lt;td&gt;ActivityWatch&lt;/td&gt;
-      &lt;td&gt;Free and open-source with an extensive set of features for individual tracking.&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;&lt;strong&gt;Offline Activity Tracking&lt;/strong&gt;&lt;/td&gt;
-      &lt;td&gt;ActivityWatch,&lt;br /&gt;ManicTime&lt;/td&gt;
-      &lt;td&gt;Both support offline activity tagging, making it suitable for tracking non-digital tasks.&lt;/td&gt;
-    &lt;/tr&gt;
-  &lt;/tbody&gt;
-&lt;/table&gt;
-
-&lt;h2 id=&quot;conclusion&quot;&gt;Conclusion&lt;/h2&gt;
-
-&lt;p&gt;Time-tracking software options abound, each with its unique set of features, advantages, and limitations. While the final choice will ultimately depend on your specific needs, ActivityWatch emerges as a strong contender in multiple categories.&lt;/p&gt;
-
-&lt;h3 id=&quot;strengths-of-activitywatch&quot;&gt;Strengths of ActivityWatch:&lt;/h3&gt;
-&lt;ul&gt;
-  &lt;li&gt;High level of customization thanks to its open-source nature&lt;/li&gt;
-  &lt;li&gt;Strong commitment to user privacy with local data storage&lt;/li&gt;
-  &lt;li&gt;Extensive tracking capabilities, including custom event tracking&lt;/li&gt;
-  &lt;li&gt;Free and open-source, providing a comprehensive feature set without a financial barrier&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h3 id=&quot;competitors-strengths&quot;&gt;Competitors’ Strengths:&lt;/h3&gt;
-&lt;ul&gt;
-  &lt;li&gt;RescueTime offers distraction-blocking and enterprise features&lt;/li&gt;
-  &lt;li&gt;ManicTime provides a versatile tracking environment, including offline tagging&lt;/li&gt;
-  &lt;li&gt;Apple ScreenTime integrates seamlessly within the Apple ecosystem&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;In summary, ActivityWatch excels in customizability, privacy, and its free pricing model. It is an ideal choice for users ranging from freelancers to those who prioritize data privacy, all without compromising on tracking capabilities and analytics. If you’re looking for a comprehensive, customizable, and cost-effective time-tracking solution, ActivityWatch may well be the ideal choice for you.&lt;/p&gt;
-
-&lt;p&gt;For more alternatives, you can check out &lt;a href=&quot;https://alternativeto.net/software/activitywatch/&quot;&gt;alternativeto.net&lt;/a&gt;.&lt;/p&gt;
-</description>
-        <pubDate>Wed, 30 Aug 2023 13:55:00 +0000</pubDate>
-        <link>https://activitywatch.net/blog/comparing-time-trackers/</link>
-        <guid isPermaLink="true">https://activitywatch.net/blog/comparing-time-trackers/</guid>
         
         
       </item>
