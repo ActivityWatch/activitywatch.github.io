@@ -46,11 +46,19 @@ jobs:
           sudo npm install --global pug pug-cli
           make install-deps
 
-      - name: Get latest releases
+      - name: Test downloads script
         run: |
           source venv/bin/activate || source venv/Scripts/activate
           pip install -r requirements.txt
           python3 scripts/test_update_downloads.py
+
+      - name: Update downloads data
+        env:
+          # Authenticate the releases API call; unauthenticated requests share a
+          # per-runner-IP rate limit and intermittently fail with 403.
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          source venv/bin/activate || source venv/Scripts/activate
           make update-downloads
 
       - name: Build 🔧 # This example project is built using npm and outputs the result to the 'build' folder. Replace with the commands required to build your project, or remove this step entirely if your site is pre-built.
