@@ -128,6 +128,10 @@
       // counts as `tray` instead of `other` and reaches Stripe as
       // client_reference_id=tray.
       "tray":          "subscribe",
+      // aw-qt tray menu "Support ActivityWatch" item (distro/pip/Flatpak and
+      // the Qt bundles). Kept separate from `tray` so the two desktop apps
+      // reach Stripe as distinct client_reference_id values.
+      "qt-tray":       "subscribe",
       // Plain on-site links to /subscribe/ (nav "Support", in-text links) skip
       // /go/; the subscribe page tags them from the same-origin referrer page.
       "site-home":     "subscribe",
