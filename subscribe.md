@@ -56,9 +56,11 @@ For individuals. Prefer to pay yearly? **$50/year** (two months free).
 <a class="btn btn-success" href="/go/?src=web-subscribe&amp;to=stripe-personal-monthly" role="button">Subscribe monthly</a>
 <a class="btn btn-outline-success" href="/go/?src=web-subscribe&amp;to=stripe-personal-yearly" role="button">Subscribe yearly</a>
 
-### Business — $20 per user / month
+### Business — US$20 per user / month (excluding VAT)
 
 For teams and companies using ActivityWatch at work. Per seat (set the quantity at checkout), VAT invoice with reverse-charge for EU VAT numbers. Minimum one seat.
+
+Applicable VAT is added at checkout. Stripe may offer local-currency pricing and displays any conversion fee; select USD at checkout to pay in the advertised currency. Your bank may still charge conversion fees.
 
 <a class="btn btn-success" href="/go/?src=web-subscribe&amp;to=stripe-business-seat" role="button">Subscribe</a>
 
