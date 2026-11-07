@@ -36,7 +36,17 @@ jobs:
         uses: ruby/setup-ruby@v1
         with:
           ruby-version: ${{ matrix.ruby_version }}
-          bundler-cache: true
+
+      # posix-spawn 0.3.15 (via jekyll-last-modified-at) passes an incompatible
+      # pointer type to rb_hash_foreach; newer GCC makes that an error, which
+      # failed the gem build and every deploy since 2026-10-26. 0.3.15 is the
+      # latest release, so relax the check for that one gem. This replaces
+      # setup-ruby's bundler-cache, whose environment did not reach extconf.rb.
+      - name: Install gems
+        run: |
+          bundle config set --local path vendor/bundle
+          bundle config set --local build.posix-spawn "--with-cflags=-Wno-incompatible-pointer-types"
+          bundle install --jobs 4
 
       - name: Install poetry & create virtualenv
         shell: bash
