@@ -3,12 +3,12 @@
 {
     "@context": "https://schema.org",
     "@type": "SoftwareApplication",
-    "name": "{{ site.title_short }}",
+    "name": {{ site.title_short | jsonify }},
     "url": "{{ site.url }}",
-    "description": "{{ site.description }}",
-    "disambiguatingDescription": "{{ site.abstract }}",
+    "description": {{ site.description | strip | jsonify }},
+    "disambiguatingDescription": {{ site.abstract | strip | jsonify }},
     "keywords": ["time tracker", "time tracking", "free time tracker", "open source time tracker", "productivity tracker", "screen time tracker", "automated time tracker", "time tracker windows", "time tracker linux", "time tracker mac", "RescueTime alternative", "ManicTime alternative", "activity tracker PC", "work hours tracker"],
-    "abstract": "{{ site.abstract }}",
+    "abstract": {{ site.abstract | strip | jsonify }},
     "about": "ActivityWatch is a bundle of software that tracks your computer activity and respects your privacy. It offers an ecosystem of software to work around it, including ways to collect more data and do different kinds of analysis. We created ActivityWatch completely free and open source so anyone can use, improve and extend it.",
     "applicationCategory": "https://en.wikipedia.org/wiki/Time-tracking_software",
     "applicationSubCategory": ["DesktopApplication", "MobileApplication", "WebApplication"],
@@ -18,7 +18,7 @@
         "reviewCount": "{{ site.data.ratings.alternativeto.count }}"
     },
     "softwareVersion": "{{ site.data.downloads.stable.version }}",
-    "datePublished": "2024-06-12",
+    {% if site.data.downloads.stable.date %}"datePublished": {{ site.data.downloads.stable.date | jsonify }},{% endif %}
     "dateCreated": "2016-06-10",
     "downloadUrl": "https://activitywatch.net/downloads/",
     "softwareHelp": "https://docs.activitywatch.net/en/latest/getting-started.html#installation",

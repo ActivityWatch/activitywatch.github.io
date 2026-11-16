@@ -107,6 +107,24 @@ class PickPerArchTests(unittest.TestCase):
         for asset in android["assets"]:
             self.assertNotIn("description", asset)
 
+    def test_block_records_release_date_for_jsonld(self):
+        block = ud.build_block(
+            {"tag_name": "v0.14.3", "published_at": "2026-11-15T10:00:00Z",
+             "assets": STABLE_INTEL_ONLY},
+            include_packages=False,
+            with_android=False,
+        )
+        self.assertEqual(block["date"], "2026-11-15")
+        self.assertEqual(list(block)[:2], ["version", "date"])
+
+    def test_block_without_date_omits_it(self):
+        block = ud.build_block(
+            {"tag_name": "v0.13.2", "assets": STABLE_INTEL_ONLY},
+            include_packages=False,
+            with_android=False,
+        )
+        self.assertNotIn("date", block)
+
 
 class LinuxArchitectureTests(unittest.TestCase):
     def test_linux_downloads_label_architecture_without_changing_urls(self):
