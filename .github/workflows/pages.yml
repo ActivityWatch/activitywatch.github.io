@@ -64,6 +64,7 @@ jobs:
           source venv/bin/activate || source venv/Scripts/activate
           pip install -r requirements.txt
           python3 scripts/test_update_downloads.py
+          python3 scripts/test_check_jsonld.py
 
       - name: Update downloads data
         env:

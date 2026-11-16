@@ -18,13 +18,18 @@ LDJSON = re.compile(
 )
 
 
+def _reject_constant(name: str) -> None:
+    # json.loads accepts NaN/Infinity by default; they are not valid JSON.
+    raise ValueError(f"{name} is not valid JSON")
+
+
 def check_html(html: str) -> list[str]:
     """Return one error message per ld+json block that fails to parse."""
     errors = []
     for i, block in enumerate(LDJSON.findall(html)):
         try:
-            json.loads(block)
-        except json.JSONDecodeError as e:
+            json.loads(block, parse_constant=_reject_constant)
+        except ValueError as e:  # JSONDecodeError is a ValueError subclass
             errors.append(f"block {i}: {e}")
     return errors
 
