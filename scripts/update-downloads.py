@@ -155,7 +155,13 @@ def build_block(release: dict, include_packages: bool, with_android: bool) -> di
     platforms = platforms_for(release, include_packages)
     if with_android:
         platforms.append(ANDROID)
-    return {"version": release["tag_name"], "platforms": platforms}
+    block = {"version": release["tag_name"]}
+    # Release date (YYYY-MM-DD) for the homepage JSON-LD datePublished.
+    published = release.get("published_at") or release.get("created_at")
+    if published:
+        block["date"] = published[:10]
+    block["platforms"] = platforms
+    return block
 
 
 def is_older(dt: str, td: timedelta) -> bool:
