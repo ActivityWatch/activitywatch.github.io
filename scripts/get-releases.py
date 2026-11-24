@@ -1,7 +1,8 @@
 #!/usr/bin/env python3
 """
 Regenerate _data/releases.yml (desktop) and _data/releases_android.yml from
-GitHub releases, for the /timeline/ page. Run after publishing a release.
+GitHub releases, for the /timeline/ page. The Pages build runs it through
+`make update-downloads`, so new releases appear on the next deploy.
 
 Skips drafts, dev/nightly builds and Research Edition builds. Set GITHUB_TOKEN
 to avoid the unauthenticated rate limit.

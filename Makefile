@@ -11,6 +11,9 @@ assets: _includes/tables img/stats img/*.png
 
 update-downloads:
 	python3 scripts/update-downloads.py
+	# Regenerate the /timeline/ release lists in the same authenticated build
+	# step, so a release no longer needs a manual get-releases.py run to show up.
+	python3 scripts/get-releases.py
 
 install-deps:
 	# This shouldn't be set in CI, but it's maybe (?) useful for local development
