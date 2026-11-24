@@ -3,12 +3,14 @@
 
 import importlib.util
 import unittest
+import tempfile
+from unittest.mock import patch, Mock
 from pathlib import Path
 
 _SCRIPT = Path(__file__).resolve().parent / "get-releases.py"
 _spec = importlib.util.spec_from_file_location("get_releases", _SCRIPT)
+assert _spec is not None and _spec.loader is not None
 gr = importlib.util.module_from_spec(_spec)
-assert _spec.loader is not None
 _spec.loader.exec_module(gr)
 
 
@@ -57,9 +59,55 @@ class FormatReleasesTest(unittest.TestCase):
     def test_empty_name_falls_back_to_tag(self):
         out = gr.format_releases([_release("v0.4.12", "2019-08-13T00:00:00Z", name="")])
         self.assertEqual(out[0]["title"], "v0.4.12")
-        self.assertEqual(
-            set(out[0]), {"title", "tag", "date", "url"}
-        )
+        self.assertEqual(set(out[0]), {"title", "tag", "date", "url"})
+
+
+class RefreshReleasesTest(unittest.TestCase):
+    def test_requests_have_a_timeout(self):
+        response = Mock()
+        response.json.return_value = []
+        with patch.object(gr.requests, "get", return_value=response) as get:
+            self.assertEqual(gr.fetch_all_releases("ActivityWatch", "aw-android"), [])
+        self.assertGreater(get.call_args.kwargs["timeout"], 0)
+        self.assertLessEqual(get.call_args.kwargs["timeout"], 30)
+
+    def test_android_failure_does_not_block_desktop_refresh(self):
+        with tempfile.TemporaryDirectory() as folder:
+            data = Path(folder) / "_data"
+            data.mkdir()
+            (data / "releases_android.yml").write_text("old android releases\n")
+            with (
+                patch.object(
+                    gr, "__file__", str(Path(folder) / "scripts/get-releases.py")
+                ),
+                patch.object(
+                    gr,
+                    "fetch_all_releases",
+                    side_effect=[[], gr.requests.HTTPError("503")],
+                ),
+            ):
+                gr.main()
+            self.assertEqual(gr.yaml.safe_load((data / "releases.yml").read_text()), [])
+            self.assertEqual(
+                (data / "releases_android.yml").read_text(), "old android releases\n"
+            )
+
+    def test_api_failure_keeps_existing_lists(self):
+        for error in [gr.requests.HTTPError("503"), gr.requests.Timeout("timeout")]:
+            with self.subTest(error=error), tempfile.TemporaryDirectory() as folder:
+                data = Path(folder) / "_data"
+                data.mkdir()
+                for name in ["releases.yml", "releases_android.yml"]:
+                    (data / name).write_text("checked-in releases\n")
+                with (
+                    patch.object(
+                        gr, "__file__", str(Path(folder) / "scripts/get-releases.py")
+                    ),
+                    patch.object(gr, "fetch_all_releases", side_effect=error),
+                ):
+                    gr.main()
+                for name in ["releases.yml", "releases_android.yml"]:
+                    self.assertEqual((data / name).read_text(), "checked-in releases\n")
 
 
 if __name__ == "__main__":

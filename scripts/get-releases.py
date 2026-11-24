@@ -10,6 +10,7 @@ to avoid the unauthenticated rate limit.
 
 import os
 import re
+import sys
 from pathlib import Path
 
 import requests
@@ -31,7 +32,7 @@ def fetch_all_releases(owner, repo):
 
     while True:
         url = f"https://api.github.com/repos/{owner}/{repo}/releases?page={page}&per_page=100"
-        response = requests.get(url, headers=headers)
+        response = requests.get(url, headers=headers, timeout=30)
         response.raise_for_status()
 
         releases = response.json()
@@ -65,7 +66,14 @@ def main():
         ("activitywatch", "releases.yml"),
         ("aw-android", "releases_android.yml"),
     ]:
-        formatted_releases = format_releases(fetch_all_releases(owner, repo))
+        try:
+            formatted_releases = format_releases(fetch_all_releases(owner, repo))
+        except requests.RequestException as exc:
+            print(
+                f"WARNING: keeping existing {filename}; release refresh failed: {exc}",
+                file=sys.stderr,
+            )
+            continue
         with open(data_folder / filename, "w") as f:
             yaml.dump(formatted_releases, f, sort_keys=False)
         print(f"Saved {len(formatted_releases)} {repo} releases to {filename}")
