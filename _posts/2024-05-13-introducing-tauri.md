@@ -61,11 +61,11 @@ These are download sizes read from the release assets, not a measurement of runt
 
 ## Try it today
 
-v0.14.0 includes `aw-tauri` builds for all platforms. Find them under "Tauri distribution" in the [v0.14.0 release notes and assets](https://github.com/ActivityWatch/activitywatch/releases/tag/v0.14.0). (The [downloads page](https://activitywatch.net/downloads/) links the classic `aw-qt` build by default.)
+`aw-tauri` builds are available for all platforms. Find them under "Tauri distribution" in the [v0.14.3 release notes and assets](https://github.com/ActivityWatch/activitywatch/releases/tag/v0.14.3). (The [downloads page](https://activitywatch.net/downloads/) links the classic `aw-qt` build by default.)
 
 - **Windows:** the `.exe` installer.
 - **macOS:** the `.dmg`, for either Apple Silicon or Intel.
-- **Linux:** the standalone `.AppImage`, `.deb` and `.rpm` are self-contained with `awatcher` (window and AFK tracking on X11 and Wayland) plus `aw-sync`. The `.zip` holds those three packages plus optional extra modules (`aw-watcher-input`, and the classic X11 `aw-watcher-window`/`aw-watcher-afk`). To use one, copy its folder into `~/.local/share/activitywatch/aw-tauri/modules/` and restart ActivityWatch. (The v0.14.0 `.zip` also had a loose `awatcher` and a `move-to-aw-modules.sh` helper; both were dropped in v0.14.1, since `awatcher` is already bundled in the packages.)
+- **Linux:** the standalone `.AppImage`, `.deb` and `.rpm` are self-contained with `awatcher` (window and AFK tracking on X11 and Wayland) plus `aw-sync`. Starting with v0.14.1, the `.zip` holds those three packages plus optional extra modules (`aw-watcher-input`, and the classic X11 `aw-watcher-window`/`aw-watcher-afk`). To use one, copy its folder into `~/.local/share/activitywatch/aw-tauri/modules/` and restart ActivityWatch. (The v0.14.0 `.zip` also had a loose `awatcher` and a `move-to-aw-modules.sh` helper that installed modules into `~/aw-modules/`; both were dropped in v0.14.1, since `awatcher` is already bundled in the packages.)
 
 A few caveats, since this is still testing:
 
