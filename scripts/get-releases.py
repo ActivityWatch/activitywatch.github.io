@@ -62,21 +62,35 @@ def format_releases(releases):
 
 def main():
     data_folder = Path(__file__).parent.parent / "_data"
+    cache_folder = data_folder.parent / ".timeline-cache"
     for repo, filename in [
         ("activitywatch", "releases.yml"),
         ("aw-android", "releases_android.yml"),
     ]:
+        output = data_folder / filename
+        cached = cache_folder / filename
         try:
             formatted_releases = format_releases(fetch_all_releases(owner, repo))
         except requests.RequestException as exc:
+            if cached.exists():
+                published = yaml.safe_load(cached.read_text()) or []
+                committed = yaml.safe_load(output.read_text()) or []
+                by_tag = {release["tag"]: release for release in published}
+                by_tag.update({release["tag"]: release for release in committed})
+                combined = sorted(
+                    by_tag.values(), key=lambda r: r["date"], reverse=True
+                )
+                output.write_text(yaml.safe_dump(combined, sort_keys=False))
             print(
                 f"WARNING: keeping existing {filename}; release refresh failed: {exc}",
                 file=sys.stderr,
             )
-            continue
-        with open(data_folder / filename, "w") as f:
-            yaml.dump(formatted_releases, f, sort_keys=False)
-        print(f"Saved {len(formatted_releases)} {repo} releases to {filename}")
+        else:
+            with open(output, "w") as f:
+                yaml.dump(formatted_releases, f, sort_keys=False)
+            print(f"Saved {len(formatted_releases)} {repo} releases to {filename}")
+        cache_folder.mkdir(exist_ok=True)
+        cached.write_bytes(output.read_bytes())
 
 
 if __name__ == "__main__":

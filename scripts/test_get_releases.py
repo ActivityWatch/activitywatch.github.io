@@ -92,6 +92,41 @@ class RefreshReleasesTest(unittest.TestCase):
                 (data / "releases_android.yml").read_text(), "old android releases\n"
             )
 
+    def test_api_failure_merges_published_and_checked_in_lists(self):
+        for committed, published in [("v0.14.3", "v0.14.2"), ("v0.14.2", "v0.14.3")]:
+            with (
+                self.subTest(committed=committed),
+                tempfile.TemporaryDirectory() as folder,
+            ):
+                data = Path(folder) / "_data"
+                cache = Path(folder) / ".timeline-cache"
+                data.mkdir()
+                cache.mkdir()
+                records = {
+                    "v0.14.2": gr.format_releases([_release("v0.14.2", "2026-11-09")]),
+                    "v0.14.3": gr.format_releases([_release("v0.14.3", "2026-11-13")]),
+                }
+                for name in ["releases.yml", "releases_android.yml"]:
+                    (data / name).write_text(gr.yaml.safe_dump(records[committed]))
+                    (cache / name).write_text(gr.yaml.safe_dump(records[published]))
+                with (
+                    patch.object(
+                        gr, "__file__", str(Path(folder) / "scripts/get-releases.py")
+                    ),
+                    patch.object(
+                        gr,
+                        "fetch_all_releases",
+                        side_effect=gr.requests.Timeout("timeout"),
+                    ),
+                ):
+                    gr.main()
+                for name in ["releases.yml", "releases_android.yml"]:
+                    result = gr.yaml.safe_load((data / name).read_text())
+                    self.assertEqual([r["tag"] for r in result], ["v0.14.3", "v0.14.2"])
+                    self.assertEqual(
+                        (data / name).read_text(), (cache / name).read_text()
+                    )
+
     def test_api_failure_keeps_existing_lists(self):
         for error in [gr.requests.HTTPError("503"), gr.requests.Timeout("timeout")]:
             with self.subTest(error=error), tempfile.TemporaryDirectory() as folder:

@@ -72,11 +72,9 @@ jobs:
         if: github.ref == 'refs/heads/master'
         uses: actions/cache@v4
         with:
-          path: |
-            _data/releases.yml
-            _data/releases_android.yml
-          key: timeline-releases-${{ github.run_id }}-${{ github.run_attempt }}
-          restore-keys: timeline-releases-
+          path: .timeline-cache
+          key: timeline-releases-v2-${{ github.run_id }}-${{ github.run_attempt }}
+          restore-keys: timeline-releases-v2-
 
       - name: Update downloads data
         env:
