@@ -10,7 +10,6 @@ p
 
 | {% assign modules =             "activitywatch,aw-core,aw-server,aw-server-rust,aw-qt,aw-android,aw-client,aw-client-js,aw-webui,aw-watcher-afk,aw-watcher-window,aw-watcher-window-wayland,aw-watcher-web,aw-watcher-input,activitywatch.github.io,docs" | split: ',' %}
 | {% assign ghactions_modules =   "activitywatch,aw-core,aw-server,aw-server-rust,aw-qt,aw-android,aw-client,aw-client-js,aw-webui,aw-watcher-afk,aw-watcher-window,aw-watcher-window-wayland,aw-watcher-web,aw-watcher-input,activitywatch.github.io,docs" | split: ',' %}
-| {% assign codeclimate_modules = "aw-core,aw-server,aw-client,aw-client-js,aw-qt,aw-watcher-afk,aw-watcher-window,aw-webui,aw-watcher-web" | split: ',' %}
 | {% assign codecov_modules = "aw-core,aw-server,aw-server-rust,aw-webui" | split: ',' %}
 
 h2 Pipelines
@@ -19,7 +18,6 @@ table(class="table dense")
   tr
     th Module
     th GitHub Actions
-    th Code Climate
     th Codecov
 
   | {% for module in modules %}
@@ -31,12 +29,6 @@ table(class="table dense")
       | {% if ghactions_modules contains module %}
       a(href="https://github.com/ActivityWatch/{{ module }}/actions" target="_blank")
         img(src="https://github.com/ActivityWatch/{{ module }}/workflows/Build/badge.svg")
-      | {% endif %}
-
-    td
-      | {% if codeclimate_modules contains module %}
-      a(href="https://codeclimate.com/github/ActivityWatch/{{module}}" target="_blank")
-        img(src="https://codeclimate.com/github/ActivityWatch/{{module}}/badges/gpa.svg")
       | {% endif %}
 
     td
