@@ -66,6 +66,18 @@ jobs:
           python3 scripts/test_update_downloads.py
           python3 scripts/test_get_releases.py
 
+      # Only master publishes. Successful deployments save the refreshed lists;
+      # an API outage reuses those lists instead of rolling back to older Git data.
+      - name: Restore last published timeline lists
+        if: github.ref == 'refs/heads/master'
+        uses: actions/cache@v4
+        with:
+          path: |
+            _data/releases.yml
+            _data/releases_android.yml
+          key: timeline-releases-${{ github.run_id }}-${{ github.run_attempt }}
+          restore-keys: timeline-releases-
+
       - name: Update downloads data
         env:
           # Authenticate the releases API call; unauthenticated requests share a
