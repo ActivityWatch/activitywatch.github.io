@@ -6,8 +6,8 @@
 </description>
     <link>https://activitywatch.net/</link>
     <atom:link href="https://activitywatch.net/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Tue, 24 Nov 2026 12:25:37 +0000</pubDate>
-    <lastBuildDate>Tue, 24 Nov 2026 12:25:37 +0000</lastBuildDate>
+    <pubDate>Tue, 24 Nov 2026 20:09:54 +0000</pubDate>
+    <lastBuildDate>Tue, 24 Nov 2026 20:09:54 +0000</lastBuildDate>
     <generator>Jekyll v4.3.2</generator>
     
       <item>
@@ -282,12 +282,12 @@ honest answer about distinct monthly users remains &lt;strong&gt;unknown&lt;/str
 
 &lt;h2 id=&quot;try-it-today&quot;&gt;Try it today&lt;/h2&gt;
 
-&lt;p&gt;v0.14.0 includes &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;aw-tauri&lt;/code&gt; builds for all platforms. Find them under “Tauri distribution” in the &lt;a href=&quot;https://github.com/ActivityWatch/activitywatch/releases/tag/v0.14.0&quot;&gt;v0.14.0 release notes and assets&lt;/a&gt;. (The &lt;a href=&quot;https://activitywatch.net/downloads/&quot;&gt;downloads page&lt;/a&gt; links the classic &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;aw-qt&lt;/code&gt; build by default.)&lt;/p&gt;
+&lt;p&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;aw-tauri&lt;/code&gt; builds are available for all platforms. Find them under “Tauri distribution” in the &lt;a href=&quot;https://github.com/ActivityWatch/activitywatch/releases/tag/v0.14.3&quot;&gt;v0.14.3 release notes and assets&lt;/a&gt;. (The &lt;a href=&quot;https://activitywatch.net/downloads/&quot;&gt;downloads page&lt;/a&gt; links the classic &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;aw-qt&lt;/code&gt; build by default.)&lt;/p&gt;
 
 &lt;ul&gt;
   &lt;li&gt;&lt;strong&gt;Windows:&lt;/strong&gt; the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;.exe&lt;/code&gt; installer.&lt;/li&gt;
   &lt;li&gt;&lt;strong&gt;macOS:&lt;/strong&gt; the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;.dmg&lt;/code&gt;, for either Apple Silicon or Intel.&lt;/li&gt;
-  &lt;li&gt;&lt;strong&gt;Linux:&lt;/strong&gt; the standalone &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;.AppImage&lt;/code&gt;, &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;.deb&lt;/code&gt; and &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;.rpm&lt;/code&gt; are self-contained with &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;awatcher&lt;/code&gt; (window and AFK tracking on X11 and Wayland) plus &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;aw-sync&lt;/code&gt;. The &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;.zip&lt;/code&gt; includes those modules too, along with the Python watchers and &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;move-to-aw-modules.sh&lt;/code&gt; for installing optional modules in &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;~/aw-modules/&lt;/code&gt;.&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;Linux:&lt;/strong&gt; the standalone &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;.AppImage&lt;/code&gt;, &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;.deb&lt;/code&gt; and &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;.rpm&lt;/code&gt; are self-contained with &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;awatcher&lt;/code&gt; (window and AFK tracking on X11 and Wayland) plus &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;aw-sync&lt;/code&gt;. Starting with v0.14.1, the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;.zip&lt;/code&gt; holds those three packages plus optional extra modules (&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;aw-watcher-input&lt;/code&gt;, and the classic X11 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;aw-watcher-window&lt;/code&gt;/&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;aw-watcher-afk&lt;/code&gt;). To use one, copy its folder into &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;~/.local/share/activitywatch/aw-tauri/modules/&lt;/code&gt; and restart ActivityWatch. (The v0.14.0 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;.zip&lt;/code&gt; also had a loose &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;awatcher&lt;/code&gt; and a &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;move-to-aw-modules.sh&lt;/code&gt; helper that installed modules into &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;~/aw-modules/&lt;/code&gt;; both were dropped in v0.14.1, since &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;awatcher&lt;/code&gt; is already bundled in the packages.)&lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;p&gt;A few caveats, since this is still testing:&lt;/p&gt;
