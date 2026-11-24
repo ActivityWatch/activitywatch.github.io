@@ -75,8 +75,8 @@ def main():
             if cached.exists():
                 published = yaml.safe_load(cached.read_text()) or []
                 committed = yaml.safe_load(output.read_text()) or []
-                by_tag = {release["tag"]: release for release in published}
-                by_tag.update({release["tag"]: release for release in committed})
+                by_tag = {release["tag"]: release for release in committed}
+                by_tag.update({release["tag"]: release for release in published})
                 combined = sorted(
                     by_tag.values(), key=lambda r: r["date"], reverse=True
                 )

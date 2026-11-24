@@ -107,8 +107,26 @@ class RefreshReleasesTest(unittest.TestCase):
                     "v0.14.3": gr.format_releases([_release("v0.14.3", "2026-11-13")]),
                 }
                 for name in ["releases.yml", "releases_android.yml"]:
-                    (data / name).write_text(gr.yaml.safe_dump(records[committed]))
-                    (cache / name).write_text(gr.yaml.safe_dump(records[published]))
+                    (data / name).write_text(
+                        gr.yaml.safe_dump(
+                            records[committed]
+                            + gr.format_releases(
+                                [_release("v0.14.1", "2026-10-10", name="Old title")]
+                            )
+                        )
+                    )
+                    (cache / name).write_text(
+                        gr.yaml.safe_dump(
+                            records[published]
+                            + gr.format_releases(
+                                [
+                                    _release(
+                                        "v0.14.1", "2026-10-10", name="Published title"
+                                    )
+                                ]
+                            )
+                        )
+                    )
                 with (
                     patch.object(
                         gr, "__file__", str(Path(folder) / "scripts/get-releases.py")
@@ -122,7 +140,10 @@ class RefreshReleasesTest(unittest.TestCase):
                     gr.main()
                 for name in ["releases.yml", "releases_android.yml"]:
                     result = gr.yaml.safe_load((data / name).read_text())
-                    self.assertEqual([r["tag"] for r in result], ["v0.14.3", "v0.14.2"])
+                    self.assertEqual(
+                        [r["tag"] for r in result], ["v0.14.3", "v0.14.2", "v0.14.1"]
+                    )
+                    self.assertEqual(result[-1]["title"], "Published title")
                     self.assertEqual(
                         (data / name).read_text(), (cache / name).read_text()
                     )
